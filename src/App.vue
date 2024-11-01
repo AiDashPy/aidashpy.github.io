@@ -8,7 +8,7 @@
   <div class="flex flex-col justify-between min-h-screen">
     <WebHeader  />
 
-    <div class="lg:mx-56 grow">
+    <div class="xl:mx-56 grow">
 
       <div class="py-6 rounded-2xl w-full flex flex-row flex-wrap">
         <BookEntry title="How To Hide An Empire" author="Daniel Immerwahr" comment="Started 10/30/2024">
@@ -34,6 +34,9 @@
         </BookEntry>
         <BookEntry title="Solaris" author="Stanisław Lem" comment="Finished 06/17/2024">
           <img class="max-h-40 rounded-xl" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1498631519i/95558.jpg" alt="Generic Book Cover">
+        </BookEntry>
+        <BookEntry title="Technofeudalism: What Killed Capitalism" author="Yanis Varoufakis" comment="Finished 05/19/2024">
+          <img class="max-h-40 rounded-xl" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1684846614i/75560036.jpg" alt="Generic Book Cover">
         </BookEntry>
         <BookEntry title="Liberalism: A Counter-History" author="Domenico Losurdo" comment="Finished 05/16/2024">
           <img class="max-h-40 rounded-xl" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1373998827i/9670246.jpg" alt="Generic Book Cover">
