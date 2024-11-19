@@ -1,7 +1,8 @@
 <script setup>
-import WebHeader from "./components/WebHeader.vue";
-import BookEntry from "./components/BookEntry.vue";
-import WebFooter from "./components/WebFooter.vue";
+    import WebHeader from "./components/WebHeader.vue";
+    import BookEntry from "./components/BookEntry.vue";
+    import WebFooter from "./components/WebFooter.vue";
+    import { bookEntries } from "./components/bookData";
 </script>
 
 <template>
@@ -10,116 +11,7 @@ import WebFooter from "./components/WebFooter.vue";
             <WebHeader />
             <div class="mx-2 xl:mx-56 shrink grow">
                 <div class="py-6 rounded-2xl w-full flex flex-row flex-wrap">
-                    <BookEntry
-                        title="How To Hide An Empire"
-                        author="Daniel Immerwahr"
-                        comment="Finished 11/09/2024"
-                    >
-                        <img
-                            class="max-h-40 rounded-xl"
-                            src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1627757585i/40121985.jpg"
-                            alt="Generic Book Cover"
-                        />
-                    </BookEntry>
-                    <BookEntry
-                        title="The Hundred Years' War on Palestine"
-                        author="Rashid Khalidi"
-                        comment="Finished 10/29/2024"
-                    >
-                        <img
-                            class="max-h-40 rounded-xl"
-                            src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1556345491i/41812831.jpg"
-                            alt="Generic Book Cover"
-                        />
-                    </BookEntry>
-                    <BookEntry
-                        title="Washington Bullets"
-                        author="Vijay Prashad"
-                        comment="Finished 10/26/2024"
-                    >
-                        <img
-                            class="max-h-40 rounded-xl"
-                            src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1688675066i/54169138.jpg"
-                            alt="Generic Book Cover"
-                        />
-                    </BookEntry>
-                    <BookEntry
-                        title="Abolish Rent"
-                        author="Tracy Rosenthal & Leonardo Vilchis"
-                        comment="Finished 10/20/2024"
-                    >
-                        <img
-                            class="max-h-40 rounded-xl"
-                            src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1718715847i/205900042.jpg"
-                            alt="Generic Book Cover"
-                        />
-                    </BookEntry>
-                    <BookEntry
-                        title="Western Marxism"
-                        author="Domenico Losurdo"
-                        comment="Finished 10/14/2024"
-                    >
-                        <img
-                            class="max-h-40 rounded-xl"
-                            src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1719720774i/200300090.jpg"
-                            alt="Generic Book Cover"
-                        />
-                    </BookEntry>
-                    <BookEntry
-                        title="The Wretched Of The Earth"
-                        author="Frantz Fanon"
-                        comment="Finished 07/09/2024"
-                    >
-                        <img
-                            class="max-h-40 rounded-xl"
-                            src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1704228247i/66933.jpg"
-                            alt="Generic Book Cover"
-                        />
-                    </BookEntry>
-                    <BookEntry
-                        title="Roadside Picnic"
-                        author="Arkady & Boris Strugatsky"
-                        comment="Finished 07/03/2024"
-                    >
-                        <img
-                            class="max-h-40 rounded-xl"
-                            src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1173812259i/331256.jpg"
-                            alt="Generic Book Cover"
-                        />
-                    </BookEntry>
-                    <BookEntry
-                        title="Solaris"
-                        author="Stanisław Lem"
-                        comment="Finished 06/17/2024"
-                    >
-                        <img
-                            class="max-h-40 rounded-xl"
-                            src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1498631519i/95558.jpg"
-                            alt="Generic Book Cover"
-                        />
-                    </BookEntry>
-                    <BookEntry
-                        title="Technofeudalism: What Killed Capitalism"
-                        author="Yanis Varoufakis"
-                        comment="Finished 05/19/2024"
-                    >
-                        <img
-                            class="max-h-40 rounded-xl"
-                            src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1684846614i/75560036.jpg"
-                            alt="Generic Book Cover"
-                        />
-                    </BookEntry>
-                    <BookEntry
-                        title="Liberalism: A Counter-History"
-                        author="Domenico Losurdo"
-                        comment="Finished 05/16/2024"
-                    >
-                        <img
-                            class="max-h-40 rounded-xl"
-                            src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1373998827i/9670246.jpg"
-                            alt="Generic Book Cover"
-                        />
-                    </BookEntry>
+                    <BookEntry v-for="book in bookEntries" :title="book.name" :author="book.author" :comment="book.finish"><img class="max-h-40 rounded-xl" :src="book.img" :alt="book.name"></BookEntry>
                 </div>
             </div>
         </div>
