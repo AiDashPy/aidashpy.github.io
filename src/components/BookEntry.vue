@@ -40,7 +40,7 @@ defineProps({
                     id="comments"
                     class="h-10 bg-gbgraydark rounded px-2 flex"
                 >
-                    <p class="align-middle my-auto">{{ comment }}</p>
+                    <p class="my-auto">{{ comment }}</p>
                 </div>
             </div>
         </div>
