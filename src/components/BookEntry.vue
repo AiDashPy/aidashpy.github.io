@@ -38,9 +38,9 @@ defineProps({
                 <div id="rating" class=""></div>
                 <div
                     id="comments"
-                    class="h-10 bg-gbgraydark rounded px-2 py-2 overflow-y-auto"
+                    class="h-10 bg-gbgraydark rounded px-2 flex"
                 >
-                    <p class="">{{ comment }}</p>
+                    <p class="align-middle my-auto">{{ comment }}</p>
                 </div>
             </div>
         </div>
