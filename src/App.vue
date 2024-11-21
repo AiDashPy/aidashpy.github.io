@@ -6,7 +6,7 @@
 </script>
 
 <template>
-    <div class="flex flex-col justify-between min-h-screen">
+    <div class="flex flex-col justify-between min-h-screen lowercase">
         <div class="min-h-screen">
             <WebHeader />
             <div class="mx-2 xl:mx-56 shrink grow">
