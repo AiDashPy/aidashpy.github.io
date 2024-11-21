@@ -30,7 +30,7 @@ defineProps({
                 <div id="title" class="font-semibold pb-2 text-gruvbox-blue2">
                     <h1 class="inline">{{ title }}</h1>
                     <h2 class="inline"><br /></h2>
-                    <h1 class="inline font-normal text-gruvbox-blue">{{ author }}</h1>
+                    <h1 class="inline lowercase font-normal text-gruvbox-blue">{{ author }}</h1>
                     <!-- <h2 class="inline"> - </h2> -->
                     <!-- <h2 class="inline font-normal">★★★★☆</h2> -->
                     <!-- <p class="font-normal text-sm indent-2">{{ author }}</p> -->
@@ -40,7 +40,7 @@ defineProps({
                     id="comments"
                     class="h-10 bg-gruvboxDark-fg rounded px-2 flex text-gruvbox-green2"
                 >
-                    <p class="my-auto">{{ comment }}</p>
+                    <p class="my-auto lowercase">{{ comment }}</p>
                 </div>
             </div>
         </div>

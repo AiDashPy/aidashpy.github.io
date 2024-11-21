@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <header class="py-4 bg-gruvbox-bgS w-full border-b border-gruvboxDark-fg2">
+    <header class="py-4 bg-gruvbox-bgS w-full border-b border-gruvboxDark-fg2 lowercase">
         <div
             class="mx-4 xl:mx-60 flex flex-row font-mono text-2xl justify-between align-middle"
         >
