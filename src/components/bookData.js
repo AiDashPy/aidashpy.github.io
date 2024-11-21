@@ -1,4 +1,11 @@
-export const bookEntries = [{
+export const bookEntries = [
+// {
+//     name: "The East Is Still Red",
+//     author: "Carlos Martinez",
+//     finish: "Started 11/22/2024",
+//     img: "https://redletterspp.com/cdn/shop/files/CARLOSFRONTCOVERsmall_1024x1024@2x.jpg?v=1682522866"
+// },
+{
     name: "From Rebel To Ruler",
     author: "Tony Saich",
     finish: "Started 11/10/2024",
@@ -9,7 +16,7 @@ export const bookEntries = [{
     finish: "Finished 11/09/2024",
     img: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1627757585i/40121985.jpg"
 }, {
-    name: "The Hundred Years' War on Palestine",
+    name: "The Hundred Years' War On Palestine",
     author: "Rashid Khalidi",
     finish: "Finished 10/29/2024",
     img: "https://mpd-biblio-covers.imgix.net/9781627798556.jpg?w=900dpr=1"
