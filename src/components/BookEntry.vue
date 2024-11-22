@@ -18,7 +18,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="w-full text-gruvbox-gray max-sm:text-sm">
+    <div class="w-full text-gruvbox-gray max-sm:text-sm hover:-translate-y-1">
         <div class="flex flex-row bg-gruvbox-bgS rounded-2xl border border-gruvboxDark-fg2">
             <div class="mx-2 py-2 rounded-2xl align-middle m-auto">
                 <!-- <img :src="require('../assets/Covers/' + image + '')" alt="Book Cover"> -->
