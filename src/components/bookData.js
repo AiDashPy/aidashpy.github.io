@@ -8,7 +8,7 @@ export const bookEntries = [
 {
     name: "From Rebel To Ruler",
     author: "Tony Saich",
-    finish: "Started 11/10/2024",
+    finish: "Finished 11/22/2024",
     img: "https://www.hup.harvard.edu/img/feeds/jackets/9780674293915.png?fm=jpg&q=80&fit=max&w=1200"
 }, {
     name: "How To Hide An Empire",
