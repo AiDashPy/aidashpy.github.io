@@ -1,10 +1,10 @@
 export const bookEntries = [
-// {
-//     name: "The East Is Still Red",
-//     author: "Carlos Martinez",
-//     finish: "Started 11/22/2024",
-//     img: "https://redletterspp.com/cdn/shop/files/CARLOSFRONTCOVERsmall_1024x1024@2x.jpg?v=1682522866"
-// },
+{
+    name: "The East Is Still Red",
+    author: "Carlos Martinez",
+    finish: "Started 11/23/2024",
+    img: "https://redletterspp.com/cdn/shop/files/CARLOSFRONTCOVERsmall_1024x1024@2x.jpg?v=1682522866"
+},
 {
     name: "From Rebel To Ruler",
     author: "Tony Saich",
