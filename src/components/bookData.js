@@ -1,8 +1,14 @@
 export const bookEntries = [
 {
+    name: "Mao's China And After",
+    author: "Maurice Meisner",
+    finish: "Started 11/26/2024",
+    img: "https://d28hgpri8am2if.cloudfront.net/book_images/cvr9780684856353_9780684856353_hr.jpg"
+},
+{
     name: "The East Is Still Red",
     author: "Carlos Martinez",
-    finish: "Started 11/23/2024",
+    finish: "Finished 11/26/2024",
     img: "https://redletterspp.com/cdn/shop/files/CARLOSFRONTCOVERsmall_1024x1024@2x.jpg?v=1682522866"
 },
 {
