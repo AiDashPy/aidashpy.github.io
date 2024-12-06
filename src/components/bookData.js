@@ -1,10 +1,22 @@
 export const bookEntries = [
-{
-    name: "Mao's China And After",
-    author: "Maurice Meisner",
-    finish: "Started 11/26/2024",
-    img: "https://d28hgpri8am2if.cloudfront.net/book_images/cvr9780684856353_9780684856353_hr.jpg"
-},
+    {
+        name: "Blood Meridian",
+        author: "Cormac McCarthy",
+        finish: "Started 12/03/2024",
+        img: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1701688704i/394535.jpg"
+    },
+    {
+        name: "Capital - Volume One",
+        author: "Karl Marx",
+        finish: "Started 12/02/2024",
+        img: "https://pup-assets.imgix.net/onix/images/9780691190075.jpg?w=1500&auto=format"
+    },
+// {
+//     name: "Mao's China And After",
+//     author: "Maurice Meisner",
+//     finish: "Started 11/26/2024",
+//     img: "https://d28hgpri8am2if.cloudfront.net/book_images/cvr9780684856353_9780684856353_hr.jpg"
+// },
 {
     name: "The East Is Still Red",
     author: "Carlos Martinez",

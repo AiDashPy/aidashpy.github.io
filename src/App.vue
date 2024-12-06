@@ -6,19 +6,13 @@
 </script>
 
 <script>
-
     export default {
-
         data() {
-
             return {
                 bookData: bookEntries,
             }
-
         }
-
     }
-
 </script>
 
 <template>
