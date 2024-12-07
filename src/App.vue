@@ -1,23 +1,33 @@
 <script setup>
     import WebHeader from "./components/WebHeader.vue";
-    import BookEntry from "./components/BookEntry.vue";
+    // import BookEntry from "./components/BookEntry.vue";
     import WebFooter from "./components/WebFooter.vue";
-    import { bookEntries } from "./components/bookData";
+    // import { bookEntries } from "./javascript/bookData";
+    import { RouterLink } from "vue-router";
+    import { RouterView } from "vue-router";
 </script>
 
 <script>
-    export default {
-        data() {
-            return {
-                bookData: bookEntries,
-            }
-        }
-    }
+    // export default {
+    //     data() {
+    //         return {
+    //             bookData: bookEntries,
+    //         }
+    //     }
+    // }
 </script>
 
 <template>
+    <WebHeader/>
+    <!-- <div id="nav">
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/planning">Planning</RouterLink>
+    </div> -->
+    <RouterView/>
 
-    <div class="min-h-screen bg-gruvbox-bg">
+    <WebFooter/>
+
+    <!-- <div class="min-h-screen bg-gruvbox-bg">
 
         <div class="min-h-screen">
 
@@ -35,6 +45,6 @@
 
         <WebFooter />
 
-    </div>
+    </div> -->
 
 </template>
