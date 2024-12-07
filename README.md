@@ -1,1 +1,1 @@
-i wanted an alternative to goodreads (and i didnt like the ones that already existed), so i decided to make a simple site where i could log what i have read. initially didn't plan to make it anything more than that, but i might gradually develop some more fetures if i care to do so.
+i wanted an alternative to goodreads (and i didnt like the ones that already existed), so i decided to make a simple site where i could log what i have read. initially didn't plan to make it anything more than that, but i might gradually develop some more features if i care to do so.
