@@ -18,11 +18,10 @@ defineProps({
 </script>
 
 <template>
-    <div class="w-full text-gruvbox-gray max-sm:text-sm">
+    <div class="w-full text-gruvbox-gray md:text-base text-sm">
         <div class="flex flex-row bg-gruvbox-bgS rounded-2xl border border-gruvboxDark-fg2">
             <div class="mx-2 py-2 rounded-2xl align-middle m-auto">
-                <!-- <img :src="require('../assets/Covers/' + image + '')" alt="Book Cover"> -->
-                <slot class="" />
+                <slot/>
             </div>
             <div
                 class="w-full flex flex-col my-2 mr-2 px-2 pb-2 pt-1 rounded-2xl justify-between"

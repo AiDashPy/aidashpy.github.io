@@ -9,6 +9,7 @@
         >
             <RouterLink to="/"><h1 class="select-none text-gruvbox-red2">Aidashpy</h1></RouterLink>
             <!-- <h1 class="select-none text-gruvbox-orange2 ">---</h1> -->
+            <slot/>
             <RouterLink to="/planning"><h1 class="select-none text-gruvbox-blue2">Reading Log</h1></RouterLink>
         </div>
     </header>

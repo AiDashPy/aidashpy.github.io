@@ -1,6 +1,7 @@
 <script setup>
     import BookEntry from "../components/BookEntry.vue";
     import { planningEntries } from "../javascript/planningData.js";
+    import WebHeader from "../components/WebHeader.vue";
 </script>
 
 <script>
@@ -14,6 +15,7 @@
 </script>
 
 <template>
+
     <div class="min-h-screen bg-gruvbox-bg">
 
         <div class="min-h-screen">
