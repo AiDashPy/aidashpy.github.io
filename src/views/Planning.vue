@@ -20,7 +20,11 @@
 
         <div class="min-h-screen">
 
-            <WebHeader />
+            <WebHeader>
+                <div class="md:block hidden">
+                    <h1 v-if="index == selectedYearIndex" class="mr-2 text-gruvbox-green2 text-xl pl-12 mt-1 select-none">Planning</h1>
+                </div>
+            </WebHeader>
 
             <div class="mx-2 xl:mx-56 shrink grow">
 
