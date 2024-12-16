@@ -3,6 +3,12 @@ export const yearlyBookEntries = [
     year: '2024',
     entries:
     [{
+        name: "Capital - Volume 2",
+        author: "Karl Marx",
+        finish: "Started 12/16/2024",
+        img: "./images/CapitalVol2.webp"
+    },
+{
         name: "Blood Meridian",
         author: "Cormac McCarthy",
         finish: "Started 12/03/2024",
@@ -11,7 +17,7 @@ export const yearlyBookEntries = [
     {
         name: "Capital - Volume One",
         author: "Karl Marx",
-        finish: "Started 12/02/2024",
+        finish: "Finished 12/15/2024",
         img: "./images/CapitalVol1.webp"
     },
     // {
