@@ -1,11 +1,5 @@
 export const planningEntries = [
     {
-        name: "Capital - Volume 2",
-        author: "Karl Marx",
-        finish: "Planning",
-        img: "./images/CapitalVol2.webp"
-    },
-    {
         name: "Capital - Volume 3",
         author: "Karl Marx",
         finish: "Planning",
@@ -34,5 +28,17 @@ export const planningEntries = [
         author: "Silvio Pons",
         finish: "Planning",
         img: "./images/TheRiseAndFallOfTheItalianCommunistParty.webp"
-    }
+    },
+    {
+        name: "The Iliad",
+        author: "Homer",
+        finish: "Planning",
+        img: "./images/Iliad.webp"
+    },
+    {
+        name: "The Odyssey",
+        author: "Homer",
+        finish: "Planning",
+        img: "./images/Odyssey.webp"
+    },
 ];
