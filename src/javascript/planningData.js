@@ -41,4 +41,10 @@ export const planningEntries = [
         finish: "Planning",
         img: "./images/Odyssey.webp"
     },
+    {
+        name: "What Is To Be Done",
+        author: "Nikolay Chernyshevsky",
+        finish: "Planning",
+        img: './images/WhatIsToBeDone.webp'
+    }
 ];
