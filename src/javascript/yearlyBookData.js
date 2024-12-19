@@ -6,19 +6,19 @@ export const yearlyBookEntries = [
         name: "Capital - Volume 2",
         author: "Karl Marx",
         finish: "Started 12/16/2024",
-        img: "./images/CapitalVol2.webp"
+        img: "./images/NewCapitalVol2.webp"
     },
 {
         name: "Blood Meridian",
         author: "Cormac McCarthy",
         finish: "Started 12/03/2024",
-        img: "./images/BloodMeridian.webp"
+        img: "./images/NewBloodMeridian.webp"
     },
     {
         name: "Capital - Volume One",
         author: "Karl Marx",
         finish: "Finished 12/15/2024",
-        img: "./images/CapitalVol1.webp"
+        img: "./images/NewCapitalVol1.webp"
     },
     // {
     //     name: "Mao's China And After",
@@ -30,63 +30,63 @@ export const yearlyBookEntries = [
         name: "The East Is Still Red",
         author: "Carlos Martinez",
         finish: "Finished 11/26/2024",
-        img: "./images/TheEastIsStillRed.webp"
+        img: "./images/NewTheEastIsStillRed.webp"
     },
     {
         name: "From Rebel To Ruler",
         author: "Tony Saich",
         finish: "Finished 11/22/2024",
-        img: "./images/FromRebelToRuler.webp"
+        img: "./images/NewFromRebelToRuler.webp"
     }, {
         name: "How To Hide An Empire",
         author: "Daniel Immerwahr",
         finish: "Finished 11/09/2024",
-        img: "./images/HowToHideAnEmpire.webp"
+        img: "./images/NewHowToHideAnEmpire.webp"
     }, {
         name: "The Hundred Years' War On Palestine",
         author: "Rashid Khalidi",
         finish: "Finished 10/29/2024",
-        img: "./images/TheHundredYearsWarOnPalestine.webp"
+        img: "./images/NewTheHundredYearsWarOnPalestine.webp"
     }, {
         name: "Washington Bullets",
         author: "Vijay Prashad",
         finish: "Finished 10/26/2024",
-        img: "./images/WashingtonBullets.webp"
+        img: "./images/NewWashingtonBullets.webp"
     }, {
         name: "Abolish Rent",
         author: "Tracy Rosenthal & Leonardo Vilchis",
         finish: "Finished 10/20/2024",
-        img: "./images/AbolishRent.webp"
+        img: "./images/NewAbolishRent.webp"
     }, {
         name: "Western Marxism",
         author: "Domenico Losurdo",
         finish: "Finished 10/14/2024",
-        img: "./images/WesternMarxism.webp"
+        img: "./images/NewWesternMarxism.webp"
     }, {
         name: "The Wretched Of The Earth",
         author: "Frantz Fanon",
         finish: "Finished 07/09/2024",
-        img: "./images/WretchedOfTheEarth.webp"
+        img: "./images/NewWretchedOfTheEarth.webp"
     }, {
         name: "Roadside Picnic",
         author: "Arkady & Boris Strugatsky",
         finish: "Finished 07/03/2024",
-        img: "./images/RoadsidePicnic.webp"
+        img: "./images/NewRoadsidePicnic.webp"
     }, {
         name: "Solaris",
         author: "Stanisław Lem",
         finish: "Finished 06/17/2024",
-        img: "./images/Solaris.webp"
+        img: "./images/NewSolaris.webp"
     }, {
         name: "Technofeudalism: What Killed Capitalism",
         author: "Yanis Varoufakis",
         finish: "Finished 05/19/2024",
-        img: "./images/Technofeudalism.webp"
+        img: "./images/NewTechnofeudalism.webp"
     }, {
         name: "Liberalism: A Counter-History",
         author: "Domenico Losurdo",
         finish: "Finished 05/16/2024",
-        img: "./images/Liberalism.webp"
+        img: "./images/NewLiberalism.webp"
     }]
 },
 // {
@@ -96,7 +96,7 @@ export const yearlyBookEntries = [
 //         name: "Liberalism: A Counter-History",
 //         author: "Domenico Losurdo",
 //         finish: "Finished 05/16/2024",
-//         img: "./images/Liberalism.webp"
+//         img: "./images/NewLiberalism.webp"
 //     }]
 // }
 ];
