@@ -16,7 +16,7 @@
 </script>
 
 <template>
-    <div class="bg-gruvbox-bgS lowercase font-mono flex h-dvh bg-cover bg-top" style="background-image: url('images/background.webp');">
+    <div class="bg-gruvbox-bgS lowercase font-mono flex h-dvh bg-cover bg-top" style="background-image: url('images/backgroundnew.webp');">
 
         <Transition
             enter-active-class="duration-1000 ease-out"
@@ -31,7 +31,7 @@
                 <h1 class="text-gruvboxDark-bg mx-auto select-none text-4xl">aidashpy</h1>
 
                 <a href="https://www.culture.ru/persons/9593/konstantin-yuon" target="_blank" class="w-5/6 mx-auto my-4">
-                    <img class="" src="/images/ThePaintingNewPlanet.webp" alt="New Planet, Konstantin Yuon, 1921">
+                    <img class="" src="/images/ThePaintingNewPlanetNew.webp" alt="New Planet, Konstantin Yuon, 1921">
                 </a>
 
                 <div class="text-gruvboxDark-bgS sm:text-lg flex flex-row justify-center gap-4 sm:gap-16 mx-10">
