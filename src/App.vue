@@ -10,5 +10,5 @@
 <template>
     <!-- <WebHeader/> -->
     <RouterView/>
-    <WebFooter/>
+    <!-- <WebFooter/> -->
 </template>

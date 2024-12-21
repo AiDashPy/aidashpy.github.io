@@ -2,6 +2,7 @@
     import BookEntry from "../components/BookEntry.vue";
     import { planningEntries } from "../javascript/planningData.js";
     import WebHeader from "../components/WebHeader.vue";
+    import WebFooter from "../components/WebFooter.vue";
 </script>
 
 <script>
@@ -34,8 +35,14 @@
 
             </div>
 
+
         </div>
 
+        <WebFooter/>
+
+
     </div>
+
+
 
 </template>

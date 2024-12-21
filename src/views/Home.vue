@@ -1,6 +1,7 @@
 <script setup>
     import BookEntry from "../components/BookEntry.vue";
-import WebHeader from "../components/WebHeader.vue";
+    import WebFooter from "../components/WebFooter.vue";
+    import WebHeader from "../components/WebHeader.vue";
     import { yearlyBookEntries } from "../javascript/yearlyBookData";
 </script>
 
@@ -45,6 +46,9 @@ import WebHeader from "../components/WebHeader.vue";
                 <button v-else class="mr-2 text-gruvbox-green active:text-gruvbox-green2" @click="selectedYearIndex = index">{{ year.year }}</button>
             </div>
         </div>
+
+        <WebFooter/>
+
 
 
     </div>
