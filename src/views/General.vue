@@ -26,7 +26,7 @@
             leave-from-class="opacity-100"
             leave-to-class="transform opacity-0"
         >
-            <div v-if="created" class="border border-gruvboxDark-fg2 shadow-xl shadow-gruvboxDark-bg bg-gruvbox-bg1 rounded-2xl flex flex-col my-auto md:mx-auto py-4 w-fit mx-2 md:w-1/2">
+            <div v-if="created" class="border border-gruvboxDark-fg2 shadow-xl shadow-gruvboxDark-bg bg-gruvbox-bg1 rounded-2xl flex flex-col my-auto md:mx-auto py-4 mx-2 md:w-1/2">
 
                 <h1 class="text-gruvboxDark-bg mx-auto select-none text-4xl">aidashpy</h1>
 
@@ -34,7 +34,7 @@
                     <img class="" src="/images/ThePaintingNewPlanetNew.webp" alt="New Planet, Konstantin Yuon, 1921">
                 </a>
 
-                <div class="text-gruvboxDark-bgS sm:text-lg flex flex-row justify-center gap-4 sm:gap-16 mx-10">
+                <div class="text-gruvboxDark-bgS md:text-lg flex flex-row justify-center gap-4 md:gap-16 mx-10">
 
                     <RouterLink to="/" target="_blank">reading</RouterLink>
                     <a href="https://letterboxd.com/aidashpy/" target="_blank">letterboxd</a>
