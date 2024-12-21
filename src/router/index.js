@@ -1,22 +1,28 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Planning from '../views/Planning.vue'
+import General from '../views/General.vue'
 
 const routes = [
     {
         path: '/',
-        name: 'Home',
+        name: 'reading log',
         component: Home
     },
     {
         path: '/planning',
-        name: 'Planning',
+        name: 'planning log',
         component: Planning
+    },
+    {
+        path: '/links',
+        name: "aidashpy - links",
+        component: General
     },
     {
         // path: "*",
         path: "/:catchAll(.*)",
-        name: "NotFound",
+        name: "reading log",
         component: Home,
     }
 ]
@@ -25,5 +31,10 @@ const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),
     routes
 })
+
+router.beforeEach((to, from, next) => {
+    document.title = to.name;
+    next();
+});
 
 export default router
