@@ -12,12 +12,6 @@ export const planningEntries = [
         img: "./images/NewGrundrisse.webp"
     },
     {
-        name: "The Divine Comedy",
-        author: "Dante Alighieri",
-        finish: "Planning",
-        img: "./images/NewTheDivineComedy.webp"
-    },
-    {
         name: "Citizen Marx",
         author: "Bruno Leipold",
         finish: "Planning",

@@ -3,6 +3,12 @@ export const yearlyBookEntries = [
     year: '2024',
     entries:
     [{
+        name: "The Divine Comedy",
+        author: "Dante Alighieri",
+        finish: "Started 12/22/2024",
+        img: "./images/NewTheDivineComedy.webp"
+    },
+    {
         name: "Capital - Volume 2",
         author: "Karl Marx",
         finish: "Started 12/16/2024",
@@ -11,7 +17,7 @@ export const yearlyBookEntries = [
 {
         name: "Blood Meridian",
         author: "Cormac McCarthy",
-        finish: "Started 12/03/2024",
+        finish: "Finished 12/22/2024",
         img: "./images/NewBloodMeridian.webp"
     },
     {
