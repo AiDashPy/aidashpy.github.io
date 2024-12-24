@@ -30,6 +30,12 @@ export const planningEntries = [
         img: "./images/NewTheRiseAndFallOfTheItalianCommunistParty.webp"
     },
     {
+        name: "The Iliad",
+        author: "Homer",
+        finish: "Started 12/23/2024",
+        img: "./images/NewIliad.webp"
+    },
+    {
         name: "The Odyssey",
         author: "Homer",
         finish: "Planning",
