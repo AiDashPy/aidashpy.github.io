@@ -1,26 +1,30 @@
 export const yearlyBookEntries = [
 {
+    year: '2025',
+    entries:
+        [{
+            name: "The Iliad",
+            author: "Homer",
+            finish: "Started 12/28/2024",
+            img: "./images/NewIliad.webp"
+        },
+        {
+            name: "Capital - Volume 2",
+            author: "Karl Marx",
+            finish: "Started 12/16/2024",
+            img: "./images/NewCapitalVol2.webp"
+        }]
+},
+{
     year: '2024',
     entries:
     [{
-        name: "The Iliad",
-        author: "Homer",
-        finish: "Started 12/28/2024",
-        img: "./images/NewIliad.webp"
-    },
-    {
         name: "The Epic Of Gilgamesh",
         author: "Unknown Author",
         finish: "Finished 12/27/2024",
         img: "./images/TheEpicOfGilgamesh.webp"
     },
     {
-        name: "Capital - Volume 2",
-        author: "Karl Marx",
-        finish: "Started 12/16/2024",
-        img: "./images/NewCapitalVol2.webp"
-    },
-{
         name: "Blood Meridian",
         author: "Cormac McCarthy",
         finish: "Finished 12/22/2024",
@@ -32,12 +36,6 @@ export const yearlyBookEntries = [
         finish: "Finished 12/15/2024",
         img: "./images/NewCapitalVol1.webp"
     },
-    // {
-    //     name: "Mao's China And After",
-    //     author: "Maurice Meisner",
-    //     finish: "Started 11/26/2024",
-    //     img: "https://d28hgpri8am2if.cloudfront.net/book_images/cvr9780684856353_9780684856353_hr.jpg"
-    // },
     {
         name: "The East Is Still Red",
         author: "Carlos Martinez",
@@ -100,15 +98,4 @@ export const yearlyBookEntries = [
         finish: "Finished 05/16/2024",
         img: "./images/NewLiberalism.webp"
     }]
-},
-// {
-//     year: '2025',
-//     entries:
-//     [{
-//         name: "Liberalism: A Counter-History",
-//         author: "Domenico Losurdo",
-//         finish: "Finished 05/16/2024",
-//         img: "./images/NewLiberalism.webp"
-//     }]
-// }
-];
+}];
