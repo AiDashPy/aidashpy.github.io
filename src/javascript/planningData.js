@@ -46,5 +46,11 @@ export const planningEntries = [
         author: "Miguel De Cervantes Saavedra",
         finish: "Planning",
         img: "./images/NewDonQuixote.webp"
+    },
+    {
+        name: "The Class Struggle In The Ancient Greek World",
+        author: "G. E. M. DE STE. CROIX",
+        finish: "Planning",
+        img: "./images/TheClassStruggleInTheAncientGreekWorld.webp"
     }
 ];
