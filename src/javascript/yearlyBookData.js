@@ -3,17 +3,17 @@ export const yearlyBookEntries = [
     year: '2025',
     entries:
         [{
-            name: "The Iliad",
-            author: "Homer",
-            finish: "Started 12/28/2024",
-            img: "./images/NewIliad.webp"
-        },
-        {
             name: "Capital - Volume 2",
             author: "Karl Marx",
             finish: "Started 12/16/2024",
             img: "./images/NewCapitalVol2.webp"
-        }]
+        },
+        {
+            name: "The Iliad",
+            author: "Homer",
+            finish: "Finished 01/04/2025",
+            img: "./images/NewIliad.webp"
+        },]
 },
 {
     year: '2024',
