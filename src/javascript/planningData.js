@@ -30,12 +30,6 @@ export const planningEntries = [
         img: "./images/NewTheRiseAndFallOfTheItalianCommunistParty.webp"
     },
     {
-        name: "The Odyssey",
-        author: "Homer",
-        finish: "Planning",
-        img: "./images/NewOdyssey.webp"
-    },
-    {
         name: "What Is To Be Done",
         author: "Nikolay Chernyshevsky",
         finish: "Planning",

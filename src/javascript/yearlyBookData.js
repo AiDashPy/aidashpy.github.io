@@ -3,9 +3,15 @@ export const yearlyBookEntries = [
     year: '2025',
     entries:
         [{
+            name: "The Odyssey",
+            author: "Homer",
+            finish: "Started 01/13/2025",
+            img: "./images/NewOdyssey.webp"
+        },
+    {
             name: "Capital - Volume 2",
             author: "Karl Marx",
-            finish: "Started 12/16/2024",
+            finish: "Finished 01/12/2025",
             img: "./images/NewCapitalVol2.webp"
         },
         {
