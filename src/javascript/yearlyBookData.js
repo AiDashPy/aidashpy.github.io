@@ -5,7 +5,7 @@ export const yearlyBookEntries = [
         [{
             name: "The Odyssey",
             author: "Homer",
-            finish: "Started 01/13/2025",
+            finish: "Finished 01/26/2025",
             img: "./images/NewOdyssey.webp"
         },
     {
