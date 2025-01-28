@@ -18,12 +18,6 @@ export const planningEntries = [
         img: "./images/NewTheDivineComedy.webp"
     },
     {
-        name: "Citizen Marx",
-        author: "Bruno Leipold",
-        finish: "Planning",
-        img: "./images/NewCitizenMarx.webp"
-    },
-    {
         name: "The Rise And Fall Of The Italian Communist Party",
         author: "Silvio Pons",
         finish: "Planning",
