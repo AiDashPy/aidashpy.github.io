@@ -1,113 +1,162 @@
 export const yearlyBookEntries = [
-{
-    year: '2025',
-    entries:
-        [{
-            name: "Citizen Marx",
-            author: "Bruno Leipold",
-            finish: "Started 01/28/2025",
-            img: "./images/NewCitizenMarx.webp"
-        },
-    {
-            name: "The Odyssey",
-            author: "Homer",
-            finish: "Finished 01/27/2025",
-            img: "./images/NewOdyssey.webp"
-        },
-    {
-            name: "Capital - Volume 2",
-            author: "Karl Marx",
-            finish: "Finished 01/12/2025",
-            img: "./images/NewCapitalVol2.webp"
-        },
-        {
-            name: "The Iliad",
-            author: "Homer",
-            finish: "Finished 01/04/2025",
-            img: "./images/NewIliad.webp"
-        },]
-},
-{
-    year: '2024',
-    entries:
-    [{
+  {
+    year: "2025",
+    entries: [
+      {
+        name: "Colonizing Kashmir",
+        author: "Hafsa Kanjwal",
+        finish: "Finished 05/25/2025",
+        img: "./images/colonizingKashmir.webp",
+      },
+      {
+        name: "The Georgics",
+        author: "Virgil",
+        finish: "Finished 05/19/2025",
+        img: "./images/georgics.webp",
+      },
+      {
+        name: "La Vita Nuova",
+        author: "Dante Alighieri",
+        finish: "Finished 05/15/2025",
+        img: "./images/vitaNuova.webp",
+      },
+      {
+        name: "Mobile Suit Gundam: Hathaway's Flash, 1-3",
+        author: "Yoshiyuki Tomino",
+        finish: "Finished 05/13/2025",
+        img: "./images/hathaway.webp",
+      },
+      {
+        name: "Mobile Suit Gundam: Beltorchika's Children",
+        author: "Yoshiyuki Tomino",
+        finish: "Finished 05/06/2025",
+        img: "./images/beltorchika.webp",
+      },
+      {
+        name: "Mobile Suit Gundam: Hi-Streamer, 1-3",
+        author: "Yoshiyuki Tomino",
+        finish: "Finished 05/03/2025",
+        img: "./images/hiStreamer.webp",
+      },
+      {
+        name: "Mobile Suit Zeta Gundam, 1-5",
+        author: "Yoshiyuki Tomino",
+        finish: "Finished 04/26/2025",
+        img: "./images/zetaGundam.webp",
+      },
+      {
+        name: "The Odyssey",
+        author: "Homer",
+        finish: "Finished 01/27/2025",
+        img: "./images/NewOdyssey.webp",
+      },
+      {
+        name: "Capital - Volume 2",
+        author: "Karl Marx",
+        finish: "Finished 01/12/2025",
+        img: "./images/NewCapitalVol2.webp",
+      },
+      {
+        name: "The Iliad",
+        author: "Homer",
+        finish: "Finished 01/04/2025",
+        img: "./images/NewIliad.webp",
+      },
+    ],
+  },
+  {
+    year: "2024",
+    entries: [
+      {
         name: "The Epic Of Gilgamesh",
         author: "Unknown Author",
         finish: "Finished 12/27/2024",
-        img: "./images/TheEpicOfGilgamesh.webp"
-    },
-    {
+        img: "./images/TheEpicOfGilgamesh.webp",
+      },
+      {
         name: "Blood Meridian",
         author: "Cormac McCarthy",
         finish: "Finished 12/22/2024",
-        img: "./images/NewBloodMeridian.webp"
-    },
-    {
+        img: "./images/NewBloodMeridian.webp",
+      },
+      {
         name: "Capital - Volume One",
         author: "Karl Marx",
         finish: "Finished 12/15/2024",
-        img: "./images/NewCapitalVol1.webp"
-    },
-    {
+        img: "./images/NewCapitalVol1.webp",
+      },
+      {
         name: "The East Is Still Red",
         author: "Carlos Martinez",
         finish: "Finished 11/26/2024",
-        img: "./images/NewTheEastIsStillRed.webp"
-    },
-    {
+        img: "./images/NewTheEastIsStillRed.webp",
+      },
+      {
         name: "From Rebel To Ruler",
         author: "Tony Saich",
         finish: "Finished 11/22/2024",
-        img: "./images/NewFromRebelToRuler.webp"
-    }, {
+        img: "./images/NewFromRebelToRuler.webp",
+      },
+      {
         name: "How To Hide An Empire",
         author: "Daniel Immerwahr",
         finish: "Finished 11/09/2024",
-        img: "./images/NewHowToHideAnEmpire.webp"
-    }, {
+        img: "./images/NewHowToHideAnEmpire.webp",
+      },
+      {
         name: "The Hundred Years' War On Palestine",
         author: "Rashid Khalidi",
         finish: "Finished 10/29/2024",
-        img: "./images/NewTheHundredYearsWarOnPalestine.webp"
-    }, {
+        img: "./images/NewTheHundredYearsWarOnPalestine.webp",
+      },
+      {
         name: "Washington Bullets",
         author: "Vijay Prashad",
         finish: "Finished 10/26/2024",
-        img: "./images/NewWashingtonBullets.webp"
-    }, {
+        img: "./images/NewWashingtonBullets.webp",
+      },
+      {
         name: "Abolish Rent",
         author: "Tracy Rosenthal & Leonardo Vilchis",
         finish: "Finished 10/20/2024",
-        img: "./images/NewAbolishRent.webp"
-    }, {
+        img: "./images/NewAbolishRent.webp",
+      },
+      {
         name: "Western Marxism",
         author: "Domenico Losurdo",
         finish: "Finished 10/14/2024",
-        img: "./images/NewWesternMarxism.webp"
-    }, {
+        img: "./images/NewWesternMarxism.webp",
+      },
+      {
         name: "The Wretched Of The Earth",
         author: "Frantz Fanon",
         finish: "Finished 07/09/2024",
-        img: "./images/NewWretchedOfTheEarth.webp"
-    }, {
+        img: "./images/NewWretchedOfTheEarth.webp",
+      },
+      {
         name: "Roadside Picnic",
         author: "Arkady & Boris Strugatsky",
         finish: "Finished 07/03/2024",
-        img: "./images/NewRoadsidePicnic.webp"
-    }, {
+        img: "./images/NewRoadsidePicnic.webp",
+      },
+      {
         name: "Solaris",
         author: "Stanisław Lem",
         finish: "Finished 06/17/2024",
-        img: "./images/NewSolaris.webp"
-    }, {
+        img: "./images/NewSolaris.webp",
+      },
+      {
         name: "Technofeudalism: What Killed Capitalism",
         author: "Yanis Varoufakis",
         finish: "Finished 05/19/2024",
-        img: "./images/NewTechnofeudalism.webp"
-    }, {
+        img: "./images/NewTechnofeudalism.webp",
+      },
+      {
         name: "Liberalism: A Counter-History",
         author: "Domenico Losurdo",
         finish: "Finished 05/16/2024",
-        img: "./images/NewLiberalism.webp"
-    }]
-}];
+        img: "./images/NewLiberalism.webp",
+      },
+    ],
+  },
+];
