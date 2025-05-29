@@ -3,6 +3,12 @@ export const yearlyBookEntries = [
     year: "2025",
     entries: [
       {
+        name: "Colonizing Palestine",
+        author: "Areej Sabbagh-Khoury",
+        finish: "Finished 05/28/2025",
+        img: "./images/colonizingPalestine.webp",
+      },
+      {
         name: "Colonizing Kashmir",
         author: "Hafsa Kanjwal",
         finish: "Finished 05/25/2025",
