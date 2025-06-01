@@ -3,6 +3,12 @@ export const yearlyBookEntries = [
     year: "2025",
     entries: [
       {
+        name: "The Republic Shall Be Kept Clean",
+        author: "Tariq D. Khan",
+        finish: "Finished 06/01/2025",
+        img: "./images/theRepublic.webp",
+      },
+      {
         name: "Colonizing Palestine",
         author: "Areej Sabbagh-Khoury",
         finish: "Finished 05/28/2025",
