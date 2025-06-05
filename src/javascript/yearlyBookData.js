@@ -3,6 +3,12 @@ export const yearlyBookEntries = [
     year: "2025",
     entries: [
       {
+        name: "Black Scare / Red Scare",
+        author: "Charisse Burden-Stelly",
+        finish: "Finished 06/04/2025",
+        img: "./images/blackScare.webp",
+      },
+      {
         name: "The Republic Shall Be Kept Clean",
         author: "Tariq D. Khan",
         finish: "Finished 06/01/2025",
