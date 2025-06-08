@@ -3,6 +3,12 @@ export const yearlyBookEntries = [
     year: "2025",
     entries: [
       {
+        name: "Communism, the Highest Stage of Ecology",
+        author: "Guillaume Suing",
+        finish: "Finished 06/08/2025",
+        img: "./images/highestEcology.webp",
+      },
+      {
         name: "Black Scare / Red Scare",
         author: "Charisse Burden-Stelly",
         finish: "Finished 06/04/2025",
