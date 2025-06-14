@@ -4,7 +4,7 @@ export const yearlyBookEntries = [
     entries: [
       {
         name: "History and Class Consciousness",
-        author: "Georg Lucács",
+        author: "Georg Lukács",
         finish: "Finished 06/13/2025",
         img: "./images/historyClass.webp",
       },
