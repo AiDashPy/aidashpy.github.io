@@ -3,6 +3,12 @@ export const yearlyBookEntries = [
     year: "2025",
     entries: [
       {
+        name: "History and Class Consciousness",
+        author: "Georg Lucács",
+        finish: "Finished 06/13/2025",
+        img: "./images/historyClass.webp",
+      },
+      {
         name: "Communism, the Highest Stage of Ecology",
         author: "Guillaume Suing",
         finish: "Finished 06/08/2025",
