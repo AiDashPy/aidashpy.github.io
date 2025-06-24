@@ -3,6 +3,12 @@ export const yearlyBookEntries = [
     year: "2025",
     entries: [
       {
+        name: "The Socialist Party of America",
+        author: "Jack Ross",
+        finish: "Finished 06/23/2025",
+        img: "./images/SPAmerica.webp",
+      },
+      {
         name: "History and Class Consciousness",
         author: "Georg Lukács",
         finish: "Finished 06/13/2025",
