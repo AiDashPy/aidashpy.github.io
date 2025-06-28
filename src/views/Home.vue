@@ -55,7 +55,7 @@ export default {
                         :comment="book.finish"
                     >
                         <img
-                            class="rounded-l h-40 w-24 object-cover"
+                            class="rounded-l h-32 w-20 object-cover"
                             :src="book.img"
                             :alt="book.name"
                     /></BookEntry>
