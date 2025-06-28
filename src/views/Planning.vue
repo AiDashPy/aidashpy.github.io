@@ -29,7 +29,7 @@ export default {
                 </div>
             </WebHeader>
 
-            <div class="mx-2 xl:mx-56 shrink grow">
+            <div class="mx-4 xl:mx-56 shrink grow">
                 <div
                     class="md:my-6 my-4 w-full grid grid-cols-1 grid-flow-row md:grid-cols-2 gap-4"
                 >
