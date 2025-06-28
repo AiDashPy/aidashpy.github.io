@@ -17,7 +17,7 @@ export default {
 
 <template>
     <div
-        class="bg-gruvbox-bgS lowercase font-mono flex h-dvh bg-cover bg-top"
+        class="lowercase font-mono flex h-dvh bg-cover bg-top"
         style="background-image: url(&quot;images/backgroundnew.webp&quot;)"
     >
         <Transition
