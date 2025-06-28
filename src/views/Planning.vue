@@ -16,13 +16,13 @@ export default {
 </script>
 
 <template>
-    <div class="min-h-screen bg-gruvbox-bg">
+    <div class="min-h-screen bg-gruvboxDark-bg">
         <div class="min-h-screen">
             <WebHeader>
                 <div class="md:block hidden">
                     <h1
                         v-if="index == selectedYearIndex"
-                        class="mr-2 text-gruvbox-green2 text-xl pl-12 mt-1 select-none"
+                        class="mr-2 text-gruvbox-green text-xl pl-12 mt-1 select-none"
                     >
                         Planning
                     </h1>
@@ -31,7 +31,7 @@ export default {
 
             <div class="mx-2 xl:mx-56 shrink grow">
                 <div
-                    class="py-6 w-full grid grid-cols-1 grid-flow-row md:grid-cols-2 gap-4"
+                    class="md:my-6 my-4 w-full grid grid-cols-1 grid-flow-row md:grid-cols-2 gap-4"
                 >
                     <BookEntry
                         v-for="book in bookData"
@@ -39,7 +39,7 @@ export default {
                         :author="book.author"
                         :comment="book.finish"
                         ><img
-                            class="rounded-xl m-2 border border-gruvboxDark-fg2"
+                            class="rounded-l h-40 w-24 object-cover"
                             :src="book.img"
                             :alt="book.name"
                     /></BookEntry>
