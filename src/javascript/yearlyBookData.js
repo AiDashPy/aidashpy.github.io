@@ -3,6 +3,12 @@ export const yearlyBookEntries = [
     year: "2025",
     entries: [
       {
+        name: "The Soviet Experiment",
+        author: "Ronald Suny",
+        finish: "Finished 07/07/2025",
+        img: "./images/sovietExperiment.webp",
+      },
+      {
         name: "The Socialist Party of America",
         author: "Jack Ross",
         finish: "Finished 06/23/2025",
