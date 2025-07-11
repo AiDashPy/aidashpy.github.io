@@ -3,6 +3,12 @@ export const yearlyBookEntries = [
     year: "2025",
     entries: [
       {
+        name: "Prelude to Revolution",
+        author: "Alexander Rabinowitch",
+        finish: "Finished 07/10/2025",
+        img: "./images/preludeToRevolution.webp",
+      },
+      {
         name: "The Soviet Experiment",
         author: "Ronald Suny",
         finish: "Finished 07/07/2025",
