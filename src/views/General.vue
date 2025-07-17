@@ -30,9 +30,9 @@ export default {
         >
             <div
                 v-if="created"
-                class="border border-gruvboxDark-fg2 shadow-xl shadow-gruvboxDark-bg bg-gruvbox-bg1 rounded-2xl flex flex-col my-auto md:mx-auto py-4 mx-2 md:w-1/2"
+                class="border border-gruvbox-dark-fg2 shadow-xl shadow-gruvbox-dark-bg bg-gruvbox-bg1 rounded-2xl flex flex-col my-auto md:mx-auto py-4 mx-2 md:w-1/2"
             >
-                <h1 class="text-gruvboxDark-bg mx-auto select-none text-4xl">
+                <h1 class="text-gruvbox-dark-bg mx-auto select-none text-4xl">
                     aidashpy
                 </h1>
 
@@ -49,7 +49,7 @@ export default {
                 </a>
 
                 <div
-                    class="text-gruvboxDark-bgS md:text-lg flex flex-row justify-center gap-4 md:gap-16 mx-10"
+                    class="text-gruvbox-dark-bg-s md:text-lg flex flex-row justify-center gap-4 md:gap-16 mx-10"
                 >
                     <RouterLink to="/" target="_blank">reading</RouterLink>
                     <a href="https://letterboxd.com/aidashpy/" target="_blank"

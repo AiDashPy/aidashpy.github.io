@@ -16,7 +16,7 @@ export default {
 </script>
 
 <template>
-    <div class="min-h-screen bg-gruvboxDark-bg">
+    <div class="min-h-screen bg-gruvbox-dark-bg">
         <div class="min-h-screen">
             <WebHeader>
                 <div class="md:block hidden">
@@ -29,9 +29,9 @@ export default {
                 </div>
             </WebHeader>
 
-            <div class="mx-4 xl:mx-56 shrink grow">
+            <div class="px-4 lg:w-250 2xl:w-350 mx-auto shrink grow">
                 <div
-                    class="md:my-6 my-4 w-full grid grid-cols-1 grid-flow-row md:grid-cols-2 gap-4"
+                    class="md:my-4 my-4 w-full grid grid-cols-1 grid-flow-row md:grid-cols-2 gap-4"
                 >
                     <BookEntry
                         v-for="book in bookData"

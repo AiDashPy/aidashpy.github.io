@@ -17,7 +17,7 @@ export default {
 </script>
 
 <template>
-    <div class="min-h-screen bg-gruvboxDark-bg">
+    <div class="min-h-screen bg-gruvbox-dark-bg">
         <div class="min-h-screen">
             <WebHeader>
                 <div class="md:flex md:flex-row hidden pl-12">
@@ -27,14 +27,14 @@ export default {
                     >
                         <button
                             v-if="index == selectedYearIndex"
-                            class="mr-2 text-gruvbox-green active:text-gruvboxDark-green2"
+                            class="mr-2 text-gruvbox-green active:text-gruvbox-dark-green2 cursor-pointer"
                             @click="selectedYearIndex = index"
                         >
                             {{ year.year }}
                         </button>
                         <button
                             v-else
-                            class="mr-2 text-gruvbox-green2 active:text-gruvbox-green"
+                            class="mr-2 text-gruvbox-green2 active:text-gruvbox-green cursor-pointer"
                             @click="selectedYearIndex = index"
                         >
                             {{ year.year }}
@@ -43,9 +43,9 @@ export default {
                 </div>
             </WebHeader>
 
-            <div class="mx-4 2xl:mx-56 shrink grow">
+            <div class="px-4 lg:w-250 2xl:w-350 mx-auto shrink grow">
                 <div
-                    class="md:my-6 mt-4 mb-2 w-full grid grid-cols-1 grid-flow-row md:grid-cols-2 gap-4"
+                    class="md:my-4 mt-4 mb-2 w-full grid grid-cols-1 grid-flow-row md:grid-cols-2 gap-4"
                 >
                     <BookEntry
                         v-for="book in yearlyBookEntries[selectedYearIndex]
@@ -67,7 +67,7 @@ export default {
             <div class="text-base" v-for="(year, index) in yearlyBookEntries">
                 <button
                     v-if="index == selectedYearIndex"
-                    class="mr-2 text-gruvbox-green active:text-gruvboxDark-green2"
+                    class="mr-2 text-gruvbox-green active:text-gruvbox-dark-green2"
                     @click="selectedYearIndex = index"
                 >
                     {{ year.year }}
