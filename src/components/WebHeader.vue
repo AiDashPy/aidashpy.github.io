@@ -8,7 +8,7 @@ import { RouterLink } from "vue-router";
         class="py-4 bg-gruvboxDark-bg w-full border-b border-gruvboxDark-bgH lowercase"
     >
         <div
-            class="mx-4 xl:mx-56 flex flex-row font-mono text-2xl justify-between align-middle"
+            class="mx-4 2xl:mx-56 flex flex-row font-mono text-2xl justify-between align-middle"
         >
             <RouterLink to="/"
                 ><h1 class="select-none text-gruvbox-red">
