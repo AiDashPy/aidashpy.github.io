@@ -5,7 +5,7 @@ import GoodreadsSearcher from "./GoodreadsSearcher.vue";
 
 <template>
     <footer>
-        <div class="bg-gruvboxDark-bg py-2 border-t border-gruvboxDark-bgH">
+        <div class="bg-gruvbox-dark-bg py-2 border-t border-gruvbox-dark-bg-h">
             <div class="flex flex-row text-gruvbox-red justify-center">
                 <a
                     class="text-sm underline mx-2"

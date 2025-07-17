@@ -5,10 +5,10 @@ import { RouterLink } from "vue-router";
 <template>
     <header
         id="nav"
-        class="py-4 bg-gruvboxDark-bg w-full border-b border-gruvboxDark-bgH lowercase"
+        class="py-4 bg-gruvbox-dark-bg w-full border-b border-gruvbox-dark-bg-h lowercase"
     >
         <div
-            class="mx-4 2xl:mx-56 flex flex-row font-mono text-2xl justify-between align-middle"
+            class="px-4 lg:w-250 2xl:w-350 mx-auto flex flex-row font-mono text-2xl justify-between align-middle"
         >
             <RouterLink to="/"
                 ><h1 class="select-none text-gruvbox-red">

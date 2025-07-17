@@ -18,7 +18,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="flex flex-row bg-gruvboxDark-bgS rounded h-32">
+    <div class="flex flex-row bg-gruvbox-dark-bg-s rounded-sm h-32">
         <slot />
 
         <div class="w-full flex flex-col ml-4 m-2 justify-between">
