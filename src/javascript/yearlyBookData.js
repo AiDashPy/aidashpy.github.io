@@ -3,6 +3,12 @@ export const yearlyBookEntries = [
     year: "2025",
     entries: [
       {
+        name: "The Bolsheviks in Power",
+        author: "Alexander Rabinowitch",
+        finish: "Finished 07/23/2025",
+        img: "./images/bolsheviksInPower.webp",
+      },
+      {
         name: "The Bolsheviks Come to Power",
         author: "Alexander Rabinowitch",
         finish: "Finished 07/16/2025",
