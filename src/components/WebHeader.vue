@@ -1,6 +1,6 @@
 <script setup>
-import { RouterLink } from "vue-router";
-import { yearlyBookEntries } from "../javascript/yearlyBookData";
+    import { RouterLink } from "vue-router";
+    import { yearlyBookEntries } from "../javascript/yearlyBookData";
 </script>
 
 <script>

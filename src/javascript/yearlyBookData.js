@@ -3,6 +3,12 @@ export const yearlyBookEntries = [
     year: "2025",
     entries: [
       {
+        name: "Fragments",
+        author: "Heraclitus & T.M. Robinson",
+        finish: "Finished 07/26/2025",
+        img: "./images/heraclitusFragments.webp",
+      },
+      {
         name: "The Bolsheviks in Power",
         author: "Alexander Rabinowitch",
         finish: "Finished 07/23/2025",
