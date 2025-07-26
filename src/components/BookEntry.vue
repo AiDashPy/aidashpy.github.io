@@ -15,7 +15,7 @@
 <template>
     <div class="flex flex-row overflow-hidden bg-gruvbox-dark-bg-s rounded-sm h-32">
         <!-- <img class="rounded-l h-32 w-20 object-cover" :src="book.img" :alt="book.name"/> -->
-        <v-lazy-image class="rounded-l h-32 w-20 object-cover" :src="book.img" src-placeholder="https://placehold.co/400x600/webp/gray" :alt="book.name" />
+        <v-lazy-image class="rounded-l h-32 w-20 object-cover" :src="book.img" src-placeholder="https://placehold.co/400x600/32302F/webp?text=..." :alt="book.name" />
 
         <div class="w-full flex flex-col ml-4 m-2 justify-between">
             <div id="title" class="font-semibold pb-2 flex flex-col text-gruvbox-blue">
