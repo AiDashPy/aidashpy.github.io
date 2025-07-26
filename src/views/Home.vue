@@ -16,6 +16,7 @@
         methods: {
             selectYear(index) {
                 this.selectedYearIndex = index
+                window.scroll(0,0)
             }
         }
     };
@@ -40,8 +41,8 @@
         <div class="md:hidden flex flex-row justify-center bg-gruvboxDark pb-1">
 
             <div class="text-base" v-for="(year, index) in yearlyBookEntries">
-                <button v-if="index == selectedYearIndex" class="mr-2 text-gruvbox-green active:text-gruvbox-dark-green2" @click="selectedYearIndex = index">{{ year.year }}</button>
-                <button v-else class="mr-2 text-gruvbox-green2 active:text-gruvbox-green" @click="selectedYearIndex = index">{{ year.year }}</button>
+                <button v-if="index == selectedYearIndex" class="mr-2 text-gruvbox-green active:text-gruvbox-dark-green2" @click="selectYear(index)">{{ year.year }}</button>
+                <button v-else class="mr-2 text-gruvbox-green2 active:text-gruvbox-green" @click="selectYear(index)">{{ year.year }}</button>
             </div>
         </div>
 
