@@ -1,24 +1,24 @@
 <script setup>
-import BookEntry from "../components/BookEntry.vue";
-import WebFooter from "../components/WebFooter.vue";
-import WebHeader from "../components/WebHeader.vue";
-import { yearlyBookEntries } from "../javascript/yearlyBookData";
+    import BookEntry from "../components/BookEntry.vue";
+    import WebFooter from "../components/WebFooter.vue";
+    import WebHeader from "../components/WebHeader.vue";
+    import { yearlyBookEntries } from "../javascript/yearlyBookData";
 </script>
 
 <script>
-export default {
-    data() {
-        return {
-            // yearlyBookEntries: yearlyBookEntries,
-            selectedYearIndex: 0,
-        };
-    },
-    methods: {
-        selectYear(index) {
-            this.selectedYearIndex = index
+    export default {
+        data() {
+            return {
+                // yearlyBookEntries: yearlyBookEntries,
+                selectedYearIndex: 0,
+            };
+        },
+        methods: {
+            selectYear(index) {
+                this.selectedYearIndex = index
+            }
         }
-    }
-};
+    };
 </script>
 
 <template>
