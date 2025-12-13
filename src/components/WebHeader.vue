@@ -1,38 +1,46 @@
 <script setup>
-    import { RouterLink } from "vue-router";
-    import { yearlyBookEntries } from "../javascript/yearlyBookData";
-</script>
+import { RouterLink } from "vue-router";
+import { ref, onMounted, onUnmounted } from "vue";
 
-<script>
-    export default {
-        data() {
-            return {
-                selectedYearIndex: 0,
+const visible = ref(true);
+let lastY = 0;
+let ticking = false;
 
-            }
-        },
-        methods: {
-            selectYear(index) {
-                this.$emit('select-year', index)
-                this.selectedYearIndex = index
-            }
-        }
-    }
+function onScroll(){
+  const currentY = window.scrollY || 0;
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      if (currentY > lastY + 8) { visible.value = false; }
+      else if (currentY < lastY - 8) { visible.value = true; }
+      lastY = currentY;
+      ticking = false;
+    });
+    ticking = true;
+  }
+}
+
+onMounted(() => {
+  lastY = window.scrollY || 0;
+  window.addEventListener('scroll', onScroll, { passive: true });
+});
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll);
+});
 </script>
 
 <template>
-    <header id="nav" class="py-4 bg-gruvbox-dark-bg w-full border-b border-gruvbox-dark-bg-h lowercase">
-        <div class="px-4 lg:w-250 2xl:w-350 mx-auto flex flex-row font-mono text-2xl justify-between align-middle">
-            <RouterLink class="select-none text-gruvbox-red" to="/">Aidashpy</RouterLink>
-
-            <div class="md:flex md:flex-row hidden pl-12">
-                <div class="mt-1 text-xl" v-for="(year, index) in yearlyBookEntries">
-                    <button v-if="index == selectedYearIndex" class="mr-2 text-gruvbox-green active:text-gruvbox-dark-green2 cursor-pointer" @click="selectYear(index)">{{ year.year }}</button>
-                    <button v-else class="mr-2 text-gruvbox-green2 active:text-gruvbox-green cursor-pointer" @click="selectYear(index)">{{ year.year }}</button>
-                </div>
-            </div>
-
-            <p class="select-none text-gruvbox-blue">Reading Log</p>
-        </div>
-    </header>
+  <header
+    :class="[
+      'fixed left-0 top-0 z-50 w-screen bg-[#282828] border-b border-white/5 shadow-md py-4 sm:py-6 transform transition-transform duration-700 ease-out',
+      visible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
+    ]"
+    aria-hidden="false"
+  >
+    <div class="max-w-[1400px] mx-auto flex items-center justify-between px-4 sm:px-6">
+      <RouterLink to="/" class="font-extrabold tracking-wide text-[#83a598] text-lg sm:text-xl">AIDASHPY</RouterLink>
+      <nav class="hidden sm:flex gap-3">
+        <RouterLink to="/links" class="px-3 py-2 rounded text-[#ebdbb2] font-semibold hover:bg-white/3">Links</RouterLink>
+      </nav>
+    </div>
+  </header>
 </template>

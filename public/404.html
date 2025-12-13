@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Not Found</title>
+</head>
+<body>
+  <!-- Fetch and write index.html so the SPA can handle the current URL (works on GitHub Pages) -->
+  <script>
+    (function () {
+      fetch("/index.html")
+        .then(function (r) { return r.text(); })
+        .then(function (html) {
+          document.open();
+          document.write(html);
+          document.close();
+        })
+        .catch(function () {
+          // fallback: redirect to root
+          window.location.href = "/";
+        });
+    })();
+  </script>
+  <p>Redirecting…</p>
+</body>
+</html>
