@@ -4,7 +4,21 @@
         <meta charset="UTF-8" />
         <!-- base href so history routing resolves correctly when deployed under a subpath -->
         <base href="/" />
+        <!-- preload main painting used on General page for fastest initial fetch -->
+        <link rel="preload" as="image" href="/images/ThePaintingNewPlanetNew.webp" />
         <link rel="icon" type="image/x-icon" href="/src/assets/book.ico" />
+        <!-- ensure mobile overscroll/bounce area matches app background -->
+        <style>
+          /* root background so iOS/Android overscroll shows same color */
+          html, body {
+            background-color: #1d2021;
+          }
+          /* keep overscroll color consistent and avoid accidental scroll chaining */
+          html, body, #app {
+            overscroll-behavior-y: auto;
+            -webkit-overflow-scrolling: touch;
+          }
+        </style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>reading log - aidashpy</title>
 
