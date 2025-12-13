@@ -52,7 +52,7 @@ function closeYears(){
   <div class="home-root">
     <WebHeader />
 
-    <div class="home-shell flex gap-6">
+    <div class="home-shell flex gap-3 sm:gap-6 px-2 sm:px-2">
       <!-- restored sidebar and main-grid -->
       <aside class="left-panel hidden lg:flex flex-col items-start gap-4 w-40 p-4 rounded-lg bg-gradient-to-b from-[#282828] to-[#1d2021] border border-white/5 shadow-xl min-h-screen">
         <div class="text-xs font-extrabold tracking-wide">ARCHIVE</div>
@@ -68,14 +68,25 @@ function closeYears(){
         </div>
       </aside>
 
-      <main class="main-grid flex-1">
-        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 px-4">
+      <main class="main-grid flex-1" ref="mainRef">
+        <!-- TransitionGroup animates entries on year switch.
+             Use single column below lg (sidebar hidden), two columns at lg+ -->
+        <TransitionGroup
+          tag="div"
+          class="grid grid-cols-1 lg:grid-cols-2 gap-5 px-2 sm:px-2 items-stretch"
+          enter-from-class="opacity-0 translate-y-3"
+          enter-active-class="transition-all duration-500"
+          enter-to-class="opacity-100 translate-y-0"
+          leave-from-class="opacity-100 translate-y-0"
+          leave-active-class="transition-all duration-300"
+          leave-to-class="opacity-0 -translate-y-3"
+        >
           <BookEntry
             v-for="(b, idx) in sortedYears[selectedYear].entries"
             :key="b.name + idx"
             :book="b"
           />
-        </div>
+        </TransitionGroup>
       </main>
     </div>
 
