@@ -129,7 +129,8 @@ function closeYears(){
   <div class="home-root">
     <WebHeader />
 
-    <div class="home-shell flex gap-3 sm:gap-6 px-2 sm:px-4">
+    <!-- tighter gutters on small/medium screens -->
+    <div class="home-shell flex gap-2 sm:gap-3 px-1 sm:px-2 md:px-3">
       <!-- restored sidebar and main-grid -->
       <aside class="left-panel hidden lg:flex flex-col items-start gap-4 w-40 p-4 rounded-lg bg-gradient-to-b from-[#282828] to-[#1d2021] border border-white/5 shadow-xl min-h-screen">
         <div class="text-xs font-extrabold tracking-wide">ARCHIVE</div>
@@ -150,17 +151,14 @@ function closeYears(){
              Use single column below lg (sidebar hidden), two columns at lg+ -->
         <TransitionGroup
           tag="div"
-          class="grid grid-cols-1 lg:grid-cols-2 gap-5 px-2 sm:px-4 items-stretch"
-          enter-from-class="opacity-0 translate-y-3"
-          enter-active-class="transition-all duration-500"
-          enter-to-class="opacity-100 translate-y-0"
-          leave-from-class="opacity-100 translate-y-0"
-          leave-active-class="transition-all duration-300"
-          leave-to-class="opacity-0 -translate-y-3"
+          name="book"
+          appear
+          class="grid grid-cols-1 lg:grid-cols-2 gap-3 px-0 sm:px-2 md:px-3 items-stretch"
         >
           <BookEntry
             v-for="(b, idx) in paginatedEntries"
             :key="((currentPage-1)*pageSize + idx) + '-' + b.name"
+            class="book-item"
             :book="b"
             :priority="idx < priorityCount"
           />
@@ -220,3 +218,35 @@ function closeYears(){
     <WebFooter />
   </div>
 </template>
+
+<style scoped>
+/* fade-only enter/leave for book items (no restacking) */
+.book-item.book-enter-from,
+.book-item.book-leave-to {
+  opacity: 0;
+}
+.book-item.book-enter-active,
+.book-item.book-leave-active {
+  transition: opacity 320ms cubic-bezier(.2,.9,.25,1);
+}
+.book-item.book-enter-to,
+.book-item.book-leave-from {
+  opacity: 1;
+}
+
+/* --- new: apply same fade when items appear on initial mount --- */
+.book-item.book-appear-from {
+  opacity: 0;
+}
+.book-item.book-appear-active {
+  transition: opacity 320ms cubic-bezier(.2,.9,.25,1);
+}
+.book-item.book-appear-to {
+  opacity: 1;
+}
+
+/* reduce layout churn hint */
+.book-item { will-change: opacity; }
+
+/* remove previous transform/stacking/stagger rules (no reflow animation) */
+</style>

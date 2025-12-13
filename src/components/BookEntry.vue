@@ -41,14 +41,15 @@ const openGoodreads = (book) => {
 
 <template>
   <article class="group w-full bg-[#2f2b2a] border border-[#3a3838] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-200">
-    <div class="flex items-stretch gap-3 p-3 sm:p-4">
+    <!-- increased padding on small screens: p-4 (mobile) and sm:p-5 for slightly larger -->
+    <div class="flex items-stretch gap-3 p-4 sm:p-5">
       <!-- thumbnail frame with XY padding -->
       <div
         role="link"
         tabindex="0"
         @click="openGoodreads(props.book)"
         @keydown.enter="openGoodreads(props.book)"
-        class="flex-none w-24 sm:w-28 md:w-32 h-36 rounded-lg bg-[#1f1f1f] p-2 flex items-center justify-center"
+        class="flex-none w-24 sm:w-28 md:w-32 h-36 rounded-lg bg-[#1f1f1f] p-2 sm:p-3 flex items-center justify-center"
         :title="`Search ${props.book.name} on Goodreads`"
       >
         <!-- thumbnail placeholder -->
@@ -74,18 +75,18 @@ const openGoodreads = (book) => {
       <div class="flex-1 flex flex-col justify-between min-w-0">
         <div>
           <h3 class="text-[#e6f0ef] font-bold text-sm sm:text-base leading-tight truncate">{{ book.name }}</h3>
-          <div class="text-[#bfb6a8] text-xs sm:text-sm mt-1 truncate">{{ book.author }}</div>
+          <div class="text-[#bfb6a8] text-xs sm:text-sm mt-0.5 truncate">{{ book.author }}</div>
 
           <div v-if="book.tags && book.tags.length" class="mt-2 text-xs text-[#a89f93] flex flex-wrap gap-2">
             <span v-for="(t,i) in (book.tags||[]).slice(0,5)" :key="i" class="px-2 py-0.5 bg-[#232222] rounded text-[11px] truncate">{{ t }}</span>
           </div>
 
-          <p v-if="book.note" class="mt-2 text-[#bfb6a8] text-xs sm:text-sm line-clamp-3 leading-relaxed truncate">
+          <p v-if="book.note" class="mt-1 text-[#bfb6a8] text-xs sm:text-sm line-clamp-3 leading-relaxed truncate">
             {{ book.note }}
           </p>
         </div>
 
-        <div class="mt-3 flex items-center justify-start gap-3 text-xs sm:text-sm text-[#d1c9be]">
+        <div class="mt-2 flex items-center justify-start gap-2 text-xs sm:text-sm text-[#d1c9be]">
           <div class="flex items-center gap-3">
             <span class="font-semibold text-[#ffd66b]">{{ book.finish }}</span>
             <span v-if="book.pages" class="text-[#bfb6a8]">{{ book.pages }}p</span>
