@@ -37,13 +37,18 @@ const sortedYears = computed(() =>
   }))
 );
 
+/* --- ADDED: entriesForSelected computed (was missing) --- */
+const entriesForSelected = computed(() => {
+  const s = sortedYears.value[selectedYear.value];
+  return s ? (s.entries || []) : [];
+});
+
 /* pagination helpers */
-const totalPages = computed(() => Math.ceil(entriesForSelected.length / pageSize.value) || 1);
+const totalPages = computed(() => Math.max(1, Math.ceil(entriesForSelected.value.length / pageSize.value)));
 
 const paginatedEntries = computed(() => {
   const start = (currentPage.value - 1) * pageSize.value;
-  const end = start + pageSize.value;
-  return entriesForSelected.slice(start, end);
+  return entriesForSelected.value.slice(start, start + pageSize.value);
 });
 
 /* prefetch helper: create Image objects for the current page to warm cache;
