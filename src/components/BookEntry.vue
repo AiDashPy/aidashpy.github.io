@@ -17,20 +17,12 @@ const placeholderSvg = `data:image/svg+xml;utf8,` + encodeURIComponent(
   </svg>`
 );
 
-const openGoodreads = (book) => {
-  const q = encodeURIComponent(`${book.name || ''} ${book.author || ''}`.trim());
-  const url = `https://www.goodreads.com/search?q=${q}`;
-  window.open(url, '_blank', 'noopener,noreferrer');
-};
-
-/* image placeholder + loaded state for blur-up */
 const imgLoaded = ref(false);
 
-function onImgLoad(e){
+function onImgLoad() {
   imgLoaded.value = true;
 }
 
-/* set placeholder when image fails to load */
 function onImgError(e) {
   const img = e?.target;
   if (!img) return;
@@ -39,54 +31,78 @@ function onImgError(e) {
   img.dataset._placeholderApplied = '1';
   imgLoaded.value = true;
 }
+
+const openGoodreads = (book) => {
+  const q = encodeURIComponent(`${book.name || ''} ${book.author || ''}`.trim());
+  const url = `https://www.goodreads.com/search?q=${q}`;
+  window.open(url, '_blank', 'noopener,noreferrer');
+};
 </script>
 
 <template>
-  <article class="relative overflow-hidden rounded-lg bg-[#2f2b2a] border-l-4 border-[#b8bb26] w-full h-full">
-    <div class="flex gap-3 p-3 sm:p-4 h-full items-start">
-      <!-- cover (left) — no background, allow shadow to escape; blur-up until loaded -->
+  <article class="group w-full bg-[#2f2b2a] border border-[#3a3838] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-200">
+    <div class="flex items-stretch gap-3 p-3 sm:p-4">
+      <!-- thumbnail frame with XY padding -->
       <div
-        class="flex-none w-20 sm:w-28 md:w-36 h-36 rounded-md overflow-visible shrink-0 cursor-pointer relative z-0 bg-transparent"
         role="link"
         tabindex="0"
-        title="Search this book on Goodreads"
         @click="openGoodreads(props.book)"
         @keydown.enter="openGoodreads(props.book)"
+        class="flex-none w-24 sm:w-28 md:w-32 h-36 rounded-lg bg-[#1f1f1f] p-2 flex items-center justify-center"
+        :title="`Search ${props.book.name} on Goodreads`"
       >
+        <!-- thumbnail placeholder -->
+        <div v-if="!imgLoaded" class="absolute inset-0 rounded-lg overflow-hidden pointer-events-none">
+          <div class="w-full h-full bg-gradient-to-br from-[#222] to-[#2b2b2b] animate-pulse opacity-70"></div>
+        </div>
+
         <img
           :src="book.img"
           :alt="book.name"
           :loading="priority ? 'eager' : 'lazy'"
           :importance="priority ? 'high' : 'low'"
           decoding="async"
-          width="144"
-          height="144"
-          class="w-full h-full object-contain transition-all duration-300"
-          :class="imgLoaded ? 'filter-none scale-100' : 'blur-sm scale-105'"
+          width="144" height="144"
+          class="relative w-full h-full object-contain rounded-sm transition-opacity duration-300 cursor-pointer"
+          :class="imgLoaded ? 'opacity-100' : 'opacity-0'"
           @load="onImgLoad"
           @error="onImgError"
         />
       </div>
 
-      <!-- content (right) -->
-      <div class="flex-1 flex flex-col min-w-0 text-sm sm:text-base">
-        <!-- title + author (top) -->
-        <div class="truncate">
-          <h3 class="text-[#83a598] font-extrabold text-sm sm:text-base leading-tight truncate">{{ book.name }}</h3>
-          <div class="text-[#a89984] font-semibold text-xs sm:text-sm mt-1 truncate">{{ book.author }}</div>
+      <!-- content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <h3 class="text-[#e6f0ef] font-bold text-sm sm:text-base leading-tight truncate">{{ book.name }}</h3>
+          <div class="text-[#bfb6a8] text-xs sm:text-sm mt-1 truncate">{{ book.author }}</div>
+
+          <div v-if="book.tags && book.tags.length" class="mt-2 text-xs text-[#a89f93] flex flex-wrap gap-2">
+            <span v-for="(t,i) in (book.tags||[]).slice(0,5)" :key="i" class="px-2 py-0.5 bg-[#232222] rounded text-[11px] truncate">{{ t }}</span>
+          </div>
+
+          <p v-if="book.note" class="mt-2 text-[#bfb6a8] text-xs sm:text-sm line-clamp-3 leading-relaxed truncate">
+            {{ book.note }}
+          </p>
         </div>
 
-        <!-- note/body (middle) -->
-        <div class="mt-3 text-[#a89984] text-xs sm:text-sm leading-relaxed line-clamp-3 flex-1">
-          <p v-if="book.note" class="w-full truncate">{{ book.note }}</p>
-        </div>
-
-        <!-- finish/pages aligned left (bottom) -->
-        <div class="mt-4 flex items-center justify-start gap-3 text-xs sm:text-sm">
-          <div class="text-[#b8bb26] font-bold">{{ book.finish }}</div>
-          <div v-if="book.pages" class="text-[#a89984] text-xs sm:text-sm font-semibold">{{ book.pages }}p</div>
+        <div class="mt-3 flex items-center justify-start gap-3 text-xs sm:text-sm text-[#d1c9be]">
+          <div class="flex items-center gap-3">
+            <span class="font-semibold text-[#ffd66b]">{{ book.finish }}</span>
+            <span v-if="book.pages" class="text-[#bfb6a8]">{{ book.pages }}p</span>
+          </div>
         </div>
       </div>
     </div>
   </article>
 </template>
+
+<style scoped>
+/* subtle focus outline for accessibility */
+[role="link"]:focus {
+  outline: 2px solid rgba(255,214,107,0.18);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+/* ensure the pulse placeholder sits behind the image */
+.group img { display: block; }
+</style>
