@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { RouterLink } from "vue-router";
+import { yearlyBookEntries } from "../javascript/yearlyBookData";
 
 const created = ref(false);
 const showOverlay = ref(true);
@@ -9,6 +10,23 @@ onMounted(() => {
   created.value = true;
   // fallback hide overlay after 1300ms in case animationend doesn't fire
   setTimeout(() => { showOverlay.value = false; }, 1400);
+
+  // Prefetch all book images so General page feels faster (downloads in background)
+  try {
+    yearlyBookEntries.forEach((year) => {
+      (year.entries || []).forEach((e) => {
+        if (e && e.img) {
+          const img = new Image();
+          img.src = e.img;
+        }
+      });
+    });
+    // also prefetch the main painting explicitly
+    const mainImg = new Image();
+    mainImg.src = '/images/ThePaintingNewPlanetNew.webp';
+  } catch (err) {
+    // fail silently
+  }
 });
 
 function onOverlayEnd() {
@@ -47,10 +65,17 @@ function onOverlayEnd() {
           <h1 class="text-[#ffd66b] font-extrabold text-4xl md:text-5xl text-center select-none mb-6">aidashpy</h1>
 
           <div class="w-full max-w-2xl mx-auto mb-6">
-            <!-- link to culture.ru for the painting -->
-            <a href="https://www.culture.ru/persons/9593/konstantin-yuon" target="_blank" rel="noopener noreferrer" class="block">
-              <img class="w-full rounded-md object-contain max-h-[40vh] border border-[#3f3f3f]/10" src="/images/ThePaintingNewPlanetNew.webp" alt="New Planet, Konstantin Yuon, 1921" />
-            </a>
+            <RouterLink to="/" class="block">
+              <!-- eager + high priority so painting appears ASAP -->
+              <img
+                class="w-full rounded-md object-contain max-h-[40vh]"
+                src="/images/ThePaintingNewPlanetNew.webp"
+                alt="New Planet, Konstantin Yuon, 1921"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </RouterLink>
           </div>
 
           <div class="flex flex-row flex-wrap items-center justify-center gap-4 text-sm md:text-base text-[#dcd7cf]">

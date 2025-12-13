@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, watch, onMounted } from "vue";
 import BookEntry from "../components/BookEntry.vue";
 import WebHeader from "../components/WebHeader.vue";
 import WebFooter from "../components/WebFooter.vue";
@@ -8,6 +8,13 @@ import { yearlyBookEntries } from "../javascript/yearlyBookData";
 
 const selectedYear = ref(0);
 const showYears = ref(false);
+
+/* pagination state */
+const pageSize = ref(20);
+const currentPage = ref(1);
+
+/* how many images to load with high priority per page */
+const priorityCount = 6;
 
 function parseDateFromBook(b) {
   if (!b) return 0;
@@ -29,6 +36,71 @@ const sortedYears = computed(() =>
     entries: [...(y.entries || [])].sort((a, b) => parseDateFromBook(b) - parseDateFromBook(a)),
   }))
 );
+
+/* pagination helpers */
+const totalPages = computed(() => Math.ceil(entriesForSelected.length / pageSize.value) || 1);
+
+const paginatedEntries = computed(() => {
+  const start = (currentPage.value - 1) * pageSize.value;
+  const end = start + pageSize.value;
+  return entriesForSelected.slice(start, end);
+});
+
+/* prefetch helper: create Image objects for the current page to warm cache;
+   also create <link rel="preload"> for the first few images to encourage priority */
+function prefetchImages(entries = []) {
+  if (!entries || !entries.length) return;
+  // preload first N via link rel=preload
+  entries.forEach((e, i) => {
+    if (!e || !e.img) return;
+    // create Image to warm browser cache
+    const img = new Image();
+    img.src = e.img;
+    // first few: add preload hint
+    if (i < priorityCount && typeof document !== "undefined") {
+      try {
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "image";
+        link.href = e.img;
+        link.onload = () => { link.remove(); };
+        link.onerror = () => { link.remove(); };
+        document.head.appendChild(link);
+      } catch (err) {
+        // ignore
+      }
+    }
+  });
+}
+
+/* prefetch when paginatedEntries change or on mount */
+watch(
+  () => paginatedEntries.value,
+  (v) => prefetchImages(v),
+  { immediate: true }
+);
+
+onMounted(() => {
+  prefetchImages(paginatedEntries.value);
+});
+
+/* update pagination helpers to keep prefetch in sync */
+function goToPage(n){
+  if(n < 1) n = 1;
+  if(n > totalPages.value) n = totalPages.value;
+  currentPage.value = n;
+  scrollToTop();
+  // prefetch after updating currentPage
+  // next tick not necessary here; computed paginatedEntries will update and trigger watch
+}
+function nextPage(){
+  if(currentPage.value < totalPages.value) currentPage.value++;
+  scrollToTop();
+}
+function prevPage(){
+  if(currentPage.value > 1) currentPage.value--;
+  scrollToTop();
+}
 
 function formatYear(raw) {
   const s = String(raw).match(/\d{4}/);
@@ -52,7 +124,7 @@ function closeYears(){
   <div class="home-root">
     <WebHeader />
 
-    <div class="home-shell flex gap-3 sm:gap-6 px-2 sm:px-2">
+    <div class="home-shell flex gap-3 sm:gap-6 px-2 sm:px-4">
       <!-- restored sidebar and main-grid -->
       <aside class="left-panel hidden lg:flex flex-col items-start gap-4 w-40 p-4 rounded-lg bg-gradient-to-b from-[#282828] to-[#1d2021] border border-white/5 shadow-xl min-h-screen">
         <div class="text-xs font-extrabold tracking-wide">ARCHIVE</div>
@@ -73,7 +145,7 @@ function closeYears(){
              Use single column below lg (sidebar hidden), two columns at lg+ -->
         <TransitionGroup
           tag="div"
-          class="grid grid-cols-1 lg:grid-cols-2 gap-5 px-2 sm:px-2 items-stretch"
+          class="grid grid-cols-1 lg:grid-cols-2 gap-5 px-2 sm:px-4 items-stretch"
           enter-from-class="opacity-0 translate-y-3"
           enter-active-class="transition-all duration-500"
           enter-to-class="opacity-100 translate-y-0"
@@ -82,9 +154,10 @@ function closeYears(){
           leave-to-class="opacity-0 -translate-y-3"
         >
           <BookEntry
-            v-for="(b, idx) in sortedYears[selectedYear].entries"
-            :key="b.name + idx"
+            v-for="(b, idx) in paginatedEntries"
+            :key="((currentPage-1)*pageSize + idx) + '-' + b.name"
             :book="b"
+            :priority="idx < priorityCount"
           />
         </TransitionGroup>
       </main>
@@ -134,6 +207,10 @@ function closeYears(){
          />
        </div>
      </aside>
+
+    <div v-if="entriesForSelected.length > pageSize" class="mt-6 mb-4 flex items-center justify-center gap-3">
+      <!-- ...existing pagination UI ... -->
+    </div>
 
     <WebFooter />
   </div>
