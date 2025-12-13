@@ -268,5 +268,15 @@ onUnmounted(() => {
 /* reduce layout churn hint */
 .book-item { will-change: opacity; }
 
+/* ensure the slide panel sits below iOS Safari UI (notch / search bar) */
+/* use both constant() and env() for compatibility, and !important to override utility top-0 */
+.slide-years {
+  top: constant(safe-area-inset-top) !important;
+  top: env(safe-area-inset-top) !important;
+  /* give the panel some extra padding so content is not flush against the safe inset */
+  padding-top: calc(constant(safe-area-inset-top) + 0.75rem) !important;
+  padding-top: calc(env(safe-area-inset-top) + 0.75rem) !important;
+}
+
 /* remove previous transform/stacking/stagger rules (no reflow animation) */
 </style>
