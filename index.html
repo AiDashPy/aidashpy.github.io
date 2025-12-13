@@ -4,7 +4,21 @@
         <meta charset="UTF-8" />
         <!-- base href so history routing resolves correctly when deployed under a subpath -->
         <base href="/" />
+        <!-- preload main painting used on General page for fastest initial fetch -->
+        <link rel="preload" as="image" href="/images/ThePaintingNewPlanetNew.webp" />
         <link rel="icon" type="image/x-icon" href="/assets/book-v13FoTBu.ico" />
+        <!-- ensure mobile overscroll/bounce area matches app background -->
+        <style>
+          /* root background so iOS/Android overscroll shows same color */
+          html, body {
+            background-color: #1d2021;
+          }
+          /* keep overscroll color consistent and avoid accidental scroll chaining */
+          html, body, #app {
+            overscroll-behavior-y: auto;
+            -webkit-overflow-scrolling: touch;
+          }
+        </style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>reading log - aidashpy</title>
 
@@ -19,8 +33,8 @@
             property="og:image"
         />
         <meta content="#282828" data-react-helmet="true" name="theme-color" />
-      <script type="module" crossorigin src="/assets/index-BGmYtiXf.js"></script>
-      <link rel="stylesheet" crossorigin href="/assets/index-nmDuFI-1.css">
+      <script type="module" crossorigin src="/assets/index-D_g0G5Fi.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/index-rehD5BtZ.css">
     </head>
     <body>
         <div id="app"></div>
