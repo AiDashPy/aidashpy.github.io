@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, watch, onMounted } from "vue";
+import { ref, computed, watch, onMounted, onUnmounted } from "vue";
 import BookEntry from "../components/BookEntry.vue";
 import WebHeader from "../components/WebHeader.vue";
 import WebFooter from "../components/WebFooter.vue";
@@ -123,6 +123,26 @@ function toggleYears(){
 function closeYears(){
   showYears.value = false;
 }
+
+// prevent background scrolling when slide panel is open
+watch(showYears, (open) => {
+  if (typeof document !== "undefined") {
+    if (open) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    }
+  }
+});
+
+onUnmounted(() => {
+  if (typeof document !== "undefined") {
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+  }
+});
 </script>
 
 <template>
