@@ -3,6 +3,30 @@ export const yearlyBookEntries = [
     year: "2025",
     entries: [
       {
+        name: "Complete Works",
+        author: "Plato",
+        finish: "Finished 10/25/2025",
+        img: "./images/platocomplete.webp",
+      },
+      {
+        name: "V.",
+        author: "Thomas Pynchon",
+        finish: "Finished 11/30/2025",
+        img: "./images/v.webp",
+      },
+      {
+        name: "From Friend to Comrade",
+        author: "Hans van de Ven",
+        finish: "Finished 12/01/2025",
+        img: "./images/friendtocom.webp",
+      },
+      {
+        name: "Rise and Fall of the Italian Communist Party",
+        author: "Silvio Pons",
+        finish: "Finished 12/12/2025",
+        img: "./images/riseandfall.webp",
+      },
+      {
         name: "Fragments",
         author: "Heraclitus & T.M. Robinson",
         finish: "Finished 07/26/2025",
