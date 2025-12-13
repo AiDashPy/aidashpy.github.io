@@ -9,10 +9,6 @@ import { yearlyBookEntries } from "../javascript/yearlyBookData";
 const selectedYear = ref(0);
 const showYears = ref(false);
 
-/* pagination state */
-const pageSize = ref(20);
-const currentPage = ref(1);
-
 /* how many images to load with high priority per page */
 const priorityCount = 6;
 
@@ -37,21 +33,13 @@ const sortedYears = computed(() =>
   }))
 );
 
-/* --- ADDED: entriesForSelected computed (was missing) --- */
+/* --- ADDED: entriesForSelected computed (was already present) --- */
 const entriesForSelected = computed(() => {
   const s = sortedYears.value[selectedYear.value];
   return s ? (s.entries || []) : [];
 });
 
-/* pagination helpers */
-const totalPages = computed(() => Math.max(1, Math.ceil(entriesForSelected.value.length / pageSize.value)));
-
-const paginatedEntries = computed(() => {
-  const start = (currentPage.value - 1) * pageSize.value;
-  return entriesForSelected.value.slice(start, start + pageSize.value);
-});
-
-/* prefetch helper: create Image objects for the current page to warm cache;
+/* prefetch helper: create Image objects for the current selection to warm cache;
    also create <link rel="preload"> for the first few images to encourage priority */
 function prefetchImages(entries = []) {
   if (!entries || !entries.length) return;
@@ -78,34 +66,16 @@ function prefetchImages(entries = []) {
   });
 }
 
-/* prefetch when paginatedEntries change or on mount */
+/* prefetch when entriesForSelected change or on mount */
 watch(
-  () => paginatedEntries.value,
+  () => entriesForSelected.value,
   (v) => prefetchImages(v),
   { immediate: true }
 );
 
 onMounted(() => {
-  prefetchImages(paginatedEntries.value);
+  prefetchImages(entriesForSelected.value);
 });
-
-/* update pagination helpers to keep prefetch in sync */
-function goToPage(n){
-  if(n < 1) n = 1;
-  if(n > totalPages.value) n = totalPages.value;
-  currentPage.value = n;
-  scrollToTop();
-  // prefetch after updating currentPage
-  // next tick not necessary here; computed paginatedEntries will update and trigger watch
-}
-function nextPage(){
-  if(currentPage.value < totalPages.value) currentPage.value++;
-  scrollToTop();
-}
-function prevPage(){
-  if(currentPage.value > 1) currentPage.value--;
-  scrollToTop();
-}
 
 function formatYear(raw) {
   const s = String(raw).match(/\d{4}/);
@@ -176,8 +146,8 @@ onUnmounted(() => {
           class="grid grid-cols-1 lg:grid-cols-2 gap-3 px-0 sm:px-2 md:px-3 items-stretch"
         >
           <BookEntry
-            v-for="(b, idx) in paginatedEntries"
-            :key="((currentPage-1)*pageSize + idx) + '-' + b.name"
+            v-for="(b, idx) in entriesForSelected"
+            :key="idx + '-' + b.name"
             class="book-item"
             :book="b"
             :priority="idx < priorityCount"
@@ -230,10 +200,6 @@ onUnmounted(() => {
          />
        </div>
      </aside>
-
-    <div v-if="entriesForSelected.length > pageSize" class="mt-6 mb-4 flex items-center justify-center gap-3">
-      <!-- ...existing pagination UI ... -->
-    </div>
 
     <WebFooter />
   </div>
