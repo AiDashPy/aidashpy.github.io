@@ -21,7 +21,7 @@ export const yearlyBookEntries = [
         img: "/images/friendtocom.webp",
       },
       {
-        name: "Rise and Fall of the Italian Communist Party",
+        name: "The Rise and Fall of the Italian Communist Party",
         author: "Silvio Pons",
         finish: "Finished 12/12/2025",
         img: "/images/riseandfall.webp",
