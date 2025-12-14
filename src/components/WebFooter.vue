@@ -1,5 +1,8 @@
 <script setup>
 import { RouterLink } from "vue-router";
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 </script>
 
 <template>
@@ -10,6 +13,16 @@ import { RouterLink } from "vue-router";
       <div class="flex gap-3">
         <a class="text-sm px-3 py-1 rounded bg-white/2 hover:bg-white/5" href="https://www.goodreads.com/review/list/168293432?ref=nav_mybooks" target="_blank" rel="noopener noreferrer">Goodreads</a>
         <RouterLink class="text-sm px-3 py-1 rounded bg-white/2 hover:bg-white/5" to="/links">Links</RouterLink>
+
+        <!-- added: Go to top button -->
+        <button
+          type="button"
+          @click="scrollToTop"
+          aria-label="Scroll to top"
+          class="text-sm px-3 py-1 rounded bg-white/2 hover:bg-white/5 cursor-pointer"
+        >
+          ↑ Top
+        </button>
       </div>
     </div>
   </footer>
