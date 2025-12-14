@@ -17,7 +17,7 @@ export const yearlyBookEntries = [
       {
         name: "From Friend to Comrade",
         author: "Hans van de Ven",
-        finish: "Finished 12/01/2025",
+        finish: "Finished 12/06/2025",
         img: "/images/friendtocom.webp",
       },
       {

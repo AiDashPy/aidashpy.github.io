@@ -35,20 +35,17 @@ function onOverlayEnd() {
 </script>
 
 <template>
-  <!-- fixed full-viewport root with small responsive gutters -->
-  <!-- neutral dark-gray base with soviet accents -->
-  <div class="fixed inset-0 overflow-hidden bg-[#1f1f21] flex items-center justify-center px-4 sm:px-6 md:px-8">
-    <!-- animated SVG overlay (soviet red star) -->
+  <!-- use Tailwind utilities instead of fixed inset + custom CSS -->
+  <div class="min-h-screen w-full min-w-0 overflow-x-hidden bg-[#1f1f21] flex items-center justify-center px-4 sm:px-6 md:px-8">
+    <!-- animated SVG overlay (fallback timer still hides it) -->
     <div v-if="showOverlay" class="absolute inset-0 z-50 flex items-center justify-center pointer-events-none">
-      <!-- inline soviet-red star SVG -->
       <svg
-        class="w-40 h-40 sm:w-56 sm:h-56 overlay-svg"
+        class="overlay-svg w-40 h-40 sm:w-56 sm:h-56"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
         @animationend="onOverlayEnd"
       >
-        <!-- soviet red star -->
         <polygon points="50,5 61,39 98,39 67,59 79,91 50,72 21,91 33,59 2,39 39,39" fill="#c2201f"/>
       </svg>
     </div>
@@ -90,18 +87,15 @@ function onOverlayEnd() {
 </template>
 
 <style scoped>
-/* overlay SVG animation: rotate in, swell, then fade (animation duration ~1.2s) */
+/* restored overlay animation for the star */
 @keyframes overlaySpin {
   0% { transform: rotate(-90deg) scale(0.6); opacity: 0; filter: blur(0.5px); }
   40% { transform: rotate(20deg) scale(1.15); opacity: 1; filter: blur(0); }
   70% { transform: rotate(-6deg) scale(1.05); opacity: 0.9; }
   100% { transform: rotate(-6deg) scale(1.05); opacity: 0; }
 }
-/* apply the animation to the SVG overlay */
 .overlay-svg {
   animation: overlaySpin 1.2s cubic-bezier(.2,.9,.25,1) both;
   transform-origin: center;
 }
-
-/* removed external-filter rule; star uses direct fill color */
 </style>
