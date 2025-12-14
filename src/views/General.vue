@@ -35,8 +35,8 @@ function onOverlayEnd() {
 </script>
 
 <template>
-  <!-- use Tailwind utilities instead of fixed inset + custom CSS -->
-  <div class="min-h-screen w-full min-w-0 overflow-x-hidden bg-[#1f1f21] flex items-center justify-center px-4 sm:px-6 md:px-8">
+  <!-- constrain to viewport minus app top padding (pt-20 = 5rem) and center vertically -->
+  <div class="w-full min-w-0 overflow-x-hidden bg-[#1f1f21] flex items-center justify-center px-4 sm:px-6 md:px-8 min-h-[calc(100vh-5rem)]">
     <!-- animated SVG overlay (fallback timer still hides it) -->
     <div v-if="showOverlay" class="absolute inset-0 z-50 flex items-center justify-center pointer-events-none">
       <svg
@@ -57,7 +57,7 @@ function onOverlayEnd() {
         <div
           class="w-full max-w-5xl mx-auto bg-[#2b2b2b] border border-[#3f3f3f] rounded-2xl shadow-xl p-8 md:p-12 flex flex-col items-center transform transition-all duration-500"
           :class="showOverlay ? 'scale-90 rotate-6 opacity-0' : 'scale-100 rotate-0 opacity-100'"
-          style="max-height: calc(100vh - 4rem); overflow: hidden;"
+          style="max-height: calc(100vh - 6rem); overflow: auto;"
         >
           <h1 class="text-[#ffd66b] font-extrabold text-4xl md:text-5xl text-center select-none mb-6">aidashpy</h1>
 
