@@ -41,15 +41,14 @@ const openGoodreads = (book) => {
 
 <template>
   <article class="group w-full bg-[#2f2b2a] border border-[#3a3838] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-200">
-    <!-- increased padding on small screens: p-4 (mobile) and sm:p-5 for slightly larger -->
     <div class="flex items-stretch gap-3 p-4 sm:p-5">
-      <!-- thumbnail frame with XY padding -->
+      <!-- thumbnail: make parent relative and keep sizes shrinkable -->
       <div
         role="link"
         tabindex="0"
         @click="openGoodreads(props.book)"
         @keydown.enter="openGoodreads(props.book)"
-        class="flex-none w-24 sm:w-28 md:w-32 h-36 rounded-lg bg-[#1f1f1f] p-2 sm:p-3 flex items-center justify-center"
+        class="relative flex-none w-24 sm:w-28 md:w-32 h-36 rounded-lg bg-[#1f1f1f] p-2 sm:p-3 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-[#ffd66b]/30"
         :title="`Search ${props.book.name} on Goodreads`"
       >
         <!-- thumbnail placeholder -->
@@ -96,14 +95,3 @@ const openGoodreads = (book) => {
     </div>
   </article>
 </template>
-
-<style scoped>
-/* subtle focus outline for accessibility */
-[role="link"]:focus {
-  outline: 2px solid rgba(255,214,107,0.18);
-  outline-offset: 2px;
-  border-radius: 8px;
-}
-/* ensure the pulse placeholder sits behind the image */
-.group img { display: block; }
-</style>
