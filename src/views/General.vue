@@ -1,10 +1,135 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue"; // added onBeforeUnmount
 import { RouterLink } from "vue-router";
 import { yearlyBookEntries } from "../javascript/yearlyBookData";
 
 const created = ref(false);
 const showOverlay = ref(true);
+
+const cardRef = ref(null);
+const cardStyle = ref({});
+let targetTiltX = 0;
+let targetTiltY = 0;
+let currentTiltX = 0;
+let currentTiltY = 0;
+let targetTx = 0;
+let targetTy = 0;
+let currentTx = 0;
+let currentTy = 0;
+const maxTilt = 1.5; // degrees (subtle)
+const maxTranslate = 6; // px (subtle)
+
+// new: flag to mark the initial entry
+const justEntered = ref(false);
+
+// unified updater that can use smooth transition for the initial on
+function updateCardStyle(useSmooth = false) {
+  const hoverMag = Math.min(1, Math.hypot(currentTiltX, currentTiltY) / (maxTilt * 0.6));
+  const scale = 1 + 0.01 * hoverMag;
+  cardStyle.value = {
+    transform: `perspective(1000px) translate3d(${currentTx}px, ${currentTy}px, 0) rotateX(${currentTiltX}deg) rotateY(${currentTiltY}deg) scale(${scale})`,
+    willChange: "transform",
+    transition: useSmooth ? "transform 820ms cubic-bezier(.22,1,.36,1)" : "none",
+  };
+}
+
+function handleMouseMove(e) {
+  const el = cardRef.value;
+  if (!el) return;
+  const rect = el.getBoundingClientRect();
+  const x = e.clientX - rect.left; // x within element
+  const y = e.clientY - rect.top;
+  const nx = (x - rect.width / 2) / (rect.width / 2); // -1..1
+  const ny = (y - rect.height / 2) / (rect.height / 2); // -1..1
+
+  targetTiltY = nx * maxTilt * -1; // rotateY (invert for natural direction)
+  targetTiltX = -ny * maxTilt; // inverted so area under cursor is pushed down
+  targetTx = nx * maxTranslate;
+  targetTy = ny * maxTranslate * -1;
+
+  // apply immediately; use smooth transition only for the very first movement after enter
+  currentTiltX = targetTiltX;
+  currentTiltY = targetTiltY;
+  currentTx = targetTx;
+  currentTy = targetTy;
+  updateCardStyle(justEntered.value);
+  if (justEntered.value) justEntered.value = false;
+}
+
+function handleMouseEnter() {
+  justEntered.value = true;
+}
+
+function handleMouseLeave() {
+  // reset to neutral with a very smooth, slow snap-back
+  currentTiltX = 0;
+  currentTiltY = 0;
+  currentTx = 0;
+  currentTy = 0;
+  const scale = 1;
+  cardStyle.value = {
+    transform: `perspective(1000px) translate3d(0px, 0px, 0) rotateX(0deg) rotateY(0deg) scale(${scale})`,
+    willChange: "transform",
+    transition: "transform 820ms cubic-bezier(.22,1,.36,1)", // slower & very smooth
+  };
+}
+
+function onOverlayEnd() {
+  showOverlay.value = false;
+}
+
+const gyroAttached = ref(false);
+async function requestGyroPermission() {
+  // iOS 13+ requires a user gesture to request permission
+  if (typeof DeviceOrientationEvent !== "undefined" && typeof DeviceOrientationEvent.requestPermission === "function") {
+    try {
+      const res = await DeviceOrientationEvent.requestPermission();
+      if (res === "granted") {
+        attachGyro();
+      }
+    } catch (err) {
+      // permission denied or not available
+    }
+  } else {
+    // non-iOS or older browsers — attach directly
+    attachGyro();
+  }
+}
+
+function attachGyro() {
+  if (gyroAttached.value) return;
+  window.addEventListener("deviceorientation", handleDeviceOrientation, true);
+  gyroAttached.value = true;
+}
+
+function detachGyro() {
+  if (!gyroAttached.value) return;
+  window.removeEventListener("deviceorientation", handleDeviceOrientation, true);
+  gyroAttached.value = false;
+}
+
+function handleDeviceOrientation(ev) {
+  // map device orientation to normalized -1..1 values
+  const gamma = ev.gamma ?? 0; // left/right tilt ~ -90..90
+  const beta = ev.beta ?? 0;   // front/back tilt ~ -180..180
+
+  // normalize and clamp to [-1,1] using a sensible divisor (45deg)
+  const nx = Math.max(-1, Math.min(1, gamma / 45));
+  const ny = Math.max(-1, Math.min(1, beta / 45));
+
+  targetTiltY = nx * maxTilt * -1;
+  targetTiltX = -ny * maxTilt;
+  targetTx = nx * maxTranslate;
+  targetTy = ny * maxTranslate * -1;
+
+  // apply immediately; initial gyro-on should be smooth like mouse-on
+  currentTiltX = targetTiltX;
+  currentTiltY = targetTiltY;
+  currentTx = targetTx;
+  currentTy = targetTy;
+  updateCardStyle(justEntered.value);
+  if (justEntered.value) justEntered.value = false;
+}
 
 onMounted(() => {
   created.value = true;
@@ -27,11 +152,25 @@ onMounted(() => {
   } catch (err) {
     // fail silently
   }
+
+  // initial neutral style (use same very smooth transition for consistent snap-back)
+  cardStyle.value = {
+    transform: "none",
+    willChange: "transform",
+    transition: "transform 820ms cubic-bezier(.22,1,.36,1)",
+  };
+
+  // request permission on first touch/click (user gesture) for iOS; attach directly otherwise
+  window.addEventListener("touchstart", requestGyroPermission, { once: true, passive: true });
+  window.addEventListener("click", requestGyroPermission, { once: true, passive: true });
 });
 
-function onOverlayEnd() {
-  showOverlay.value = false;
-}
+onBeforeUnmount(() => {
+  // remove gyro listeners and any pending request handlers
+  detachGyro();
+  window.removeEventListener("touchstart", requestGyroPermission);
+  window.removeEventListener("click", requestGyroPermission);
+});
 </script>
 
 <template>
@@ -55,9 +194,13 @@ function onOverlayEnd() {
       <div v-if="created" class="w-full flex items-center justify-center">
         <!-- card: change background to more grey and adjust border -->
         <div
-          class="w-full max-w-5xl mx-auto bg-[#2b2b2b] border border-[#3f3f3f] rounded-2xl shadow-xl p-8 md:p-12 flex flex-col items-center transform transition-all duration-500"
+          ref="cardRef"
+          @mouseenter="handleMouseEnter"
+          @mousemove="handleMouseMove"
+          @mouseleave="handleMouseLeave"
+          class="w-full max-w-5xl mx-auto bg-[#2b2b2b] border border-[#3f3f3f] rounded-2xl shadow-xl p-8 md:p-12 flex flex-col items-center transform transition-all duration-500 will-change-transform"
           :class="showOverlay ? 'scale-90 rotate-6 opacity-0' : 'scale-100 rotate-0 opacity-100'"
-          style="max-height: calc(100vh - 6rem); overflow: auto;"
+          :style="[cardStyle, { maxHeight: 'calc(100vh - 6rem)', overflow: 'auto' }]"
         >
           <h1 class="text-[#ffd66b] font-extrabold text-4xl md:text-5xl text-center select-none mb-6">aidashpy</h1>
 
