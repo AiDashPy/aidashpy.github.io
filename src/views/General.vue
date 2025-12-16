@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue"; // added onBeforeUnmount
+import { ref, onMounted } from "vue";
 import { RouterLink } from "vue-router";
 import { yearlyBookEntries } from "../javascript/yearlyBookData";
 
@@ -78,59 +78,6 @@ function onOverlayEnd() {
   showOverlay.value = false;
 }
 
-const gyroAttached = ref(false);
-async function requestGyroPermission() {
-  // iOS 13+ requires a user gesture to request permission
-  if (typeof DeviceOrientationEvent !== "undefined" && typeof DeviceOrientationEvent.requestPermission === "function") {
-    try {
-      const res = await DeviceOrientationEvent.requestPermission();
-      if (res === "granted") {
-        attachGyro();
-      }
-    } catch (err) {
-      // permission denied or not available
-    }
-  } else {
-    // non-iOS or older browsers — attach directly
-    attachGyro();
-  }
-}
-
-function attachGyro() {
-  if (gyroAttached.value) return;
-  window.addEventListener("deviceorientation", handleDeviceOrientation, true);
-  gyroAttached.value = true;
-}
-
-function detachGyro() {
-  if (!gyroAttached.value) return;
-  window.removeEventListener("deviceorientation", handleDeviceOrientation, true);
-  gyroAttached.value = false;
-}
-
-function handleDeviceOrientation(ev) {
-  // map device orientation to normalized -1..1 values
-  const gamma = ev.gamma ?? 0; // left/right tilt ~ -90..90
-  const beta = ev.beta ?? 0;   // front/back tilt ~ -180..180
-
-  // normalize and clamp to [-1,1] using a sensible divisor (45deg)
-  const nx = Math.max(-1, Math.min(1, gamma / 45));
-  const ny = Math.max(-1, Math.min(1, beta / 45));
-
-  targetTiltY = nx * maxTilt * -1;
-  targetTiltX = -ny * maxTilt;
-  targetTx = nx * maxTranslate;
-  targetTy = ny * maxTranslate * -1;
-
-  // apply immediately; initial gyro-on should be smooth like mouse-on
-  currentTiltX = targetTiltX;
-  currentTiltY = targetTiltY;
-  currentTx = targetTx;
-  currentTy = targetTy;
-  updateCardStyle(justEntered.value);
-  if (justEntered.value) justEntered.value = false;
-}
-
 onMounted(() => {
   created.value = true;
   // fallback hide overlay after 1300ms in case animationend doesn't fire
@@ -160,16 +107,7 @@ onMounted(() => {
     transition: "transform 820ms cubic-bezier(.22,1,.36,1)",
   };
 
-  // request permission on first touch/click (user gesture) for iOS; attach directly otherwise
-  window.addEventListener("touchstart", requestGyroPermission, { once: true, passive: true });
-  window.addEventListener("click", requestGyroPermission, { once: true, passive: true });
-});
-
-onBeforeUnmount(() => {
-  // remove gyro listeners and any pending request handlers
-  detachGyro();
-  window.removeEventListener("touchstart", requestGyroPermission);
-  window.removeEventListener("click", requestGyroPermission);
+  // no gyro: nothing to attach for deviceorientation
 });
 </script>
 
