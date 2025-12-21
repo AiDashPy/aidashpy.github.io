@@ -2,12 +2,12 @@ export const yearlyBookEntries = [
   {
     year: "2025",
     entries: [
-      // {
-      //   name: "History of the Internatinal 1864-1914",
-      //   author: "Julius Braunthal",
-      //   finish: "Finished 12/31/2025",
-      //   img: "/images/internationalvol1.webp",
-      // },
+      {
+        name: "History of the International 1864-1914",
+        author: "Julius Braunthal",
+        finish: "Finished 12/20/2025",
+        img: "/images/internationalvol1.webp",
+      },
       {
         name: "Complete Works",
         author: "Plato",
