@@ -3,6 +3,12 @@ export const yearlyBookEntries = [
     year: "2025",
     entries: [
       {
+        name: "The German Revolutions",
+        author: "Friedrich Engels",
+        finish: "Finished 12/23/2025",
+        img: "/images/germanRevolutions.webp",
+      },
+      {
         name: "History of the International 1864-1914",
         author: "Julius Braunthal",
         finish: "Finished 12/20/2025",
