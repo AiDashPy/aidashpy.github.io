@@ -1,5 +1,16 @@
 export const yearlyBookEntries = [
   {
+    year: "2026",
+    entries: [
+      {
+        name: "Capital - Volume 3",
+        author: "Karl Marx",
+        finish: "Finished 02/18/2026",
+        img: "/images/capitalThree.webp",
+      },
+    ]
+  },
+  {
     year: "2025",
     entries: [
       {
