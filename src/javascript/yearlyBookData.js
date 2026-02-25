@@ -8,6 +8,12 @@ export const yearlyBookEntries = [
         finish: "Finished 02/18/2026",
         img: "/images/capitalThree.webp",
       },
+      {
+        name: "How China Works",
+        author: "Xiaohuan Lan",
+        finish: "Finished 02/25/2026",
+        img: "/images/howChinaWorks.webp",
+      },
     ]
   },
   {
