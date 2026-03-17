@@ -14,6 +14,12 @@ export const yearlyBookEntries = [
         finish: "Finished 02/25/2026",
         img: "/images/howChinaWorks.webp",
       },
+      {
+        name: "The Science and Passion of Communism",
+        author: "Amadeo Bordiga, Pietro Basso",
+        finish: "Finished 03/17/2026",
+        img: "/images/ScienceAndPassion.webp",
+      },
     ]
   },
   {
