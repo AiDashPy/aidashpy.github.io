@@ -20,6 +20,12 @@ export const yearlyBookEntries = [
         finish: "Finished 03/17/2026",
         img: "/images/ScienceAndPassion.webp",
       },
+      {
+        name: "红鞋子",
+        author: "汤素兰",
+        finish: "Finished 03/25/2026",
+        img: "/images/红鞋子.webp",
+      },
     ]
   },
   {
