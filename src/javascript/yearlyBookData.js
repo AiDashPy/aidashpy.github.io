@@ -26,6 +26,12 @@ export const yearlyBookEntries = [
         finish: "Finished 03/25/2026",
         img: "/images/红鞋子.webp",
       },
+      {
+        name: "The Class Struggles in France, 1848-1850",
+        author: "Karl Marx",
+        finish: "Finished 03/30/2026",
+        img: "/images/classStruggleInFrance.webp",
+      },
     ]
   },
   {
