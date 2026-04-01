@@ -32,6 +32,12 @@ export const yearlyBookEntries = [
         finish: "Finished 03/30/2026",
         img: "/images/classStruggleInFrance.webp",
       },
+      {
+        name: "The German Revolution, 1917-1923",
+        author: "Pierre Broué",
+        finish: "Started 03/31/2026",
+        img: "/images/theGermanRevolution.webp",
+      },
     ]
   },
   {
