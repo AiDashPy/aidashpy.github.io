@@ -33,6 +33,12 @@ export const yearlyBookEntries = [
         img: "/images/classStruggleInFrance.webp",
       },
       {
+        name: "小王子",
+        author: "Antoine de Saint-Exupéry",
+        finish: "Finished 04/01/2026",
+        img: "/images/小王子.webp",
+      },
+      {
         name: "The German Revolution, 1917-1923",
         author: "Pierre Broué",
         finish: "Started 03/31/2026",
