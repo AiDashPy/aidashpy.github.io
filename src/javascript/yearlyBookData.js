@@ -44,6 +44,12 @@ export const yearlyBookEntries = [
         finish: "Started 03/31/2026",
         img: "/images/theGermanRevolution.webp",
       },
+      {
+        name: "宝葫芦的秘密",
+        author: "张天翼",
+        finish: "Finished 04/16/2026",
+        img: "/images/baohulu.webp",
+      },
     ]
   },
   {
