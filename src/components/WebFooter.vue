@@ -1,29 +1,50 @@
 <script setup>
 import { RouterLink } from "vue-router";
-const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
+const top = () => window.scrollTo({ top: 0, behavior: "smooth" });
 </script>
 
 <template>
-  <!-- full-bleed footer in document flow (not fixed) -->
-  <footer class="w-full bg-[#1d2021] border-white/5 mt-6">
-    <div class="max-w-[1440px] mx-auto px-4 flex items-center justify-center gap-6 py-4">
-      <!-- <div class="text-sm font-semibold text-[#ebdbb2]">© curated log</div> -->
-      <div class="flex gap-3">
-        <a class="text-sm px-3 py-1 rounded bg-white/2 hover:bg-white/5" href="https://www.goodreads.com/review/list/168293432?ref=nav_mybooks" target="_blank" rel="noopener noreferrer">Goodreads</a>
-        <RouterLink class="text-sm px-3 py-1 rounded bg-white/2 hover:bg-white/5" to="/links">Links</RouterLink>
-
-        <!-- added: Go to top button -->
-        <button
-          type="button"
-          @click="scrollToTop"
-          aria-label="Scroll to top"
-          class="text-sm px-3 py-1 rounded bg-white/2 hover:bg-white/5 cursor-pointer"
-        >
-          ↑ Top
-        </button>
+  <footer class="ft">
+    <div class="ft-inner">
+      <span class="ft-mark">· · ·</span>
+      <div class="ft-links">
+        <a class="fl" href="https://www.goodreads.com/review/list/168293432?ref=nav_mybooks" target="_blank" rel="noopener noreferrer">Goodreads</a>
+        <RouterLink class="fl" to="/links">links</RouterLink>
+        <button class="fl fl-btn" @click="top" aria-label="Scroll to top">↑ Top</button>
       </div>
     </div>
   </footer>
 </template>
+
+<style scoped>
+.ft {
+  border-top: 1px solid #252110;
+  margin-top: 1rem;
+}
+.ft-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (min-width: 640px)  { .ft-inner { padding: 1rem 1.75rem; } }
+@media (min-width: 1024px) { .ft-inner { padding: 1rem 1.5rem; } }
+
+.ft-mark { font-size: 10px; color: #2e2b1c; letter-spacing: 0.1em; user-select: none; }
+
+.ft-links { display: flex; gap: 2px; }
+
+.fl {
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: #4a4630;
+  text-decoration: none;
+  padding: 4px 9px;
+  border-radius: 6px;
+  transition: color 130ms, background 130ms;
+}
+.fl:hover { color: #8a8260; background: rgba(255,245,215,0.04); }
+.fl-btn { border: none; background: transparent; cursor: pointer; font-family: inherit; }
+</style>
