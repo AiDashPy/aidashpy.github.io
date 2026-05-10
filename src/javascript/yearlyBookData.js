@@ -50,6 +50,12 @@ export const yearlyBookEntries = [
         finish: "Finished 04/16/2026",
         img: "/images/baohulu.webp",
       },
+      {
+        name: "稻草人",
+        author: "叶圣陶",
+        finish: "Finished 05/10/2026",
+        img: "/images/daocaoren.webp",
+      },
     ]
   },
   {
