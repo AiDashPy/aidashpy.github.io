@@ -39,12 +39,6 @@ export const yearlyBookEntries = [
         img: "/images/小王子.webp",
       },
       {
-        name: "The German Revolution, 1917-1923",
-        author: "Pierre Broué",
-        finish: "Started 03/31/2026",
-        img: "/images/theGermanRevolution.webp",
-      },
-      {
         name: "宝葫芦的秘密",
         author: "张天翼",
         finish: "Finished 04/16/2026",
@@ -55,6 +49,12 @@ export const yearlyBookEntries = [
         author: "叶圣陶",
         finish: "Finished 05/10/2026",
         img: "/images/daocaoren.webp",
+      },
+      {
+        name: "The German Revolution, 1917-1923",
+        author: "Pierre Broué",
+        finish: "Finished 05/12/2026",
+        img: "/images/theGermanRevolution.webp",
       },
     ]
   },
