@@ -1,0 +1,68 @@
+[
+  {
+    "year": "2026",
+    "entries": [
+      { "name": "Capital - Volume 3", "author": "Karl Marx", "finished": true, "date": "02/18/2026", "img": "/images/capitalThree.webp" },
+      { "name": "How China Works", "author": "Xiaohuan Lan", "finished": true, "date": "02/25/2026", "img": "/images/howChinaWorks.webp" },
+      { "name": "The Science and Passion of Communism", "author": "Amadeo Bordiga, Pietro Basso", "finished": true, "date": "03/17/2026", "img": "/images/ScienceAndPassion.webp" },
+      { "name": "红鞋子", "author": "汤素兰", "finished": true, "date": "03/25/2026", "img": "/images/红鞋子.webp" },
+      { "name": "The Class Struggles in France, 1848-1850", "author": "Karl Marx", "finished": true, "date": "03/30/2026", "img": "/images/classStruggleInFrance.webp" },
+      { "name": "小王子", "author": "Antoine de Saint-Exupéry", "finished": true, "date": "04/01/2026", "img": "/images/小王子.webp" },
+      { "name": "宝葫芦的秘密", "author": "张天翼", "finished": true, "date": "04/16/2026", "img": "/images/baohulu.webp" },
+      { "name": "稻草人", "author": "叶圣陶", "finished": true, "date": "05/10/2026", "img": "/images/daocaoren.webp" },
+      { "name": "The German Revolution, 1917-1923", "author": "Pierre Broué", "finished": true, "date": "05/12/2026", "img": "/images/theGermanRevolution.webp" }
+    ]
+  },
+  {
+    "year": "2025",
+    "entries": [
+      { "name": "The German Revolutions", "author": "Friedrich Engels", "finished": true, "date": "12/23/2025", "img": "/images/germanRevolutions.webp" },
+      { "name": "History of the International 1864-1914", "author": "Julius Braunthal", "finished": true, "date": "12/20/2025", "img": "/images/internationalvol1.webp" },
+      { "name": "Complete Works", "author": "Plato", "finished": true, "date": "10/25/2025", "img": "/images/platocomplete.webp" },
+      { "name": "V.", "author": "Thomas Pynchon", "finished": true, "date": "11/30/2025", "img": "/images/v.webp" },
+      { "name": "From Friend to Comrade", "author": "Hans van de Ven", "finished": true, "date": "12/06/2025", "img": "/images/friendtocom.webp" },
+      { "name": "The Rise and Fall of the Italian Communist Party", "author": "Silvio Pons", "finished": true, "date": "12/12/2025", "img": "/images/riseandfall.webp" },
+      { "name": "Fragments", "author": "Heraclitus & T.M. Robinson", "finished": true, "date": "07/26/2025", "img": "/images/heraclitusFragments.webp" },
+      { "name": "The Bolsheviks in Power", "author": "Alexander Rabinowitch", "finished": true, "date": "07/23/2025", "img": "/images/bolsheviksInPower.webp" },
+      { "name": "The Bolsheviks Come to Power", "author": "Alexander Rabinowitch", "finished": true, "date": "07/16/2025", "img": "/images/bolsheviksCome.webp" },
+      { "name": "Prelude to Revolution", "author": "Alexander Rabinowitch", "finished": true, "date": "07/10/2025", "img": "/images/preludeToRevolution.webp" },
+      { "name": "The Soviet Experiment", "author": "Ronald Suny", "finished": true, "date": "07/07/2025", "img": "/images/sovietExperiment.webp" },
+      { "name": "The Socialist Party of America", "author": "Jack Ross", "finished": true, "date": "06/23/2025", "img": "/images/SPAmerica.webp" },
+      { "name": "History and Class Consciousness", "author": "Georg Lukács", "finished": true, "date": "06/13/2025", "img": "/images/historyClass.webp" },
+      { "name": "Communism, the Highest Stage of Ecology", "author": "Guillaume Suing", "finished": true, "date": "06/08/2025", "img": "/images/highestEcology.webp" },
+      { "name": "Black Scare / Red Scare", "author": "Charisse Burden-Stelly", "finished": true, "date": "06/04/2025", "img": "/images/blackScare.webp" },
+      { "name": "The Republic Shall Be Kept Clean", "author": "Tariq D. Khan", "finished": true, "date": "06/01/2025", "img": "/images/theRepublic.webp" },
+      { "name": "Colonizing Palestine", "author": "Areej Sabbagh-Khoury", "finished": true, "date": "05/28/2025", "img": "/images/colonizingPalestine.webp" },
+      { "name": "Colonizing Kashmir", "author": "Hafsa Kanjwal", "finished": true, "date": "05/25/2025", "img": "/images/colonizingKashmir.webp" },
+      { "name": "The Georgics", "author": "Virgil", "finished": true, "date": "05/19/2025", "img": "/images/georgics.webp" },
+      { "name": "La Vita Nuova", "author": "Dante Alighieri", "finished": true, "date": "05/15/2025", "img": "/images/vitaNuova.webp" },
+      { "name": "Mobile Suit Gundam: Hathaway's Flash, 1-3", "author": "Yoshiyuki Tomino", "finished": true, "date": "05/13/2025", "img": "/images/hathaway.webp" },
+      { "name": "Mobile Suit Gundam: Beltorchika's Children", "author": "Yoshiyuki Tomino", "finished": true, "date": "05/06/2025", "img": "/images/beltorchika.webp" },
+      { "name": "Mobile Suit Gundam: Hi-Streamer, 1-3", "author": "Yoshiyuki Tomino", "finished": true, "date": "05/03/2025", "img": "/images/hiStreamer.webp" },
+      { "name": "Mobile Suit Zeta Gundam, 1-5", "author": "Yoshiyuki Tomino", "finished": true, "date": "04/26/2025", "img": "/images/zetaGundam.webp" },
+      { "name": "The Odyssey", "author": "Homer", "finished": true, "date": "01/27/2025", "img": "/images/NewOdyssey.webp" },
+      { "name": "Capital - Volume 2", "author": "Karl Marx", "finished": true, "date": "01/12/2025", "img": "/images/NewCapitalVol2.webp" },
+      { "name": "The Iliad", "author": "Homer", "finished": true, "date": "01/04/2025", "img": "/images/NewIliad.webp" }
+    ]
+  },
+  {
+    "year": "2024",
+    "entries": [
+      { "name": "The Epic Of Gilgamesh", "author": "Unknown Author", "finished": true, "date": "12/27/2024", "img": "/images/TheEpicOfGilgamesh.webp" },
+      { "name": "Blood Meridian", "author": "Cormac McCarthy", "finished": true, "date": "12/22/2024", "img": "/images/NewBloodMeridian.webp" },
+      { "name": "Capital - Volume One", "author": "Karl Marx", "finished": true, "date": "12/15/2024", "img": "/images/NewCapitalVol1.webp" },
+      { "name": "The East Is Still Red", "author": "Carlos Martinez", "finished": true, "date": "11/26/2024", "img": "/images/NewTheEastIsStillRed.webp" },
+      { "name": "From Rebel To Ruler", "author": "Tony Saich", "finished": true, "date": "11/22/2024", "img": "/images/NewFromRebelToRuler.webp" },
+      { "name": "How To Hide An Empire", "author": "Daniel Immerwahr", "finished": true, "date": "11/09/2024", "img": "/images/NewHowToHideAnEmpire.webp" },
+      { "name": "The Hundred Years' War On Palestine", "author": "Rashid Khalidi", "finished": true, "date": "10/29/2024", "img": "/images/NewTheHundredYearsWarOnPalestine.webp" },
+      { "name": "Washington Bullets", "author": "Vijay Prashad", "finished": true, "date": "10/26/2024", "img": "/images/NewWashingtonBullets.webp" },
+      { "name": "Abolish Rent", "author": "Tracy Rosenthal & Leonardo Vilchis", "finished": true, "date": "10/20/2024", "img": "/images/NewAbolishRent.webp" },
+      { "name": "Western Marxism", "author": "Domenico Losurdo", "finished": true, "date": "10/14/2024", "img": "/images/NewWesternMarxism.webp" },
+      { "name": "The Wretched Of The Earth", "author": "Frantz Fanon", "finished": true, "date": "07/09/2024", "img": "/images/NewWretchedOfTheEarth.webp" },
+      { "name": "Roadside Picnic", "author": "Arkady & Boris Strugatsky", "finished": true, "date": "07/03/2024", "img": "/images/NewRoadsidePicnic.webp" },
+      { "name": "Solaris", "author": "Stanisław Lem", "finished": true, "date": "06/17/2024", "img": "/images/NewSolaris.webp" },
+      { "name": "Technofeudalism: What Killed Capitalism", "author": "Yanis Varoufakis", "finished": true, "date": "05/19/2024", "img": "/images/NewTechnofeudalism.webp" },
+      { "name": "Liberalism: A Counter-History", "author": "Domenico Losurdo", "finished": true, "date": "05/16/2024", "img": "/images/NewLiberalism.webp" }
+    ]
+  }
+]
