@@ -31,11 +31,11 @@
         "img": "/images/ScienceAndPassion.webp"
       },
       {
-        "name": "çº¢éå­",
-        "author": "æ±¤ç´ å°",
+        "name": "红鞋子",
+        "author": "汤素兰",
         "finished": true,
         "date": "03/25/2026",
-        "img": "/images/çº¢éå­.webp"
+        "img": "/images/红鞋子.webp"
       },
       {
         "name": "The Class Struggles in France, 1848-1850",
@@ -45,29 +45,29 @@
         "img": "/images/classStruggleInFrance.webp"
       },
       {
-        "name": "å°çå­",
-        "author": "Antoine de Saint-ExupÃ©ry",
+        "name": "小王子",
+        "author": "Antoine de Saint-Exupéry",
         "finished": true,
         "date": "04/01/2026",
-        "img": "/images/å°çå­.webp"
+        "img": "/images/小王子.webp"
       },
       {
-        "name": "å®è«è¦çç§å¯",
-        "author": "å¼ å¤©ç¿¼",
+        "name": "宝葫芦的秘密",
+        "author": "张天翼",
         "finished": true,
         "date": "04/16/2026",
         "img": "/images/baohulu.webp"
       },
       {
-        "name": "ç¨»èäºº",
-        "author": "å¶å£é¶",
+        "name": "稻草人",
+        "author": "叶圣陶",
         "finished": true,
         "date": "05/10/2026",
         "img": "/images/daocaoren.webp"
       },
       {
         "name": "The German Revolution, 1917-1923",
-        "author": "Pierre BrouÃ©",
+        "author": "Pierre Broué",
         "finished": true,
         "date": "05/12/2026",
         "img": "/images/theGermanRevolution.webp"
@@ -163,7 +163,7 @@
       },
       {
         "name": "History and Class Consciousness",
-        "author": "Georg LukÃ¡cs",
+        "author": "Georg Lukács",
         "finished": true,
         "date": "06/13/2025",
         "img": "/images/historyClass.webp"
@@ -357,7 +357,7 @@
       },
       {
         "name": "Solaris",
-        "author": "StanisÅaw Lem",
+        "author": "Stanisław Lem",
         "finished": true,
         "date": "06/17/2024",
         "img": "/images/NewSolaris.webp"
