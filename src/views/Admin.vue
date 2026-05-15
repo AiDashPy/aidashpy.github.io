@@ -98,11 +98,17 @@ async function ghPutFile(path, branch, content, sha, message, binary = false) {
   return res.json();
 }
 
+function b64Decode(str) {
+  const binary = atob(str.replace(/\n/g, ""));
+  const bytes = Uint8Array.from(binary, (c) => c.charCodeAt(0));
+  return new TextDecoder().decode(bytes);
+}
+
 async function updateBooksFile(filePath, branch, newBook) {
   const file = await ghGetFile(filePath, branch);
   let entries = [];
   if (file) {
-    try { entries = JSON.parse(atob(file.content.replace(/\n/g, ""))); } catch {}
+    try { entries = JSON.parse(b64Decode(file.content)); } catch {}
   }
   const m = newBook.date?.match(/\/(\d{4})$/);
   const year = m ? m[1] : String(new Date().getFullYear());
