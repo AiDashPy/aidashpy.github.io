@@ -1,7 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { RouterLink } from "vue-router";
-import { yearlyBookEntries } from "../javascript/yearlyBookData";
 
 const created = ref(false);
 const showOverlay = ref(true);
@@ -59,12 +58,12 @@ onMounted(() => {
   created.value = true;
   setTimeout(() => { showOverlay.value = false; }, 1400);
 
-  try {
-    yearlyBookEntries.forEach((year) =>
+  new Image().src = "/images/ThePaintingNewPlanetNew.webp";
+  fetch("/books.json").then((r) => r.json()).then((entries) => {
+    entries.forEach((year) =>
       (year.entries || []).forEach((e) => { if (e?.img) new Image().src = e.img; })
     );
-    new Image().src = "/images/ThePaintingNewPlanetNew.webp";
-  } catch {}
+  }).catch(() => {});
 
   cardStyle.value = {
     transform: "none",

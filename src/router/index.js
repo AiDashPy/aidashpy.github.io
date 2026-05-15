@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import General from '../views/General.vue'
+import Admin from '../views/Admin.vue'
 
 const routes = [
     {
@@ -12,6 +13,11 @@ const routes = [
         path: '/links',
         name: "aidashpy - links",
         component: General
+    },
+    {
+        path: '/admin',
+        name: 'admin',
+        component: Admin
     },
     {
         path: "/:catchAll(.*)",

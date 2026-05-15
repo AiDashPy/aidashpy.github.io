@@ -28,11 +28,14 @@ const openGoodreads = () => {
 };
 
 const shortFinish = computed(() => {
-  const f = props.book.finish;
-  if (!f) return '';
-  const isStarted = /^started/i.test(f);
-  const date = f.replace(/^(?:Finished|Started)\s*/i, '');
-  return isStarted ? `in progress` : date;
+  const { finished, date, finish } = props.book;
+  if (finished !== undefined) return finished ? (date || '') : 'in progress';
+  if (finish) {
+    const isStarted = /^started/i.test(finish);
+    const d = finish.replace(/^(?:Finished|Started)\s*/i, '');
+    return isStarted ? 'in progress' : d;
+  }
+  return '';
 });
 
 const indexLabel = computed(() => String(props.index).padStart(2, '0'));

@@ -1,24 +1,46 @@
 <script setup>
 import { ref, computed, watch, onMounted, onUnmounted } from "vue";
+import { useRouter } from "vue-router";
 import BookEntry from "../components/BookEntry.vue";
 import WebHeader from "../components/WebHeader.vue";
 import WebFooter from "../components/WebFooter.vue";
 import YearBadge from "../components/YearBadge.vue";
-import { yearlyBookEntries } from "../javascript/yearlyBookData";
+
+const router = useRouter();
+let keyBuffer = "";
+let keyTimer = null;
+function onKeydown(e) {
+  if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  if (e.key.length !== 1) return;
+  keyBuffer += e.key.toLowerCase();
+  clearTimeout(keyTimer);
+  keyTimer = setTimeout(() => { keyBuffer = ""; }, 1000);
+  if (keyBuffer.endsWith("admin")) { keyBuffer = ""; clearTimeout(keyTimer); router.push("/admin"); }
+}
 
 const selectedYear = ref(0);
 const showYears = ref(false);
 const priorityCount = 6;
+const books = ref([]);
 
 function parseDateFromBook(b) {
   if (!b) return 0;
-  if (b.date) { const t = Date.parse(b.date); if (!Number.isNaN(t)) return t; }
-  if (b.finish) { const t = Date.parse(b.finish.replace(/^(?:Finished|Started)\s*/i, "")); if (!Number.isNaN(t)) return t; }
+  if (b.date) {
+    const m = b.date.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    if (m) return Date.UTC(+m[3], +m[1] - 1, +m[2]);
+    const t = Date.parse(b.date);
+    if (!Number.isNaN(t)) return t;
+  }
+  if (b.finish) {
+    const t = Date.parse(b.finish.replace(/^(?:Finished|Started)\s*/i, ""));
+    if (!Number.isNaN(t)) return t;
+  }
   return 0;
 }
 
 const sortedYears = computed(() =>
-  yearlyBookEntries.map((y) => ({
+  books.value.map((y) => ({
     ...y,
     entries: [...(y.entries || [])].sort((a, b) => parseDateFromBook(b) - parseDateFromBook(a)),
   }))
@@ -46,8 +68,15 @@ function prefetchImages(entries = []) {
   });
 }
 
-watch(() => entriesForSelected.value, prefetchImages, { immediate: true });
-onMounted(() => prefetchImages(entriesForSelected.value));
+watch(() => entriesForSelected.value, prefetchImages);
+
+onMounted(async () => {
+  document.addEventListener("keydown", onKeydown);
+  try {
+    const res = await fetch("/books.json");
+    books.value = await res.json();
+  } catch {}
+});
 
 function selectYear(i) {
   if (i === selectedYear.value) { showYears.value = false; return; }
@@ -65,6 +94,8 @@ watch(showYears, (open) => {
   }
 });
 onUnmounted(() => {
+  document.removeEventListener("keydown", onKeydown);
+  clearTimeout(keyTimer);
   if (typeof document !== "undefined") {
     document.body.style.overflow = "";
     document.documentElement.style.overflow = "";
