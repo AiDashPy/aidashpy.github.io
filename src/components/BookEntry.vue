@@ -78,6 +78,10 @@ function onImgError(e) {
 
 const bookDetailRef = ref(null);
 function openDetail() { bookDetailRef.value?.open(); }
+function onRowClick() {
+  if (window.getSelection()?.toString()) return;
+  openDetail();
+}
 
 const shortFinish = computed(() => {
   const { finished, date, finish } = props.book;
@@ -106,14 +110,14 @@ useIntersectionObserver(rowRef, ([{ isIntersecting }]) => {
     :class="{ 'row-visible': visible, 'row-ip': inProgress }"
     :style="{ '--accent': accentColor, '--accent-dim': accentDim, '--accent-glow': accentGlow }"
   >
-    <div class="row-inner">
+    <div class="row-inner" @click="onRowClick">
 
       <!-- Index / now-reading dot -->
       <span v-if="inProgress" class="idx-dot" aria-hidden="true"></span>
       <span v-else class="idx" aria-hidden="true">{{ indexLabel }}</span>
 
       <!-- Cover -->
-      <button class="cover" @click="openDetail" :title="`View details for ${book.name}`" aria-label="View book details">
+      <div class="cover" :title="`View details for ${book.name}`">
         <div v-if="!imgLoaded" class="cover-bg"></div>
         <img
           :src="book.img"
@@ -127,7 +131,7 @@ useIntersectionObserver(rowRef, ([{ isIntersecting }]) => {
           crossorigin="anonymous"
           @error="onImgError"
         />
-      </button>
+      </div>
 
       <!-- Text -->
       <div class="text">
@@ -184,7 +188,7 @@ useIntersectionObserver(rowRef, ([{ isIntersecting }]) => {
   padding: 1.25rem 0.5rem;
   border-radius: 8px;
   transition: background 200ms ease;
-  margin: 0 -0.5rem;
+  cursor: pointer;
 }
 .row:hover .row-inner { background: var(--accent-glow, rgba(255, 245, 215, 0.028)); }
 
@@ -248,9 +252,6 @@ useIntersectionObserver(rowRef, ([{ isIntersecting }]) => {
   border-radius: 5px;
   overflow: hidden;
   background: #1a1812;
-  border: none;
-  padding: 0;
-  cursor: pointer;
   display: block;
   flex-shrink: 0;
 }
