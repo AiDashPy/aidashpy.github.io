@@ -295,14 +295,19 @@ async function searchGoogleBooks() {
   try {
     const key = import.meta.env.VITE_BOOKS_API_KEY
     const q = encodeURIComponent(gbQuery.value.trim())
-    const url = `https://www.googleapis.com/books/v1/volumes?q=${q}&maxResults=6&fields=items(id,volumeInfo(title,authors,imageLinks))${key ? `&key=${key}` : ''}`
+    const url = `https://www.googleapis.com/books/v1/volumes?q=${q}&maxResults=6&fields=items(id,volumeInfo(title,authors,imageLinks,industryIdentifiers))${key ? `&key=${key}` : ''}`
     const res = await fetch(url).then(r => r.json())
     gbResults.value = (res.items ?? [])
-      .map(item => ({
-        title: item.volumeInfo?.title ?? '',
-        author: item.volumeInfo?.authors?.[0] ?? '',
-        thumbnail: item.volumeInfo?.imageLinks?.thumbnail?.replace('http:', 'https:') ?? null,
-      }))
+      .map(item => {
+        const ids = item.volumeInfo?.industryIdentifiers ?? []
+        const isbn = (ids.find(i => i.type === 'ISBN_13') ?? ids.find(i => i.type === 'ISBN_10'))?.identifier ?? null
+        return {
+          title: item.volumeInfo?.title ?? '',
+          author: item.volumeInfo?.authors?.[0] ?? '',
+          thumbnail: item.volumeInfo?.imageLinks?.thumbnail?.replace('http:', 'https:') ?? null,
+          isbn,
+        }
+      })
       .filter(r => r.title)
     if (!gbResults.value.length) gbSearchErr.value = 'No results found.'
   } catch {
@@ -312,26 +317,46 @@ async function searchGoogleBooks() {
   }
 }
 
+async function fetchCoverBlob(item) {
+  // 1. Open Library covers API — CORS-friendly, no proxy needed
+  if (item.isbn) {
+    try {
+      const res = await fetch(`https://covers.openlibrary.org/b/isbn/${item.isbn}-L.jpg`)
+      if (res.ok && (res.headers.get('content-length') ?? '9999') !== '0') {
+        const blob = await res.blob()
+        if (blob.size > 1000) return blob  // skip 1×1 "not found" placeholders
+      }
+    } catch {}
+  }
+  // 2. Fallback: allorigins proxy for Google Books thumbnail
+  if (item.thumbnail) {
+    try {
+      const hiRes = item.thumbnail.replace(/zoom=\d+/, 'zoom=5')
+      const res = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(hiRes)}`)
+      if (res.ok) {
+        const blob = await res.blob()
+        if (blob.size > 1000) return blob
+      }
+    } catch {}
+  }
+  return null
+}
+
 async function selectGbResult(item) {
   form.value.name = item.title
   form.value.author = item.author
   gbResults.value = []
   gbQuery.value = ''
 
-  if (item.thumbnail) {
+  if (item.isbn || item.thumbnail) {
     clearImage()
     imgProcessing.value = true
     try {
-      // Bump zoom for higher res, then route through CORS proxy
-      const hiRes = item.thumbnail.replace(/zoom=\d+/, 'zoom=5')
-      const proxied = `https://corsproxy.io/?${encodeURIComponent(hiRes)}`
-      const res = await fetch(proxied)
-      if (res.ok) {
-        const blob = await res.blob()
+      const blob = await fetchCoverBlob(item)
+      if (blob) {
         const base = item.title.replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '').toLowerCase()
-        const file = new File([blob], `${base}.jpg`, { type: blob.type })
         form.value.imgFilename = `${base}.webp`
-        const result = await processImage(file)
+        const result = await processImage(new File([blob], `${base}.jpg`, { type: blob.type }))
         form.value.imgPreview = result.dataUrl
         imgInfo.value = { origW: result.origW, origH: result.origH, origSize: result.origSize, newW: result.newW, newH: result.newH, newSize: result.newSize }
       }
