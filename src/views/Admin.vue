@@ -1,17 +1,16 @@
 <script setup>
 import { ref, reactive, onMounted, watch } from "vue";
 
-const OWNER = "aidashpy";
-const REPO = "aidashpy.github.io";
 const ADMIN_USER = "aidashpy";
 const ADMIN_PASS_HASH = "efd457adc8e473a6a754dbec44971e226e8dc6c284dc2a88fbabe6708c800e67";
+const WORKER_URL = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.workers.dev";
 
 const authed = ref(false);
 const loginUser = ref("");
 const loginPass = ref("");
 const loginErr = ref("");
 const loginLoading = ref(false);
-const pat = ref("");
+const token = ref(""); // sha256(password) — used as Worker Bearer token
 
 const form = ref({ name: "", author: "", finished: true, date: "", imgFilename: "", imgPreview: "", imgManualPath: "" });
 const imgInputRef = ref(null);
@@ -26,26 +25,6 @@ async function sha256(str) {
   return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
-async function decryptPat(password) {
-  const blob = import.meta.env.VITE_ENCRYPTED_PAT;
-  if (!blob) throw new Error("No encrypted token in build.");
-  const combined = Uint8Array.from(atob(blob), (c) => c.charCodeAt(0));
-  const salt = combined.slice(0, 16);
-  const iv = combined.slice(16, 28);
-  const ciphertext = combined.slice(28);
-  const keyMaterial = await crypto.subtle.importKey(
-    "raw", new TextEncoder().encode(password), "PBKDF2", false, ["deriveKey"]
-  );
-  const key = await crypto.subtle.deriveKey(
-    { name: "PBKDF2", salt, iterations: 200000, hash: "SHA-256" },
-    keyMaterial,
-    { name: "AES-GCM", length: 256 },
-    false, ["decrypt"]
-  );
-  const plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, ciphertext);
-  return new TextDecoder().decode(plain);
-}
-
 async function login() {
   loginErr.value = "";
   loginLoading.value = true;
@@ -55,24 +34,17 @@ async function login() {
       loginErr.value = "Invalid credentials.";
       return;
     }
-    let token;
-    try {
-      token = await decryptPat(loginPass.value);
-    } catch {
-      loginErr.value = "Token decryption failed. Contact admin.";
-      return;
-    }
-    const test = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}`, {
-      headers: { Authorization: `token ${token}`, Accept: "application/vnd.github+json" },
+    const test = await fetch(`${WORKER_URL}/auth`, {
+      headers: { Authorization: `Bearer ${h}` },
     });
     if (!test.ok) {
-      loginErr.value = "GitHub token expired. Contact admin to re-encrypt.";
+      loginErr.value = "Worker auth failed — check ADMIN_TOKEN secret matches password hash.";
       return;
     }
-    pat.value = token;
+    token.value = h;
     authed.value = true;
     sessionStorage.setItem("bookAdminAuth", "1");
-    sessionStorage.setItem("bookAdminPat", token);
+    sessionStorage.setItem("bookAdminToken", h);
   } catch {
     loginErr.value = "Network error. Check your connection.";
   } finally {
@@ -82,75 +54,80 @@ async function login() {
 
 function logout() {
   authed.value = false;
-  pat.value = "";
+  token.value = "";
   sessionStorage.removeItem("bookAdminAuth");
-  sessionStorage.removeItem("bookAdminPat");
+  sessionStorage.removeItem("bookAdminToken");
 }
 
 onMounted(() => {
   if (sessionStorage.getItem("bookAdminAuth") === "1") {
-    const saved = sessionStorage.getItem("bookAdminPat");
-    if (saved) { pat.value = saved; authed.value = true; loadInProgress(); }
+    const saved = sessionStorage.getItem("bookAdminToken");
+    if (saved) { token.value = saved; authed.value = true; loadInProgress(); }
   }
 });
 
-// ── GitHub API ────────────────────────────────────────────────
+// ── Worker API ────────────────────────────────────────────────
 
-function ghHeaders() {
-  return { Authorization: `token ${pat.value}`, Accept: "application/vnd.github+json", "Content-Type": "application/json" };
+function authHeader() {
+  return { Authorization: `Bearer ${token.value}` };
 }
 
-async function ghGetFile(path, branch) {
-  const res = await fetch(
-    `https://api.github.com/repos/${OWNER}/${REPO}/contents/${encodeURIComponent(path)}?ref=${branch}`,
-    { headers: ghHeaders() }
-  );
-  if (res.status === 404) return null;
-  if (!res.ok) throw new Error(`GET ${path} (${branch}): HTTP ${res.status}`);
+async function readBooks() {
+  const res = await fetch(`${WORKER_URL}/books.json`);
+  if (!res.ok) throw new Error(`Failed to read books: HTTP ${res.status}`);
   return res.json();
 }
 
-async function ghPutFile(path, branch, content, sha, message, binary = false) {
-  const encoded = binary ? content : btoa(unescape(encodeURIComponent(content)));
-  const body = { message, content: encoded, branch, ...(sha ? { sha } : {}) };
-  const res = await fetch(
-    `https://api.github.com/repos/${OWNER}/${REPO}/contents/${encodeURIComponent(path)}`,
-    { method: "PUT", headers: ghHeaders(), body: JSON.stringify(body) }
-  );
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    throw new Error(err.message || `PUT ${path} (${branch}): HTTP ${res.status}`);
-  }
-  return res.json();
+async function writeBooks(data) {
+  const res = await fetch(`${WORKER_URL}/books.json`, {
+    method: "PUT",
+    headers: { ...authHeader(), "Content-Type": "application/json" },
+    body: JSON.stringify(data, null, 2),
+  });
+  if (!res.ok) throw new Error(`Failed to write books: HTTP ${res.status}`);
 }
 
-function b64Decode(str) {
-  const binary = atob(str.replace(/\n/g, ""));
-  const bytes = Uint8Array.from(binary, (c) => c.charCodeAt(0));
-  return new TextDecoder().decode(bytes);
+async function uploadImage(filename, dataUrl) {
+  const binary = Uint8Array.from(atob(dataUrl.split(",")[1]), (c) => c.charCodeAt(0));
+  const res = await fetch(`${WORKER_URL}/images/${filename}`, {
+    method: "PUT",
+    headers: { ...authHeader(), "Content-Type": "image/webp" },
+    body: binary,
+  });
+  if (!res.ok) throw new Error(`Image upload failed: HTTP ${res.status}`);
+  return `${WORKER_URL}/images/${filename}`;
 }
 
-async function updateBooksFile(newBook) {
-  // Read both SHAs in parallel; use main as the content source of truth
-  const [mainFile, ghFile] = await Promise.all([
-    ghGetFile("public/books.json", "main"),
-    ghGetFile("books.json", "gh-pages"),
-  ]);
-  let entries = [];
-  if (mainFile) {
-    try { entries = JSON.parse(b64Decode(mainFile.content)); } catch {}
-  }
+async function addBook(newBook) {
+  const entries = await readBooks();
   const m = newBook.date?.match(/\/(\d{4})$/);
   const year = m ? m[1] : String(new Date().getFullYear());
   let group = entries.find((g) => g.year === year);
   if (!group) { group = { year, entries: [] }; entries.unshift(group); }
   group.entries.unshift(newBook);
-  const content = JSON.stringify(entries, null, 2);
-  const message = `Add book: ${newBook.name}`;
-  await Promise.all([
-    ghPutFile("books.json", "gh-pages", content, ghFile?.sha, message),
-    ghPutFile("public/books.json", "main", content, mainFile?.sha, message),
-  ]);
+  await writeBooks(entries);
+}
+
+async function patchBook(name, author, dateStr) {
+  const data = await readBooks();
+  let found = false;
+  for (const y of data) {
+    const b = (y.entries ?? []).find((e) => e.name === name && e.author === author);
+    if (b) { b.finished = true; b.date = dateStr; delete b.finish; found = true; break; }
+  }
+  if (!found) throw new Error(`Book "${name}" not found`);
+  await writeBooks(data);
+}
+
+async function removeBook(name, author) {
+  const data = await readBooks();
+  let found = false;
+  for (const y of data) {
+    const idx = (y.entries ?? []).findIndex((e) => e.name === name && e.author === author);
+    if (idx !== -1) { y.entries.splice(idx, 1); found = true; break; }
+  }
+  if (!found) throw new Error(`Book "${name}" not found`);
+  await writeBooks(data);
 }
 
 // ── In-progress books ─────────────────────────────────────────
@@ -166,9 +143,7 @@ function bookKey(b) { return b.name + "||" + b.author; }
 async function loadInProgress() {
   loadingProgress.value = true;
   try {
-    const file = await ghGetFile("public/books.json", "main");
-    if (!file) return;
-    const data = JSON.parse(b64Decode(file.content));
+    const data = await readBooks();
     const list = [];
     for (const y of data) {
       for (const b of (y.entries ?? [])) {
@@ -290,34 +265,15 @@ async function saveCover(book) {
   coverSavingKey.value = k;
   finishResult.value = null;
   try {
-    const base64 = edit.preview.split(",")[1];
-    const filename = edit.filename;
-    const imgPath = `/images/${filename}`;
-    const [ghImg, mainImg] = await Promise.all([
-      ghGetFile(`images/${filename}`, "gh-pages"),
-      ghGetFile(`public/images/${filename}`, "main"),
-    ]);
-    await Promise.all([
-      ghPutFile(`images/${filename}`, "gh-pages", base64, ghImg?.sha, `Update cover: ${filename}`, true),
-      ghPutFile(`public/images/${filename}`, "main", base64, mainImg?.sha, `Update cover: ${filename}`, true),
-    ]);
-    const [mainFile, ghFile] = await Promise.all([
-      ghGetFile("public/books.json", "main"),
-      ghGetFile("books.json", "gh-pages"),
-    ]);
-    if (!mainFile) throw new Error("public/books.json not found on main");
-    const data = JSON.parse(b64Decode(mainFile.content));
+    const imgUrl = await uploadImage(edit.filename, edit.preview);
+    const data = await readBooks();
     let found = false;
     for (const y of data) {
       const entry = (y.entries ?? []).find((e) => e.name === book.name && e.author === book.author);
-      if (entry) { entry.img = imgPath; found = true; break; }
+      if (entry) { entry.img = imgUrl; found = true; break; }
     }
     if (!found) throw new Error(`Book "${book.name}" not found`);
-    const content = JSON.stringify(data, null, 2);
-    await Promise.all([
-      ghPutFile("books.json", "gh-pages", content, ghFile?.sha, `Update cover: ${book.name}`),
-      ghPutFile("public/books.json", "main", content, mainFile?.sha, `Update cover: ${book.name}`),
-    ]);
+    await writeBooks(data);
     finishResult.value = { ok: true, name: book.name, action: "cover-updated" };
     coverBust[k] = Date.now();
     delete coverEdits[k];
@@ -535,21 +491,7 @@ async function submit() {
     let imgPath = form.value.imgManualPath.trim() || "";
 
     if (form.value.imgPreview && form.value.imgFilename) {
-      const base64 = form.value.imgPreview.split(",")[1];
-      const filename = form.value.imgFilename;
-      imgPath = `/images/${filename}`;
-
-      // Fetch existing SHAs in parallel (needed to update existing files)
-      const [ghImg, mainImg] = await Promise.all([
-        ghGetFile(`images/${filename}`, "gh-pages"),
-        ghGetFile(`public/images/${filename}`, "main"),
-      ]);
-
-      // Commit image to both branches in parallel
-      await Promise.all([
-        ghPutFile(`images/${filename}`, "gh-pages", base64, ghImg?.sha, `Add cover: ${filename}`, true),
-        ghPutFile(`public/images/${filename}`, "main", base64, mainImg?.sha, `Add cover: ${filename}`, true),
-      ]);
+      imgPath = await uploadImage(form.value.imgFilename, form.value.imgPreview);
     }
 
     const book = {
@@ -560,7 +502,7 @@ async function submit() {
       img: imgPath,
     };
 
-    await updateBooksFile(book);
+    await addBook(book);
 
     submitResult.value = { ok: true, name: book.name };
     form.value = { name: "", author: "", finished: true, date: "", imgFilename: "", imgPreview: "", imgManualPath: "" };

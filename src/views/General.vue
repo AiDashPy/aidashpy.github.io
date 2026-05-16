@@ -61,7 +61,8 @@ onMounted(() => {
 
   new Image().src = "/images/ThePaintingNewPlanetNew.webp";
 
-  fetch("/books.json")
+  const workerUrl = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.workers.dev";
+  fetch(`${workerUrl}/books.json`)
     .then((r) => r.json())
     .then((data) => {
       const active = [];
