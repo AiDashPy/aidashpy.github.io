@@ -16,17 +16,12 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      - name: Build
-        run: npm run build
-        env:
-          VITE_GITHUB_PAT: ${{ secrets.VITE_GITHUB_PAT }}
-          VITE_BOOKS_API_KEY: ${{ secrets.VITE_BOOKS_API_KEY }}
-      
+
       - name: Configure git
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-      
+
       - name: Deploy to GitHub Pages
         run: |
           git config --global credential.helper store
@@ -34,3 +29,5 @@ jobs:
           npm run deploy
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          VITE_GITHUB_PAT: ${{ secrets.VITE_GITHUB_PAT }}
+          VITE_BOOKS_API_KEY: ${{ secrets.VITE_BOOKS_API_KEY }}
