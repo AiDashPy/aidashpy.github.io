@@ -322,18 +322,21 @@ async function selectGbResult(item) {
     clearImage()
     imgProcessing.value = true
     try {
-      const res = await fetch(item.thumbnail)
+      // Bump zoom for higher res, then route through CORS proxy
+      const hiRes = item.thumbnail.replace(/zoom=\d+/, 'zoom=5')
+      const proxied = `https://corsproxy.io/?${encodeURIComponent(hiRes)}`
+      const res = await fetch(proxied)
       if (res.ok) {
         const blob = await res.blob()
         const base = item.title.replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '').toLowerCase()
-        const file = new File([blob], `${base}.webp`, { type: blob.type })
+        const file = new File([blob], `${base}.jpg`, { type: blob.type })
         form.value.imgFilename = `${base}.webp`
         const result = await processImage(file)
         form.value.imgPreview = result.dataUrl
         imgInfo.value = { origW: result.origW, origH: result.origH, origSize: result.origSize, newW: result.newW, newH: result.newH, newSize: result.newSize }
       }
     } catch {
-      // cover fetch failed (likely CORS) — user can upload manually
+      // silently skip — user can upload manually
     } finally {
       imgProcessing.value = false
     }
