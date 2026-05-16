@@ -9,7 +9,7 @@ const top = () => window.scrollTo({ top: 0, behavior: "smooth" });
       <span class="ft-mark">· · ·</span>
       <div class="ft-links">
         <a class="fl" href="https://www.goodreads.com/review/list/168293432?ref=nav_mybooks" target="_blank" rel="noopener noreferrer">Goodreads</a>
-        <RouterLink class="fl" to="/links">links</RouterLink>
+<RouterLink class="fl" to="/links">links</RouterLink>
         <button class="fl fl-btn" @click="top" aria-label="Scroll to top">↑ Top</button>
       </div>
     </div>

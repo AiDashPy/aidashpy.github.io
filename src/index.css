@@ -87,3 +87,12 @@
     border-color: var(--color-gray-200, currentcolor);
   }
 }
+
+body {
+  font-family: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;
+  font-feature-settings: 'kern' 1, 'calt' 1;
+}
+
+/* nprogress – olive theme */
+#nprogress .bar { background: #7a8c58 !important; height: 2px !important; }
+#nprogress .peg  { box-shadow: 0 0 8px #7a8c58, 0 0 4px #7a8c58 !important; }

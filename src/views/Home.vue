@@ -1,17 +1,27 @@
 <script setup>
 import { ref, computed, watch, onMounted, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
 import BookEntry from "../components/BookEntry.vue";
 import WebHeader from "../components/WebHeader.vue";
 import WebFooter from "../components/WebFooter.vue";
 import YearBadge from "../components/YearBadge.vue";
+import SearchOverlay from "../components/SearchOverlay.vue";
+
+NProgress.configure({ showSpinner: false });
 
 const router = useRouter();
+const showSearch = ref(false);
 let keyBuffer = "";
 let keyTimer = null;
+
 function onKeydown(e) {
   if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
   if (e.metaKey || e.ctrlKey || e.altKey) return;
+  if (e.key === "Escape") { showSearch.value = false; return; }
+  if (e.key === "/" && !showSearch.value) { e.preventDefault(); showSearch.value = true; return; }
+  if (showSearch.value) return;
   if (e.key.length !== 1) return;
   keyBuffer += e.key.toLowerCase();
   clearTimeout(keyTimer);
@@ -19,8 +29,23 @@ function onKeydown(e) {
   if (keyBuffer.endsWith("admin")) { keyBuffer = ""; clearTimeout(keyTimer); router.push("/admin"); }
 }
 
+const allEntries = computed(() =>
+  sortedYears.value.flatMap((y) => y.entries.map((e) => ({ ...e, year: y.year })))
+);
+
 const selectedYear = ref(0);
 const showYears = ref(false);
+const fabFooterHidden = ref(false);
+
+const footerSentinel = ref(null);
+let footerObs = null;
+const displayYear = ref('');
+const displayCount = ref(0);
+const isCounting = ref(false);
+let countTimer = null;
+let countBookTimer = null;
+const viewMode = ref(localStorage.getItem("bookViewMode") ?? "list");
+watch(viewMode, (v) => localStorage.setItem("bookViewMode", v));
 const priorityCount = 6;
 const books = ref([]);
 
@@ -70,13 +95,83 @@ function prefetchImages(entries = []) {
 
 watch(() => entriesForSelected.value, prefetchImages);
 
+watch(selectedYear, () => {
+  if (countTimer)     { clearInterval(countTimer);     countTimer     = null; }
+  if (countBookTimer) { clearInterval(countBookTimer); countBookTimer = null; }
+
+  // --- year digits ---
+  const fromYear = parseInt(displayYear.value) || 0;
+  const toYear   = parseInt(currentYear.value)  || 0;
+  if (fromYear && toYear && fromYear !== toYear) {
+    const dir   = toYear > fromYear ? 1 : -1;
+    const steps = Math.abs(toYear - fromYear);
+    if (steps === 1) {
+      displayYear.value = String(toYear);
+    } else {
+      isCounting.value = true;
+      const tickMs = Math.max(50, Math.min(150, 400 / steps));
+      let cur = fromYear;
+      countTimer = setInterval(() => {
+        cur += dir;
+        displayYear.value = String(cur);
+        if (cur === toYear) { clearInterval(countTimer); countTimer = null; isCounting.value = false; }
+      }, tickMs);
+    }
+  } else {
+    displayYear.value = currentYear.value;
+  }
+
+  // --- book count ---
+  const fromCount = displayCount.value;
+  const toCount   = finishedEntries.value.length;
+  if (fromCount !== toCount) {
+    const dir   = toCount > fromCount ? 1 : -1;
+    const steps = Math.abs(toCount - fromCount);
+    const tickMs = Math.max(16, Math.min(80, 400 / steps));
+    let cur = fromCount;
+    countBookTimer = setInterval(() => {
+      cur += dir;
+      displayCount.value = cur;
+      if (cur === toCount) { clearInterval(countBookTimer); countBookTimer = null; }
+    }, tickMs);
+  }
+});
+
 onMounted(async () => {
   document.addEventListener("keydown", onKeydown);
+  NProgress.start();
   try {
     const res = await fetch("/books.json");
     books.value = await res.json();
   } catch {}
+  NProgress.done();
+  displayYear.value  = currentYear.value;
+  displayCount.value = finishedEntries.value.length;
+  footerObs = new IntersectionObserver(([e]) => { fabFooterHidden.value = e.isIntersecting; }, { threshold: 0 });
+  if (footerSentinel.value) footerObs.observe(footerSentinel.value);
 });
+
+function isInProgress(b) {
+  return b.finished === false || (b.finish && /^started/i.test(b.finish));
+}
+
+const nowReadingForYear = computed(() =>
+  entriesForSelected.value.filter(isInProgress)
+);
+
+const finishedEntries = computed(() =>
+  entriesForSelected.value.filter((b) => !isInProgress(b))
+);
+
+const listEntries = computed(() => [
+  ...nowReadingForYear.value,
+  ...finishedEntries.value,
+]);
+
+function openBook(b) {
+  const q = encodeURIComponent(`${b.name || ''} ${b.author || ''}`.trim());
+  window.open(`https://openlibrary.org/search?q=${q}`, '_blank', 'noopener,noreferrer');
+}
 
 function selectYear(i) {
   if (i === selectedYear.value) { showYears.value = false; return; }
@@ -96,6 +191,9 @@ watch(showYears, (open) => {
 onUnmounted(() => {
   document.removeEventListener("keydown", onKeydown);
   clearTimeout(keyTimer);
+  if (countTimer)     clearInterval(countTimer);
+  if (countBookTimer) clearInterval(countBookTimer);
+  footerObs?.disconnect();
   if (typeof document !== "undefined") {
     document.body.style.overflow = "";
     document.documentElement.style.overflow = "";
@@ -124,34 +222,95 @@ onUnmounted(() => {
 
       <!-- Main -->
       <main class="main">
-        <Transition name="ys" mode="out-in">
-          <div :key="selectedYear" class="year-section">
+
+        <div class="year-section">
 
             <!-- Year header -->
             <header class="year-head">
-              <span class="year-num">{{ currentYear }}</span>
-              <span class="year-count">{{ entriesForSelected.length }}&thinsp;books</span>
+              <div class="year-head-left">
+                <span class="year-num" :aria-label="displayYear">
+                  <span v-for="(c, ci) in displayYear.split('')" :key="ci + '-' + c" class="yn-c" :style="{ '--ci': isCounting ? 0 : ci, 'animation-duration': isCounting ? '80ms' : '420ms' }">{{ c }}</span>
+                </span>
+                <span class="year-count"><span class="year-count-num">{{ displayCount }}</span>&thinsp;books</span>
+              </div>
+              <div class="view-toggle" role="group" aria-label="View mode">
+                <button
+                  class="vt-btn"
+                  :class="{ 'vt-active': viewMode === 'list' }"
+                  @click="viewMode = 'list'"
+                  aria-label="List view"
+                  title="List view"
+                >
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <line x1="4" y1="2.5" x2="13" y2="2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                    <line x1="4" y1="7"   x2="13" y2="7"   stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                    <line x1="4" y1="11.5" x2="13" y2="11.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                    <circle cx="1.5" cy="2.5"  r="1" fill="currentColor"/>
+                    <circle cx="1.5" cy="7"    r="1" fill="currentColor"/>
+                    <circle cx="1.5" cy="11.5" r="1" fill="currentColor"/>
+                  </svg>
+                </button>
+                <button
+                  class="vt-btn"
+                  :class="{ 'vt-active': viewMode === 'mosaic' }"
+                  @click="viewMode = 'mosaic'"
+                  aria-label="Cover grid"
+                  title="Cover grid"
+                >
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <rect x="1" y="1"   width="5" height="5.5" rx="1" stroke="currentColor" stroke-width="1.3"/>
+                    <rect x="8" y="1"   width="5" height="5.5" rx="1" stroke="currentColor" stroke-width="1.3"/>
+                    <rect x="1" y="7.5" width="5" height="5.5" rx="1" stroke="currentColor" stroke-width="1.3"/>
+                    <rect x="8" y="7.5" width="5" height="5.5" rx="1" stroke="currentColor" stroke-width="1.3"/>
+                  </svg>
+                </button>
+              </div>
             </header>
 
-            <!-- Book list -->
-            <ol class="book-list">
-              <BookEntry
-                v-for="(b, idx) in entriesForSelected"
-                :key="idx + '-' + b.name"
-                :book="b"
-                :index="idx + 1"
-                :priority="idx < priorityCount"
-                :style="{ '--i': idx }"
-              />
-            </ol>
+            <!-- Book list / mosaic — transitions on year or view change -->
+            <Transition name="ys-list" mode="out-in">
+              <ol v-if="viewMode === 'list'" :key="'list-' + selectedYear" class="book-list">
+                <BookEntry
+                  v-for="(b, idx) in listEntries"
+                  :key="selectedYear + '-' + b.name"
+                  :book="b"
+                  :index="isInProgress(b) ? 0 : finishedEntries.length - (idx - nowReadingForYear.length)"
+                  :in-progress="isInProgress(b)"
+                  :priority="idx < priorityCount"
+                  :style="{ '--i': idx }"
+                />
+              </ol>
+              <div v-else :key="'grid-' + selectedYear" class="mosaic">
+                <button
+                  v-for="(b, idx) in listEntries"
+                  :key="idx + '-' + b.name"
+                  class="mosaic-cover"
+                  :class="{ 'mosaic-ip': isInProgress(b) }"
+                  :style="{ '--mi': idx }"
+                  :title="b.name + ' — ' + b.author"
+                  @click="openBook(b)"
+                >
+                  <img
+                    v-if="b.img"
+                    :src="b.img"
+                    :alt="b.name"
+                    :loading="idx < 12 ? 'eager' : 'lazy'"
+                    decoding="async"
+                    class="mosaic-img"
+                  />
+                  <div v-else class="mosaic-empty"></div>
+                  <span class="mosaic-title">{{ b.name }}</span>
+                  <span v-if="isInProgress(b)" class="mosaic-ip-dot" aria-hidden="true"></span>
+                </button>
+              </div>
+            </Transition>
 
           </div>
-        </Transition>
       </main>
     </div>
 
     <!-- Mobile FAB -->
-    <button class="fab" :class="showYears ? 'fab-off' : ''" @click.stop="toggleYears" aria-label="Open archive">
+    <button class="fab" :class="{ 'fab-off': showYears || fabFooterHidden }" @click.stop="toggleYears" aria-label="Open archive">
       <svg width="17" height="12" viewBox="0 0 17 12" fill="none" aria-hidden="true">
         <line x1="0" y1="1"   x2="17" y2="1"   stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         <line x1="0" y1="6"   x2="17" y2="6"   stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -175,8 +334,11 @@ onUnmounted(() => {
       </nav>
     </aside>
 
+    <div ref="footerSentinel" aria-hidden="true" style="height:0"></div>
     <WebFooter />
   </div>
+
+  <SearchOverlay :entries="allEntries" :open="showSearch" @close="showSearch = false" />
 </template>
 
 <style scoped>
@@ -185,7 +347,6 @@ onUnmounted(() => {
   min-height: calc(100vh + 64px);
   display: flex;
   flex-direction: column;
-  background: #16140d;
 }
 
 /* ── Shell ─────────────────────────────────────────────── */
@@ -206,7 +367,10 @@ onUnmounted(() => {
   display: none;
   width: 10rem;
   flex-shrink: 0;
-  padding: 2.5rem 0 2rem 1.5rem;
+  padding: 2.5rem 0.75rem 2rem 0.75rem;
+  border-right: 1px solid #1d1b10;
+  background: #131108;
+  align-self: stretch;
 }
 @media (min-width: 1024px) { .sidebar { display: block; } }
 
@@ -222,21 +386,28 @@ onUnmounted(() => {
 .main {
   flex: 1;
   min-width: 0;
-  padding: 0 1.25rem 4rem;
+  padding: 0 1.25rem 5rem;
 }
 @media (min-width: 640px)  { .main { padding: 0 1.75rem 4rem; } }
 @media (min-width: 1024px) { .main { padding: 0 2.5rem 4rem 2rem; } }
 
 /* ── Year section ───────────────────────────────────────── */
-.year-section { padding-top: 2rem; }
+.year-section { padding-top: 1.25rem; }
+@media (min-width: 640px) { .year-section { padding-top: 2rem; } }
 
 .year-head {
   display: flex;
-  align-items: baseline;
-  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
   padding-bottom: 1.25rem;
   border-bottom: 1px solid #2a2618;
   margin-bottom: 0;
+}
+
+.year-head-left {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
 }
 
 .year-num {
@@ -245,6 +416,17 @@ onUnmounted(() => {
   letter-spacing: -0.04em;
   line-height: 1;
   color: #c8ba8c;
+  display: inline-flex;
+}
+
+.yn-c {
+  display: inline-block;
+  animation: yn-in 420ms cubic-bezier(0.2, 0, 0, 1) both;
+  animation-delay: calc(var(--ci, 0) * 55ms);
+}
+@keyframes yn-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .year-count {
@@ -261,13 +443,122 @@ onUnmounted(() => {
   padding: 0;
 }
 
-/* ── Year switch transition ─────────────────────────────── */
-.ys-leave-from  { opacity: 1; }
-.ys-leave-active { transition: opacity 140ms ease; }
-.ys-leave-to    { opacity: 0; }
-.ys-enter-from  { opacity: 0; }
-.ys-enter-active { transition: opacity 240ms ease; transition-delay: 30ms; }
-.ys-enter-to    { opacity: 1; }
+/* ── View toggle ────────────────────────────────────────── */
+.view-toggle {
+  display: flex;
+  gap: 2px;
+  background: #1a1812;
+  border: 1px solid #2a2618;
+  border-radius: 7px;
+  padding: 3px;
+}
+
+.vt-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 24px;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: #40392a;
+  cursor: pointer;
+  transition: color 140ms, background 140ms;
+}
+.vt-btn:hover { color: #7a8c58; }
+.vt-active { background: #252110 !important; color: #c8ba8c !important; }
+
+/* ── Mosaic / shelf ─────────────────────────────────────── */
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 10px;
+  padding-top: 1.25rem;
+}
+@media (min-width: 640px) { .mosaic { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 12px; } }
+
+.mosaic-cover {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 5px;
+  overflow: hidden;
+  aspect-ratio: 2 / 3;
+  opacity: 0;
+  transform: scale(0.94);
+  animation: mosaic-in 280ms ease both;
+  animation-delay: calc(var(--mi, 0) * 22ms);
+}
+@keyframes mosaic-in {
+  to { opacity: 1; transform: scale(1); }
+}
+
+.mosaic-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 5px;
+  transition: transform 280ms ease, filter 280ms ease;
+}
+.mosaic-empty {
+  width: 100%;
+  height: 100%;
+  background: #1c1a12;
+  border-radius: 5px;
+}
+
+.mosaic-cover:hover .mosaic-img { transform: scale(1.05); filter: brightness(1.08); }
+
+.mosaic-title {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 6px 6px 7px;
+  font-size: 8.5px;
+  font-weight: 600;
+  color: #e0d4b4;
+  line-height: 1.3;
+  background: linear-gradient(to top, rgba(12,10,6,0.85) 0%, transparent 60%);
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 180ms ease;
+  text-align: left;
+}
+.mosaic-cover:hover .mosaic-title { opacity: 1; }
+@media (hover: none) { .mosaic-title { opacity: 1; } }
+
+.mosaic-ip { outline: 1.5px solid rgba(122, 140, 88, 0.45); outline-offset: -1.5px; }
+
+.mosaic-ip-dot {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #7a8c58;
+  animation: ip-pulse 2.4s ease-in-out infinite;
+}
+@keyframes ip-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(122, 140, 88, 0.6); }
+  50%       { box-shadow: 0 0 0 4px rgba(122, 140, 88, 0); }
+}
+
+/* ── Year switch transitions ────────────────────────────── */
+/* book list / mosaic cross-fade */
+.ys-list-leave-from  { opacity: 1; }
+.ys-list-leave-active { transition: opacity 120ms ease; }
+.ys-list-leave-to    { opacity: 0; }
+.ys-list-enter-from  { opacity: 0; }
+.ys-list-enter-active { transition: opacity 220ms ease; transition-delay: 40ms; }
+.ys-list-enter-to    { opacity: 1; }
+
+.year-count-num { font-variant-numeric: tabular-nums; }
 
 /* ── FAB ────────────────────────────────────────────────── */
 .fab {

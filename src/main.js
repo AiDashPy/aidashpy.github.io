@@ -1,6 +1,7 @@
 // import Vue from 'vue';
 import { createApp } from 'vue'
 import './index.css'
+import '@fontsource-variable/bricolage-grotesque'
 import App from './App.vue'
 import router from './router'
 

@@ -3,7 +3,7 @@ export const yearlyBookEntries = [
     year: "2026",
     entries: [
       {
-        name: "Capital - Volume 3",
+        name: "Capital - Volume Three",
         author: "Karl Marx",
         finished: true,
         date: "02/18/2026",
@@ -246,7 +246,7 @@ export const yearlyBookEntries = [
         img: "/images/NewOdyssey.webp",
       },
       {
-        name: "Capital - Volume 2",
+        name: "Capital - Volume Two",
         author: "Karl Marx",
         finished: true,
         date: "01/12/2025",

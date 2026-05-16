@@ -1,80 +1,101 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { RouterLink } from "vue-router";
 
 const created = ref(false);
 const showOverlay = ref(true);
-const cardRef = ref(null);
-const cardStyle = ref({});
+const currentBook = ref(null);
+const isCurrentlyReading = ref(false);
+const grainCanvas = ref(null);
 
-let currentTiltX = 0;
-let currentTiltY = 0;
-let currentTx = 0;
-let currentTy = 0;
-let justEntered = false;
-
-const MAX_TILT = 1.5;
-const MAX_TRANSLATE = 6;
-
-function applyCardStyle(smooth = false) {
-  const mag = Math.min(1, Math.hypot(currentTiltX, currentTiltY) / (MAX_TILT * 0.6));
-  cardStyle.value = {
-    transform: `perspective(1000px) translate3d(${currentTx}px, ${currentTy}px, 0) rotateX(${currentTiltX}deg) rotateY(${currentTiltY}deg) scale(${1 + 0.01 * mag})`,
-    willChange: "transform",
-    transition: smooth ? "transform 820ms cubic-bezier(.22,1,.36,1)" : "none",
-  };
-}
-
-function handleMouseMove(e) {
-  const el = cardRef.value;
-  if (!el) return;
-  const rect = el.getBoundingClientRect();
-  const nx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-  const ny = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-
-  currentTiltY = -nx * MAX_TILT;
-  currentTiltX = -ny * MAX_TILT;
-  currentTx = nx * MAX_TRANSLATE;
-  currentTy = -ny * MAX_TRANSLATE;
-
-  applyCardStyle(justEntered);
-  justEntered = false;
-}
-
-function handleMouseEnter() { justEntered = true; }
-
-function handleMouseLeave() {
-  currentTiltX = currentTiltY = currentTx = currentTy = 0;
-  cardStyle.value = {
-    transform: "perspective(1000px) translate3d(0,0,0) rotateX(0deg) rotateY(0deg) scale(1)",
-    willChange: "transform",
-    transition: "transform 820ms cubic-bezier(.22,1,.36,1)",
-  };
-}
+let grainTimer = null;
 
 function onOverlayEnd() { showOverlay.value = false; }
+
+// ── Magnetic tiles ───────────────────────────────────────────
+function handleTileMove(e) {
+  const el = e.currentTarget;
+  const rect = el.getBoundingClientRect();
+  const dx = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
+  const dy = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
+  el.style.transform = `translate(${dx * 5}px, ${dy * 3}px)`;
+  el.style.transition = "transform 60ms linear";
+}
+
+function handleTileLeave(e) {
+  const el = e.currentTarget;
+  el.style.transform = "translate(0,0)";
+  el.style.transition = "transform 500ms cubic-bezier(.22,1,.36,1)";
+}
+
+// ── Film grain ───────────────────────────────────────────────
+function startGrain() {
+  const canvas = grainCanvas.value;
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  canvas.width = 300;
+  canvas.height = 300;
+
+  function draw() {
+    const img = ctx.createImageData(300, 300);
+    const d = img.data;
+    for (let i = 0; i < d.length; i += 4) {
+      const v = (Math.random() * 255) | 0;
+      d[i] = d[i + 1] = d[i + 2] = v;
+      d[i + 3] = (Math.random() * 20) | 0;
+    }
+    ctx.putImageData(img, 0, 0);
+  }
+  draw();
+  grainTimer = setInterval(draw, 80);
+}
 
 onMounted(() => {
   created.value = true;
   setTimeout(() => { showOverlay.value = false; }, 1400);
 
   new Image().src = "/images/ThePaintingNewPlanetNew.webp";
-  fetch("/books.json").then((r) => r.json()).then((entries) => {
-    entries.forEach((year) =>
-      (year.entries || []).forEach((e) => { if (e?.img) new Image().src = e.img; })
-    );
-  }).catch(() => {});
 
-  cardStyle.value = {
-    transform: "none",
-    willChange: "transform",
-    transition: "transform 820ms cubic-bezier(.22,1,.36,1)",
-  };
+  fetch("/books.json")
+    .then((r) => r.json())
+    .then((data) => {
+      let activeBook = null;
+      let activeTime = 0;
+      let recentBook = null;
+      let recentTime = 0;
+      data.forEach((year) => {
+        (year.entries || []).forEach((e) => {
+          if (e?.img) new Image().src = e.img;
+          if (!e?.date) return;
+          const [m, d, y] = e.date.split("/");
+          const t = new Date(+y, +m - 1, +d).getTime();
+          if (!e.finished && t > activeTime) { activeTime = t; activeBook = e; }
+          if (e.finished && t > recentTime) { recentTime = t; recentBook = e; }
+        });
+      });
+      if (activeBook) {
+        currentBook.value = activeBook;
+        isCurrentlyReading.value = true;
+      } else {
+        currentBook.value = recentBook;
+        isCurrentlyReading.value = false;
+      }
+    })
+    .catch(() => {});
+
+  startGrain();
+});
+
+onUnmounted(() => {
+  if (grainTimer) clearInterval(grainTimer);
 });
 </script>
 
 <template>
   <div class="page">
+    <!-- Film grain overlay -->
+    <canvas ref="grainCanvas" class="grain" aria-hidden="true" />
+
     <div v-if="showOverlay" class="overlay" aria-hidden="true">
       <svg
         class="overlay-star"
@@ -89,13 +110,8 @@ onMounted(() => {
     <Transition name="fade">
       <div v-if="created" class="wrap">
         <div
-          ref="cardRef"
           class="card"
           :class="showOverlay ? 'card-hidden' : ''"
-          :style="cardStyle"
-          @mouseenter="handleMouseEnter"
-          @mousemove="handleMouseMove"
-          @mouseleave="handleMouseLeave"
         >
           <header class="c-header">
             <h1 class="c-title">aidashpy</h1>
@@ -124,18 +140,55 @@ onMounted(() => {
             </figure>
           </a>
 
+          <!-- Recently read strip -->
+          <Transition name="strip-fade">
+            <RouterLink v-if="currentBook" to="/" class="recent-strip">
+              <img
+                v-if="currentBook.img"
+                :src="currentBook.img"
+                class="recent-thumb"
+                :alt="currentBook.name"
+              />
+              <div class="recent-text">
+                <span class="recent-label">{{ isCurrentlyReading ? 'currently reading' : 'recently read' }}</span>
+                <span class="recent-title">{{ currentBook.name }}</span>
+                <span class="recent-author">{{ currentBook.author }}</span>
+              </div>
+              <span class="recent-arrow">→</span>
+            </RouterLink>
+          </Transition>
+
           <nav class="links">
             <div class="links-label">links</div>
             <div class="links-grid">
-              <RouterLink to="/" class="lnk">
+              <RouterLink
+                to="/"
+                class="lnk"
+                @mousemove="handleTileMove"
+                @mouseleave="handleTileLeave"
+              >
                 <span class="lnk-cat">reading</span>
                 <span class="lnk-name">archive</span>
               </RouterLink>
-              <a href="https://letterboxd.com/aidashpy/" target="_blank" rel="noopener noreferrer" class="lnk">
+              <a
+                href="https://letterboxd.com/aidashpy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="lnk"
+                @mousemove="handleTileMove"
+                @mouseleave="handleTileLeave"
+              >
                 <span class="lnk-cat">film</span>
                 <span class="lnk-name">letterboxd</span>
               </a>
-              <a href="https://anilist.co/user/Aidashpy/" target="_blank" rel="noopener noreferrer" class="lnk">
+              <a
+                href="https://anilist.co/user/Aidashpy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="lnk"
+                @mousemove="handleTileMove"
+                @mouseleave="handleTileLeave"
+              >
                 <span class="lnk-cat">anime</span>
                 <span class="lnk-name">anilist</span>
               </a>
@@ -152,7 +205,7 @@ onMounted(() => {
 .page {
   position: relative;
   width: 100%;
-  min-height: calc(100vh - 5rem);
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -160,6 +213,18 @@ onMounted(() => {
   padding: 1.5rem 1rem;
   box-sizing: border-box;
   overflow: hidden;
+}
+
+/* ── Film grain ─────────────────────────────────────────── */
+.grain {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 200;
+  opacity: 0.055;
+  mix-blend-mode: overlay;
 }
 
 /* ── Overlay ────────────────────────────────────────────── */
@@ -203,8 +268,13 @@ onMounted(() => {
   padding: 2rem 2rem 1.75rem;
   box-shadow: 0 8px 40px rgba(0,0,0,0.5);
   overflow: auto;
-  max-height: calc(100vh - 7rem);
-  transition: opacity 500ms, transform 500ms;
+  max-height: calc(100vh - 3rem);
+  transition: opacity 500ms, transform 300ms ease, box-shadow 300ms ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 56px rgba(0,0,0,0.68);
 }
 @media (min-width: 768px)  { .card { padding: 2.5rem 2.5rem 2.25rem; } }
 @media (min-width: 1280px) { .card { padding: 3rem 3rem 2.75rem; border-radius: 22px; } }
@@ -233,10 +303,16 @@ onMounted(() => {
 @media (min-width: 1280px) { .c-title { font-size: 1.9rem; } }
 
 .c-star {
+  display: inline-block;
   color: #c2201f;
   font-size: 1rem;
   line-height: 1;
   opacity: 0.8;
+  animation: starSpin 10s linear infinite;
+}
+
+@keyframes starSpin {
+  to { transform: rotate(360deg); }
 }
 
 .c-rule {
@@ -278,6 +354,85 @@ onMounted(() => {
 
 .cap-dot { color: #c2201f; opacity: 0.4; }
 
+/* ── Recently read strip ────────────────────────────────── */
+.recent-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #26262a;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: border-color 120ms, background 120ms;
+}
+
+.recent-strip:hover {
+  border-color: rgba(194,32,31,0.35);
+  background: rgba(194,32,31,0.04);
+}
+
+.recent-thumb {
+  width: 32px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.recent-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.recent-label {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #c2201f;
+  opacity: 0.7;
+}
+
+.recent-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #a8a298;
+  white-space: normal;
+  line-height: 1.3;
+}
+@media (min-width: 640px) {
+  .recent-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.recent-author {
+  font-size: 0.68rem;
+  color: #504e58;
+}
+
+.recent-arrow {
+  font-size: 0.75rem;
+  color: #3a3840;
+  flex-shrink: 0;
+  transition: color 120ms, transform 120ms;
+}
+
+.recent-strip:hover .recent-arrow {
+  color: rgba(194,32,31,0.5);
+  transform: translateX(2px);
+}
+
+.strip-fade-enter-active { transition: opacity 400ms ease, transform 400ms ease; }
+.strip-fade-enter-from   { opacity: 0; transform: translateY(6px); }
+
 /* ── Links ──────────────────────────────────────────────── */
 .links {
   border-top: 1px solid #26262a;
@@ -308,6 +463,7 @@ onMounted(() => {
   border-radius: 10px;
   text-decoration: none;
   transition: border-color 120ms, background 120ms;
+  will-change: transform;
 }
 
 .lnk:hover {
@@ -328,5 +484,4 @@ onMounted(() => {
   font-weight: 500;
   color: #a8a298;
 }
-
 </style>

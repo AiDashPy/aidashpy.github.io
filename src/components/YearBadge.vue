@@ -32,23 +32,23 @@ const displayYear = computed(() => {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 10px 8px 12px;
+  padding: 8px 12px;
   border: none;
   background: transparent;
   cursor: pointer;
-  border-left: 2px solid transparent;
-  transition: border-color 140ms, background 140ms;
-  border-radius: 0 6px 6px 0;
+  box-shadow: inset 2px 0 0 transparent;
+  transition: box-shadow 140ms, background 140ms;
+  border-radius: 6px;
   outline: none;
   text-align: left;
 }
 .yr:focus-visible { box-shadow: 0 0 0 2px #5a7040; }
 .yr:not(.yr-on):hover {
   background: rgba(255,245,215,0.03);
-  border-left-color: #3a3620;
+  box-shadow: inset 2px 0 0 #3a3620;
 }
 .yr-on {
-  border-left-color: #7a9050;
+  box-shadow: inset 2px 0 0 #7a9050;
   background: rgba(255,245,215,0.04);
 }
 

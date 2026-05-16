@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 
 const OWNER = "aidashpy";
 const REPO = "aidashpy.github.io";
@@ -9,7 +9,8 @@ const ADMIN_PASS_HASH = "efd457adc8e473a6a754dbec44971e226e8dc6c284dc2a88fbabe67
 const authed = ref(false);
 const loginUser = ref("");
 const loginPass = ref("");
-const loginPat = ref("");
+const loginPat = ref(import.meta.env.VITE_GITHUB_PAT ?? "");
+const hasEnvPat = !!import.meta.env.VITE_GITHUB_PAT;
 const loginErr = ref("");
 const loginLoading = ref(false);
 const pat = ref("");
@@ -64,7 +65,7 @@ function logout() {
 onMounted(() => {
   if (sessionStorage.getItem("bookAdminAuth") === "1") {
     const saved = sessionStorage.getItem("bookAdminPat");
-    if (saved) { pat.value = saved; authed.value = true; }
+    if (saved) { pat.value = saved; authed.value = true; loadInProgress(); }
   }
 });
 
@@ -117,6 +118,76 @@ async function updateBooksFile(filePath, branch, newBook) {
   group.entries.unshift(newBook);
   await ghPutFile(filePath, branch, JSON.stringify(entries, null, 2), file?.sha, `Add book: ${newBook.name}`);
 }
+
+// ── In-progress books ─────────────────────────────────────────
+
+const inProgress = ref([]);
+const finishDates = ref({});
+const finishingKey = ref(null);
+const finishResult = ref(null);
+const loadingProgress = ref(false);
+
+function bookKey(b) { return b.name + "||" + b.author; }
+
+async function loadInProgress() {
+  loadingProgress.value = true;
+  try {
+    const file = await ghGetFile("books.json", "gh-pages");
+    if (!file) return;
+    const data = JSON.parse(b64Decode(file.content));
+    const list = [];
+    for (const y of data) {
+      for (const b of (y.entries ?? [])) {
+        const ip = b.finished === false || (b.finish && /^started/i.test(b.finish));
+        if (ip) list.push({ ...b, year: y.year });
+      }
+    }
+    inProgress.value = list;
+    const today = new Date().toISOString().split("T")[0];
+    for (const b of list) {
+      if (!finishDates.value[bookKey(b)]) finishDates.value[bookKey(b)] = today;
+    }
+  } catch {} finally {
+    loadingProgress.value = false;
+  }
+}
+
+async function patchBookFile(filePath, branch, name, author, dateStr) {
+  const file = await ghGetFile(filePath, branch);
+  if (!file) throw new Error(`${filePath} not found on ${branch}`);
+  const data = JSON.parse(b64Decode(file.content));
+  let found = false;
+  for (const y of data) {
+    const b = (y.entries ?? []).find((e) => e.name === name && e.author === author);
+    if (b) { b.finished = true; b.date = dateStr; delete b.finish; found = true; break; }
+  }
+  if (!found) throw new Error(`Book "${name}" not found in ${filePath}`);
+  await ghPutFile(filePath, branch, JSON.stringify(data, null, 2), file.sha, `Finish: ${name}`);
+}
+
+async function markFinished(book) {
+  const key = bookKey(book);
+  const raw = finishDates.value[key];
+  if (!raw) return;
+  const [y, m, d] = raw.split("-");
+  const dateStr = `${m}/${d}/${y}`;
+  finishingKey.value = key;
+  finishResult.value = null;
+  try {
+    await Promise.all([
+      patchBookFile("books.json", "gh-pages", book.name, book.author, dateStr),
+      patchBookFile("public/books.json", "main", book.name, book.author, dateStr),
+    ]);
+    finishResult.value = { ok: true, name: book.name };
+    await loadInProgress();
+  } catch (err) {
+    finishResult.value = { ok: false, msg: err.message };
+  } finally {
+    finishingKey.value = null;
+  }
+}
+
+watch(authed, (val) => { if (val) loadInProgress(); });
 
 // ── Image processing ──────────────────────────────────────────
 
@@ -259,7 +330,7 @@ async function submit() {
         <input v-model="loginPass" class="input" type="password" autocomplete="current-password" />
       </div>
 
-      <div class="field">
+      <div class="field" v-if="!hasEnvPat">
         <label class="label">GitHub token</label>
         <input v-model="loginPat" class="input input-mono" type="password" placeholder="ghp_…" autocomplete="off" spellcheck="false" />
         <span class="field-hint">Fine-grained PAT with <code>contents: write</code> on this repo</span>
@@ -372,6 +443,45 @@ async function submit() {
         <button class="btn-primary" type="button" :disabled="submitting" @click="submit">
           {{ submitting ? "Committing…" : "Add to reading list" }}
         </button>
+      </section>
+
+      <!-- Finish in-progress books -->
+      <section class="card" v-if="inProgress.length || loadingProgress">
+        <h2 class="section-title">Finish a Book</h2>
+
+        <div v-if="loadingProgress" class="ip-loading">Loading…</div>
+
+        <div v-if="finishResult" class="result-banner" :class="finishResult.ok ? 'result-ok' : 'result-err'" style="margin-bottom:1rem">
+          <template v-if="finishResult.ok"><strong>"{{ finishResult.name }}"</strong> marked as finished.</template>
+          <template v-else>Error: {{ finishResult.msg }}</template>
+          <button class="result-close" @click="finishResult = null">✕</button>
+        </div>
+
+        <div class="ip-list">
+          <div v-for="b in inProgress" :key="bookKey(b)" class="ip-row">
+            <div class="ip-info">
+              <img v-if="b.img" :src="b.img" :alt="b.name" class="ip-cover" />
+              <div class="ip-text">
+                <span class="ip-title">{{ b.name }}</span>
+                <span class="ip-author">{{ b.author }}</span>
+              </div>
+            </div>
+            <div class="ip-actions">
+              <input
+                v-model="finishDates[bookKey(b)]"
+                class="input ip-date"
+                type="date"
+              />
+              <button
+                class="btn-primary ip-btn"
+                :disabled="finishingKey === bookKey(b)"
+                @click="markFinished(b)"
+              >
+                {{ finishingKey === bookKey(b) ? "Saving…" : "Mark finished" }}
+              </button>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- How it works -->
@@ -660,6 +770,23 @@ async function submit() {
   margin-top: 0.25rem;
 }
 .img-manual-label { font-size: 0.68rem; color: #3c3924; }
+
+/* ── In-progress ───────────────────────────────────── */
+.ip-loading { font-size: 0.78rem; color: #3c3924; padding: 0.5rem 0; }
+.ip-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.ip-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding: 0.75rem;
+  background: #1a1810; border: 1px solid #252110; border-radius: 8px; flex-wrap: wrap;
+}
+.ip-info { display: flex; align-items: center; gap: 0.65rem; min-width: 0; flex: 1; }
+.ip-cover { width: 32px; height: 48px; object-fit: contain; border-radius: 3px; background: #16140d; flex-shrink: 0; }
+.ip-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ip-title { font-size: 0.85rem; font-weight: 600; color: #c8ba8c; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+.ip-author { font-size: 0.72rem; color: #728a50; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+.ip-actions { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+.ip-date { width: 140px; padding: 0.4rem 0.6rem; font-size: 0.8rem; }
+.ip-btn { margin-top: 0; font-size: 0.78rem; padding: 0.4rem 0.85rem; }
 
 /* ── Info list ─────────────────────────────────────── */
 .info-list {
