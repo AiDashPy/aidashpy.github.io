@@ -340,7 +340,7 @@ function flipToCover() {
 function flipToDetail() {
   viewingCover.value = false;
   playFlip();
-  flipTimer = setTimeout(() => { flipped.value = true; }, 320);
+  flipped.value = true;
 }
 
 function onDetailKey(e) { if (e.key === "Escape") closeDetail(); }
