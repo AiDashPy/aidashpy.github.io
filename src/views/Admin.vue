@@ -318,17 +318,33 @@ async function searchGoogleBooks() {
 }
 
 async function fetchCoverBlob(item) {
-  // 1. Open Library covers API — CORS-friendly, no proxy needed
+  // 1. Open Library by ISBN — CORS-native, no proxy
   if (item.isbn) {
     try {
       const res = await fetch(`https://covers.openlibrary.org/b/isbn/${item.isbn}-L.jpg`)
-      if (res.ok && (res.headers.get('content-length') ?? '9999') !== '0') {
+      if (res.ok) {
         const blob = await res.blob()
-        if (blob.size > 1000) return blob  // skip 1×1 "not found" placeholders
+        if (blob.size > 1000) return blob
       }
     } catch {}
   }
-  // 2. Fallback: allorigins proxy for Google Books thumbnail
+  // 2. iTunes Search — CORS-native, high-res artwork
+  if (item.title) {
+    try {
+      const q = encodeURIComponent(`${item.title} ${item.author}`.trim())
+      const data = await fetch(`https://itunes.apple.com/search?term=${q}&media=ebook&limit=1`).then(r => r.json())
+      const artwork = data.results?.[0]?.artworkUrl100
+      if (artwork) {
+        const hiRes = artwork.replace('100x100bb', '600x900bb')
+        const res = await fetch(hiRes)
+        if (res.ok) {
+          const blob = await res.blob()
+          if (blob.size > 1000) return blob
+        }
+      }
+    } catch {}
+  }
+  // 3. allorigins proxy for Google Books thumbnail
   if (item.thumbnail) {
     try {
       const hiRes = item.thumbnail.replace(/zoom=\d+/, 'zoom=5')
