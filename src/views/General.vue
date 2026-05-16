@@ -553,7 +553,7 @@ onUnmounted(() => {
 
 .plnk {
   display: grid;
-  grid-template-columns: auto 1fr auto auto;
+  grid-template-columns: 3rem 1fr auto auto;
   align-items: stretch;
   border-bottom: 1px solid #1c1a18;
   text-decoration: none;
