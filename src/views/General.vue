@@ -98,7 +98,6 @@ onUnmounted(() => {
 
 <template>
   <div class="page">
-    <!-- Film grain overlay -->
     <canvas ref="grainCanvas" class="grain" aria-hidden="true" />
 
     <div v-if="showOverlay" class="overlay" aria-hidden="true">
@@ -114,103 +113,134 @@ onUnmounted(() => {
 
     <Transition name="fade">
       <div v-if="created" class="wrap">
-        <div
-          class="card"
-          :class="showOverlay ? 'card-hidden' : ''"
-        >
-          <header class="c-header">
-            <h1 class="c-title">aidashpy</h1>
-            <span class="c-star" aria-hidden="true">★</span>
-          </header>
+        <div class="poster" :class="showOverlay ? 'poster-hidden' : ''">
 
-          <div class="c-rule"></div>
+          <!-- Top poster banner -->
+          <div class="poster-top" aria-hidden="true">
+            <span class="pt-star">★</span>
+            <span class="pt-rule"></span>
+            <span class="pt-year">MMXXVI</span>
+          </div>
 
-          <a href="https://quod.lib.umich.edu/h/hart/x-939557/1" target="_blank" rel="noopener noreferrer" class="painting-wrap">
-            <figure class="painting">
+          <!-- Title block -->
+          <div class="poster-title-block">
+            <h1 class="p-title">AIDASHPY</h1>
+            <div class="p-tagline">
+              <span class="p-tl-rule"></span>
+              <span class="p-tl-text">A READING LOG</span>
+              <span class="p-tl-rule"></span>
+            </div>
+          </div>
+
+          <!-- Painting -->
+          <a href="https://quod.lib.umich.edu/h/hart/x-939557/1" target="_blank" rel="noopener noreferrer" class="poster-painting">
+            <figure class="p-figure">
               <img
-                class="painting-img"
+                class="p-img"
                 src="/images/ThePaintingNewPlanetNew.webp"
                 alt="New Planet, Konstantin Yuon, 1921"
                 loading="eager"
                 fetchpriority="high"
                 decoding="async"
               />
-              <figcaption class="painting-cap">
-                <span>New Planet</span>
-                <span class="cap-dot">·</span>
-                <span>Konstantin Yuon</span>
-                <span class="cap-dot">·</span>
-                <span>1921</span>
-              </figcaption>
             </figure>
+            <div class="p-cap">
+              <span class="pc-title">NEW PLANET</span>
+              <span class="pc-dash" aria-hidden="true">—</span>
+              <span>KONSTANTIN YUON, 1921</span>
+            </div>
           </a>
 
-          <!-- Currently reading module / recently read strip -->
-          <Transition name="strip-fade">
-            <RouterLink v-if="inProgressBooks.length" to="/" class="reading-module">
-              <div class="rm-header">
-                <span class="rm-label">currently reading</span>
-                <span v-if="inProgressBooks.length > 1" class="rm-count">{{ inProgressBooks.length }}</span>
-              </div>
-              <div class="rm-books">
-                <div v-for="b in inProgressBooks" :key="b.name" class="rm-book">
-                  <img v-if="b.img" :src="b.img" class="rm-thumb" :alt="b.name" />
-                  <div v-else class="rm-thumb-empty" />
-                  <div class="rm-text">
-                    <span class="rm-title">{{ b.name }}</span>
-                    <span class="rm-author">{{ b.author }}</span>
+          <!-- Currently / recently reading -->
+          <div v-if="inProgressBooks.length || currentBook" class="poster-section">
+            <div class="ps-head">
+              <span class="ps-star" aria-hidden="true">★</span>
+              <span class="ps-label">{{ inProgressBooks.length ? 'CURRENTLY READING' : 'RECENTLY READ' }}</span>
+            </div>
+            <Transition name="strip-fade">
+              <RouterLink v-if="inProgressBooks.length" to="/" class="p-reading">
+                <div class="pr-books">
+                  <div v-for="b in inProgressBooks" :key="b.name" class="pr-book">
+                    <img v-if="b.img" :src="b.img" class="pr-thumb" :alt="b.name" />
+                    <div v-else class="pr-thumb-empty" />
+                    <div class="pr-text">
+                      <span class="pr-title">{{ b.name }}</span>
+                      <span class="pr-author">{{ b.author }}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <span class="rm-arrow">→</span>
-            </RouterLink>
-            <RouterLink v-else-if="currentBook" to="/" class="recent-strip">
-              <img v-if="currentBook.img" :src="currentBook.img" class="recent-thumb" :alt="currentBook.name" />
-              <div class="recent-text">
-                <span class="recent-label">recently read</span>
-                <span class="recent-title">{{ currentBook.name }}</span>
-                <span class="recent-author">{{ currentBook.author }}</span>
-              </div>
-              <span class="recent-arrow">→</span>
-            </RouterLink>
-          </Transition>
+                <span class="pr-arr" aria-hidden="true">→</span>
+              </RouterLink>
+              <RouterLink v-else-if="currentBook" to="/" class="p-reading">
+                <div class="pr-books">
+                  <div class="pr-book">
+                    <img v-if="currentBook.img" :src="currentBook.img" class="pr-thumb" :alt="currentBook.name" />
+                    <div v-else class="pr-thumb-empty" />
+                    <div class="pr-text">
+                      <span class="pr-title">{{ currentBook.name }}</span>
+                      <span class="pr-author">{{ currentBook.author }}</span>
+                    </div>
+                  </div>
+                </div>
+                <span class="pr-arr" aria-hidden="true">→</span>
+              </RouterLink>
+            </Transition>
+          </div>
 
-          <nav class="links">
-            <div class="links-label">links</div>
-            <div class="links-grid">
+          <!-- Links -->
+          <div class="poster-section">
+            <div class="ps-head">
+              <span class="ps-star" aria-hidden="true">★</span>
+              <span class="ps-label">LINKS</span>
+            </div>
+            <nav class="p-links">
               <RouterLink
                 to="/"
-                class="lnk"
+                class="plnk"
                 @mousemove="handleTileMove"
                 @mouseleave="handleTileLeave"
               >
-                <span class="lnk-cat">reading</span>
-                <span class="lnk-name">archive</span>
+                <span class="plnk-badge">01</span>
+                <span class="plnk-name">ARCHIVE</span>
+                <span class="plnk-cat">Reading</span>
+                <span class="plnk-arr" aria-hidden="true">→</span>
               </RouterLink>
               <a
                 href="https://letterboxd.com/aidashpy/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="lnk"
+                class="plnk"
                 @mousemove="handleTileMove"
                 @mouseleave="handleTileLeave"
               >
-                <span class="lnk-cat">film</span>
-                <span class="lnk-name">letterboxd</span>
+                <span class="plnk-badge">02</span>
+                <span class="plnk-name">LETTERBOXD</span>
+                <span class="plnk-cat">Film</span>
+                <span class="plnk-arr" aria-hidden="true">→</span>
               </a>
               <a
                 href="https://anilist.co/user/Aidashpy/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="lnk"
+                class="plnk"
                 @mousemove="handleTileMove"
                 @mouseleave="handleTileLeave"
               >
-                <span class="lnk-cat">anime</span>
-                <span class="lnk-name">anilist</span>
+                <span class="plnk-badge">03</span>
+                <span class="plnk-name">ANILIST</span>
+                <span class="plnk-cat">Anime</span>
+                <span class="plnk-arr" aria-hidden="true">→</span>
               </a>
-            </div>
-          </nav>
+            </nav>
+          </div>
+
+          <!-- Bottom banner -->
+          <div class="poster-bot" aria-hidden="true">
+            <span class="pb-rule"></span>
+            <span class="pb-star">★</span>
+            <span class="pb-rule"></span>
+          </div>
+
         </div>
       </div>
     </Transition>
@@ -226,8 +256,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #1f1f21;
-  padding: 1.5rem 1rem;
+  background: #111010;
+  padding: 2.5rem 1rem;
   box-sizing: border-box;
 }
 
@@ -239,7 +269,7 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 200;
-  opacity: 0.055;
+  opacity: 0.065;
   mix-blend-mode: overlay;
 }
 
@@ -257,338 +287,341 @@ onUnmounted(() => {
 .overlay-star {
   width: 9rem;
   height: 9rem;
-  animation: starSpin 1.2s cubic-bezier(.2,.9,.25,1) both;
+  animation: starReveal 1.2s cubic-bezier(.2,.9,.25,1) both;
   transform-origin: center;
 }
 
-@keyframes starSpin {
-  0%   { transform: rotate(-90deg) scale(0.6); opacity: 0; filter: blur(0.5px); }
-  40%  { transform: rotate(20deg) scale(1.15); opacity: 1; filter: blur(0); }
+@keyframes starReveal {
+  0%   { transform: rotate(-90deg) scale(0.6); opacity: 0; }
+  40%  { transform: rotate(20deg) scale(1.15); opacity: 1; }
   70%  { transform: rotate(-6deg) scale(1.05); opacity: 0.9; }
   100% { transform: rotate(-6deg) scale(1.05); opacity: 0; }
 }
 
-/* ── Wrap / transition ──────────────────────────────────── */
-.wrap { width: 100%; max-width: 540px; }
-@media (min-width: 768px)  { .wrap { max-width: 680px; } }
-@media (min-width: 1280px) { .wrap { max-width: 820px; } }
+/* ── Wrap ───────────────────────────────────────────────── */
+.wrap { width: 100%; max-width: 520px; }
+@media (min-width: 768px)  { .wrap { max-width: 640px; } }
+@media (min-width: 1280px) { .wrap { max-width: 760px; } }
 
 .fade-enter-active { transition: opacity 300ms ease; }
 .fade-enter-from   { opacity: 0; }
 
-/* ── Card ───────────────────────────────────────────────── */
-.card {
-  background: #1a1a1c;
-  border: 1px solid #2a2a2e;
-  border-radius: 18px;
-  padding: 2rem 2rem 1.75rem;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-  transition: opacity 500ms, transform 300ms ease, box-shadow 300ms ease;
+/* ── Poster ─────────────────────────────────────────────── */
+.poster {
+  background: #141210;
+  border: 2px solid #c2201f;
+  box-shadow:
+    0 0 0 1px rgba(194,32,31,0.18),
+    inset 0 0 0 2px #141210,
+    0 24px 64px rgba(0,0,0,0.6);
+  overflow: hidden;
+  transition: opacity 500ms, transform 300ms ease;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 56px rgba(0,0,0,0.68);
-}
-@media (min-width: 768px)  { .card { padding: 2.5rem 2.5rem 2.25rem; } }
-@media (min-width: 1280px) { .card { padding: 3rem 3rem 2.75rem; border-radius: 22px; } }
-
-.card-hidden {
+.poster-hidden {
   opacity: 0;
-  transform: scale(0.93) rotate(4deg);
+  transform: scale(0.96) rotate(2deg);
 }
 
-/* ── Card header ────────────────────────────────────────── */
-.c-header {
+/* ── Top banner ─────────────────────────────────────────── */
+.poster-top {
+  background: #c2201f;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
+  gap: 0.75rem;
+  padding: 0.45rem 1.5rem;
 }
 
-.c-title {
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: #dcd5c0;
-  letter-spacing: 0.06em;
-  margin: 0;
-}
-@media (min-width: 768px)  { .c-title { font-size: 1.6rem; } }
-@media (min-width: 1280px) { .c-title { font-size: 1.9rem; } }
-
-.c-star {
-  display: inline-block;
-  color: #c2201f;
+.pt-star {
+  color: rgba(20,18,16,0.55);
   font-size: 1rem;
   line-height: 1;
-  opacity: 0.8;
-  animation: starSpin 10s linear infinite;
+  animation: spin 12s linear infinite;
+  flex-shrink: 0;
 }
 
-@keyframes starSpin {
-  to { transform: rotate(360deg); }
-}
+@keyframes spin { to { transform: rotate(360deg); } }
 
-.c-rule {
+.pt-rule {
+  flex: 1;
   height: 1px;
-  background: linear-gradient(to right, rgba(194,32,31,0.5), rgba(194,32,31,0.05));
-  margin-bottom: 1.5rem;
-  border-radius: 1px;
+  background: rgba(20,18,16,0.25);
+}
+
+.pt-year {
+  font-size: 0.56rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  color: rgba(20,18,16,0.55);
+  flex-shrink: 0;
+}
+
+/* ── Title block ────────────────────────────────────────── */
+.poster-title-block {
+  padding: 1.4rem 1.75rem 1.2rem;
+  border-bottom: 2px solid #c2201f;
+}
+
+.p-title {
+  font-size: clamp(3.8rem, 14vw, 7rem);
+  font-weight: 900;
+  color: #e8e0cc;
+  letter-spacing: 0.05em;
+  margin: 0;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+.p-tagline {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.7rem;
+}
+
+.p-tl-rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(194,32,31,0.28);
+}
+
+.p-tl-text {
+  font-size: 0.57rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  color: rgba(194,32,31,0.55);
+  white-space: nowrap;
+  text-transform: uppercase;
 }
 
 /* ── Painting ───────────────────────────────────────────── */
-.painting-wrap {
+.poster-painting {
   display: block;
   text-decoration: none;
-  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #c2201f;
 }
 
-.painting { margin: 0; }
+.p-figure { margin: 0; display: block; }
 
-.painting-img {
+.p-img {
   width: 100%;
   display: block;
-  border-radius: 8px;
   object-fit: contain;
   max-height: 42vh;
+  filter: contrast(1.05) saturate(0.95);
 }
-@media (min-width: 768px)  { .painting-img { max-height: 52vh; } }
-@media (min-width: 1280px) { .painting-img { max-height: 58vh; } }
+@media (min-width: 768px)  { .p-img { max-height: 52vh; } }
+@media (min-width: 1280px) { .p-img { max-height: 58vh; } }
 
-.painting-cap {
+.p-cap {
   display: flex;
-  gap: 0.45rem;
-  justify-content: center;
-  margin-top: 0.55rem;
-  font-size: 0.64rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #44424a;
-}
-
-.cap-dot { color: #c2201f; opacity: 0.4; }
-
-/* ── Currently reading module ───────────────────────────── */
-.reading-module {
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-  padding: 0.7rem 0.75rem;
-  margin-bottom: 1.25rem;
-  border: 1px solid #26262a;
-  border-radius: 10px;
-  text-decoration: none;
-  position: relative;
-  transition: border-color 120ms, background 120ms;
-}
-.reading-module:hover {
-  border-color: rgba(194,32,31,0.35);
-  background: rgba(194,32,31,0.04);
-}
-
-.rm-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.rm-label {
-  font-size: 0.55rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #c2201f;
-  opacity: 0.7;
-}
-.rm-count {
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.5rem 1.75rem;
+  background: #0f0d0b;
   font-size: 0.6rem;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  color: #3a3840;
+  letter-spacing: 0.07em;
+  color: #3a3830;
 }
-.rm-books {
+
+.pc-title {
+  font-weight: 800;
+  color: #504c44;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.pc-dash {
+  color: #c2201f;
+  opacity: 0.45;
+}
+
+/* ── Poster section ─────────────────────────────────────── */
+.poster-section { display: flex; flex-direction: column; }
+
+/* Full-red section header banner */
+.ps-head {
+  background: #c2201f;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.36rem 1.75rem;
+}
+
+.ps-star {
+  color: rgba(20,18,16,0.45);
+  font-size: 0.68rem;
+  flex-shrink: 0;
+}
+
+.ps-label {
+  font-size: 0.57rem;
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  color: #141210;
+  text-transform: uppercase;
+}
+
+/* ── Reading module ─────────────────────────────────────── */
+.p-reading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.75rem;
+  border-bottom: 2px solid #c2201f;
+  text-decoration: none;
+  transition: background 140ms;
+}
+.p-reading:hover { background: rgba(194,32,31,0.05); }
+
+.pr-books {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
+  min-width: 0;
 }
-.rm-book {
+
+.pr-book {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.65rem;
 }
-.rm-thumb {
+
+.pr-thumb {
   width: 26px;
   height: 38px;
   object-fit: cover;
-  border-radius: 3px;
+  border-radius: 0;
   flex-shrink: 0;
   opacity: 0.85;
 }
-.rm-thumb-empty {
+
+.pr-thumb-empty {
   width: 26px;
   height: 38px;
-  border-radius: 3px;
   flex-shrink: 0;
-  background: #26262a;
+  background: #1e1c1a;
 }
-.rm-text {
+
+.pr-text {
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
   min-width: 0;
 }
-.rm-title {
-  font-size: 0.8rem;
+
+.pr-title {
+  font-size: 0.82rem;
   font-weight: 600;
   color: #a8a298;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.rm-author {
-  font-size: 0.68rem;
-  color: #504e58;
-}
-.rm-arrow {
-  position: absolute;
-  bottom: 0.7rem;
-  right: 0.75rem;
-  font-size: 0.75rem;
-  color: #3a3840;
-  transition: color 120ms, transform 120ms;
-}
-.reading-module:hover .rm-arrow {
-  color: rgba(194,32,31,0.5);
-  transform: translateX(2px);
+
+.pr-author {
+  font-size: 0.67rem;
+  color: #4a4840;
 }
 
-/* ── Recently read strip ────────────────────────────────── */
-.recent-strip {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.6rem 0.75rem;
-  margin-bottom: 1.25rem;
-  border: 1px solid #26262a;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: border-color 120ms, background 120ms;
-}
-
-.recent-strip:hover {
-  border-color: rgba(194,32,31,0.35);
-  background: rgba(194,32,31,0.04);
-}
-
-.recent-thumb {
-  width: 32px;
-  height: 44px;
-  object-fit: cover;
-  border-radius: 4px;
+.pr-arr {
+  font-size: 0.9rem;
+  color: rgba(194,32,31,0.3);
   flex-shrink: 0;
-  opacity: 0.85;
+  transition: color 140ms, transform 140ms;
 }
-
-.recent-text {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-  min-width: 0;
-  flex: 1;
-}
-
-.recent-label {
-  font-size: 0.55rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #c2201f;
-  opacity: 0.7;
-}
-
-.recent-title {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #a8a298;
-  white-space: normal;
-  line-height: 1.3;
-}
-@media (min-width: 640px) {
-  .recent-title {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
-
-.recent-author {
-  font-size: 0.68rem;
-  color: #504e58;
-}
-
-.recent-arrow {
-  font-size: 0.75rem;
-  color: #3a3840;
-  flex-shrink: 0;
-  transition: color 120ms, transform 120ms;
-}
-
-.recent-strip:hover .recent-arrow {
-  color: rgba(194,32,31,0.5);
-  transform: translateX(2px);
-}
+.p-reading:hover .pr-arr { color: #c2201f; transform: translateX(3px); }
 
 .strip-fade-enter-active { transition: opacity 400ms ease, transform 400ms ease; }
 .strip-fade-enter-from   { opacity: 0; transform: translateY(6px); }
 
 /* ── Links ──────────────────────────────────────────────── */
-.links {
-  border-top: 1px solid #26262a;
-  padding-top: 1.2rem;
+.p-links { display: flex; flex-direction: column; }
+
+.plnk {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: stretch;
+  border-bottom: 1px solid #1c1a18;
+  text-decoration: none;
+  transition: background 140ms;
+  will-change: transform;
+  overflow: hidden;
+}
+.plnk:hover { background: rgba(194,32,31,0.05); }
+
+/* Red badge column with the number */
+.plnk-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0.9rem;
+  background: rgba(194,32,31,0.1);
+  border-right: 2px solid rgba(194,32,31,0.22);
+  font-size: 0.68rem;
+  font-weight: 900;
+  color: #c2201f;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+  transition: background 140ms, border-color 140ms;
+}
+.plnk:hover .plnk-badge {
+  background: rgba(194,32,31,0.18);
+  border-right-color: rgba(194,32,31,0.45);
 }
 
-.links-label {
-  font-size: 0.59rem;
+.plnk-name {
+  padding: 1rem 0.9rem;
+  font-size: 1rem;
+  font-weight: 900;
+  color: #d4ccb8;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+  align-self: center;
+  min-width: 0;
+}
+@media (min-width: 768px) { .plnk-name { font-size: 1.1rem; } }
+
+.plnk-cat {
+  align-self: center;
+  font-size: 0.54rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #36363c;
-  margin-bottom: 0.6rem;
+  color: #363430;
+  padding: 0 0.5rem;
+  white-space: nowrap;
 }
 
-.links-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
+.plnk-arr {
+  align-self: center;
+  font-size: 0.9rem;
+  color: #252320;
+  padding: 1rem 1.25rem 1rem 0.25rem;
+  transition: color 140ms, transform 140ms;
 }
+.plnk:hover .plnk-arr { color: #c2201f; transform: translateX(4px); }
 
-.lnk {
+/* ── Bottom banner ──────────────────────────────────────── */
+.poster-bot {
+  background: #c2201f;
   display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  padding: 0.55rem 0.65rem;
-  border: 1px solid #28282c;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: border-color 120ms, background 120ms;
-  will-change: transform;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 1.5rem;
 }
 
-.lnk:hover {
-  border-color: rgba(194,32,31,0.55);
-  background: rgba(194,32,31,0.06);
+.pb-rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(20,18,16,0.25);
 }
 
-.lnk-cat {
-  font-size: 0.57rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #c2201f;
-}
-
-.lnk-name {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: #a8a298;
+.pb-star {
+  color: rgba(20,18,16,0.45);
+  font-size: 0.8rem;
 }
 </style>
