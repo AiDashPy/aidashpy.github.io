@@ -254,6 +254,7 @@ const deleteConfirmKey = ref(null);
 
 const coverEdits = reactive({});
 const coverSavingKey = ref(null);
+const coverBust = reactive({});
 
 function initCoverEdit(b) {
   const k = bookKey(b);
@@ -318,6 +319,7 @@ async function saveCover(book) {
       ghPutFile("public/books.json", "main", content, mainFile?.sha, `Update cover: ${book.name}`),
     ]);
     finishResult.value = { ok: true, name: book.name, action: "cover-updated" };
+    coverBust[k] = Date.now();
     delete coverEdits[k];
     await loadInProgress();
   } catch (err) {
@@ -746,7 +748,7 @@ async function submit() {
         <div class="ip-list">
           <div v-for="b in inProgress" :key="bookKey(b)" class="ip-row">
             <div class="ip-info">
-              <img v-if="b.img" :src="b.img" :alt="b.name" class="ip-cover" />
+              <img v-if="b.img" :src="coverBust[bookKey(b)] ? `${b.img}?v=${coverBust[bookKey(b)]}` : b.img" :alt="b.name" class="ip-cover" />
               <div class="ip-text">
                 <span class="ip-title">{{ b.name }}</span>
                 <span class="ip-author">{{ b.author }}</span>

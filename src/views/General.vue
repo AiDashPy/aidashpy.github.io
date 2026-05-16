@@ -9,6 +9,7 @@ const inProgressBooks = ref([]);
 const grainCanvas = ref(null);
 
 let grainTimer = null;
+let bgStyleEl = null;
 
 function onOverlayEnd() { showOverlay.value = false; }
 
@@ -51,8 +52,9 @@ function startGrain() {
 }
 
 onMounted(() => {
-  document.documentElement.style.backgroundColor = '#1f1f21';
-  document.body.style.backgroundColor = '#1f1f21';
+  bgStyleEl = document.createElement('style');
+  bgStyleEl.textContent = 'html, body { background-color: #1f1f21 !important; }';
+  document.head.appendChild(bgStyleEl);
 
   created.value = true;
   setTimeout(() => { showOverlay.value = false; }, 1400);
@@ -87,8 +89,8 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  document.documentElement.style.backgroundColor = '';
-  document.body.style.backgroundColor = '';
+  bgStyleEl?.remove();
+  bgStyleEl = null;
   if (grainTimer) clearInterval(grainTimer);
 });
 </script>
