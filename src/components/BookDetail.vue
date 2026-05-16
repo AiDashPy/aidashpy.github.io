@@ -1,7 +1,6 @@
 <script setup>
 import { ref, reactive, computed, watch, onUnmounted } from "vue";
 import { playTypeChar, playFlip } from "../composables/useAudio";
-import BookFingerprint from "./BookFingerprint.vue";
 
 const _bioCache = new Map();
 
@@ -441,7 +440,6 @@ defineExpose({ open: openDetail });
             <!-- Back: detail -->
             <div class="flip-back">
               <button class="detail-close" @click="closeDetail" aria-label="Close">×</button>
-              <div class="detail-fp" aria-hidden="true"><BookFingerprint :book="book" /></div>
 
               <div class="detail-head">
                 <img v-if="book.img" :src="book.img" :alt="book.name" class="detail-thumb" @click.stop="flipToCover" />
@@ -500,16 +498,6 @@ defineExpose({ open: openDetail });
   inset: 0;
   pointer-events: none;
   transition: background 900ms ease;
-}
-
-.detail-fp {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  width: 58px;
-  height: 58px;
-  opacity: 0.15;
-  pointer-events: none;
 }
 
 .flip-scene {
