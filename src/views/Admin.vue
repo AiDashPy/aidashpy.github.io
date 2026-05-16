@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, watch } from "vue";
+import { ref, reactive, onMounted, watch } from "vue";
 
 const OWNER = "aidashpy";
 const REPO = "aidashpy.github.io";
@@ -218,12 +218,129 @@ async function markFinished(book) {
   finishResult.value = null;
   try {
     await patchBook(book.name, book.author, dateStr);
-    finishResult.value = { ok: true, name: book.name };
+    finishResult.value = { ok: true, name: book.name, action: "finished" };
     await loadInProgress();
   } catch (err) {
     finishResult.value = { ok: false, msg: err.message };
   } finally {
     finishingKey.value = null;
+  }
+}
+
+async function removeBook(name, author) {
+  const [mainFile, ghFile] = await Promise.all([
+    ghGetFile("public/books.json", "main"),
+    ghGetFile("books.json", "gh-pages"),
+  ]);
+  if (!mainFile) throw new Error("public/books.json not found on main");
+  const data = JSON.parse(b64Decode(mainFile.content));
+  let found = false;
+  for (const y of data) {
+    const idx = (y.entries ?? []).findIndex((e) => e.name === name && e.author === author);
+    if (idx !== -1) { y.entries.splice(idx, 1); found = true; break; }
+  }
+  if (!found) throw new Error(`Book "${name}" not found`);
+  const content = JSON.stringify(data, null, 2);
+  await Promise.all([
+    ghPutFile("books.json", "gh-pages", content, ghFile?.sha, `Delete: ${name}`),
+    ghPutFile("public/books.json", "main", content, mainFile?.sha, `Delete: ${name}`),
+  ]);
+}
+
+const deletingKey = ref(null);
+const deleteConfirmKey = ref(null);
+
+// ── Cover editing for in-progress books ──────────────────────
+
+const coverEdits = reactive({});
+const coverSavingKey = ref(null);
+
+function initCoverEdit(b) {
+  const k = bookKey(b);
+  if (!coverEdits[k]) coverEdits[k] = { processing: false, preview: null, filename: null, info: null };
+  return coverEdits[k];
+}
+
+async function onCoverPick(e, book) {
+  const file = e.target.files?.[0];
+  if (!file) return;
+  const k = bookKey(book);
+  const edit = initCoverEdit(book);
+  const base = file.name.replace(/\.[^.]+$/, "").replace(/\s+/g, "_");
+  edit.filename = `${base}.webp`;
+  edit.preview = null;
+  edit.info = null;
+  edit.processing = true;
+  try {
+    const result = await processImage(file);
+    edit.preview = result.dataUrl;
+    edit.info = result;
+  } catch (err) {
+    finishResult.value = { ok: false, msg: `Image processing failed: ${err.message}` };
+  } finally {
+    edit.processing = false;
+  }
+}
+
+async function saveCover(book) {
+  const k = bookKey(book);
+  const edit = coverEdits[k];
+  if (!edit?.preview || !edit?.filename) return;
+  coverSavingKey.value = k;
+  finishResult.value = null;
+  try {
+    const base64 = edit.preview.split(",")[1];
+    const filename = edit.filename;
+    const imgPath = `/images/${filename}`;
+    const [ghImg, mainImg] = await Promise.all([
+      ghGetFile(`images/${filename}`, "gh-pages"),
+      ghGetFile(`public/images/${filename}`, "main"),
+    ]);
+    await Promise.all([
+      ghPutFile(`images/${filename}`, "gh-pages", base64, ghImg?.sha, `Update cover: ${filename}`, true),
+      ghPutFile(`public/images/${filename}`, "main", base64, mainImg?.sha, `Update cover: ${filename}`, true),
+    ]);
+    const [mainFile, ghFile] = await Promise.all([
+      ghGetFile("public/books.json", "main"),
+      ghGetFile("books.json", "gh-pages"),
+    ]);
+    if (!mainFile) throw new Error("public/books.json not found on main");
+    const data = JSON.parse(b64Decode(mainFile.content));
+    let found = false;
+    for (const y of data) {
+      const entry = (y.entries ?? []).find((e) => e.name === book.name && e.author === book.author);
+      if (entry) { entry.img = imgPath; found = true; break; }
+    }
+    if (!found) throw new Error(`Book "${book.name}" not found`);
+    const content = JSON.stringify(data, null, 2);
+    await Promise.all([
+      ghPutFile("books.json", "gh-pages", content, ghFile?.sha, `Update cover: ${book.name}`),
+      ghPutFile("public/books.json", "main", content, mainFile?.sha, `Update cover: ${book.name}`),
+    ]);
+    finishResult.value = { ok: true, name: book.name, action: "cover-updated" };
+    delete coverEdits[k];
+    await loadInProgress();
+  } catch (err) {
+    finishResult.value = { ok: false, msg: err.message };
+  } finally {
+    coverSavingKey.value = null;
+  }
+}
+
+async function confirmDelete(book) {
+  const key = bookKey(book);
+  if (deleteConfirmKey.value !== key) { deleteConfirmKey.value = key; return; }
+  deleteConfirmKey.value = null;
+  deletingKey.value = key;
+  finishResult.value = null;
+  try {
+    await removeBook(book.name, book.author);
+    finishResult.value = { ok: true, name: book.name, action: "deleted" };
+    await loadInProgress();
+  } catch (err) {
+    finishResult.value = { ok: false, msg: err.message };
+  } finally {
+    deletingKey.value = null;
   }
 }
 
@@ -619,7 +736,9 @@ async function submit() {
         <div v-if="loadingProgress" class="ip-loading">Loading…</div>
 
         <div v-if="finishResult" class="result-banner" :class="finishResult.ok ? 'result-ok' : 'result-err'" style="margin-bottom:1rem">
-          <template v-if="finishResult.ok"><strong>"{{ finishResult.name }}"</strong> marked as finished.</template>
+          <template v-if="finishResult.ok && finishResult.action === 'deleted'"><strong>"{{ finishResult.name }}"</strong> deleted.</template>
+          <template v-else-if="finishResult.ok && finishResult.action === 'cover-updated'"><strong>"{{ finishResult.name }}"</strong> cover updated.</template>
+          <template v-else-if="finishResult.ok"><strong>"{{ finishResult.name }}"</strong> marked as finished.</template>
           <template v-else>Error: {{ finishResult.msg }}</template>
           <button class="result-close" @click="finishResult = null">✕</button>
         </div>
@@ -641,11 +760,43 @@ async function submit() {
               />
               <button
                 class="btn-primary ip-btn"
-                :disabled="finishingKey === bookKey(b)"
+                :disabled="finishingKey === bookKey(b) || deletingKey === bookKey(b)"
                 @click="markFinished(b)"
               >
                 {{ finishingKey === bookKey(b) ? "Saving…" : "Mark finished" }}
               </button>
+              <button
+                class="btn-delete ip-btn"
+                :class="{ 'btn-delete-confirm': deleteConfirmKey === bookKey(b) }"
+                :disabled="finishingKey === bookKey(b) || deletingKey === bookKey(b)"
+                :title="deleteConfirmKey === bookKey(b) ? 'Click again to confirm deletion' : 'Delete book'"
+                @click="confirmDelete(b)"
+                @blur="deleteConfirmKey = null"
+              >
+                {{ deletingKey === bookKey(b) ? "Deleting…" : deleteConfirmKey === bookKey(b) ? "Confirm?" : "Delete" }}
+              </button>
+            </div>
+            <div class="ip-cover-edit">
+              <label class="btn-file btn-file-sm">
+                Change cover
+                <input type="file" accept="image/*" class="sr-only" @change="onCoverPick($event, b)" />
+              </label>
+              <span v-if="coverEdits[bookKey(b)]?.processing" class="img-processing">Converting…</span>
+              <template v-if="coverEdits[bookKey(b)]?.preview && !coverEdits[bookKey(b)]?.processing">
+                <img :src="coverEdits[bookKey(b)].preview" alt="New cover" class="ip-cover-preview" />
+                <div v-if="coverEdits[bookKey(b)]?.info" class="img-stats">
+                  <span class="img-stat-orig">{{ coverEdits[bookKey(b)].info.origW }}×{{ coverEdits[bookKey(b)].info.origH }} · {{ fmtSize(coverEdits[bookKey(b)].info.origSize) }}</span>
+                  <span class="img-stat-arrow">→</span>
+                  <span class="img-stat-new">{{ coverEdits[bookKey(b)].info.newW }}×{{ coverEdits[bookKey(b)].info.newH }} · {{ fmtSize(coverEdits[bookKey(b)].info.newSize) }} WebP</span>
+                </div>
+                <button
+                  class="btn-primary ip-btn"
+                  :disabled="coverSavingKey === bookKey(b)"
+                  @click="saveCover(b)"
+                >
+                  {{ coverSavingKey === bookKey(b) ? "Saving…" : "Save cover" }}
+                </button>
+              </template>
             </div>
           </div>
         </div>
@@ -1015,6 +1166,42 @@ async function submit() {
 .ip-actions { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
 .ip-date { width: 140px; padding: 0.4rem 0.6rem; font-size: 0.8rem; }
 .ip-btn { margin-top: 0; font-size: 0.78rem; padding: 0.4rem 0.85rem; }
+
+.btn-delete {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid #3a2020;
+  background: transparent;
+  color: #7a4a4a;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 150ms, border-color 150ms, color 150ms;
+}
+.btn-delete:hover:not(:disabled) { background: #1a1010; border-color: #5a2828; color: #c07070; }
+.btn-delete-confirm { border-color: #7a3030 !important; background: #1a1010 !important; color: #c07070 !important; }
+.btn-delete:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.ip-cover-edit {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 0.5rem;
+  border-top: 1px solid #222016;
+}
+.btn-file-sm { font-size: 0.73rem; padding: 0.3rem 0.7rem; }
+.ip-cover-preview {
+  height: 60px; width: auto; max-width: 44px;
+  object-fit: contain; border-radius: 3px;
+  background: #1a1812; border: 1px solid #2a2618; flex-shrink: 0;
+}
 
 /* ── Info list ─────────────────────────────────────── */
 .info-list {

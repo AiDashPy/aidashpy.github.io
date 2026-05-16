@@ -327,7 +327,10 @@ onUnmounted(() => {
     <div class="trap" :class="showYears ? 'trap-on' : ''" @click="closeYears" aria-hidden="true"></div>
 
     <aside class="drawer" :class="showYears ? 'drawer-open' : ''" :aria-hidden="!showYears">
-      <button class="drawer-close" @click="closeYears" aria-label="Close">×</button>
+      <div class="drawer-header">
+        <span class="drawer-title">Archive</span>
+        <button class="drawer-close" @click="closeYears" aria-label="Close">×</button>
+      </div>
       <nav class="year-nav drawer-nav">
         <YearBadge
           v-for="(y, i) in sortedYears"
@@ -493,7 +496,6 @@ onUnmounted(() => {
 
 .mosaic-cover {
   position: relative;
-  background: none;
   border: none;
   padding: 0;
   cursor: pointer;
@@ -502,8 +504,15 @@ onUnmounted(() => {
   aspect-ratio: 2 / 3;
   opacity: 0;
   transform: scale(0.94);
-  animation: mosaic-in 280ms ease both;
-  animation-delay: calc(var(--mi, 0) * 22ms);
+  background: linear-gradient(90deg, #181610 0%, #26220e 50%, #181610 100%);
+  background-size: 300% 100%;
+  animation:
+    mosaic-in 280ms ease both calc(var(--mi, 0) * 22ms),
+    cover-shimmer 1.6s ease-in-out infinite;
+}
+@keyframes cover-shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
 }
 @keyframes mosaic-in {
   to { opacity: 1; transform: scale(1); }
@@ -520,8 +529,6 @@ onUnmounted(() => {
 .mosaic-empty {
   width: 100%;
   height: 100%;
-  background: #1c1a12;
-  border-radius: 5px;
 }
 
 .mosaic-cover:hover .mosaic-img { transform: scale(1.05); filter: brightness(1.08); }
@@ -592,33 +599,64 @@ onUnmounted(() => {
 @media (min-width: 1024px) { .fab { display: none; } }
 
 /* ── Click trap ─────────────────────────────────────────── */
-.trap { position: fixed; inset: 0; z-index: 60; pointer-events: none; }
-.trap-on { pointer-events: auto; }
+.trap {
+  position: fixed; inset: 0; z-index: 60;
+  pointer-events: none;
+  background: rgba(8, 7, 4, 0);
+  transition: background 260ms ease;
+}
+.trap-on {
+  pointer-events: auto;
+  background: rgba(8, 7, 4, 0.55);
+}
 
 /* ── Drawer ─────────────────────────────────────────────── */
 .drawer {
   position: fixed;
   right: 0; top: env(safe-area-inset-top, 0); bottom: 0;
   z-index: 70;
-  width: 14rem;
-  background: #1c1a12;
-  border-left: 1px solid #2a2618;
-  box-shadow: -6px 0 24px rgba(0,0,0,0.5);
+  width: 16rem;
+  background: #181610;
+  border-left: 1px solid #252210;
+  box-shadow: -12px 0 40px rgba(0,0,0,0.6);
   transform: translateX(100%);
-  transition: transform 260ms cubic-bezier(0.4,0,0.2,1);
-  overflow-y: auto;
+  transition: transform 300ms cubic-bezier(0.32, 0, 0.15, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 .drawer-open { transform: translateX(0); }
 
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1rem 1rem;
+  border-bottom: 1px solid #222016;
+  flex-shrink: 0;
+}
+
+.drawer-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #4a4630;
+}
+
 .drawer-close {
-  position: absolute; top: 1rem; right: 1rem;
-  width: 28px; height: 28px;
+  width: 26px; height: 26px;
   display: flex; align-items: center; justify-content: center;
   border: 1px solid #2a2618; border-radius: 7px;
-  background: transparent; color: #7a8c58; font-size: 1.1rem;
+  background: transparent; color: #5a5440; font-size: 1rem;
   cursor: pointer;
+  transition: background 130ms, color 130ms, border-color 130ms;
 }
-.drawer-close:hover { background: #222016; }
+.drawer-close:hover { background: #222016; color: #9a8c6c; border-color: #3a3620; }
 
-.drawer-nav { padding: 3.5rem 1rem 1.5rem; }
+.drawer-nav {
+  padding: 0.75rem 0.75rem 2rem;
+  overflow-y: auto;
+  flex: 1;
+}
 </style>

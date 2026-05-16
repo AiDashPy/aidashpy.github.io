@@ -256,7 +256,17 @@ useIntersectionObserver(rowRef, ([{ isIntersecting }]) => {
 }
 @media (min-width: 640px) { .cover { width: 76px; height: 112px; } }
 
-.cover-bg { position: absolute; inset: 0; background: #1c1a12; }
+.cover-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #181610 0%, #26220e 50%, #181610 100%);
+  background-size: 300% 100%;
+  animation: cover-shimmer 1.6s ease-in-out infinite;
+}
+@keyframes cover-shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
 
 .cover-img {
   position: absolute; inset: 0;

@@ -5,7 +5,7 @@ import { RouterLink } from "vue-router";
 const created = ref(false);
 const showOverlay = ref(true);
 const currentBook = ref(null);
-const isCurrentlyReading = ref(false);
+const inProgressBooks = ref([]);
 const grainCanvas = ref(null);
 
 let grainTimer = null;
@@ -51,6 +51,9 @@ function startGrain() {
 }
 
 onMounted(() => {
+  document.documentElement.style.backgroundColor = '#1f1f21';
+  document.body.style.backgroundColor = '#1f1f21';
+
   created.value = true;
   setTimeout(() => { showOverlay.value = false; }, 1400);
 
@@ -59,27 +62,24 @@ onMounted(() => {
   fetch("/books.json")
     .then((r) => r.json())
     .then((data) => {
-      let activeBook = null;
-      let activeTime = 0;
+      const active = [];
       let recentBook = null;
       let recentTime = 0;
       data.forEach((year) => {
         (year.entries || []).forEach((e) => {
           if (e?.img) new Image().src = e.img;
-          if (!e?.date) return;
-          const [m, d, y] = e.date.split("/");
-          const t = new Date(+y, +m - 1, +d).getTime();
-          if (!e.finished && t > activeTime) { activeTime = t; activeBook = e; }
-          if (e.finished && t > recentTime) { recentTime = t; recentBook = e; }
+          const isIP = e.finished === false || (e.finish && /^started/i.test(e.finish));
+          if (isIP) {
+            active.push(e);
+          } else if (e?.date) {
+            const [m, d, y] = e.date.split("/");
+            const t = new Date(+y, +m - 1, +d).getTime();
+            if (t > recentTime) { recentTime = t; recentBook = e; }
+          }
         });
       });
-      if (activeBook) {
-        currentBook.value = activeBook;
-        isCurrentlyReading.value = true;
-      } else {
-        currentBook.value = recentBook;
-        isCurrentlyReading.value = false;
-      }
+      inProgressBooks.value = active;
+      currentBook.value = recentBook;
     })
     .catch(() => {});
 
@@ -87,6 +87,8 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
+  document.documentElement.style.backgroundColor = '';
+  document.body.style.backgroundColor = '';
   if (grainTimer) clearInterval(grainTimer);
 });
 </script>
@@ -140,17 +142,29 @@ onUnmounted(() => {
             </figure>
           </a>
 
-          <!-- Recently read strip -->
+          <!-- Currently reading module / recently read strip -->
           <Transition name="strip-fade">
-            <RouterLink v-if="currentBook" to="/" class="recent-strip">
-              <img
-                v-if="currentBook.img"
-                :src="currentBook.img"
-                class="recent-thumb"
-                :alt="currentBook.name"
-              />
+            <RouterLink v-if="inProgressBooks.length" to="/" class="reading-module">
+              <div class="rm-header">
+                <span class="rm-label">currently reading</span>
+                <span v-if="inProgressBooks.length > 1" class="rm-count">{{ inProgressBooks.length }}</span>
+              </div>
+              <div class="rm-books">
+                <div v-for="b in inProgressBooks" :key="b.name" class="rm-book">
+                  <img v-if="b.img" :src="b.img" class="rm-thumb" :alt="b.name" />
+                  <div v-else class="rm-thumb-empty" />
+                  <div class="rm-text">
+                    <span class="rm-title">{{ b.name }}</span>
+                    <span class="rm-author">{{ b.author }}</span>
+                  </div>
+                </div>
+              </div>
+              <span class="rm-arrow">→</span>
+            </RouterLink>
+            <RouterLink v-else-if="currentBook" to="/" class="recent-strip">
+              <img v-if="currentBook.img" :src="currentBook.img" class="recent-thumb" :alt="currentBook.name" />
               <div class="recent-text">
-                <span class="recent-label">{{ isCurrentlyReading ? 'currently reading' : 'recently read' }}</span>
+                <span class="recent-label">recently read</span>
                 <span class="recent-title">{{ currentBook.name }}</span>
                 <span class="recent-author">{{ currentBook.author }}</span>
               </div>
@@ -205,14 +219,13 @@ onUnmounted(() => {
 .page {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #1f1f21;
   padding: 1.5rem 1rem;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 /* ── Film grain ─────────────────────────────────────────── */
@@ -267,8 +280,6 @@ onUnmounted(() => {
   border-radius: 18px;
   padding: 2rem 2rem 1.75rem;
   box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-  overflow: auto;
-  max-height: calc(100vh - 3rem);
   transition: opacity 500ms, transform 300ms ease, box-shadow 300ms ease;
 }
 
@@ -353,6 +364,99 @@ onUnmounted(() => {
 }
 
 .cap-dot { color: #c2201f; opacity: 0.4; }
+
+/* ── Currently reading module ───────────────────────────── */
+.reading-module {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 0.7rem 0.75rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #26262a;
+  border-radius: 10px;
+  text-decoration: none;
+  position: relative;
+  transition: border-color 120ms, background 120ms;
+}
+.reading-module:hover {
+  border-color: rgba(194,32,31,0.35);
+  background: rgba(194,32,31,0.04);
+}
+
+.rm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.rm-label {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #c2201f;
+  opacity: 0.7;
+}
+.rm-count {
+  font-size: 0.6rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: #3a3840;
+}
+.rm-books {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.rm-book {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.rm-thumb {
+  width: 26px;
+  height: 38px;
+  object-fit: cover;
+  border-radius: 3px;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+.rm-thumb-empty {
+  width: 26px;
+  height: 38px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  background: #26262a;
+}
+.rm-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+.rm-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #a8a298;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rm-author {
+  font-size: 0.68rem;
+  color: #504e58;
+}
+.rm-arrow {
+  position: absolute;
+  bottom: 0.7rem;
+  right: 0.75rem;
+  font-size: 0.75rem;
+  color: #3a3840;
+  transition: color 120ms, transform 120ms;
+}
+.reading-module:hover .rm-arrow {
+  color: rgba(194,32,31,0.5);
+  transform: translateX(2px);
+}
 
 /* ── Recently read strip ────────────────────────────────── */
 .recent-strip {

@@ -1,7 +1,24 @@
 <script setup>
-import { RouterLink } from "vue-router";
 import { ref, onMounted, onUnmounted } from "vue";
+import { useRouter } from "vue-router";
 import { audioMuted, toggleMute } from "../composables/useAudio";
+
+const router = useRouter();
+let tapCount = 0;
+let tapTimer = null;
+function onLogoClick(e) {
+  e.preventDefault();
+  tapCount++;
+  clearTimeout(tapTimer);
+  tapTimer = setTimeout(() => { tapCount = 0; }, 1500);
+  if (tapCount >= 7) {
+    tapCount = 0;
+    clearTimeout(tapTimer);
+    router.push("/admin");
+  } else {
+    router.push("/");
+  }
+}
 
 const visible = ref(true);
 let lastY = 0, ticking = false;
@@ -24,7 +41,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
 <template>
   <header class="hdr" :class="visible ? '' : 'hdr-off'">
     <div class="hdr-inner">
-      <RouterLink to="/" class="logo">aidashpy</RouterLink>
+      <a href="/" class="logo" @click="onLogoClick">aidashpy</a>
       <nav class="nav">
         <RouterLink to="/links" class="nav-a">links</RouterLink>
         <button class="nav-mute" @click="toggleMute" :title="audioMuted ? 'Unmute' : 'Mute'" :aria-label="audioMuted ? 'Unmute' : 'Mute'">
