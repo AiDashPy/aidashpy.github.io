@@ -1,10 +1,11 @@
 <script setup>
-import { ref, computed, watch, onMounted, onUnmounted } from "vue";
+import { ref, computed, watch, onMounted, onUnmounted, nextTick } from "vue";
 import { useRouter } from "vue-router";
 import { scrollToTop } from "../composables/useLenis";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import BookEntry from "../components/BookEntry.vue";
+import BookDetail from "../components/BookDetail.vue";
 import WebHeader from "../components/WebHeader.vue";
 import WebFooter from "../components/WebFooter.vue";
 import YearBadge from "../components/YearBadge.vue";
@@ -169,9 +170,13 @@ const listEntries = computed(() => [
   ...finishedEntries.value,
 ]);
 
-function openBook(b) {
-  const q = encodeURIComponent(`${b.name || ''} ${b.author || ''}`.trim());
-  window.open(`https://openlibrary.org/search?q=${q}`, '_blank', 'noopener,noreferrer');
+const mosaicBook = ref(null);
+const mosaicDetailRef = ref(null);
+
+async function openMosaicDetail(b) {
+  mosaicBook.value = b;
+  await nextTick();
+  mosaicDetailRef.value?.open();
 }
 
 function selectYear(i) {
@@ -289,7 +294,7 @@ onUnmounted(() => {
                   :class="{ 'mosaic-ip': isInProgress(b) }"
                   :style="{ '--mi': idx }"
                   :title="b.name + ' — ' + b.author"
-                  @click="openBook(b)"
+                  @click="openMosaicDetail(b)"
                 >
                   <img
                     v-if="b.img"
@@ -340,6 +345,13 @@ onUnmounted(() => {
   </div>
 
   <SearchOverlay :entries="allEntries" :open="showSearch" @close="showSearch = false" />
+  <BookDetail
+    v-if="mosaicBook"
+    ref="mosaicDetailRef"
+    :book="mosaicBook"
+    :in-progress="isInProgress(mosaicBook)"
+    @close="mosaicBook = null"
+  />
 </template>
 
 <style scoped>

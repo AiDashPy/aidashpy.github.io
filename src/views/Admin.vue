@@ -130,18 +130,27 @@ function b64Decode(str) {
   return new TextDecoder().decode(bytes);
 }
 
-async function updateBooksFile(filePath, branch, newBook) {
-  const file = await ghGetFile(filePath, branch);
+async function updateBooksFile(newBook) {
+  // Read both SHAs in parallel; use main as the content source of truth
+  const [mainFile, ghFile] = await Promise.all([
+    ghGetFile("public/books.json", "main"),
+    ghGetFile("books.json", "gh-pages"),
+  ]);
   let entries = [];
-  if (file) {
-    try { entries = JSON.parse(b64Decode(file.content)); } catch {}
+  if (mainFile) {
+    try { entries = JSON.parse(b64Decode(mainFile.content)); } catch {}
   }
   const m = newBook.date?.match(/\/(\d{4})$/);
   const year = m ? m[1] : String(new Date().getFullYear());
   let group = entries.find((g) => g.year === year);
   if (!group) { group = { year, entries: [] }; entries.unshift(group); }
   group.entries.unshift(newBook);
-  await ghPutFile(filePath, branch, JSON.stringify(entries, null, 2), file?.sha, `Add book: ${newBook.name}`);
+  const content = JSON.stringify(entries, null, 2);
+  const message = `Add book: ${newBook.name}`;
+  await Promise.all([
+    ghPutFile("books.json", "gh-pages", content, ghFile?.sha, message),
+    ghPutFile("public/books.json", "main", content, mainFile?.sha, message),
+  ]);
 }
 
 // ── In-progress books ─────────────────────────────────────────
@@ -157,7 +166,7 @@ function bookKey(b) { return b.name + "||" + b.author; }
 async function loadInProgress() {
   loadingProgress.value = true;
   try {
-    const file = await ghGetFile("books.json", "gh-pages");
+    const file = await ghGetFile("public/books.json", "main");
     if (!file) return;
     const data = JSON.parse(b64Decode(file.content));
     const list = [];
@@ -177,17 +186,26 @@ async function loadInProgress() {
   }
 }
 
-async function patchBookFile(filePath, branch, name, author, dateStr) {
-  const file = await ghGetFile(filePath, branch);
-  if (!file) throw new Error(`${filePath} not found on ${branch}`);
-  const data = JSON.parse(b64Decode(file.content));
+async function patchBook(name, author, dateStr) {
+  // Read both SHAs in parallel; use main as the content source of truth
+  const [mainFile, ghFile] = await Promise.all([
+    ghGetFile("public/books.json", "main"),
+    ghGetFile("books.json", "gh-pages"),
+  ]);
+  if (!mainFile) throw new Error("public/books.json not found on main");
+  const data = JSON.parse(b64Decode(mainFile.content));
   let found = false;
   for (const y of data) {
     const b = (y.entries ?? []).find((e) => e.name === name && e.author === author);
     if (b) { b.finished = true; b.date = dateStr; delete b.finish; found = true; break; }
   }
-  if (!found) throw new Error(`Book "${name}" not found in ${filePath}`);
-  await ghPutFile(filePath, branch, JSON.stringify(data, null, 2), file.sha, `Finish: ${name}`);
+  if (!found) throw new Error(`Book "${name}" not found`);
+  const content = JSON.stringify(data, null, 2);
+  const message = `Finish: ${name}`;
+  await Promise.all([
+    ghPutFile("books.json", "gh-pages", content, ghFile?.sha, message),
+    ghPutFile("public/books.json", "main", content, mainFile?.sha, message),
+  ]);
 }
 
 async function markFinished(book) {
@@ -199,10 +217,7 @@ async function markFinished(book) {
   finishingKey.value = key;
   finishResult.value = null;
   try {
-    await Promise.all([
-      patchBookFile("books.json", "gh-pages", book.name, book.author, dateStr),
-      patchBookFile("public/books.json", "main", book.name, book.author, dateStr),
-    ]);
+    await patchBook(book.name, book.author, dateStr);
     finishResult.value = { ok: true, name: book.name };
     await loadInProgress();
   } catch (err) {
@@ -426,11 +441,7 @@ async function submit() {
       img: imgPath,
     };
 
-    // Update books.json on both branches in parallel
-    await Promise.all([
-      updateBooksFile("books.json", "gh-pages", book),
-      updateBooksFile("public/books.json", "main", book),
-    ]);
+    await updateBooksFile(book);
 
     submitResult.value = { ok: true, name: book.name };
     form.value = { name: "", author: "", finished: true, date: "", imgFilename: "", imgPreview: "", imgManualPath: "" };
@@ -843,7 +854,26 @@ async function submit() {
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
-@media (max-width: 520px) { .form-grid { grid-template-columns: 1fr; } }
+@media (max-width: 520px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .panel { padding: 1rem 0.875rem 4rem; }
+  .card { padding: 1.1rem; }
+
+  /* Stack in-progress rows: book info on top, actions below */
+  .ip-row { flex-direction: column; align-items: stretch; gap: 0.6rem; }
+  .ip-info { flex: unset; }
+  .ip-actions { width: 100%; }
+  .ip-date { flex: 1; width: auto; }
+
+  /* Full-width submit buttons (not the inline finish button inside ip-actions) */
+  .btn-primary:not(.ip-btn) { width: 100%; }
+  .ip-btn { width: auto; flex-shrink: 0; }
+
+  /* Bigger touch targets in search results */
+  .gb-item { padding: 0.7rem 0.75rem; }
+  .gb-thumb { width: 32px; height: 48px; }
+  .gb-thumb-placeholder { width: 32px; height: 48px; }
+}
 
 .radio-group {
   display: flex;
