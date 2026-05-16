@@ -9,8 +9,7 @@ const ADMIN_PASS_HASH = "efd457adc8e473a6a754dbec44971e226e8dc6c284dc2a88fbabe67
 const authed = ref(false);
 const loginUser = ref("");
 const loginPass = ref("");
-const loginPat = ref(import.meta.env.VITE_GITHUB_PAT ?? "");
-const hasEnvPat = !!import.meta.env.VITE_GITHUB_PAT;
+const loginPat = ref("");
 const loginErr = ref("");
 const loginLoading = ref(false);
 const pat = ref("");
@@ -330,7 +329,7 @@ async function submit() {
         <input v-model="loginPass" class="input" type="password" autocomplete="current-password" />
       </div>
 
-      <div class="field" v-if="!hasEnvPat">
+      <div class="field">
         <label class="label">GitHub token</label>
         <input v-model="loginPat" class="input input-mono" type="password" placeholder="ghp_…" autocomplete="off" spellcheck="false" />
         <span class="field-hint">Fine-grained PAT with <code>contents: write</code> on this repo</span>
