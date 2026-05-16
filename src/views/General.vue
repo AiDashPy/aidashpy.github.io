@@ -117,7 +117,9 @@ onUnmounted(() => {
 
           <!-- Top poster banner -->
           <div class="poster-top" aria-hidden="true">
-            <span class="pt-star">★</span>
+            <svg class="pt-star" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="50,5 61,39 98,39 67,59 79,91 50,72 21,91 33,59 2,39 39,39" fill="currentColor"/>
+            </svg>
             <span class="pt-rule"></span>
             <span class="pt-year">MMXXVI</span>
           </div>
@@ -154,7 +156,9 @@ onUnmounted(() => {
           <!-- Currently / recently reading -->
           <div v-if="inProgressBooks.length || currentBook" class="poster-section">
             <div class="ps-head">
-              <span class="ps-star" aria-hidden="true">★</span>
+              <svg class="ps-star" aria-hidden="true" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="50,5 61,39 98,39 67,59 79,91 50,72 21,91 33,59 2,39 39,39" fill="currentColor"/>
+              </svg>
               <span class="ps-label">{{ inProgressBooks.length ? 'CURRENTLY READING' : 'RECENTLY READ' }}</span>
             </div>
             <Transition name="strip-fade">
@@ -190,7 +194,9 @@ onUnmounted(() => {
           <!-- Links -->
           <div class="poster-section">
             <div class="ps-head">
-              <span class="ps-star" aria-hidden="true">★</span>
+              <svg class="ps-star" aria-hidden="true" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="50,5 61,39 98,39 67,59 79,91 50,72 21,91 33,59 2,39 39,39" fill="currentColor"/>
+              </svg>
               <span class="ps-label">LINKS</span>
             </div>
             <nav class="p-links">
@@ -237,7 +243,9 @@ onUnmounted(() => {
           <!-- Bottom banner -->
           <div class="poster-bot" aria-hidden="true">
             <span class="pb-rule"></span>
-            <span class="pb-star">★</span>
+            <svg class="pb-star" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="50,5 61,39 98,39 67,59 79,91 50,72 21,91 33,59 2,39 39,39" fill="currentColor"/>
+            </svg>
             <span class="pb-rule"></span>
           </div>
 
@@ -336,9 +344,9 @@ onUnmounted(() => {
 }
 
 .pt-star {
+  width: 1rem;
+  height: 1rem;
   color: rgba(20,18,16,0.55);
-  font-size: 1rem;
-  line-height: 1;
   animation: spin 12s linear infinite;
   flex-shrink: 0;
 }
@@ -456,9 +464,9 @@ onUnmounted(() => {
 }
 
 .ps-star {
+  width: 0.6rem;
+  height: 0.6rem;
   color: rgba(20,18,16,0.45);
-  font-size: 0.65rem;
-  line-height: 1;
   flex-shrink: 0;
 }
 
@@ -636,9 +644,9 @@ onUnmounted(() => {
 }
 
 .pb-star {
+  width: 0.75rem;
+  height: 0.75rem;
   color: rgba(20,18,16,0.45);
-  font-size: 0.8rem;
-  line-height: 1;
 }
 
 /* ── Mobile (≤ 479px) ───────────────────────────────────── */
