@@ -309,13 +309,13 @@ async function fetchBio() {
   try {
     let result = null;
     if (hasChinese(props.book.name)) {
-      try { result = await fetchFromZhWikipedia(); } catch {}
+      try { result = await fetchFromGoogleBooks(); } catch {}
+      if (!result) try { result = await fetchFromZhWikipedia(); } catch {}
       if (!result) try { result = await fetchFromOL(); } catch {}
-      if (!result) try { result = await fetchFromGoogleBooks(); } catch {}
       if (!result) result = await fetchFromWikipedia();
     } else {
-      try { result = await fetchFromOL(); } catch {}
-      if (!result) try { result = await fetchFromGoogleBooks(); } catch {}
+      try { result = await fetchFromGoogleBooks(); } catch {}
+      if (!result) try { result = await fetchFromOL(); } catch {}
       if (!result) result = await fetchFromWikipedia();
     }
     bio.value = result?.text ?? null;
