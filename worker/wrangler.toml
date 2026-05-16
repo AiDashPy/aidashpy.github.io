@@ -4,7 +4,7 @@ compatibility_date = "2025-01-01"
 
 [[kv_namespaces]]
 binding = "KV"
-id = "PLACEHOLDER_KV_ID"          # replace after: wrangler kv namespace create BOOKS
+id = "711919a2ee384b498de5831573cbe880"
 
 [[r2_buckets]]
 binding = "R2"
