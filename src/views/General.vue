@@ -363,7 +363,7 @@ onUnmounted(() => {
 }
 
 .p-title {
-  font-size: clamp(3.8rem, 14vw, 7rem);
+  font-size: clamp(2.2rem, 13vw, 7rem);
   font-weight: 900;
   color: #e8e0cc;
   letter-spacing: 0.05em;
@@ -623,5 +623,28 @@ onUnmounted(() => {
 .pb-star {
   color: rgba(20,18,16,0.45);
   font-size: 0.8rem;
+}
+
+/* ── Mobile (≤ 479px) ───────────────────────────────────── */
+@media (max-width: 479px) {
+  .page { padding: 1rem 0.5rem; }
+
+  .poster-top  { padding: 0.4rem 1.1rem; }
+  .poster-bot  { padding: 0.28rem 1.1rem; }
+
+  .poster-title-block { padding: 1rem 1.25rem 0.9rem; }
+  .p-tagline { gap: 0.5rem; }
+
+  .p-cap { padding: 0.45rem 1.25rem; }
+
+  .ps-head { padding: 0.34rem 1.25rem; }
+
+  .p-reading { padding: 0.8rem 1.25rem; }
+
+  /* link rows: tighter padding, hide low-contrast category */
+  .plnk-badge { padding: 0.85rem 0.7rem; }
+  .plnk-name  { padding: 0.85rem 0.7rem; font-size: 0.92rem; }
+  .plnk-cat   { display: none; }
+  .plnk-arr   { padding: 0.85rem 1rem 0.85rem 0.2rem; }
 }
 </style>
