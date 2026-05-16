@@ -30,3 +30,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           VITE_BOOKS_API_KEY: ${{ secrets.VITE_BOOKS_API_KEY }}
+          VITE_ENCRYPTED_PAT: ${{ secrets.VITE_ENCRYPTED_PAT }}

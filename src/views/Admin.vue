@@ -9,7 +9,6 @@ const ADMIN_PASS_HASH = "efd457adc8e473a6a754dbec44971e226e8dc6c284dc2a88fbabe67
 const authed = ref(false);
 const loginUser = ref("");
 const loginPass = ref("");
-const loginPat = ref("");
 const loginErr = ref("");
 const loginLoading = ref(false);
 const pat = ref("");
@@ -27,6 +26,26 @@ async function sha256(str) {
   return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
+async function decryptPat(password) {
+  const blob = import.meta.env.VITE_ENCRYPTED_PAT;
+  if (!blob) throw new Error("No encrypted token in build.");
+  const combined = Uint8Array.from(atob(blob), (c) => c.charCodeAt(0));
+  const salt = combined.slice(0, 16);
+  const iv = combined.slice(16, 28);
+  const ciphertext = combined.slice(28);
+  const keyMaterial = await crypto.subtle.importKey(
+    "raw", new TextEncoder().encode(password), "PBKDF2", false, ["deriveKey"]
+  );
+  const key = await crypto.subtle.deriveKey(
+    { name: "PBKDF2", salt, iterations: 200000, hash: "SHA-256" },
+    keyMaterial,
+    { name: "AES-GCM", length: 256 },
+    false, ["decrypt"]
+  );
+  const plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, ciphertext);
+  return new TextDecoder().decode(plain);
+}
+
 async function login() {
   loginErr.value = "";
   loginLoading.value = true;
@@ -36,17 +55,24 @@ async function login() {
       loginErr.value = "Invalid credentials.";
       return;
     }
-    const test = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}`, {
-      headers: { Authorization: `token ${loginPat.value}`, Accept: "application/vnd.github+json" },
-    });
-    if (!test.ok) {
-      loginErr.value = "GitHub token is invalid or lacks repo access.";
+    let token;
+    try {
+      token = await decryptPat(loginPass.value);
+    } catch {
+      loginErr.value = "Token decryption failed. Contact admin.";
       return;
     }
-    pat.value = loginPat.value;
+    const test = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}`, {
+      headers: { Authorization: `token ${token}`, Accept: "application/vnd.github+json" },
+    });
+    if (!test.ok) {
+      loginErr.value = "GitHub token expired. Contact admin to re-encrypt.";
+      return;
+    }
+    pat.value = token;
     authed.value = true;
     sessionStorage.setItem("bookAdminAuth", "1");
-    sessionStorage.setItem("bookAdminPat", loginPat.value);
+    sessionStorage.setItem("bookAdminPat", token);
   } catch {
     loginErr.value = "Network error. Check your connection.";
   } finally {
@@ -327,12 +353,6 @@ async function submit() {
       <div class="field">
         <label class="label">Password</label>
         <input v-model="loginPass" class="input" type="password" autocomplete="current-password" />
-      </div>
-
-      <div class="field">
-        <label class="label">GitHub token</label>
-        <input v-model="loginPat" class="input input-mono" type="password" placeholder="ghp_…" autocomplete="off" spellcheck="false" />
-        <span class="field-hint">Fine-grained PAT with <code>contents: write</code> on this repo</span>
       </div>
 
       <p v-if="loginErr" class="err">{{ loginErr }}</p>
