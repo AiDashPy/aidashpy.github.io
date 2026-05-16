@@ -5,7 +5,7 @@ import { fileURLToPath } from "url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const publicDir = join(root, "public");
 
-const WORKER_URL = process.env.VITE_WORKER_URL ?? "https://aidashpy-api.workers.dev";
+const WORKER_URL = process.env.VITE_WORKER_URL ?? "https://aidashpy-api.adiashpy.workers.dev";
 const SITE_URL = "https://aidashpy.com";
 
 // ── Fetch books.json from Worker ─────────────────────────────

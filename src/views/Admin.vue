@@ -3,7 +3,7 @@ import { ref, reactive, onMounted, watch } from "vue";
 
 const ADMIN_USER = "aidashpy";
 const ADMIN_PASS_HASH = "efd457adc8e473a6a754dbec44971e226e8dc6c284dc2a88fbabe6708c800e67";
-const WORKER_URL = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.workers.dev";
+const WORKER_URL = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.adiashpy.workers.dev";
 
 const authed = ref(false);
 const loginUser = ref("");
@@ -161,28 +161,6 @@ async function loadInProgress() {
   }
 }
 
-async function patchBook(name, author, dateStr) {
-  // Read both SHAs in parallel; use main as the content source of truth
-  const [mainFile, ghFile] = await Promise.all([
-    ghGetFile("public/books.json", "main"),
-    ghGetFile("books.json", "gh-pages"),
-  ]);
-  if (!mainFile) throw new Error("public/books.json not found on main");
-  const data = JSON.parse(b64Decode(mainFile.content));
-  let found = false;
-  for (const y of data) {
-    const b = (y.entries ?? []).find((e) => e.name === name && e.author === author);
-    if (b) { b.finished = true; b.date = dateStr; delete b.finish; found = true; break; }
-  }
-  if (!found) throw new Error(`Book "${name}" not found`);
-  const content = JSON.stringify(data, null, 2);
-  const message = `Finish: ${name}`;
-  await Promise.all([
-    ghPutFile("books.json", "gh-pages", content, ghFile?.sha, message),
-    ghPutFile("public/books.json", "main", content, mainFile?.sha, message),
-  ]);
-}
-
 async function markFinished(book) {
   const key = bookKey(book);
   const raw = finishDates.value[key];
@@ -200,26 +178,6 @@ async function markFinished(book) {
   } finally {
     finishingKey.value = null;
   }
-}
-
-async function removeBook(name, author) {
-  const [mainFile, ghFile] = await Promise.all([
-    ghGetFile("public/books.json", "main"),
-    ghGetFile("books.json", "gh-pages"),
-  ]);
-  if (!mainFile) throw new Error("public/books.json not found on main");
-  const data = JSON.parse(b64Decode(mainFile.content));
-  let found = false;
-  for (const y of data) {
-    const idx = (y.entries ?? []).findIndex((e) => e.name === name && e.author === author);
-    if (idx !== -1) { y.entries.splice(idx, 1); found = true; break; }
-  }
-  if (!found) throw new Error(`Book "${name}" not found`);
-  const content = JSON.stringify(data, null, 2);
-  await Promise.all([
-    ghPutFile("books.json", "gh-pages", content, ghFile?.sha, `Delete: ${name}`),
-    ghPutFile("public/books.json", "main", content, mainFile?.sha, `Delete: ${name}`),
-  ]);
 }
 
 const deletingKey = ref(null);

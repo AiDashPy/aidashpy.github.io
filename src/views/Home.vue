@@ -143,7 +143,7 @@ onMounted(async () => {
   document.addEventListener("keydown", onKeydown);
   NProgress.start();
   try {
-    const workerUrl = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.workers.dev";
+    const workerUrl = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.adiashpy.workers.dev";
     const res = await fetch(`${workerUrl}/books.json`);
     books.value = await res.json();
   } catch {}

@@ -57,14 +57,14 @@ npx wrangler kv key put --binding KV books "$(cat ../public/books.json)"
 npm run deploy
 ```
 
-The Worker is now live at `https://aidashpy-api.workers.dev`.
+The Worker is now live at `https://aidashpy-api.adiashpy.workers.dev`.
 
 ### 7. Add env var to the main site
 
 Create or update `../.env.local`:
 
 ```
-VITE_WORKER_URL=https://aidashpy-api.workers.dev
+VITE_WORKER_URL=https://aidashpy-api.adiashpy.workers.dev
 ```
 
 This tells the frontend and sync script where to read/write data.

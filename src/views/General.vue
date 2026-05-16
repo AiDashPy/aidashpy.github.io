@@ -61,7 +61,7 @@ onMounted(() => {
 
   new Image().src = "/images/ThePaintingNewPlanetNew.webp";
 
-  const workerUrl = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.workers.dev";
+  const workerUrl = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.adiashpy.workers.dev";
   fetch(`${workerUrl}/books.json`)
     .then((r) => r.json())
     .then((data) => {
