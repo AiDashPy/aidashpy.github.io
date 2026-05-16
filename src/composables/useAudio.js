@@ -31,14 +31,29 @@ export function toggleMute() {
   localStorage.setItem('audioMuted', String(audioMuted.value))
 }
 
-export async function playTypeChar() {
+function charFreq(char) {
+  if (!char) return 110 + Math.random() * 40
+  const code = char.charCodeAt(0)
+  // Hanzi / CJK
+  if (code > 0x3000) return 175 + Math.random() * 65
+  const c = char.toLowerCase()
+  if ('aeiouáéíóúāēīōū'.includes(c)) return 155 + Math.random() * 55  // vowels: bright
+  if (/[a-z]/.test(c))               return 88  + Math.random() * 42   // consonants: mid
+  if (/[0-9]/.test(c))               return 130 + Math.random() * 35   // digits: mid-high
+  if (/\s/.test(c))                  return 0                           // space: silent
+  return 68 + Math.random() * 22                                        // punctuation: low
+}
+
+export async function playTypeChar(char) {
   if (audioMuted.value) return
+  const freq = charFreq(char)
+  if (!freq) return
   const now = Date.now()
   if (now - lastClickTime < 28) return
   lastClickTime = now
   try {
     await init()
-    clickSynth.triggerAttackRelease(100 + Math.random() * 80, '64n')
+    clickSynth.triggerAttackRelease(freq, '64n')
   } catch {}
 }
 

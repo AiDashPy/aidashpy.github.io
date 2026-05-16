@@ -1,5 +1,6 @@
 <template>
   <NoiseCanvas />
+  <GrainOverlay />
   <div id="app-root">
     <RouterView />
   </div>
@@ -9,6 +10,7 @@
 import { onMounted, onUnmounted } from "vue";
 import { RouterView } from "vue-router";
 import NoiseCanvas from "./components/NoiseCanvas.vue";
+import GrainOverlay from "./components/GrainOverlay.vue";
 import { initLenis, destroyLenis } from "./composables/useLenis";
 
 onMounted(() => initLenis());

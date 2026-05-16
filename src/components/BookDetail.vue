@@ -1,6 +1,7 @@
 <script setup>
 import { ref, reactive, computed, watch, onUnmounted } from "vue";
 import { playTypeChar, playFlip } from "../composables/useAudio";
+import BookFingerprint from "./BookFingerprint.vue";
 
 const _bioCache = new Map();
 
@@ -55,6 +56,11 @@ function liftRgb(rgb, minL = 0.48) {
 const accentRgb = ref(null);
 const accentVivid = computed(() => accentRgb.value ? liftRgb(accentRgb.value) : null);
 const accentColor = computed(() => accentVivid.value ? `rgb(${accentVivid.value})` : null);
+const auraStyle = computed(() =>
+  accentVivid.value
+    ? { background: `radial-gradient(ellipse at 50% 38%, rgba(${accentVivid.value}, 0.13) 0%, transparent 62%)` }
+    : {}
+);
 
 function onCoverLoad(e) {
   const img = e?.target;
@@ -98,12 +104,13 @@ function typeField(field, text, ms, cb, hanziPasses = 3, hanziMs = 38, overflowC
       let n = hanziPasses;
       function scramble() {
         if (overflowCheck?.()) { snap(); return; }
-        tw[field] = prefix + randHanzi();
-        playTypeChar();
+        const hz = randHanzi();
+        tw[field] = prefix + hz;
+        playTypeChar(hz);
         if (--n > 0) { typeTimer = setTimeout(scramble, hanziMs); }
         else {
           tw[field] = text.slice(0, i);
-          playTypeChar();
+          playTypeChar(char);
           if (i < text.length) typeTimer = setTimeout(step, ms);
           else { twActive.value = ""; cb(); }
         }
@@ -111,7 +118,7 @@ function typeField(field, text, ms, cb, hanziPasses = 3, hanziMs = 38, overflowC
       scramble();
     } else {
       tw[field] = text.slice(0, i);
-      playTypeChar();
+      playTypeChar(char);
       if (i < text.length) typeTimer = setTimeout(step, ms);
       else { twActive.value = ""; cb(); }
     }
@@ -420,6 +427,7 @@ defineExpose({ open: openDetail });
         :style="accentColor ? { '--accent': accentColor } : {}"
         @click.self="closeDetail"
       >
+          <div class="detail-aura" :style="auraStyle" aria-hidden="true"></div>
         <div class="flip-scene">
           <div class="flip-card" :class="{ 'flip-card-flipped': flipped }" role="dialog" :aria-label="book.name">
 
@@ -433,6 +441,7 @@ defineExpose({ open: openDetail });
             <!-- Back: detail -->
             <div class="flip-back">
               <button class="detail-close" @click="closeDetail" aria-label="Close">×</button>
+              <div class="detail-fp" aria-hidden="true"><BookFingerprint :book="book" /></div>
 
               <div class="detail-head">
                 <img v-if="book.img" :src="book.img" :alt="book.name" class="detail-thumb" @click.stop="flipToCover" />
@@ -484,6 +493,23 @@ defineExpose({ open: openDetail });
   align-items: center;
   justify-content: center;
   padding: 1rem;
+}
+
+.detail-aura {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: background 900ms ease;
+}
+
+.detail-fp {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 58px;
+  height: 58px;
+  opacity: 0.15;
+  pointer-events: none;
 }
 
 .flip-scene {
