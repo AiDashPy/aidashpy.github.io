@@ -226,9 +226,10 @@ function snapTypewriter() {
 }
 
 // ── Bio fetching ─────────────────────────────────────────
-const bio = ref(null);
-const bioSource = ref(null);
+const bio        = ref(null);
+const bioSource  = ref(null);
 const bioLoading = ref(false);
+const pageCount  = computed(() => bioSource.value?.pageCount ?? null);
 
 async function fetchFromOL() {
   const params = `title=${encodeURIComponent(props.book.name)}&author=${encodeURIComponent(props.book.author)}&fields=key&limit=1`;
@@ -260,7 +261,7 @@ async function fetchFromGoogleBooks() {
   const key = import.meta.env.VITE_BOOKS_API_KEY;
   const q = `intitle:${encodeURIComponent(props.book.name)}+inauthor:${encodeURIComponent(props.book.author)}`;
   const r = await fetch(
-    `https://www.googleapis.com/books/v1/volumes?q=${q}&maxResults=1&fields=items(volumeInfo(description,infoLink))${key ? `&key=${key}` : ""}`
+    `https://www.googleapis.com/books/v1/volumes?q=${q}&maxResults=1&fields=items(volumeInfo(description,infoLink,pageCount))${key ? `&key=${key}` : ""}`
   );
   if (!r.ok) return null;
   const res = await r.json();
@@ -268,7 +269,7 @@ async function fetchFromGoogleBooks() {
   const description = item?.volumeInfo?.description;
   if (!description) return null;
   const url = item?.volumeInfo?.infoLink ?? `https://books.google.com/books?q=${encodeURIComponent(props.book.name)}`;
-  return { text: description.replace(/<[^>]+>/g, "").trim(), url, label: "Google Books" };
+  return { text: description.replace(/<[^>]+>/g, "").trim(), url, label: "Google Books", pageCount: item?.volumeInfo?.pageCount ?? null };
 }
 
 async function fetchFromZhWikipedia() {
@@ -448,6 +449,7 @@ defineExpose({ open: openDetail });
                   <p class="detail-author">{{ tw.author }}<span v-if="twActive === 'author'" class="tw-cur" aria-hidden="true"></span></p>
                   <div class="detail-meta-row">
                     <span class="detail-finish" :class="{ 'detail-finish-ip': inProgress }">{{ tw.finish }}<span v-if="twActive === 'finish'" class="tw-cur" aria-hidden="true"></span></span>
+                    <span v-if="pageCount" class="detail-pages">{{ pageCount }} pp</span>
                   </div>
                 </div>
               </div>
@@ -654,6 +656,13 @@ defineExpose({ open: openDetail });
   color: #a87e3c;
 }
 .detail-finish-ip { color: #7a8c58; }
+
+.detail-pages {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #3c3924;
+  letter-spacing: 0.04em;
+}
 
 .detail-rule {
   height: 1px;
