@@ -328,15 +328,15 @@ async function fetchCoverBlob(item) {
       }
     } catch {}
   }
-  // 2. iTunes Search — CORS-native, high-res artwork
+  // 2. Open Library search by title+author — catches books without ISBN
   if (item.title) {
     try {
-      const q = encodeURIComponent(`${item.title} ${item.author}`.trim())
-      const data = await fetch(`https://itunes.apple.com/search?term=${q}&media=ebook&limit=1`).then(r => r.json())
-      const artwork = data.results?.[0]?.artworkUrl100
-      if (artwork) {
-        const hiRes = artwork.replace('100x100bb', '600x900bb')
-        const res = await fetch(hiRes)
+      const q = encodeURIComponent(item.title)
+      const a = encodeURIComponent(item.author)
+      const data = await fetch(`https://openlibrary.org/search.json?q=${q}&author=${a}&limit=1&fields=cover_i`).then(r => r.json())
+      const coverId = data.docs?.[0]?.cover_i
+      if (coverId) {
+        const res = await fetch(`https://covers.openlibrary.org/b/id/${coverId}-L.jpg`)
         if (res.ok) {
           const blob = await res.blob()
           if (blob.size > 1000) return blob
