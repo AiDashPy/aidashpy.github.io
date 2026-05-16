@@ -114,17 +114,22 @@ function randHanzi() {
   return String.fromCharCode(0x4E00 + Math.floor(Math.random() * (0x9FFF - 0x4E00 + 1)));
 }
 
-function typeField(field, text, ms, cb, hanziPasses = 3, hanziMs = 38) {
+function typeField(field, text, ms, cb, hanziPasses = 3, hanziMs = 38, overflowCheck = null) {
   if (!text) { cb(); return; }
   twActive.value = field;
   let i = 0;
+
+  function snap() { tw[field] = text; twActive.value = ''; cb(); }
+
   function step() {
+    if (overflowCheck?.()) { snap(); return; }
     i++;
     const char = text[i - 1];
     const prefix = text.slice(0, i - 1);
     if (isHanzi(char) && hanziPasses > 0) {
       let n = hanziPasses;
       function scramble() {
+        if (overflowCheck?.()) { snap(); return; }
         tw[field] = prefix + randHanzi();
         playTypeChar();
         if (--n > 0) { typeTimer = setTimeout(scramble, hanziMs); }
