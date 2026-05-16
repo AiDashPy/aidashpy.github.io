@@ -2,7 +2,6 @@
 import { ref, computed, watch, onMounted, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 import { scrollToTop } from "../composables/useLenis";
-import { playYearChange } from "../composables/useAudio";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import BookEntry from "../components/BookEntry.vue";
@@ -104,7 +103,6 @@ watch(selectedYear, () => {
   // --- year digits ---
   const fromYear = parseInt(displayYear.value) || 0;
   const toYear   = parseInt(currentYear.value)  || 0;
-  if (fromYear && toYear) playYearChange(toYear >= fromYear);
   if (fromYear && toYear && fromYear !== toYear) {
     const dir   = toYear > fromYear ? 1 : -1;
     const steps = Math.abs(toYear - fromYear);

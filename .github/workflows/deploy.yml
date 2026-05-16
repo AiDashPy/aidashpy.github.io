@@ -20,6 +20,7 @@ jobs:
         run: npm run build
         env:
           VITE_GITHUB_PAT: ${{ secrets.VITE_GITHUB_PAT }}
+          VITE_BOOKS_API_KEY: ${{ secrets.VITE_BOOKS_API_KEY }}
       
       - name: Configure git
         run: |
