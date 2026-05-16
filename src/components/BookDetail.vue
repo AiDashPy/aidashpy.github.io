@@ -363,7 +363,7 @@ const shortFinish = computed(() => {
 
 const openBook = () => {
   const q = encodeURIComponent(`${props.book.name || ""} ${props.book.author || ""}`.trim());
-  window.open(`https://openlibrary.org/search?q=${q}`, "_blank", "noopener,noreferrer");
+  window.open(`https://www.google.com/search?tbm=bks&q=${q}`, "_blank", "noopener,noreferrer");
 };
 
 defineExpose({ open: openDetail });
@@ -419,7 +419,7 @@ defineExpose({ open: openDetail });
 
               <p v-if="tw.note" class="detail-note">{{ tw.note }}<span v-if="twActive === 'note'" class="tw-cur" aria-hidden="true"></span></p>
 
-              <button class="detail-open-btn" @click="openBook">Open Library &rarr;</button>
+              <button class="detail-open-btn" @click="openBook">Google Books &rarr;</button>
             </div>
 
           </div>
