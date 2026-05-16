@@ -248,6 +248,8 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
+
 /* ── Page shell ─────────────────────────────────────────── */
 .page {
   position: relative;
@@ -308,6 +310,7 @@ onUnmounted(() => {
 
 /* ── Poster ─────────────────────────────────────────────── */
 .poster {
+  font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
   background: #141210;
   border: 2px solid #c2201f;
   box-shadow:
@@ -349,8 +352,9 @@ onUnmounted(() => {
 }
 
 .pt-year {
-  font-size: 0.56rem;
-  font-weight: 900;
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
   letter-spacing: 0.22em;
   color: rgba(20,18,16,0.55);
   flex-shrink: 0;
@@ -363,12 +367,13 @@ onUnmounted(() => {
 }
 
 .p-title {
-  font-size: clamp(2.2rem, 13vw, 7rem);
-  font-weight: 900;
+  font-family: 'Bebas Neue', 'Arial Narrow', Arial, sans-serif;
+  font-size: clamp(3.8rem, 15vw, 9rem);
+  font-weight: 400;
   color: #e8e0cc;
   letter-spacing: 0.05em;
   margin: 0;
-  line-height: 0.88;
+  line-height: 0.85;
   text-transform: uppercase;
 }
 
@@ -386,8 +391,9 @@ onUnmounted(() => {
 }
 
 .p-tl-text {
-  font-size: 0.57rem;
-  font-weight: 700;
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
   letter-spacing: 0.32em;
   color: rgba(194,32,31,0.55);
   white-space: nowrap;
@@ -425,7 +431,8 @@ onUnmounted(() => {
 }
 
 .pc-title {
-  font-weight: 800;
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 600;
   color: #504c44;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -455,8 +462,9 @@ onUnmounted(() => {
 }
 
 .ps-label {
-  font-size: 0.57rem;
-  font-weight: 900;
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
   letter-spacing: 0.3em;
   color: #141210;
   text-transform: uppercase;
@@ -512,8 +520,10 @@ onUnmounted(() => {
 }
 
 .pr-title {
-  font-size: 0.82rem;
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.88rem;
   font-weight: 600;
+  letter-spacing: 0.03em;
   color: #a8a298;
   white-space: nowrap;
   overflow: hidden;
@@ -521,7 +531,9 @@ onUnmounted(() => {
 }
 
 .pr-author {
-  font-size: 0.67rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   color: #4a4840;
 }
 
@@ -553,16 +565,17 @@ onUnmounted(() => {
 
 /* Red badge column with the number */
 .plnk-badge {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem 0.9rem;
   background: rgba(194,32,31,0.1);
   border-right: 2px solid rgba(194,32,31,0.22);
-  font-size: 0.68rem;
-  font-weight: 900;
+  font-size: 0.75rem;
+  font-weight: 700;
   color: #c2201f;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   font-variant-numeric: tabular-nums;
   flex-shrink: 0;
   transition: background 140ms, border-color 140ms;
@@ -573,22 +586,23 @@ onUnmounted(() => {
 }
 
 .plnk-name {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
   padding: 1rem 0.9rem;
-  font-size: 1rem;
-  font-weight: 900;
+  font-size: 1.05rem;
+  font-weight: 700;
   color: #d4ccb8;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1;
   align-self: center;
   min-width: 0;
 }
-@media (min-width: 768px) { .plnk-name { font-size: 1.1rem; } }
+@media (min-width: 768px) { .plnk-name { font-size: 1.18rem; } }
 
 .plnk-cat {
   align-self: center;
-  font-size: 0.54rem;
-  font-weight: 700;
+  font-size: 0.56rem;
+  font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #363430;
@@ -642,8 +656,8 @@ onUnmounted(() => {
   .p-reading { padding: 0.8rem 1.25rem; }
 
   /* link rows: tighter padding, hide low-contrast category */
-  .plnk-badge { padding: 0.85rem 0.7rem; }
-  .plnk-name  { padding: 0.85rem 0.7rem; font-size: 0.92rem; }
+  .plnk-badge { padding: 0.85rem 0.7rem; font-size: 0.7rem; }
+  .plnk-name  { padding: 0.85rem 0.7rem; font-size: 0.96rem; }
   .plnk-cat   { display: none; }
   .plnk-arr   { padding: 0.85rem 1rem 0.85rem 0.2rem; }
 }
