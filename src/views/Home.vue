@@ -1,6 +1,9 @@
 <script setup>
 import { ref, computed, watch, onMounted, onUnmounted, nextTick } from "vue";
 import { useRouter } from "vue-router";
+import { gsap } from "gsap";
+import { Flip } from "gsap/Flip";
+gsap.registerPlugin(Flip);
 import { scrollToTop } from "../composables/useLenis";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
@@ -47,7 +50,22 @@ const isCounting = ref(false);
 let countTimer = null;
 let countBookTimer = null;
 const viewMode = ref(localStorage.getItem("bookViewMode") ?? "list");
-watch(viewMode, (v) => localStorage.setItem("bookViewMode", v));
+
+async function switchView(mode) {
+  if (mode === viewMode.value) return;
+  const state = Flip.getState("[data-flip-id]");
+  viewMode.value = mode;
+  localStorage.setItem("bookViewMode", mode);
+  await nextTick();
+  Flip.from(state, {
+    duration: 0.48,
+    ease: "power2.inOut",
+    absolute: true,
+    stagger: { amount: 0.1, from: "start" },
+    onEnter: (els) => gsap.fromTo(els, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power2.out" }),
+    onLeave: (els) => gsap.to(els, { opacity: 0, scale: 0.85, duration: 0.22 }),
+  });
+}
 const priorityCount = 6;
 const books = ref([]);
 
@@ -244,7 +262,7 @@ onUnmounted(() => {
                 <button
                   class="vt-btn"
                   :class="{ 'vt-active': viewMode === 'list' }"
-                  @click="viewMode = 'list'"
+                  @click="switchView('list')"
                   aria-label="List view"
                   title="List view"
                 >
@@ -260,7 +278,7 @@ onUnmounted(() => {
                 <button
                   class="vt-btn"
                   :class="{ 'vt-active': viewMode === 'mosaic' }"
-                  @click="viewMode = 'mosaic'"
+                  @click="switchView('mosaic')"
                   aria-label="Cover grid"
                   title="Cover grid"
                 >
@@ -276,7 +294,7 @@ onUnmounted(() => {
 
             <!-- Book list / mosaic — transitions on year or view change -->
             <Transition name="ys-list" mode="out-in">
-              <ol v-if="viewMode === 'list'" :key="'list-' + selectedYear" class="book-list">
+              <ol v-if="viewMode === 'list'" :key="selectedYear" class="book-list">
                 <BookEntry
                   v-for="(b, idx) in listEntries"
                   :key="selectedYear + '-' + b.name"
@@ -285,9 +303,10 @@ onUnmounted(() => {
                   :in-progress="isInProgress(b)"
                   :priority="idx < priorityCount"
                   :style="{ '--i': idx }"
+                  :flip-id="b.img ? 'cover-' + b.name : ''"
                 />
               </ol>
-              <div v-else :key="'grid-' + selectedYear" class="mosaic">
+              <div v-else :key="selectedYear" class="mosaic">
                 <button
                   v-for="(b, idx) in listEntries"
                   :key="idx + '-' + b.name"
@@ -304,6 +323,7 @@ onUnmounted(() => {
                     :loading="idx < 12 ? 'eager' : 'lazy'"
                     decoding="async"
                     class="mosaic-img"
+                    :data-flip-id="b.img ? 'cover-' + b.name : undefined"
                   />
                   <div v-else class="mosaic-empty"></div>
                   <span class="mosaic-title">{{ b.name }}</span>

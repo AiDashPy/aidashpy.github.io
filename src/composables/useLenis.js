@@ -1,7 +1,10 @@
 import Lenis from 'lenis'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 let _lenis = null
-let _rafId = null
 
 export function initLenis() {
   _lenis = new Lenis({
@@ -9,15 +12,14 @@ export function initLenis() {
     easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smoothWheel: true,
   })
-  function raf(time) {
-    _lenis.raf(time)
-    _rafId = requestAnimationFrame(raf)
-  }
-  _rafId = requestAnimationFrame(raf)
+
+  // Drive Lenis from GSAP's ticker so ScrollTrigger stays in sync
+  _lenis.on('scroll', ScrollTrigger.update)
+  gsap.ticker.add((time) => _lenis.raf(time * 1000))
+  gsap.ticker.lagSmoothing(0)
 }
 
 export function destroyLenis() {
-  cancelAnimationFrame(_rafId)
   _lenis?.destroy()
   _lenis = null
 }

@@ -1,13 +1,17 @@
 <script setup>
-import { ref, computed } from "vue";
-import { useIntersectionObserver } from "@vueuse/core";
+import { ref, computed, onMounted, onUnmounted } from "vue";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import BookDetail from "./BookDetail.vue";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const props = defineProps({
   book: { type: Object, required: true },
   index: { type: Number, default: 0 },
   priority: { type: Boolean, default: false },
   inProgress: { type: Boolean, default: false },
+  flipId: { type: String, default: "" },
 });
 
 function dominantColor(img) {
@@ -97,17 +101,45 @@ const shortFinish = computed(() => {
 const indexLabel = computed(() => String(props.index).padStart(2, '0'));
 
 const rowRef = ref(null);
-const visible = ref(false);
-useIntersectionObserver(rowRef, ([{ isIntersecting }]) => {
-  if (isIntersecting) visible.value = true;
-}, { threshold: 0.05 });
+let st = null;
+
+onMounted(() => {
+  const row = rowRef.value;
+  if (!row) return;
+
+  const idx   = row.querySelector('.idx, .idx-dot');
+  const cover = row.querySelector('.cover');
+  const title = row.querySelector('.title');
+  const meta  = row.querySelectorAll('.author, .tags, .note, .meta, .meta-m');
+
+  gsap.set(row,   { opacity: 0 });
+  gsap.set(idx,   { x: -10, opacity: 0 });
+  gsap.set(cover, { scale: 0.9, opacity: 0 });
+  gsap.set([title, ...meta], { y: 8, opacity: 0 });
+
+  const tl = gsap.timeline({ paused: true })
+    .to(row,   { opacity: 1, duration: 0.01 })
+    .to(idx,   { x: 0, opacity: 1, duration: 0.32, ease: 'power2.out' }, 0)
+    .to(cover, { scale: 1, opacity: 1, duration: 0.38, ease: 'power2.out' }, 0.04)
+    .to(title, { y: 0, opacity: 1, duration: 0.32, ease: 'power2.out' }, 0.1)
+    .to(meta,  { y: 0, opacity: 1, duration: 0.28, ease: 'power2.out', stagger: 0.04 }, 0.16);
+
+  st = ScrollTrigger.create({
+    trigger: row,
+    start: 'top 91%',
+    once: true,
+    onEnter: () => tl.play(),
+  });
+});
+
+onUnmounted(() => { st?.kill(); });
 </script>
 
 <template>
   <li
     ref="rowRef"
     class="row"
-    :class="{ 'row-visible': visible, 'row-ip': inProgress }"
+    :class="{ 'row-ip': inProgress }"
     :style="{ '--accent': accentColor, '--accent-dim': accentDim, '--accent-glow': accentGlow }"
   >
     <div class="row-inner" @click="onRowClick">
@@ -126,6 +158,7 @@ useIntersectionObserver(rowRef, ([{ isIntersecting }]) => {
           decoding="async"
           width="80" height="120"
           class="cover-img"
+          :data-flip-id="flipId || undefined"
           :class="imgLoaded ? 'img-in' : 'img-out'"
           @load="onImgLoad"
           crossorigin="anonymous"
@@ -165,17 +198,7 @@ useIntersectionObserver(rowRef, ([{ isIntersecting }]) => {
 /* ── Row ───────────────────────────────────────────────── */
 .row {
   border-bottom: 1px solid var(--accent-dim, #211f15);
-  opacity: 0;
-  transform: translateY(10px);
-  transition:
-    opacity 340ms ease,
-    transform 340ms ease,
-    border-color 400ms ease;
-  transition-delay: calc(var(--i, 0) * 28ms);
-}
-.row-visible {
-  opacity: 1;
-  transform: translateY(0);
+  transition: border-color 400ms ease;
 }
 .row:last-child { border-bottom: none; }
 
