@@ -31,8 +31,8 @@ onMounted(() => {
   z-index: 9000;
   pointer-events: none;
   background-repeat: repeat;
-  background-size: 256px 256px;
-  opacity: 0.028;
+  background-size: 128px 128px;
+  opacity: 0.022;
   animation: grain-shift 0.55s steps(1) infinite;
 }
 
