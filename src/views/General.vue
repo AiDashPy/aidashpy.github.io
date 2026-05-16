@@ -457,7 +457,8 @@ onUnmounted(() => {
 
 .ps-star {
   color: rgba(20,18,16,0.45);
-  font-size: 0.68rem;
+  font-size: 0.65rem;
+  line-height: 1;
   flex-shrink: 0;
 }
 
@@ -637,6 +638,7 @@ onUnmounted(() => {
 .pb-star {
   color: rgba(20,18,16,0.45);
   font-size: 0.8rem;
+  line-height: 1;
 }
 
 /* ── Mobile (≤ 479px) ───────────────────────────────────── */
