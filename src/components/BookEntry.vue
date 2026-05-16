@@ -99,6 +99,7 @@ const twActive   = ref('');
 const twDone     = reactive({ header: false, bio: false, all: false });
 const typedTags  = ref([]);
 const activeTagIdx = ref(-1);
+const bioEl      = ref(null);
 let typeTimer    = null;
 let bioReadyStop = null;
 
@@ -200,7 +201,8 @@ function startTypewriter() {
     if (bio.value) {
       const zh = hasChinese(bio.value);
       const bioMs = zh ? cMs(bio.value, 12, 25, 5000) : cMs(bio.value, 5, 12, 1800);
-      typeField('bio', bio.value, bioMs, afterBio, zh ? 1 : 3, zh ? 28 : 38);
+      const overflowCheck = () => { const el = bioEl.value; return el ? el.scrollHeight > el.clientHeight + 1 : false; };
+      typeField('bio', bio.value, bioMs, afterBio, zh ? 1 : 3, zh ? 28 : 38, overflowCheck);
     } else { twDone.bio = true; typeTags(); }
   }
 
@@ -263,6 +265,19 @@ async function fetchFromWikipedia() {
   return { text: summary.extract, url, label: 'Wikipedia' };
 }
 
+async function fetchFromGoogleBooks() {
+  const key = import.meta.env.VITE_BOOKS_API_KEY;
+  const q = `intitle:${encodeURIComponent(props.book.name)}+inauthor:${encodeURIComponent(props.book.author)}`;
+  const res = await fetch(
+    `https://www.googleapis.com/books/v1/volumes?q=${q}&maxResults=1&fields=items(volumeInfo(description,infoLink))${key ? `&key=${key}` : ''}`
+  ).then(r => r.json());
+  const item = res.items?.[0];
+  const description = item?.volumeInfo?.description;
+  if (!description) return null;
+  const url = item?.volumeInfo?.infoLink ?? `https://books.google.com/books?q=${encodeURIComponent(props.book.name)}`;
+  return { text: description.replace(/<[^>]+>/g, '').trim(), url, label: 'Google Books' };
+}
+
 async function fetchFromZhWikipedia() {
   const q = `${props.book.name} ${props.book.author}`;
   const searchRes = await fetch(
@@ -296,9 +311,11 @@ async function fetchBio() {
     if (hasChinese(props.book.name)) {
       try { result = await fetchFromZhWikipedia(); } catch {}
       if (!result) try { result = await fetchFromOL(); } catch {}
+      if (!result) try { result = await fetchFromGoogleBooks(); } catch {}
       if (!result) result = await fetchFromWikipedia();
     } else {
       try { result = await fetchFromOL(); } catch {}
+      if (!result) try { result = await fetchFromGoogleBooks(); } catch {}
       if (!result) result = await fetchFromWikipedia();
     }
     bio.value = result?.text ?? null;
@@ -458,7 +475,7 @@ useIntersectionObserver(rowRef, ([{ isIntersecting }]) => {
               <div class="detail-bio-wrap">
                 <p v-if="bioLoading && twDone.header" class="detail-bio-loading">loading…</p>
                 <template v-else-if="bio">
-                  <p class="detail-bio">{{ tw.bio }}<span v-if="twActive === 'bio'" class="tw-cur" aria-hidden="true"></span></p>
+                  <p ref="bioEl" class="detail-bio">{{ tw.bio }}<span v-if="twActive === 'bio'" class="tw-cur" aria-hidden="true"></span></p>
                   <a v-if="bioSource && twDone.bio" :href="bioSource.url" target="_blank" rel="noopener noreferrer" class="bio-source-link">via {{ bioSource.label }} &rarr;</a>
                 </template>
                 <p v-else-if="twDone.header && !bioLoading" class="detail-bio-empty">No synopsis available.</p>
