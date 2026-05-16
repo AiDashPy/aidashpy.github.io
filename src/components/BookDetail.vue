@@ -306,6 +306,7 @@ async function fetchBio() {
 // ── Detail flip panel ────────────────────────────────────
 const showDetail = ref(false);
 const flipped = ref(false);
+const viewingCover = ref(false);
 let flipTimer = null;
 let closeTimer = null;
 
@@ -313,6 +314,7 @@ function openDetail() {
   clearTimeout(closeTimer);
   showDetail.value = true;
   flipped.value = false;
+  viewingCover.value = false;
   playFlip();
   flipTimer = setTimeout(() => { flipped.value = true; }, 320);
   fetchBio();
@@ -320,11 +322,25 @@ function openDetail() {
 
 function closeDetail() {
   clearTimeout(flipTimer);
+  viewingCover.value = false;
   flipped.value = false;
   closeTimer = setTimeout(() => {
     showDetail.value = false;
     emit("close");
   }, 480);
+}
+
+function flipToCover() {
+  clearTimeout(flipTimer);
+  viewingCover.value = true;
+  playFlip();
+  flipped.value = false;
+}
+
+function flipToDetail() {
+  viewingCover.value = false;
+  playFlip();
+  flipTimer = setTimeout(() => { flipped.value = true; }, 320);
 }
 
 function onDetailKey(e) { if (e.key === "Escape") closeDetail(); }
@@ -381,10 +397,11 @@ defineExpose({ open: openDetail });
         <div class="flip-scene">
           <div class="flip-card" :class="{ 'flip-card-flipped': flipped }" role="dialog" :aria-label="book.name">
 
-            <!-- Front: cover image -->
-            <div class="flip-front" aria-hidden="true">
+            <!-- Front: cover image — clickable when user navigated here from the thumb -->
+            <div class="flip-front" :class="{ 'flip-front-peek': viewingCover }" @click="viewingCover ? flipToDetail() : null">
               <img v-if="book.img" :src="book.img" class="flip-bg-img" aria-hidden="true" crossorigin="anonymous" @load="onCoverLoad" />
               <img v-if="book.img" :src="book.img" :alt="book.name" class="flip-cover-img" />
+              <div v-if="viewingCover" class="flip-front-hint" aria-hidden="true">tap to flip back</div>
             </div>
 
             <!-- Back: detail -->
@@ -392,7 +409,7 @@ defineExpose({ open: openDetail });
               <button class="detail-close" @click="closeDetail" aria-label="Close">×</button>
 
               <div class="detail-head">
-                <img v-if="book.img" :src="book.img" :alt="book.name" class="detail-thumb" />
+                <img v-if="book.img" :src="book.img" :alt="book.name" class="detail-thumb" @click.stop="flipToCover" />
                 <div class="detail-head-text">
                   <h2 class="detail-title">{{ tw.title }}<span v-if="twActive === 'title'" class="tw-cur" aria-hidden="true"></span></h2>
                   <p class="detail-author">{{ tw.author }}<span v-if="twActive === 'author'" class="tw-cur" aria-hidden="true"></span></p>
@@ -469,6 +486,26 @@ defineExpose({ open: openDetail });
 }
 
 .flip-front { background: #0e0d08; }
+.flip-front-peek { cursor: pointer; }
+.flip-front-peek .flip-cover-img { transition: transform 300ms ease; }
+.flip-front-peek:hover .flip-cover-img { transform: scale(1.025); }
+
+.flip-front-hint {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(200, 186, 140, 0.55);
+  background: rgba(14, 13, 8, 0.7);
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  pointer-events: none;
+}
 .flip-bg-img {
   position: absolute;
   inset: -10%;
@@ -531,7 +568,10 @@ defineExpose({ open: openDetail });
   border-radius: 4px;
   background: #131108;
   flex-shrink: 0;
+  cursor: zoom-in;
+  transition: opacity 150ms ease, transform 150ms ease;
 }
+.detail-thumb:hover { opacity: 0.8; transform: scale(1.04); }
 
 .detail-head-text {
   display: flex;
