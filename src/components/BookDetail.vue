@@ -68,7 +68,7 @@ function onCoverLoad(e) {
 }
 
 // ── Typewriter ───────────────────────────────────────────
-const tw         = reactive({ title: "", author: "", finish: "", bio: "", note: "" });
+const tw         = reactive({ title: "", author: "", finish: "", pages: "", bio: "", note: "" });
 const twActive   = ref("");
 const twDone     = reactive({ header: false, bio: false, all: false });
 const typedTags  = ref([]);
@@ -130,7 +130,7 @@ function gap(ms, cb) { typeTimer = setTimeout(cb, ms); }
 function startTypewriter() {
   clearTimeout(typeTimer);
   bioReadyStop?.(); bioReadyStop = null;
-  Object.assign(tw, { title: "", author: "", finish: "", bio: "", note: "" });
+  Object.assign(tw, { title: "", author: "", finish: "", pages: "", bio: "", note: "" });
   twActive.value = "";
   twDone.header = false; twDone.bio = false; twDone.all = false;
   typedTags.value = []; activeTagIdx.value = -1;
@@ -180,15 +180,24 @@ function startTypewriter() {
     } else { twDone.bio = true; typeTags(); }
   }
 
+  function typePages() {
+    const pagesText = pageCount.value ? `${pageCount.value} pp` : null;
+    if (pagesText) {
+      typeField("pages", pagesText, cMs(pagesText, 25, 45, 300), () => gap(40, startBio));
+    } else {
+      startBio();
+    }
+  }
+
   function afterHeader() {
     twDone.header = true;
     gap(100, () => {
       if (bioLoading.value) {
         bioReadyStop = watch(bioLoading, loading => {
-          if (!loading) { bioReadyStop?.(); bioReadyStop = null; startBio(); }
+          if (!loading) { bioReadyStop?.(); bioReadyStop = null; typePages(); }
         });
       } else {
-        startBio();
+        typePages();
       }
     });
   }
@@ -205,7 +214,7 @@ function startTypewriter() {
 function stopTypewriter() {
   clearTimeout(typeTimer); typeTimer = null;
   bioReadyStop?.(); bioReadyStop = null;
-  Object.assign(tw, { title: "", author: "", finish: "", bio: "", note: "" });
+  Object.assign(tw, { title: "", author: "", finish: "", pages: "", bio: "", note: "" });
   twActive.value = "";
   twDone.header = false; twDone.bio = false; twDone.all = false;
   typedTags.value = []; activeTagIdx.value = -1;
@@ -217,6 +226,7 @@ function snapTypewriter() {
   tw.title  = props.book.name   || "";
   tw.author = props.book.author || "";
   tw.finish = shortFinish.value || "";
+  tw.pages  = pageCount.value   ? `${pageCount.value} pp` : "";
   tw.bio    = bio.value         || "";
   tw.note   = props.book.note ? `"${props.book.note}"` : "";
   twActive.value = "";
@@ -449,7 +459,7 @@ defineExpose({ open: openDetail });
                   <p class="detail-author">{{ tw.author }}<span v-if="twActive === 'author'" class="tw-cur" aria-hidden="true"></span></p>
                   <div class="detail-meta-row">
                     <span class="detail-finish" :class="{ 'detail-finish-ip': inProgress }">{{ tw.finish }}<span v-if="twActive === 'finish'" class="tw-cur" aria-hidden="true"></span></span>
-                    <span v-if="pageCount" class="detail-pages">{{ pageCount }} pp</span>
+                    <span v-if="tw.pages" class="detail-pages">{{ tw.pages }}<span v-if="twActive === 'pages'" class="tw-cur tw-cur-sm" aria-hidden="true"></span></span>
                   </div>
                 </div>
               </div>
