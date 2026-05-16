@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink } from "vue-router";
 import { ref, onMounted, onUnmounted } from "vue";
+import { audioMuted, toggleMute } from "../composables/useAudio";
 
 const visible = ref(true);
 let lastY = 0, ticking = false;
@@ -26,6 +27,18 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
       <RouterLink to="/" class="logo">aidashpy</RouterLink>
       <nav class="nav">
         <RouterLink to="/links" class="nav-a">links</RouterLink>
+        <button class="nav-mute" @click="toggleMute" :title="audioMuted ? 'Unmute' : 'Mute'" :aria-label="audioMuted ? 'Unmute' : 'Mute'">
+          <svg v-if="!audioMuted" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M1.5 5H3.5L7 2V12L3.5 9H1.5Z" fill="currentColor"/>
+            <path d="M9 4.8C9.7 5.4 10.2 6.2 10.2 7C10.2 7.8 9.7 8.6 9 9.2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M10.8 3.2C12 4.2 12.8 5.5 12.8 7C12.8 8.5 12 9.8 10.8 10.8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+          <svg v-else width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M1.5 5H3.5L7 2V12L3.5 9H1.5Z" fill="currentColor"/>
+            <line x1="9.5" y1="5" x2="12.5" y2="8.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+            <line x1="12.5" y1="5" x2="9.5" y2="8.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </button>
       </nav>
     </div>
   </header>
@@ -79,4 +92,20 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
 }
 .nav-a:hover { color: #8a8260; background: rgba(255,245,215,0.04); }
 .nav-a.router-link-active { color: #7a8c58; }
+
+.nav-mute {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  color: #4a4630;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: color 130ms, background 130ms;
+  margin-left: 2px;
+}
+.nav-mute:hover { color: #8a8260; background: rgba(255,245,215,0.04); }
 </style>

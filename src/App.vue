@@ -6,8 +6,13 @@
 </template>
 
 <script setup>
+import { onMounted, onUnmounted } from "vue";
 import { RouterView } from "vue-router";
 import NoiseCanvas from "./components/NoiseCanvas.vue";
+import { initLenis, destroyLenis } from "./composables/useLenis";
+
+onMounted(() => initLenis());
+onUnmounted(() => destroyLenis());
 </script>
 
 <style>

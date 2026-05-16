@@ -1,6 +1,7 @@
 <script setup>
 import { ref, reactive, computed, watch, onUnmounted } from "vue";
 import { useIntersectionObserver } from "@vueuse/core";
+import { playTypeChar, playFlip } from "../composables/useAudio";
 
 const _bioCache = new Map();
 
@@ -125,9 +126,11 @@ function typeField(field, text, ms, cb, hanziPasses = 3, hanziMs = 38) {
       let n = hanziPasses;
       function scramble() {
         tw[field] = prefix + randHanzi();
+        playTypeChar();
         if (--n > 0) { typeTimer = setTimeout(scramble, hanziMs); }
         else {
           tw[field] = text.slice(0, i);
+          playTypeChar();
           if (i < text.length) typeTimer = setTimeout(step, ms);
           else { twActive.value = ''; cb(); }
         }
@@ -135,6 +138,7 @@ function typeField(field, text, ms, cb, hanziPasses = 3, hanziMs = 38) {
       scramble();
     } else {
       tw[field] = text.slice(0, i);
+      playTypeChar();
       if (i < text.length) typeTimer = setTimeout(step, ms);
       else { twActive.value = ''; cb(); }
     }
@@ -308,6 +312,7 @@ function openDetail() {
   clearTimeout(closeTimer);
   showDetail.value = true;
   flipped.value = false;
+  playFlip();
   flipTimer = setTimeout(() => { flipped.value = true; }, 320);
   fetchBio();
 }
