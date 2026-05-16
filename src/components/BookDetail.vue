@@ -205,6 +205,20 @@ function stopTypewriter() {
   typedTags.value = []; activeTagIdx.value = -1;
 }
 
+function snapTypewriter() {
+  clearTimeout(typeTimer); typeTimer = null;
+  bioReadyStop?.(); bioReadyStop = null;
+  tw.title  = props.book.name   || "";
+  tw.author = props.book.author || "";
+  tw.finish = shortFinish.value || "";
+  tw.bio    = bio.value         || "";
+  tw.note   = props.book.note ? `"${props.book.note}"` : "";
+  twActive.value = "";
+  twDone.header = true; twDone.bio = true; twDone.all = true;
+  typedTags.value = [...(props.book.tags || [])];
+  activeTagIdx.value = -1;
+}
+
 // ── Bio fetching ─────────────────────────────────────────
 const bio = ref(null);
 const bioSource = ref(null);
@@ -315,19 +329,31 @@ function openDetail() {
   showDetail.value = true;
   flipped.value = false;
   viewingCover.value = false;
+  stopTypewriter();
   playFlip();
-  flipTimer = setTimeout(() => { flipped.value = true; }, 320);
+  flipTimer = setTimeout(() => {
+    flipped.value = true;
+    startTypewriter();
+  }, 320);
   fetchBio();
 }
 
 function closeDetail() {
   clearTimeout(flipTimer);
+  stopTypewriter();
+  const wasPeeking = viewingCover.value;
   viewingCover.value = false;
   flipped.value = false;
-  closeTimer = setTimeout(() => {
+  if (wasPeeking) {
+    // already on front face — just fade the overlay out, no flip wait
     showDetail.value = false;
     emit("close");
-  }, 480);
+  } else {
+    closeTimer = setTimeout(() => {
+      showDetail.value = false;
+      emit("close");
+    }, 480);
+  }
 }
 
 function flipToCover() {
@@ -335,17 +361,17 @@ function flipToCover() {
   viewingCover.value = true;
   playFlip();
   flipped.value = false;
+  // intentionally no stopTypewriter — text state preserved for snap-back
 }
 
 function flipToDetail() {
   viewingCover.value = false;
   playFlip();
   flipped.value = true;
+  snapTypewriter();
 }
 
 function onDetailKey(e) { if (e.key === "Escape") closeDetail(); }
-
-watch(flipped, (v) => { if (v) startTypewriter(); else stopTypewriter(); });
 
 watch(showDetail, open => {
   if (open) {
