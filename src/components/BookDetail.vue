@@ -505,6 +505,12 @@ defineExpose({ open: openDetail });
   border-radius: 999px;
   white-space: nowrap;
   pointer-events: none;
+  animation: hint-fade 1.8s ease forwards;
+}
+@keyframes hint-fade {
+  0%   { opacity: 1; }
+  60%  { opacity: 1; }
+  100% { opacity: 0; }
 }
 .flip-bg-img {
   position: absolute;
