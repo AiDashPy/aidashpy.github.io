@@ -280,6 +280,66 @@ function clearImage() {
   if (imgInputRef.value) imgInputRef.value.value = "";
 }
 
+// ── Google Books search ───────────────────────────────────────
+
+const gbQuery = ref('')
+const gbResults = ref([])
+const gbSearching = ref(false)
+const gbSearchErr = ref('')
+
+async function searchGoogleBooks() {
+  if (!gbQuery.value.trim()) return
+  gbSearching.value = true
+  gbSearchErr.value = ''
+  gbResults.value = []
+  try {
+    const key = import.meta.env.VITE_BOOKS_API_KEY
+    const q = encodeURIComponent(gbQuery.value.trim())
+    const url = `https://www.googleapis.com/books/v1/volumes?q=${q}&maxResults=6&fields=items(id,volumeInfo(title,authors,imageLinks))${key ? `&key=${key}` : ''}`
+    const res = await fetch(url).then(r => r.json())
+    gbResults.value = (res.items ?? [])
+      .map(item => ({
+        title: item.volumeInfo?.title ?? '',
+        author: item.volumeInfo?.authors?.[0] ?? '',
+        thumbnail: item.volumeInfo?.imageLinks?.thumbnail?.replace('http:', 'https:') ?? null,
+      }))
+      .filter(r => r.title)
+    if (!gbResults.value.length) gbSearchErr.value = 'No results found.'
+  } catch {
+    gbSearchErr.value = 'Search failed.'
+  } finally {
+    gbSearching.value = false
+  }
+}
+
+async function selectGbResult(item) {
+  form.value.name = item.title
+  form.value.author = item.author
+  gbResults.value = []
+  gbQuery.value = ''
+
+  if (item.thumbnail) {
+    clearImage()
+    imgProcessing.value = true
+    try {
+      const res = await fetch(item.thumbnail)
+      if (res.ok) {
+        const blob = await res.blob()
+        const base = item.title.replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '').toLowerCase()
+        const file = new File([blob], `${base}.webp`, { type: blob.type })
+        form.value.imgFilename = `${base}.webp`
+        const result = await processImage(file)
+        form.value.imgPreview = result.dataUrl
+        imgInfo.value = { origW: result.origW, origH: result.origH, origSize: result.origSize, newW: result.newW, newH: result.newH, newSize: result.newSize }
+      }
+    } catch {
+      // cover fetch failed (likely CORS) — user can upload manually
+    } finally {
+      imgProcessing.value = false
+    }
+  }
+}
+
 // ── Submit ────────────────────────────────────────────────────
 
 async function submit() {
@@ -387,6 +447,39 @@ async function submit() {
       <!-- Add book form -->
       <section class="card">
         <h2 class="section-title">Add Book</h2>
+
+        <!-- Google Books search -->
+        <div class="gb-search">
+          <div class="gb-row">
+            <input
+              v-model="gbQuery"
+              class="input"
+              type="text"
+              placeholder="Search Google Books to autofill…"
+              @keydown.enter.prevent="searchGoogleBooks"
+            />
+            <button class="btn-ghost gb-btn" type="button" :disabled="gbSearching" @click="searchGoogleBooks">
+              {{ gbSearching ? '…' : 'Search' }}
+            </button>
+          </div>
+          <div v-if="gbSearchErr" class="gb-err">{{ gbSearchErr }}</div>
+          <div v-if="gbResults.length" class="gb-results">
+            <button
+              v-for="(item, i) in gbResults"
+              :key="i"
+              class="gb-item"
+              type="button"
+              @click="selectGbResult(item)"
+            >
+              <img v-if="item.thumbnail" :src="item.thumbnail" class="gb-thumb" alt="" />
+              <div v-else class="gb-thumb-placeholder" />
+              <div class="gb-text">
+                <span class="gb-title">{{ item.title }}</span>
+                <span class="gb-author">{{ item.author }}</span>
+              </div>
+            </button>
+          </div>
+        </div>
 
         <div class="form-grid">
           <div class="field">
@@ -789,6 +882,48 @@ async function submit() {
   margin-top: 0.25rem;
 }
 .img-manual-label { font-size: 0.68rem; color: #3c3924; }
+
+/* ── Google Books search ────────────────────────────── */
+.gb-search { margin-bottom: 1.25rem; }
+.gb-row { display: flex; gap: 0.5rem; }
+.gb-btn { margin-top: 0; min-width: 70px; }
+.gb-err { font-size: 0.75rem; color: #3c3924; margin-top: 0.5rem; }
+.gb-results {
+  margin-top: 0.5rem;
+  border: 1px solid #2a2618;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 280px;
+  overflow-y: auto;
+}
+.gb-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  background: #1a1810;
+  border: none;
+  border-bottom: 1px solid #222016;
+  cursor: pointer;
+  text-align: left;
+  transition: background 120ms;
+  box-sizing: border-box;
+}
+.gb-item:last-child { border-bottom: none; }
+.gb-item:hover { background: #1f1d12; }
+.gb-thumb {
+  width: 28px; height: 42px;
+  object-fit: contain; border-radius: 2px;
+  flex-shrink: 0; background: #16140d;
+}
+.gb-thumb-placeholder {
+  width: 28px; height: 42px; flex-shrink: 0;
+  background: #1c1a12; border-radius: 2px; border: 1px solid #2a2618;
+}
+.gb-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.gb-title { font-size: 0.83rem; font-weight: 600; color: #c8ba8c; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gb-author { font-size: 0.72rem; color: #728a50; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* ── In-progress ───────────────────────────────────── */
 .ip-loading { font-size: 0.78rem; color: #3c3924; padding: 0.5rem 0; }
