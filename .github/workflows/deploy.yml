@@ -24,6 +24,9 @@ jobs:
           git config --global user.name "github-actions[bot]"
       
       - name: Deploy to GitHub Pages
-        run: npm run deploy
+        run: |
+          git config --global credential.helper store
+          echo "https://x-access-token:${GITHUB_TOKEN}@github.com" > ~/.git-credentials
+          npm run deploy
         env:
           GITHUB_TOKEN: ${{ github.token }}
