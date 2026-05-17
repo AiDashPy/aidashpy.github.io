@@ -60,13 +60,13 @@ const PAINTINGS = [
     link: 'https://macdougallauction.com/en/catalogue/view?id=16179',
   },
   {
-    src: `${WORKER}/images/drevin_moss_swamps.webp`,
-    title: 'Moss Swamps',
-    titleDisplay: 'MOSS SWAMPS',
+    src: `${WORKER}/images/drevin_gazelles.webp`,
+    title: 'Gazelles',
+    titleDisplay: 'GAZELLES',
     artist: 'Aleksandr Drevin',
     artistDisplay: 'ALEKSANDR DREVIN',
-    year: '1937',
-    link: 'https://sovcom.ru/en/auktsiony/proshedshie_auktsiony/auktsion-11-russkoe-iskusstvo-khkh-veka-11-marta-2006-g/mokhovye-bolota/',
+    year: '1930–31',
+    link: 'https://commons.wikimedia.org/wiki/File:Drevin_gazeli.jpg',
   },
   {
     src: `${WORKER}/images/drevin_white_house_landscape.webp`,
