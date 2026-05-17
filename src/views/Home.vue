@@ -289,6 +289,8 @@ async function setupCAnimations() {
   cleanupCScrollTriggers();
   await nextTick();
 
+  const vh = window.innerHeight;
+
   if (viewMode.value === 'list') {
     document.querySelectorAll('.c-book').forEach((row) => {
       const accent = row.querySelector('.c-book-accent');
@@ -312,25 +314,33 @@ async function setupCAnimations() {
         .to(title,  { y: 0, opacity: 1, duration: 0.3, ease: 'power2.out' }, 0.1)
         .to(metas,  { y: 0, opacity: 1, duration: 0.26, ease: 'power2.out', stagger: 0.04 }, 0.16);
 
-      cScrollTriggers.push(ScrollTrigger.create({
-        trigger: row,
-        start: 'top 91%',
-        once: true,
-        onEnter: () => tl.play(),
-      }));
+      if (row.getBoundingClientRect().top < vh * 0.91) {
+        tl.play();
+      } else {
+        cScrollTriggers.push(ScrollTrigger.create({
+          trigger: row,
+          start: 'top 91%',
+          once: true,
+          onEnter: () => tl.play(),
+        }));
+      }
     });
   } else {
     document.querySelectorAll('.c-mosaic-item').forEach((item, i) => {
       gsap.set(item, { opacity: 0, scale: 0.92 });
-      cScrollTriggers.push(ScrollTrigger.create({
-        trigger: item,
-        start: 'top 95%',
-        once: true,
-        onEnter: () => gsap.to(item, {
-          opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out',
-          delay: (i % 6) * 0.028,
-        }),
-      }));
+      if (item.getBoundingClientRect().top < vh * 0.95) {
+        gsap.to(item, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out', delay: (i % 6) * 0.028 });
+      } else {
+        cScrollTriggers.push(ScrollTrigger.create({
+          trigger: item,
+          start: 'top 95%',
+          once: true,
+          onEnter: () => gsap.to(item, {
+            opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out',
+            delay: (i % 6) * 0.028,
+          }),
+        }));
+      }
     });
   }
 }
