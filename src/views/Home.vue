@@ -1690,7 +1690,7 @@ onUnmounted(() => {
 .c-drawer-close:hover { background: #1a1812; color: #c8ba8c; }
 
 .c-drawer-nav {
-  padding: 0.5rem 0 2rem;
+  padding: 0.5rem 0.75rem 2rem 0;
   overflow-y: auto;
   flex: 1;
 }
@@ -1698,6 +1698,7 @@ onUnmounted(() => {
 .c-drawer-nav .c-year-btn {
   width: 100%;
   padding: 0.9rem 1.5rem 0.9rem 1rem;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 28px) 100%, 0 100%);
 }
 .c-drawer-nav .c-year-btn-active {
   background: rgba(200,186,140,0.1);
