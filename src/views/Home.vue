@@ -197,7 +197,7 @@ watch(selectedYear, () => {
 
   // --- book count ---
   const fromCount = displayCount.value;
-  const toCount   = finishedEntries.value.length;
+  const toCount   = entriesForSelected.value.length;
   if (fromCount !== toCount) {
     const dir   = toCount > fromCount ? 1 : -1;
     const steps = Math.abs(toCount - fromCount);
@@ -222,7 +222,7 @@ onMounted(async () => {
   } catch {}
   NProgress.done();
   displayYear.value  = currentYear.value;
-  displayCount.value = finishedEntries.value.length;
+  displayCount.value = entriesForSelected.value.length;
   await nextTick();
   if (layoutMode.value === 'constructivist') setupCAnimations();
   footerObs = new IntersectionObserver(([e]) => { fabFooterHidden.value = e.isIntersecting; }, { threshold: 0 });
@@ -1074,10 +1074,11 @@ onUnmounted(() => {
 .drawer-close:hover { background: #222016; color: #9a8c6c; border-color: #3a3620; }
 
 .drawer-nav {
-  padding: 0.5rem 0 2rem;
+  padding: 0.75rem 0.75rem 2rem;
   overflow-y: auto;
   flex: 1;
 }
+
 
 /* ── PIN overlay ─────────────────────────────────────────── */
 .h-pin-overlay {
@@ -1191,6 +1192,7 @@ onUnmounted(() => {
   gap: 1px;
   overflow-y: auto;
   flex: 1;
+  padding-right: 0.6rem;
 }
 
 .c-year-btn {
@@ -1202,11 +1204,11 @@ onUnmounted(() => {
   border: none;
   background: none;
   text-align: left;
-  clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 28px) 100%, 0 100%);
   transition: background 120ms;
 }
 .c-year-btn:hover { background: #1a1812; }
-.c-year-btn-active { background: rgba(200,186,140,0.06); }
+.c-year-btn-active { background: rgba(200,186,140,0.1); }
 
 .c-year-bar {
   width: 3px;
