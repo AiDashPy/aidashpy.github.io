@@ -354,21 +354,16 @@ watch(layoutMode, async (mode) => {
 watch(selectedYear, () => {
   if (layoutMode.value !== 'constructivist') return;
   cleanupCScrollTriggers();
-  if (cAnimTimer) clearTimeout(cAnimTimer);
-  cAnimTimer = setTimeout(setupCAnimations, 420);
 });
 
 watch(viewMode, () => {
   if (layoutMode.value !== 'constructivist') return;
   cleanupCScrollTriggers();
-  if (cAnimTimer) clearTimeout(cAnimTimer);
-  cAnimTimer = setTimeout(setupCAnimations, 420);
 });
 
 onUnmounted(() => {
   document.removeEventListener("keydown", onKeydown);
   clearTimeout(keyTimer);
-  if (cAnimTimer) clearTimeout(cAnimTimer);
   if (countTimer)     clearInterval(countTimer);
   if (countBookTimer) clearInterval(countBookTimer);
   cleanupCScrollTriggers();
