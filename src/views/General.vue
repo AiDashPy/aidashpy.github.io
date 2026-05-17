@@ -24,7 +24,7 @@ const PAINTINGS = [
     link: 'https://www.russianartcollection.com/en/product/ural-landscape/',
   },
   {
-    src: `${WORKER}/images/udaltsova_ural_forest.webp`,
+    src: `${WORKER}/images/udaltsova_ural_forest_2.webp`,
     title: 'Forests of the Ural',
     titleDisplay: 'FORESTS OF THE URAL',
     artist: 'Nadezhda Udaltsova',
@@ -33,7 +33,7 @@ const PAINTINGS = [
     link: 'https://www.russianartcollection.com/en/product/ural-landscape/',
   },
   {
-    src: `${WORKER}/images/udaltsova_ural_sunset.webp`,
+    src: `${WORKER}/images/udaltsova_ural_sunset_2.webp`,
     title: 'Ural — Sunset',
     titleDisplay: 'URAL — SUNSET',
     artist: 'Nadezhda Udaltsova',
