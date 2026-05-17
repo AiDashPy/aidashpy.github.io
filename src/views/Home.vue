@@ -21,7 +21,57 @@ const showSearch = ref(false);
 let keyBuffer = "";
 let keyTimer = null;
 
+const WORKER = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.adiashpy.workers.dev";
+
+const layoutMode   = ref('poster');
+const showPinOverlay = ref(false);
+const pinValue     = ref('');
+const pinError     = ref(false);
+
+async function fetchLayoutMode() {
+  try {
+    const res = await fetch(`${WORKER}/layout`);
+    const { mode } = await res.json();
+    layoutMode.value = mode ?? 'poster';
+  } catch {}
+}
+
+async function submitPin(pin) {
+  const targetMode = layoutMode.value === 'poster' ? 'constructivist' : 'poster';
+  try {
+    const res = await fetch(`${WORKER}/layout`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pin, mode: targetMode }),
+    });
+    if (!res.ok) { pinError.value = true; pinValue.value = ''; return; }
+    layoutMode.value = targetMode;
+    showPinOverlay.value = false;
+    pinValue.value = '';
+  } catch { pinError.value = true; pinValue.value = ''; }
+}
+
+function bookFinish(b) {
+  const { finished, date, finish } = b;
+  if (finished !== undefined) return finished ? (date || '') : 'in progress';
+  if (finish) {
+    const isStarted = /^started/i.test(finish);
+    const d = finish.replace(/^(?:Finished|Started)\s*/i, '');
+    return isStarted ? 'in progress' : d;
+  }
+  return '';
+}
+
 function onKeydown(e) {
+  if (showPinOverlay.value) {
+    if (e.key === 'Escape') { showPinOverlay.value = false; pinValue.value = ''; pinError.value = false; return; }
+    if (e.key === 'Backspace') { pinValue.value = pinValue.value.slice(0, -1); pinError.value = false; return; }
+    if (/^\d$/.test(e.key) && pinValue.value.length < 4) {
+      pinValue.value += e.key; pinError.value = false;
+      if (pinValue.value.length === 4) submitPin(pinValue.value);
+    }
+    return;
+  }
   if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
   if (e.metaKey || e.ctrlKey || e.altKey) return;
   if (e.key === "Escape") { showSearch.value = false; return; }
@@ -31,7 +81,8 @@ function onKeydown(e) {
   keyBuffer += e.key.toLowerCase();
   clearTimeout(keyTimer);
   keyTimer = setTimeout(() => { keyBuffer = ""; }, 1000);
-  if (keyBuffer.endsWith("admin")) { keyBuffer = ""; clearTimeout(keyTimer); router.push("/admin"); }
+  if (keyBuffer.endsWith("admin"))  { keyBuffer = ""; clearTimeout(keyTimer); router.push("/admin"); }
+  if (keyBuffer.endsWith("change")) { keyBuffer = ""; clearTimeout(keyTimer); showPinOverlay.value = true; pinValue.value = ''; pinError.value = false; }
 }
 
 const allEntries = computed(() =>
@@ -159,6 +210,7 @@ watch(selectedYear, () => {
 
 onMounted(async () => {
   document.addEventListener("keydown", onKeydown);
+  fetchLayoutMode();
   NProgress.start();
   try {
     const workerUrl = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.adiashpy.workers.dev";
@@ -198,6 +250,15 @@ async function openMosaicDetail(b) {
   mosaicDetailRef.value?.open();
 }
 
+const cBook = ref(null);
+const cDetailRef = ref(null);
+
+async function openCDetail(b) {
+  cBook.value = b;
+  await nextTick();
+  cDetailRef.value?.open();
+}
+
 function selectYear(i) {
   if (i === selectedYear.value) { showYears.value = false; return; }
   scrollToTop();
@@ -227,9 +288,23 @@ onUnmounted(() => {
 </script>
 
 <template>
+  <!-- PIN overlay -->
+  <Transition name="h-pin-fade">
+    <div v-if="showPinOverlay" class="h-pin-overlay" @click.self="showPinOverlay = false; pinValue = ''; pinError = false">
+      <div class="h-pin-box">
+        <div class="h-pin-label">ENTER PIN</div>
+        <div class="h-pin-dots">
+          <span v-for="i in 4" :key="i" class="h-pin-dot" :class="{ 'h-pin-dot--on': pinValue.length >= i, 'h-pin-dot--err': pinError }"></span>
+        </div>
+        <div v-if="pinError" class="h-pin-err">incorrect</div>
+      </div>
+    </div>
+  </Transition>
+
   <div class="root">
     <WebHeader />
 
+    <template v-if="layoutMode === 'poster'">
     <div class="shell">
       <!-- Sidebar -->
       <aside class="sidebar">
@@ -363,6 +438,170 @@ onUnmounted(() => {
         />
       </nav>
     </aside>
+    </template>
+
+    <!-- ══ CONSTRUCTIVIST LAYOUT ══════════════════════════════ -->
+    <template v-else>
+      <div class="c-corner-rule" aria-hidden="true"></div>
+      <div class="c-shell">
+
+        <aside class="c-sidebar">
+          <div class="c-sidebar-eyebrow">Archive</div>
+          <nav class="c-year-nav">
+            <button
+              v-for="(y, i) in sortedYears"
+              :key="y.year"
+              class="c-year-btn"
+              :class="{ 'c-year-btn-active': i === selectedYear }"
+              @click="selectYear(i)"
+            >
+              <div class="c-year-bar"></div>
+              <div>
+                <div class="c-year-num">{{ y.year }}</div>
+                <div class="c-year-ct">{{ y.entries.length }} books</div>
+              </div>
+            </button>
+          </nav>
+        </aside>
+
+        <main class="c-main">
+          <div class="c-ghost-year" aria-hidden="true">{{ displayYear }}</div>
+
+          <div class="c-year-head">
+            <div class="c-year-head-left">
+              <span class="c-year-display">{{ displayYear }}</span>
+              <span class="c-book-count">{{ displayCount }}&thinsp;books</span>
+            </div>
+            <div class="c-view-toggle" role="group" aria-label="View mode">
+              <button class="c-vt-btn" :class="{ 'c-vt-active': viewMode === 'list' }" @click="switchView('list')" aria-label="List view" title="List view">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <line x1="4" y1="2.5" x2="13" y2="2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                  <line x1="4" y1="7"   x2="13" y2="7"   stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                  <line x1="4" y1="11.5" x2="13" y2="11.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                  <circle cx="1.5" cy="2.5"  r="1" fill="currentColor"/>
+                  <circle cx="1.5" cy="7"    r="1" fill="currentColor"/>
+                  <circle cx="1.5" cy="11.5" r="1" fill="currentColor"/>
+                </svg>
+              </button>
+              <button class="c-vt-btn" :class="{ 'c-vt-active': viewMode === 'mosaic' }" @click="switchView('mosaic')" aria-label="Cover grid" title="Cover grid">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <rect x="1" y="1"   width="5" height="5.5" rx="1" stroke="currentColor" stroke-width="1.3"/>
+                  <rect x="8" y="1"   width="5" height="5.5" rx="1" stroke="currentColor" stroke-width="1.3"/>
+                  <rect x="1" y="7.5" width="5" height="5.5" rx="1" stroke="currentColor" stroke-width="1.3"/>
+                  <rect x="8" y="7.5" width="5" height="5.5" rx="1" stroke="currentColor" stroke-width="1.3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <Transition name="ys-list" mode="out-in">
+
+            <!-- List -->
+            <div v-if="viewMode === 'list'" :key="selectedYear" class="c-list-view">
+
+              <template v-if="nowReadingForYear.length">
+                <div class="c-slash">
+                  <div class="c-slash-line"></div>
+                  <div class="c-slash-tag">Now Reading</div>
+                </div>
+                <div class="c-book-list">
+                  <div
+                    v-for="(b, idx) in nowReadingForYear"
+                    :key="b.name"
+                    class="c-book c-book-ip"
+                    @click="openCDetail(b)"
+                  >
+                    <div class="c-book-ghost" aria-hidden="true">{{ String(idx + 1).padStart(2, '0') }}</div>
+                    <div class="c-book-inner">
+                      <div class="c-book-accent"></div>
+                      <img v-if="b.img" class="c-book-cover" :src="b.img" :alt="b.name" loading="eager" crossorigin="anonymous">
+                      <div v-else class="c-book-cover-skel"></div>
+                      <div class="c-book-body">
+                        <div class="c-book-title">{{ b.name }}</div>
+                        <div class="c-book-author">{{ b.author }}</div>
+                        <div v-if="b.tags?.length" class="c-book-tags">
+                          <span v-for="t in b.tags.slice(0, 4)" :key="t" class="c-book-tag">{{ t }}</span>
+                        </div>
+                        <div v-if="b.note" class="c-book-note">{{ b.note }}</div>
+                      </div>
+                      <div class="c-book-meta">
+                        <div class="c-book-ip-dot"></div>
+                        <span class="c-book-ip-label">Reading</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </template>
+
+              <template v-if="finishedEntries.length">
+                <div class="c-slash">
+                  <div class="c-slash-line"></div>
+                  <div class="c-slash-tag">Finished</div>
+                </div>
+                <div class="c-book-list">
+                  <div
+                    v-for="(b, idx) in finishedEntries"
+                    :key="b.name"
+                    class="c-book"
+                    @click="openCDetail(b)"
+                  >
+                    <div class="c-book-ghost" aria-hidden="true">{{ String(finishedEntries.length - idx).padStart(2, '0') }}</div>
+                    <div class="c-book-inner">
+                      <div class="c-book-accent"></div>
+                      <img v-if="b.img" class="c-book-cover" :src="b.img" :alt="b.name" :loading="idx < 6 ? 'eager' : 'lazy'" crossorigin="anonymous">
+                      <div v-else class="c-book-cover-skel"></div>
+                      <div class="c-book-body">
+                        <div class="c-book-title">{{ b.name }}</div>
+                        <div class="c-book-author">{{ b.author }}</div>
+                        <div v-if="b.tags?.length" class="c-book-tags">
+                          <span v-for="t in b.tags.slice(0, 4)" :key="t" class="c-book-tag">{{ t }}</span>
+                        </div>
+                        <div v-if="b.note" class="c-book-note">{{ b.note }}</div>
+                      </div>
+                      <div class="c-book-meta">
+                        <span class="c-book-date">{{ bookFinish(b) }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </template>
+
+            </div>
+
+            <!-- Mosaic -->
+            <div v-else :key="selectedYear + '-m'" class="c-mosaic">
+              <button
+                v-for="(b, idx) in listEntries"
+                :key="b.name"
+                class="c-mosaic-item"
+                :class="{ 'c-mosaic-item-ip': isInProgress(b) }"
+                :style="{ '--mi': idx }"
+                :title="b.name + ' — ' + b.author"
+                @click="openCDetail(b)"
+              >
+                <img v-if="b.img" class="c-mosaic-img" :src="b.img" :alt="b.name" :loading="idx < 12 ? 'eager' : 'lazy'" decoding="async">
+                <div v-else class="c-mosaic-empty"></div>
+                <div class="c-mosaic-overlay">
+                  <div class="c-mosaic-title">{{ b.name }}</div>
+                  <div class="c-mosaic-author">{{ b.author }}</div>
+                </div>
+                <span v-if="isInProgress(b)" class="c-mosaic-ip-dot" aria-hidden="true"></span>
+              </button>
+            </div>
+
+          </Transition>
+
+          <div class="c-foot">
+            <div class="c-foot-rule"></div>
+            <svg class="c-foot-star" viewBox="0 0 100 100" aria-hidden="true">
+              <polygon points="50,5 61,39 98,39 67,59 79,91 50,72 21,91 33,59 2,39 39,39" fill="rgba(200,186,140,0.3)"/>
+            </svg>
+            <div class="c-foot-rule"></div>
+          </div>
+        </main>
+
+      </div>
+    </template>
 
     <div ref="footerSentinel" aria-hidden="true" style="height:0"></div>
     <WebFooter />
@@ -375,6 +614,13 @@ onUnmounted(() => {
     :book="mosaicBook"
     :in-progress="isInProgress(mosaicBook)"
     @close="mosaicBook = null"
+  />
+  <BookDetail
+    v-if="cBook"
+    ref="cDetailRef"
+    :book="cBook"
+    :in-progress="isInProgress(cBook)"
+    @close="cBook = null"
   />
 </template>
 
@@ -680,4 +926,515 @@ onUnmounted(() => {
   overflow-y: auto;
   flex: 1;
 }
+
+/* ── PIN overlay ─────────────────────────────────────────── */
+.h-pin-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(6px);
+}
+
+.h-pin-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.h-pin-label {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.5em;
+  color: rgba(200,186,140,0.55);
+  text-transform: uppercase;
+}
+
+.h-pin-dots { display: flex; gap: 0.75rem; }
+
+.h-pin-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(200,186,140,0.3);
+  transition: background 150ms, border-color 150ms;
+}
+.h-pin-dot--on  { background: #c8ba8c; border-color: #c8ba8c; }
+.h-pin-dot--err { border-color: #e84545; }
+.h-pin-dot--on.h-pin-dot--err { background: #e84545; border-color: #e84545; }
+
+.h-pin-err {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #e84545;
+}
+
+.h-pin-fade-enter-active, .h-pin-fade-leave-active { transition: opacity 180ms ease; }
+.h-pin-fade-enter-from, .h-pin-fade-leave-to { opacity: 0; }
+
+/* ── Constructivist shell ────────────────────────────────── */
+.c-corner-rule {
+  position: fixed;
+  top: 2rem;
+  right: 0;
+  width: 24%;
+  height: 1px;
+  background: rgba(200,186,140,0.18);
+  transform: rotate(-2deg);
+  transform-origin: right;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.c-shell {
+  flex: 1;
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 4.5rem;
+  min-height: calc(100vh - 4.5rem);
+}
+@media (min-width: 640px) { .c-shell { padding-top: 5rem; } }
+
+/* ── Sidebar ─────────────────────────────────────────────── */
+.c-sidebar {
+  width: 9.5rem;
+  flex-shrink: 0;
+  border-right: 1px solid #1d1b10;
+  background: #131108;
+  padding: 2rem 0 2rem;
+  display: none;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 4.5rem);
+  overflow: hidden;
+}
+@media (min-width: 1024px) { .c-sidebar { display: flex; } }
+
+.c-sidebar-eyebrow {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.48rem;
+  font-weight: 700;
+  letter-spacing: 0.5em;
+  color: #3c3924;
+  text-transform: uppercase;
+  padding: 0 1rem 1rem;
+  border-bottom: 1px solid #1d1b10;
+  margin-bottom: 0.5rem;
+}
+
+.c-year-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.c-year-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem 0.6rem 0.9rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  text-align: left;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  transition: background 120ms;
+}
+.c-year-btn:hover { background: #1a1812; }
+.c-year-btn-active { background: rgba(200,186,140,0.06); }
+
+.c-year-bar {
+  width: 3px;
+  align-self: stretch;
+  background: rgba(200,186,140,0.15);
+  flex-shrink: 0;
+  transition: background 120ms;
+}
+.c-year-btn-active .c-year-bar { background: #c8ba8c; }
+
+.c-year-num {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #40392a;
+  line-height: 1;
+  transition: color 120ms;
+}
+.c-year-btn-active .c-year-num { color: #c8ba8c; }
+.c-year-btn:hover:not(.c-year-btn-active) .c-year-num { color: #6e634a; }
+
+.c-year-ct {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: #2e2b1e;
+  transition: color 120ms;
+}
+.c-year-btn-active .c-year-ct { color: rgba(200,186,140,0.45); }
+
+/* ── Main ────────────────────────────────────────────────── */
+.c-main {
+  flex: 1;
+  min-width: 0;
+  padding: 0 1.25rem 5rem;
+  position: relative;
+  overflow: hidden;
+  padding-top: 1.25rem;
+}
+@media (min-width: 640px)  { .c-main { padding: 2rem 1.75rem 4rem; } }
+@media (min-width: 1024px) { .c-main { padding: 2rem 2.5rem 4rem 2rem; } }
+
+.c-ghost-year {
+  position: absolute;
+  top: -1rem;
+  right: -0.5rem;
+  font-family: 'Bebas Neue', Arial, sans-serif;
+  font-size: clamp(9rem, 20vw, 16rem);
+  line-height: 0.82;
+  color: rgba(200,186,140,0.028);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  letter-spacing: -0.02em;
+}
+
+/* ── Year header ─────────────────────────────────────────── */
+.c-year-head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #2a2618;
+  margin-bottom: 0;
+}
+
+.c-year-head-left { display: flex; align-items: baseline; gap: 1rem; }
+
+.c-year-display {
+  font-family: 'Bebas Neue', Arial, sans-serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.86;
+  color: #c8ba8c;
+  letter-spacing: 0.03em;
+}
+
+.c-book-count {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  color: #3c3924;
+  text-transform: uppercase;
+  padding-bottom: 0.25rem;
+}
+
+.c-view-toggle {
+  display: flex;
+  gap: 2px;
+  background: #1a1812;
+  border: 1px solid #2a2618;
+  border-radius: 7px;
+  padding: 3px;
+  margin-bottom: 0.15rem;
+}
+
+.c-vt-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; height: 24px;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: #40392a;
+  cursor: pointer;
+  transition: color 140ms, background 140ms;
+}
+.c-vt-btn:hover { color: #7a8c58; }
+.c-vt-active { background: #252110 !important; color: #c8ba8c !important; }
+
+/* ── Slash dividers ──────────────────────────────────────── */
+.c-slash {
+  position: relative;
+  z-index: 1;
+  height: 2.2rem;
+  margin: 0.65rem 0;
+  overflow: visible;
+}
+
+.c-slash-line {
+  position: absolute;
+  left: -3%;
+  width: 106%;
+  height: 1px;
+  background: rgba(200,186,140,0.2);
+  top: 50%;
+  transform: rotate(-1.8deg);
+}
+
+.c-slash-tag {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.45em;
+  color: #3c3924;
+  background: #0d0b08;
+  padding: 0 0.75rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── Book list ───────────────────────────────────────────── */
+.c-list-view { position: relative; z-index: 1; }
+
+.c-book-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: #211f15;
+}
+
+.c-book {
+  position: relative;
+  background: #0d0b08;
+  cursor: pointer;
+  transition: background 140ms;
+}
+.c-book:hover { background: rgba(255,245,215,0.028); }
+
+.c-book-ghost {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  translate: 0 -50%;
+  font-family: 'Bebas Neue', Arial, sans-serif;
+  font-size: 4.5rem;
+  line-height: 1;
+  color: rgba(200,186,140,0.028);
+  pointer-events: none;
+  user-select: none;
+}
+
+.c-book-inner {
+  display: flex;
+  align-items: center;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+}
+
+.c-book-accent {
+  width: 3px;
+  align-self: stretch;
+  flex-shrink: 0;
+  background: rgba(200,186,140,0.18);
+  transition: background 140ms;
+}
+.c-book:hover .c-book-accent    { background: rgba(200,186,140,0.45); }
+.c-book-ip  .c-book-accent      { background: rgba(122,140,88,0.4); animation: c-bar-pulse 2.4s ease-in-out infinite; }
+.c-book-ip:hover .c-book-accent { background: #7a8c58; }
+@keyframes c-bar-pulse {
+  0%,100% { background: rgba(122,140,88,0.4); }
+  50%      { background: rgba(122,140,88,0.7); }
+}
+
+.c-book-cover {
+  width: 46px; height: 68px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin: 0.7rem 0.9rem 0.7rem 0.75rem;
+  display: block;
+  background: #1a1812;
+}
+
+.c-book-cover-skel {
+  width: 46px; height: 68px;
+  flex-shrink: 0;
+  margin: 0.7rem 0.9rem 0.7rem 0.75rem;
+  background: linear-gradient(90deg, #181610 0%, #26220e 50%, #181610 100%);
+  background-size: 300% 100%;
+  animation: c-shimmer 1.6s ease-in-out infinite;
+}
+@keyframes c-shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.c-book-body {
+  flex: 1;
+  min-width: 0;
+  padding: 0.8rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.c-book-title {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #e0d4b4;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (min-width: 640px) { .c-book-title { font-size: 1.05rem; } }
+
+.c-book-author {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #728a50;
+}
+
+.c-book-tags { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 2px; }
+
+.c-book-tag {
+  font-size: 9.5px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  background: #1c2010;
+  color: #607840;
+  border: 1px solid #2a3018;
+  letter-spacing: 0.02em;
+}
+
+.c-book-note {
+  font-size: 0.7rem;
+  color: #524e3c;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 1px;
+}
+
+.c-book-meta {
+  flex-shrink: 0;
+  padding: 0 1.25rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.c-book-date {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #a87e3c;
+  white-space: nowrap;
+}
+
+.c-book-ip-label {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: #7a8c58;
+  text-transform: uppercase;
+}
+
+.c-book-ip-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #7a8c58;
+  animation: c-ip-pulse 2.4s ease-in-out infinite;
+}
+@keyframes c-ip-pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(122,140,88,0.55); }
+  50%      { box-shadow: 0 0 0 4px rgba(122,140,88,0); }
+}
+
+/* ── Mosaic ──────────────────────────────────────────────── */
+.c-mosaic {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 10px;
+  padding-top: 1.25rem;
+}
+@media (min-width: 640px) { .c-mosaic { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 12px; } }
+
+.c-mosaic-item {
+  position: relative;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 5px;
+  overflow: hidden;
+  aspect-ratio: 2/3;
+  background: linear-gradient(90deg, #181610 0%, #26220e 50%, #181610 100%);
+  background-size: 300% 100%;
+  animation: c-shimmer 1.6s ease-in-out infinite calc(var(--mi, 0) * 22ms);
+  transition: transform 200ms ease, filter 200ms ease;
+}
+.c-mosaic-item:hover { transform: scale(1.04); filter: brightness(1.08); }
+.c-mosaic-item-ip { outline: 1.5px solid rgba(122,140,88,0.45); outline-offset: -1.5px; }
+
+.c-mosaic-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.c-mosaic-empty { width: 100%; height: 100%; }
+
+.c-mosaic-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 6px 7px 8px;
+  background: linear-gradient(to top, rgba(12,10,6,0.88) 0%, transparent 58%);
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 160ms;
+}
+.c-mosaic-item:hover .c-mosaic-overlay { opacity: 1; }
+@media (hover: none) { .c-mosaic-overlay { opacity: 1; } }
+
+.c-mosaic-title { font-size: 8.5px; font-weight: 600; color: #e0d4b4; line-height: 1.3; }
+.c-mosaic-author { font-size: 7.5px; color: #524e3c; margin-top: 1px; }
+
+.c-mosaic-ip-dot {
+  position: absolute;
+  top: 5px; right: 5px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #7a8c58;
+  animation: c-ip-pulse 2.4s ease-in-out infinite;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+.c-foot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 2.5rem;
+}
+.c-foot-rule { flex: 1; height: 1px; background: #2a2618; }
+.c-foot-star { width: 8px; height: 8px; flex-shrink: 0; }
 </style>
