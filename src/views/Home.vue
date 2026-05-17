@@ -3,7 +3,8 @@ import { ref, computed, watch, onMounted, onUnmounted, nextTick } from "vue";
 import { useRouter } from "vue-router";
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
-gsap.registerPlugin(Flip);
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(Flip, ScrollTrigger);
 import { scrollToTop } from "../composables/useLenis";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
@@ -20,6 +21,8 @@ const router = useRouter();
 const showSearch = ref(false);
 let keyBuffer = "";
 let keyTimer = null;
+let cScrollTriggers = [];
+let cAnimTimer = null;
 
 const WORKER = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.adiashpy.workers.dev";
 
@@ -220,6 +223,8 @@ onMounted(async () => {
   NProgress.done();
   displayYear.value  = currentYear.value;
   displayCount.value = finishedEntries.value.length;
+  await nextTick();
+  if (layoutMode.value === 'constructivist') setupCAnimations();
   footerObs = new IntersectionObserver(([e]) => { fabFooterHidden.value = e.isIntersecting; }, { threshold: 0 });
   if (footerSentinel.value) footerObs.observe(footerSentinel.value);
 });
@@ -274,11 +279,89 @@ watch(showYears, (open) => {
     document.documentElement.style.overflow = open ? "hidden" : "";
   }
 });
+
+function cleanupCScrollTriggers() {
+  cScrollTriggers.forEach(st => st.kill());
+  cScrollTriggers = [];
+}
+
+async function setupCAnimations() {
+  cleanupCScrollTriggers();
+  await nextTick();
+
+  if (viewMode.value === 'list') {
+    document.querySelectorAll('.c-book').forEach((row) => {
+      const accent = row.querySelector('.c-book-accent');
+      const cover  = row.querySelector('.c-book-cover, .c-book-cover-skel');
+      const title  = row.querySelector('.c-book-title');
+      const ghost  = row.querySelector('.c-book-ghost');
+      const metas  = row.querySelectorAll('.c-book-author, .c-book-tags, .c-book-note, .c-book-meta');
+
+      gsap.set(row, { opacity: 0 });
+      if (accent) gsap.set(accent, { scaleY: 0, transformOrigin: 'top' });
+      if (cover)  gsap.set(cover,  { scale: 0.88, opacity: 0 });
+      if (title)  gsap.set(title,  { y: 6, opacity: 0 });
+      if (ghost)  gsap.set(ghost,  { x: 10, opacity: 0 });
+      metas.forEach(el => gsap.set(el, { y: 5, opacity: 0 }));
+
+      const tl = gsap.timeline({ paused: true })
+        .to(row,    { opacity: 1, duration: 0.01 })
+        .to(accent, { scaleY: 1, duration: 0.28, ease: 'power2.out' }, 0)
+        .to(cover,  { scale: 1, opacity: 1, duration: 0.36, ease: 'power2.out' }, 0.04)
+        .to(ghost,  { x: 0, opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.06)
+        .to(title,  { y: 0, opacity: 1, duration: 0.3, ease: 'power2.out' }, 0.1)
+        .to(metas,  { y: 0, opacity: 1, duration: 0.26, ease: 'power2.out', stagger: 0.04 }, 0.16);
+
+      cScrollTriggers.push(ScrollTrigger.create({
+        trigger: row,
+        start: 'top 91%',
+        once: true,
+        onEnter: () => tl.play(),
+      }));
+    });
+  } else {
+    document.querySelectorAll('.c-mosaic-item').forEach((item, i) => {
+      gsap.set(item, { opacity: 0, scale: 0.92 });
+      cScrollTriggers.push(ScrollTrigger.create({
+        trigger: item,
+        start: 'top 95%',
+        once: true,
+        onEnter: () => gsap.to(item, {
+          opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out',
+          delay: (i % 6) * 0.028,
+        }),
+      }));
+    });
+  }
+}
+
+watch(layoutMode, async (mode) => {
+  if (mode !== 'constructivist') { cleanupCScrollTriggers(); return; }
+  await nextTick();
+  setupCAnimations();
+});
+
+watch(selectedYear, () => {
+  if (layoutMode.value !== 'constructivist') return;
+  cleanupCScrollTriggers();
+  if (cAnimTimer) clearTimeout(cAnimTimer);
+  cAnimTimer = setTimeout(setupCAnimations, 420);
+});
+
+watch(viewMode, () => {
+  if (layoutMode.value !== 'constructivist') return;
+  cleanupCScrollTriggers();
+  if (cAnimTimer) clearTimeout(cAnimTimer);
+  cAnimTimer = setTimeout(setupCAnimations, 420);
+});
+
 onUnmounted(() => {
   document.removeEventListener("keydown", onKeydown);
   clearTimeout(keyTimer);
+  if (cAnimTimer) clearTimeout(cAnimTimer);
   if (countTimer)     clearInterval(countTimer);
   if (countBookTimer) clearInterval(countBookTimer);
+  cleanupCScrollTriggers();
   footerObs?.disconnect();
   if (typeof document !== "undefined") {
     document.body.style.overflow = "";
