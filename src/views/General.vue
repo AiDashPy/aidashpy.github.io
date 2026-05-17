@@ -68,15 +68,6 @@ const PAINTINGS = [
     year: '1930–31',
     link: 'https://commons.wikimedia.org/wiki/File:Drevin_gazeli.jpg',
   },
-  {
-    src: `${WORKER}/images/drevin_white_house_landscape.webp`,
-    title: 'White House Landscape',
-    titleDisplay: 'WHITE HOUSE LANDSCAPE',
-    artist: 'Aleksandr Drevin',
-    artistDisplay: 'ALEKSANDR DREVIN',
-    year: '1931',
-    link: 'https://commons.wikimedia.org/wiki/File:Drevin._White_House_Landscape._1931.jpg',
-  },
 ];
 
 const created = ref(false);
