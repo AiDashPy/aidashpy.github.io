@@ -772,13 +772,18 @@ onUnmounted(() => {
 .strip-fade-enter-from   { opacity: 0; transform: translateY(6px); }
 
 /* ── Links ──────────────────────────────────────────────── */
-.p-links { display: flex; flex-direction: column; }
+.p-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: #1c1a18;
+}
 
 .plnk {
   display: grid;
   grid-template-columns: 3rem 1fr auto auto;
   align-items: stretch;
-  border-bottom: 1px solid #1c1a18;
+  background: var(--pg-surface, #141210);
   text-decoration: none;
   transition: background 140ms;
   will-change: transform;
