@@ -1697,12 +1697,9 @@ onUnmounted(() => {
 
 .c-drawer-nav .c-year-btn {
   width: 100%;
-  padding: 0.9rem 1.25rem 0.9rem 1rem;
-  clip-path: none;
+  padding: 0.9rem 1.5rem 0.9rem 1rem;
 }
 .c-drawer-nav .c-year-btn-active {
   background: rgba(200,186,140,0.1);
-  border-left: 3px solid #c8ba8c;
-  padding-left: calc(1rem - 3px);
 }
 </style>
