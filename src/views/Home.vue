@@ -314,12 +314,12 @@ async function setupCAnimations() {
         .to(title,  { y: 0, opacity: 1, duration: 0.3, ease: 'power2.out' }, 0.1)
         .to(metas,  { y: 0, opacity: 1, duration: 0.26, ease: 'power2.out', stagger: 0.04 }, 0.16);
 
-      if (row.getBoundingClientRect().top < vh * 0.91) {
+      if (row.getBoundingClientRect().top < vh) {
         tl.play();
       } else {
         cScrollTriggers.push(ScrollTrigger.create({
           trigger: row,
-          start: 'top 91%',
+          start: 'top bottom',
           once: true,
           onEnter: () => tl.play(),
         }));
@@ -328,12 +328,12 @@ async function setupCAnimations() {
   } else {
     document.querySelectorAll('.c-mosaic-item').forEach((item, i) => {
       gsap.set(item, { opacity: 0, scale: 0.92 });
-      if (item.getBoundingClientRect().top < vh * 0.95) {
+      if (item.getBoundingClientRect().top < vh) {
         gsap.to(item, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out', delay: (i % 6) * 0.028 });
       } else {
         cScrollTriggers.push(ScrollTrigger.create({
           trigger: item,
-          start: 'top 95%',
+          start: 'top bottom',
           once: true,
           onEnter: () => gsap.to(item, {
             opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out',
