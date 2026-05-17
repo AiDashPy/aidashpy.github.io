@@ -58,9 +58,12 @@ const currentBook = ref(null);
 const inProgressBooks = ref([]);
 const grainCanvas = ref(null);
 const painting = ref(PAINTINGS[0]);
+const paintingLoaded = ref(false);
+const booksLoading = ref(true);
 
 let grainTimer = null;
 let bgStyleEl = null;
+let overlayTimers = [];
 
 function onOverlayEnd() { showOverlay.value = false; }
 
@@ -201,12 +204,24 @@ onMounted(() => {
   painting.value = PAINTINGS[Math.floor(Math.random() * PAINTINGS.length)];
 
   created.value = true;
-  setTimeout(() => { showOverlay.value = false; }, 1400);
+
+  // Reveal poster only after min time + painting loaded + books fetched (hard cap 5s)
+  let _minElapsed = false, _paintReady = false, _booksReady = false;
+  function tryReveal() {
+    if (_minElapsed && _paintReady && _booksReady) showOverlay.value = false;
+  }
+  overlayTimers.push(setTimeout(() => { _minElapsed = true; tryReveal(); }, 1400));
+  overlayTimers.push(setTimeout(() => { showOverlay.value = false; }, 5000));
 
   // Extract palette as soon as the painting loads
   const sampleImg = new Image();
   sampleImg.crossOrigin = 'anonymous';
-  sampleImg.onload = () => { try { applyPalette(extractPalette(sampleImg)); } catch {} };
+  sampleImg.onload = () => {
+    try { applyPalette(extractPalette(sampleImg)); } catch {}
+    _paintReady = true;
+    tryReveal();
+  };
+  sampleImg.onerror = () => { _paintReady = true; tryReveal(); };
   sampleImg.src = painting.value.src;
 
   fetch(`${WORKER}/books.json`)
@@ -230,13 +245,22 @@ onMounted(() => {
       });
       inProgressBooks.value = active;
       currentBook.value = recentBook;
+      booksLoading.value = false;
+      _booksReady = true;
+      tryReveal();
     })
-    .catch(() => {});
+    .catch(() => {
+      booksLoading.value = false;
+      _booksReady = true;
+      tryReveal();
+    });
 
   startGrain();
 });
 
 onUnmounted(() => {
+  overlayTimers.forEach(clearTimeout);
+  overlayTimers = [];
   bgStyleEl?.remove();
   bgStyleEl = null;
   if (grainTimer) clearInterval(grainTimer);
@@ -286,14 +310,17 @@ onUnmounted(() => {
 
           <!-- Painting -->
           <a :href="painting.link" target="_blank" rel="noopener noreferrer" class="poster-painting">
-            <figure class="p-figure">
+            <figure class="p-figure" :class="{ 'p-figure--loaded': paintingLoaded }">
               <img
                 class="p-img"
+                :class="{ 'p-img--loaded': paintingLoaded }"
                 :src="painting.src"
                 :alt="`${painting.title}, ${painting.artist}, ${painting.year}`"
                 loading="eager"
                 fetchpriority="high"
                 decoding="async"
+                @load="paintingLoaded = true"
+                @error="paintingLoaded = true"
               />
             </figure>
             <div class="p-cap">
@@ -304,14 +331,26 @@ onUnmounted(() => {
           </a>
 
           <!-- Currently / recently reading -->
-          <div v-if="inProgressBooks.length || currentBook" class="poster-section">
+          <div v-if="booksLoading || inProgressBooks.length || currentBook" class="poster-section">
             <div class="ps-head">
               <svg class="ps-star" aria-hidden="true" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <polygon points="50,5 61,39 98,39 67,59 79,91 50,72 21,91 33,59 2,39 39,39" fill="currentColor"/>
               </svg>
-              <span class="ps-label">{{ inProgressBooks.length ? 'CURRENTLY READING' : 'RECENTLY READ' }}</span>
+              <span class="ps-label">{{ (booksLoading || inProgressBooks.length) ? 'CURRENTLY READING' : 'RECENTLY READ' }}</span>
             </div>
-            <Transition name="strip-fade">
+            <!-- Skeleton while fetching -->
+            <div v-if="booksLoading" class="p-reading p-reading--skel" aria-hidden="true">
+              <div class="pr-books">
+                <div class="pr-book">
+                  <div class="pr-thumb-empty pr-skel" />
+                  <div class="pr-text">
+                    <div class="pr-skel-line pr-skel-title" />
+                    <div class="pr-skel-line pr-skel-author" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <Transition v-else name="strip-fade">
               <RouterLink v-if="inProgressBooks.length" to="/" class="p-reading">
                 <div class="pr-books">
                   <div v-for="b in inProgressBooks" :key="b.name" class="pr-book">
@@ -572,7 +611,19 @@ onUnmounted(() => {
   transition: border-color 800ms ease;
 }
 
-.p-figure { margin: 0; display: block; }
+.p-figure {
+  margin: 0;
+  display: block;
+  min-height: clamp(180px, 40vh, 420px);
+  background: linear-gradient(90deg, #161410 0%, #211f18 45%, #161410 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+.p-figure--loaded {
+  min-height: 0;
+  background: none;
+  animation: none;
+}
 
 .p-img {
   width: 100%;
@@ -580,7 +631,10 @@ onUnmounted(() => {
   object-fit: contain;
   max-height: 42vh;
   filter: contrast(1.05) saturate(0.95);
+  opacity: 0;
+  transition: opacity 500ms ease;
 }
+.p-img--loaded { opacity: 1; }
 @media (min-width: 768px)  { .p-img { max-height: 52vh; } }
 @media (min-width: 1280px) { .p-img { max-height: 58vh; } }
 
@@ -831,4 +885,31 @@ onUnmounted(() => {
   .plnk-cat   { display: none; }
   .plnk-arr   { padding: 0.85rem 1rem 0.85rem 0.2rem; }
 }
+
+/* ── Loading skeletons ──────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position:  200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.p-reading--skel {
+  cursor: default;
+  pointer-events: none;
+}
+
+.pr-skel {
+  background: linear-gradient(90deg, #1c1a14 0%, #252218 45%, #1c1a14 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+.pr-skel-line {
+  border-radius: 2px;
+  background: linear-gradient(90deg, #1c1a14 0%, #252218 45%, #1c1a14 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+.pr-skel-title  { height: 13px; width: 58%; }
+.pr-skel-author { height: 9px; width: 36%; animation-delay: 0.2s; }
 </style>
