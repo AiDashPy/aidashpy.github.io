@@ -601,6 +601,48 @@ onUnmounted(() => {
         </main>
 
       </div>
+
+      <!-- Mobile FAB -->
+      <button
+        class="c-fab"
+        :class="{ 'c-fab-off': showYears || fabFooterHidden }"
+        @click.stop="toggleYears"
+        aria-label="Open archive"
+      >
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="none" aria-hidden="true" style="transform:skewX(-8deg)">
+          <line x1="0" y1="1"  x2="17" y2="1"  stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="0" y1="6"  x2="17" y2="6"  stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="0" y1="11" x2="17" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <div class="c-trap" :class="showYears ? 'c-trap-on' : ''" @click="closeYears" aria-hidden="true"></div>
+
+      <aside class="c-drawer" :class="showYears ? 'c-drawer-open' : ''" :aria-hidden="!showYears">
+        <div class="c-drawer-header">
+          <div class="c-drawer-title-wrap">
+            <div class="c-drawer-accent-bar"></div>
+            <span class="c-drawer-title">Archive</span>
+          </div>
+          <button class="c-drawer-close" @click="closeYears" aria-label="Close">×</button>
+        </div>
+        <nav class="c-drawer-nav">
+          <button
+            v-for="(y, i) in sortedYears"
+            :key="y.year + '-cd'"
+            class="c-year-btn"
+            :class="{ 'c-year-btn-active': i === selectedYear }"
+            @click="selectYear(i)"
+          >
+            <div class="c-year-bar"></div>
+            <div>
+              <div class="c-year-num">{{ y.year }}</div>
+              <div class="c-year-ct">{{ y.entries.length }} books</div>
+            </div>
+          </button>
+        </nav>
+      </aside>
+
     </template>
 
     <div ref="footerSentinel" aria-hidden="true" style="height:0"></div>
@@ -1437,4 +1479,109 @@ onUnmounted(() => {
 }
 .c-foot-rule { flex: 1; height: 1px; background: #2a2618; }
 .c-foot-star { width: 8px; height: 8px; flex-shrink: 0; }
+
+/* ── Constructivist mobile FAB ───────────────────────────── */
+.c-fab {
+  position: fixed;
+  right: 1rem;
+  bottom: 1.5rem;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 38px;
+  border: none;
+  background: #1c1a12;
+  color: #7a8c58;
+  cursor: pointer;
+  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+  transition: opacity 180ms, transform 180ms, background 140ms, color 140ms;
+}
+.c-fab:hover { background: #252110; color: #c8ba8c; }
+.c-fab-off { opacity: 0; transform: scale(0.85); pointer-events: none; }
+@media (min-width: 1024px) { .c-fab { display: none; } }
+
+/* ── Constructivist trap ─────────────────────────────────── */
+.c-trap {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  background: rgba(8,7,4,0);
+  transition: background 260ms ease;
+}
+.c-trap-on { pointer-events: auto; background: rgba(8,7,4,0.6); }
+
+/* ── Constructivist drawer ───────────────────────────────── */
+.c-drawer {
+  position: fixed;
+  right: 0;
+  top: env(safe-area-inset-top, 0);
+  bottom: 0;
+  z-index: 70;
+  width: 16rem;
+  background: #131108;
+  border-left: 2px solid rgba(200,186,140,0.1);
+  box-shadow: -12px 0 40px rgba(0,0,0,0.65);
+  transform: translateX(100%);
+  transition: transform 300ms cubic-bezier(0.32,0,0.15,1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.c-drawer-open { transform: translateX(0); }
+
+.c-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1rem 1rem;
+  border-bottom: 1px solid #1d1b10;
+  flex-shrink: 0;
+}
+
+.c-drawer-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.c-drawer-accent-bar {
+  width: 3px;
+  height: 1rem;
+  background: #c8ba8c;
+  flex-shrink: 0;
+}
+
+.c-drawer-title {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #c8ba8c;
+}
+
+.c-drawer-close {
+  width: 28px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #2a2618;
+  background: transparent;
+  color: #5a5440;
+  font-size: 1rem;
+  cursor: pointer;
+  clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+  transition: background 130ms, color 130ms;
+}
+.c-drawer-close:hover { background: #1a1812; color: #c8ba8c; }
+
+.c-drawer-nav {
+  padding: 0.5rem 0.75rem 2rem;
+  overflow-y: auto;
+  flex: 1;
+}
 </style>
