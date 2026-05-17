@@ -638,8 +638,10 @@ onUnmounted(() => {
                         <div v-if="b.note" class="c-book-note">{{ b.note }}</div>
                       </div>
                       <div class="c-book-meta">
-                        <div class="c-book-ip-dot"></div>
-                        <span class="c-book-ip-label">Reading</span>
+                        <div class="c-book-ip-row">
+                          <div class="c-book-ip-dot"></div>
+                          <span class="c-book-ip-label">Reading</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1458,6 +1460,9 @@ onUnmounted(() => {
   text-overflow: ellipsis;
 }
 @media (min-width: 640px) { .c-book-title { font-size: 1.05rem; } }
+@media (max-width: 639px) {
+  .c-book-title { white-space: normal; overflow: visible; text-overflow: clip; }
+}
 
 .c-book-author {
   font-size: 0.72rem;
@@ -1508,6 +1513,12 @@ onUnmounted(() => {
   white-space: nowrap;
 }
 
+.c-book-ip-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .c-book-ip-label {
   font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
   font-size: 0.5rem;
@@ -1521,6 +1532,7 @@ onUnmounted(() => {
   width: 6px; height: 6px;
   border-radius: 50%;
   background: #7a8c58;
+  flex-shrink: 0;
   animation: c-ip-pulse 2.4s ease-in-out infinite;
 }
 @keyframes c-ip-pulse {

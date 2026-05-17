@@ -61,11 +61,9 @@ function liftRgb(rgb, minL = 0.48) {
 const titleDisplayChars = computed(() => {
   const fullChars = Array.from(props.book.name || '');
   const typedLen  = tw.title.length;
-  const cursorOn  = twActive.value === 'title';
   return fullChars.map((finalChar, i) => ({
-    ch:     i < typedLen ? (tw.title[i] ?? finalChar) : finalChar,
-    ghost:  i >= typedLen,
-    cursor: cursorOn && i === typedLen - 1,
+    ch:    i < typedLen ? (tw.title[i] ?? finalChar) : finalChar,
+    ghost: i >= typedLen,
   }));
 });
 
@@ -378,13 +376,13 @@ function openDetail() {
 
 function closeDetail() {
   clearTimeout(flipTimer);
-  stopTypewriter();
   if (props.layoutMode === 'constructivist') {
     viewingCover.value = false;
     showDetail.value = false;
-    // emit('close') fires inside cOnLeave after animation completes
+    // stopTypewriter() + emit('close') fire in cOnLeave after animation
     return;
   }
+  stopTypewriter();
   const wasPeeking = viewingCover.value;
   viewingCover.value = false;
   flipped.value = false;
@@ -417,12 +415,39 @@ function flipToDetail() {
 
 function onDetailKey(e) { if (e.key === "Escape") closeDetail(); }
 
+// position:fixed scroll-lock — prevents iOS address bar from appearing/hiding
+// (which changes dvh and causes visible page resize) when the modal opens/closes.
+// scrollbar-gutter: stable in global CSS handles the gutter for most cases;
+// the paddingRight compensation below covers browsers that don't support it.
+let _scrollY = 0;
+function lockScroll() {
+  _scrollY = window.scrollY;
+  const sbw = window.innerWidth - document.documentElement.clientWidth;
+  if (sbw > 0) document.body.style.paddingRight = `${sbw}px`;
+  document.body.style.overflow = 'hidden';
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${_scrollY}px`;
+  document.body.style.width = '100%';
+}
+function unlockScroll() {
+  document.body.style.paddingRight = '';
+  document.body.style.overflow = '';
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  window.scrollTo(0, _scrollY);
+}
+
 watch(showDetail, open => {
   if (open) {
-    document.body.style.overflow = "hidden";
+    lockScroll();
     document.addEventListener("keydown", onDetailKey);
   } else {
-    document.body.style.overflow = "";
+    // Constructivist leave: cOnLeave calls unlockScroll() after the animation
+    // completes so the body stays locked throughout the leave transition.
+    if (props.layoutMode !== 'constructivist') {
+      unlockScroll();
+    }
     document.removeEventListener("keydown", onDetailKey);
   }
 });
@@ -432,7 +457,7 @@ onUnmounted(() => {
   clearTimeout(closeTimer);
   clearTimeout(typeTimer);
   bioReadyStop?.();
-  document.body.style.overflow = "";
+  unlockScroll();
   document.removeEventListener("keydown", onDetailKey);
 });
 
@@ -497,7 +522,16 @@ function cOnEnter(el, done) {
 
 function cOnLeave(el, done) {
   const panel = el.querySelector('.cdm-panel');
-  gsap.timeline({ onComplete: () => { done(); emit('close'); } })
+  const { width, height } = panel.getBoundingClientRect();
+  gsap.set(panel, { width, height, paddingBottom: 0 });
+  gsap.timeline({
+    onComplete: () => {
+      unlockScroll();
+      done();
+      stopTypewriter();
+      emit('close');
+    },
+  })
     .to(panel, { y: 18, opacity: 0, duration: 0.18, ease: 'power2.in' }, 0)
     .to(el,    { opacity: 0,        duration: 0.2,  ease: 'power1.in' }, 0);
 }
@@ -601,7 +635,7 @@ defineExpose({ open: openDetail });
                 <span
                   v-for="(c, i) in titleDisplayChars"
                   :key="i"
-                  :class="{ 'cdm-char-ghost': c.ghost, 'cdm-char-cursor': c.cursor }"
+                  :class="{ 'cdm-char-ghost': c.ghost }"
                 >{{ c.ch }}</span>
               </div>
               <div class="cdm-head-slash">
@@ -1065,7 +1099,7 @@ defineExpose({ open: openDetail });
 .cdm-title-col {
   flex: 1;
   min-width: 0;
-  padding: 0.72rem 2.5rem 0.72rem 0.8rem;
+  padding: 0.72rem 3.25rem 0.72rem 0.8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1100,19 +1134,11 @@ defineExpose({ open: openDetail });
   height: calc(2 * 0.94em);
   flex-shrink: 0;
   overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
 }
 /* Untyped chars — transparent, still occupy full layout space */
 .cdm-char-ghost {
   color: transparent;
   user-select: none;
-}
-/* Cursor on last typed char via border-right — no extra DOM node, no wrap opportunities */
-.cdm-char-cursor {
-  border-right: 1.5px solid #e0d4b4;
-  animation: tw-blink 900ms step-end infinite;
 }
 
 /* Slash dividers */
@@ -1341,14 +1367,14 @@ defineExpose({ open: openDetail });
 
   /* More padding around title area */
   .cdm-title-col {
-    padding: 0.8rem 3rem 0.8rem 0.9rem;
+    padding: 0.8rem 3.75rem 0.8rem 0.9rem;
     gap: 4px;
   }
 
-  /* Larger title on mobile */
+  /* Larger title on mobile — 3 lines fit within the taller head */
   .cdm-title-wrap {
     font-size: clamp(1.3rem, 6vw, 1.8rem);
-    height: calc(2 * 0.94em);
+    height: calc(3 * 0.94em);
   }
 
   /* Larger author eyebrow */
