@@ -197,11 +197,7 @@ onMounted(() => {
   bgStyleEl.textContent = 'html, body { background-color: #111010 !important; }';
   document.head.appendChild(bgStyleEl);
 
-  // Pick painting for this session; persist so nav-back shows the same one
-  const savedIdx = sessionStorage.getItem('pg-painting-idx');
-  const idx = savedIdx !== null ? +savedIdx : Math.floor(Math.random() * PAINTINGS.length);
-  if (savedIdx === null) sessionStorage.setItem('pg-painting-idx', String(idx));
-  painting.value = PAINTINGS[idx];
+  painting.value = PAINTINGS[Math.floor(Math.random() * PAINTINGS.length)];
 
   created.value = true;
   setTimeout(() => { showOverlay.value = false; }, 1400);
