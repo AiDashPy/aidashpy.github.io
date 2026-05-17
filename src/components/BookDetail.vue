@@ -1,12 +1,15 @@
 <script setup>
 import { ref, reactive, computed, watch, onUnmounted } from "vue";
 import { playTypeChar, playFlip } from "../composables/useAudio";
+import { gsap } from "gsap";
 
 const _bioCache = new Map();
 
 const props = defineProps({
   book: { type: Object, required: true },
   inProgress: { type: Boolean, default: false },
+  layoutMode: { type: String, default: 'poster' },
+  index: { type: Number, default: 1 },
 });
 
 const emit = defineEmits(["close"]);
@@ -51,6 +54,20 @@ function liftRgb(rgb, minL = 0.48) {
   const hue2rgb = (p,q,t) => { t=((t%1)+1)%1; if(t<1/6)return p+(q-p)*6*t; if(t<0.5)return q; if(t<2/3)return p+(q-p)*(2/3-t)*6; return p; };
   return [hue2rgb(p,q,h+1/3), hue2rgb(p,q,h), hue2rgb(p,q,h-1/3)].map(v=>Math.round(v*255)).join(",");
 }
+
+// Per-character title display for the constructivist modal.
+// Each character always occupies its final position (full title always in DOM),
+// untyped chars are transparent so line-breaks are determined by the complete text.
+const titleDisplayChars = computed(() => {
+  const fullChars = Array.from(props.book.name || '');
+  const typedLen  = tw.title.length;
+  const cursorOn  = twActive.value === 'title';
+  return fullChars.map((finalChar, i) => ({
+    ch:     i < typedLen ? (tw.title[i] ?? finalChar) : finalChar,
+    ghost:  i >= typedLen,
+    cursor: cursorOn && i === typedLen - 1,
+  }));
+});
 
 const accentRgb = ref(null);
 const accentVivid = computed(() => accentRgb.value ? liftRgb(accentRgb.value) : null);
@@ -347,17 +364,27 @@ function openDetail() {
   flipped.value = false;
   viewingCover.value = false;
   stopTypewriter();
-  playFlip();
-  flipTimer = setTimeout(() => {
-    flipped.value = true;
+  if (props.layoutMode === 'constructivist') {
     startTypewriter();
-  }, 320);
+  } else {
+    playFlip();
+    flipTimer = setTimeout(() => {
+      flipped.value = true;
+      startTypewriter();
+    }, 320);
+  }
   fetchBio();
 }
 
 function closeDetail() {
   clearTimeout(flipTimer);
   stopTypewriter();
+  if (props.layoutMode === 'constructivist') {
+    viewingCover.value = false;
+    showDetail.value = false;
+    // emit('close') fires inside cOnLeave after animation completes
+    return;
+  }
   const wasPeeking = viewingCover.value;
   viewingCover.value = false;
   flipped.value = false;
@@ -425,6 +452,72 @@ const openBook = () => {
   window.open(`https://www.google.com/search?tbm=bks&q=${q}`, "_blank", "noopener,noreferrer");
 };
 
+// ── Constructivist modal transitions ─────────────────────
+const ghostNum = computed(() =>
+  props.inProgress ? '—' : String(props.index).padStart(2, '0')
+);
+
+function cOnBeforeEnter(el) {
+  gsap.set(el, { opacity: 0 });
+}
+
+function cOnEnter(el, done) {
+  const panel    = el.querySelector('.cdm-panel');
+  const coverBar = el.querySelector('.cdm-cover-bar');
+  const coverWrap= el.querySelector('.cdm-cover-wrap');
+  const eyebrow  = el.querySelector('.cdm-eyebrow');
+  const title    = el.querySelector('.cdm-title-wrap');
+  const slashDiv = el.querySelector('.cdm-head-slash');
+  const metaRow  = el.querySelector('.cdm-meta-row');
+  const body     = el.querySelector('.cdm-body');
+  const foot     = el.querySelector('.cdm-foot');
+
+  const mobile = window.innerWidth < 580;
+
+  gsap.set(panel,    mobile ? { y: '85%' } : { y: 22, opacity: 0 });
+  if (coverBar)  gsap.set(coverBar,  { scaleY: 0, transformOrigin: 'top' });
+  if (coverWrap) gsap.set(coverWrap, { x: -10, opacity: 0 });
+  if (eyebrow)   gsap.set(eyebrow,   { y: -4, opacity: 0 });
+  if (title)     gsap.set(title,     { x: -14, opacity: 0 });
+  if (slashDiv)  gsap.set(slashDiv,  { opacity: 0 });
+  if (metaRow)   gsap.set(metaRow,   { y: 5, opacity: 0 });
+  if (body)      gsap.set(body,      { opacity: 0, y: 4 });
+  if (foot)      gsap.set(foot,      { y: 10, opacity: 0 });
+
+  gsap.timeline({ onComplete: done })
+    .to(el,        { opacity: 1,                                  duration: 0.18, ease: 'power1.out' })
+    .to(panel,     mobile
+      ? { y: 0,                   duration: 0.3,  ease: 'power3.out' }
+      : { y: 0, opacity: 1,       duration: 0.26, ease: 'power2.out' }
+    , 0)
+    .to(coverBar,  { scaleY: 1,                                   duration: 0.28, ease: 'power2.out' }, 0.1)
+    .to(coverWrap, { x: 0, opacity: 1,                            duration: 0.28, ease: 'power2.out' }, 0.14)
+    .to(eyebrow,   { y: 0, opacity: 1,                            duration: 0.2,  ease: 'power2.out' }, 0.18)
+    .to(title,     { x: 0, opacity: 1,                            duration: 0.28, ease: 'power2.out' }, 0.22)
+    .to(slashDiv,  { opacity: 1,                                   duration: 0.2,  ease: 'power1.out' }, 0.3)
+    .to(metaRow,   { y: 0, opacity: 1,                            duration: 0.2,  ease: 'power2.out' }, 0.34)
+    .to(body,      { opacity: 1, y: 0,                            duration: 0.24, ease: 'power1.out' }, 0.4)
+    .to(foot,      { y: 0, opacity: 1,                            duration: 0.2,  ease: 'power2.out' }, 0.44);
+}
+
+function cOnLeave(el, done) {
+  const panel  = el.querySelector('.cdm-panel');
+  const mobile = window.innerWidth < 580;
+  gsap.timeline({ onComplete: () => { done(); emit('close'); } })
+    .to(panel, mobile
+      ? { y: '60%', duration: 0.22, ease: 'power3.in' }
+      : { y: 18, opacity: 0, duration: 0.18, ease: 'power2.in' }
+    , 0)
+    .to(el, { opacity: 0, duration: 0.2, ease: 'power1.in' }, 0);
+}
+
+function cCoverEnter(el, done) {
+  gsap.fromTo(el, { x: '100%' }, { x: 0, duration: 0.26, ease: 'power3.out', onComplete: done });
+}
+function cCoverLeave(el, done) {
+  gsap.to(el, { x: '100%', duration: 0.22, ease: 'power3.in', onComplete: done });
+}
+
 defineExpose({ open: openDetail });
 </script>
 
@@ -432,7 +525,7 @@ defineExpose({ open: openDetail });
   <Teleport to="body">
     <Transition name="do">
       <div
-        v-if="showDetail"
+        v-if="showDetail && layoutMode !== 'constructivist'"
         class="detail-overlay"
         :style="accentColor ? { '--accent': accentColor } : {}"
         @click.self="closeDetail"
@@ -485,6 +578,91 @@ defineExpose({ open: openDetail });
             </div>
 
           </div>
+        </div>
+      </div>
+    </Transition>
+
+    <!-- ── Constructivist panel ──────────────────────────── -->
+    <Transition :css="false" @before-enter="cOnBeforeEnter" @enter="cOnEnter" @leave="cOnLeave">
+      <div
+        v-if="showDetail && layoutMode === 'constructivist'"
+        class="cdm-overlay"
+        @click.self="closeDetail"
+        role="dialog"
+        aria-modal="true"
+        :aria-label="book.name"
+      >
+        <div class="cdm-panel">
+          <div class="cdm-ghost" aria-hidden="true">{{ ghostNum }}</div>
+          <button class="cdm-close" @click="closeDetail" aria-label="Close">×</button>
+
+          <div class="cdm-head">
+            <div class="cdm-cover-col">
+              <div class="cdm-cover-bar" :class="inProgress ? 'cdm-cover-bar-ip' : ''"></div>
+              <div class="cdm-cover-wrap" :class="book.img ? 'cdm-cover-clickable' : ''" @click="book.img ? flipToCover() : null">
+                <img v-if="book.img" :src="book.img" :alt="book.name" crossorigin="anonymous" @load="onCoverLoad">
+                <div v-else class="cdm-cover-skel"></div>
+              </div>
+            </div>
+            <div class="cdm-title-col">
+              <div class="cdm-eyebrow" :class="{ 'cdm-eyebrow-zh': hasChinese(book.author || '') }">{{ tw.author }}<span v-if="twActive==='author'" class="tw-cur" aria-hidden="true"></span></div>
+              <div class="cdm-title-wrap">
+                <span
+                  v-for="(c, i) in titleDisplayChars"
+                  :key="i"
+                  :class="{ 'cdm-char-ghost': c.ghost, 'cdm-char-cursor': c.cursor }"
+                >{{ c.ch }}</span>
+              </div>
+              <div class="cdm-head-slash">
+                <div class="cdm-slash-line" :class="inProgress ? 'cdm-slash-line-ip' : ''"></div>
+                <div class="cdm-slash-tag">{{ inProgress ? 'Now Reading' : 'Finished' }}</div>
+              </div>
+              <div class="cdm-meta-row">
+                <span class="cdm-finish" :class="inProgress ? 'cdm-finish-ip' : ''">
+                  <span v-if="inProgress" class="cdm-ip-dot" aria-hidden="true"></span>
+                  {{ tw.finish }}<span v-if="twActive==='finish'" class="tw-cur" aria-hidden="true"></span>
+                </span>
+                <span class="cdm-pages" :style="{ visibility: tw.pages ? 'visible' : 'hidden' }">{{ tw.pages || '    ' }}<span v-if="twActive==='pages'" class="tw-cur tw-cur-sm" aria-hidden="true"></span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cdm-body">
+            <template v-if="bioLoading && twDone.header">
+              <p class="cdm-bio-loading">loading…</p>
+            </template>
+            <template v-else-if="bio">
+              <p ref="bioEl" class="cdm-bio">{{ tw.bio }}<span v-if="twActive==='bio'" class="tw-cur" aria-hidden="true"></span></p>
+              <a v-if="bioSource && twDone.bio" :href="bioSource.url" target="_blank" rel="noopener noreferrer" class="cdm-bio-src">via {{ bioSource.label }} →</a>
+            </template>
+            <p v-else-if="twDone.header && !bioLoading" class="cdm-bio-empty">No synopsis available.</p>
+
+            <template v-if="typedTags.length">
+              <div class="cdm-body-slash">
+                <div class="cdm-slash-line"></div>
+              </div>
+              <div class="cdm-tags">
+                <span v-for="(t, i) in typedTags" :key="i" class="cdm-tag">{{ t }}<span v-if="twActive==='tag' && activeTagIdx===i" class="tw-cur tw-cur-sm" aria-hidden="true"></span></span>
+              </div>
+            </template>
+
+            <p v-if="tw.note" class="cdm-note">{{ tw.note }}<span v-if="twActive==='note'" class="tw-cur" aria-hidden="true"></span></p>
+          </div>
+
+          <div class="cdm-foot">
+            <button class="cdm-google" @click="openBook">
+              Google Books <span class="cdm-arrow">→</span>
+            </button>
+          </div>
+
+          <!-- Cover view (slides in from right) -->
+          <Transition :css="false" @enter="cCoverEnter" @leave="cCoverLeave">
+            <div v-if="viewingCover && book.img" class="cdm-cover-view" @click="viewingCover = false">
+              <div class="cdm-cover-view-bg" :style="{ backgroundImage: `url(${book.img})` }" aria-hidden="true"></div>
+              <img :src="book.img" :alt="book.name" class="cdm-cover-view-img" crossorigin="anonymous">
+              <div class="cdm-cover-hint" aria-hidden="true">tap to return</div>
+            </div>
+          </Transition>
         </div>
       </div>
     </Transition>
@@ -783,4 +961,438 @@ defineExpose({ open: openDetail });
 .do-enter-active { transition: opacity 200ms ease; }
 .do-leave-active { transition: opacity 180ms ease; }
 .do-enter-from, .do-leave-to { opacity: 0; }
+
+/* ── Constructivist Detail Modal ─────────────────────── */
+.cdm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  z-index: 300;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+}
+@media (min-width: 580px) {
+  .cdm-overlay {
+    align-items: center;
+    padding: 1.5rem;
+  }
+}
+
+.cdm-panel {
+  width: 100%;
+  max-width: 460px;
+  height: min(520px, 88dvh);
+  max-height: 88dvh;
+  background: #0d0b08;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid #2a2618;
+}
+@media (min-width: 580px) {
+  .cdm-panel {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%);
+    border-top: none;
+    border: 1px solid #2a2618;
+  }
+}
+
+.cdm-ghost {
+  position: absolute;
+  right: -0.2rem;
+  top: -1.4rem;
+  font-family: 'Bebas Neue', 'Oswald', sans-serif;
+  font-size: 13rem;
+  line-height: 0.82;
+  color: rgba(200, 186, 140, 0.032);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  letter-spacing: -0.02em;
+}
+
+.cdm-close {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  z-index: 20;
+  width: 32px;
+  height: 26px;
+  background: transparent;
+  border: 1px solid #2a2618;
+  color: #5a5440;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%);
+  transition: background 120ms, color 120ms;
+  font-family: sans-serif;
+}
+.cdm-close:hover { background: #1a1812; color: #c8ba8c; }
+
+/* Head */
+.cdm-head {
+  display: flex;
+  align-items: stretch;
+  flex-shrink: 0;
+  height: 128px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  border-bottom: 1px solid #2a2618;
+}
+
+.cdm-cover-col { display: flex; flex-shrink: 0; }
+
+.cdm-cover-bar {
+  width: 4px;
+  background: #c8ba8c;
+  flex-shrink: 0;
+}
+.cdm-cover-bar-ip { background: #7a8c58; }
+
+.cdm-cover-wrap {
+  width: 86px;
+  height: 128px;
+  background: #131108;
+  flex-shrink: 0;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+}
+.cdm-cover-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.cdm-cover-skel {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #181610 0%, #26220e 50%, #181610 100%);
+  background-size: 300% 100%;
+  animation: cdm-shimmer 1.6s ease-in-out infinite;
+}
+@keyframes cdm-shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.cdm-title-col {
+  flex: 1;
+  min-width: 0;
+  padding: 0.72rem 2.5rem 0.72rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  overflow: hidden;
+}
+
+.cdm-eyebrow {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.46rem;
+  font-weight: 700;
+  letter-spacing: 0.5em;
+  color: #c8ba8c;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 1.3em;
+  flex-shrink: 0;
+}
+.cdm-eyebrow-zh {
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+}
+
+.cdm-title-wrap {
+  font-family: 'Bebas Neue', 'Oswald', sans-serif;
+  font-size: clamp(1.1rem, 4.5vw, 1.6rem);
+  letter-spacing: 0.03em;
+  line-height: 0.94;
+  color: #e0d4b4;
+  height: calc(2 * 0.94em);
+  flex-shrink: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+/* Untyped chars — transparent, still occupy full layout space */
+.cdm-char-ghost {
+  color: transparent;
+  user-select: none;
+}
+/* Cursor on last typed char via border-right — no extra DOM node, no wrap opportunities */
+.cdm-char-cursor {
+  border-right: 1.5px solid #e0d4b4;
+  animation: tw-blink 900ms step-end infinite;
+}
+
+/* Slash dividers */
+.cdm-head-slash,
+.cdm-body-slash {
+  position: relative;
+  height: 1.15rem;
+  overflow: visible;
+  flex-shrink: 0;
+}
+.cdm-body-slash { height: 1rem; }
+
+.cdm-slash-line {
+  position: absolute;
+  left: -4%;
+  width: 108%;
+  height: 1px;
+  background: rgba(200, 186, 140, 0.18);
+  top: 50%;
+  transform: rotate(-1.6deg);
+}
+.cdm-slash-line-ip { background: rgba(122, 140, 88, 0.28); }
+
+.cdm-slash-tag {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  translate: 0 -50%;
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.43rem;
+  font-weight: 700;
+  letter-spacing: 0.42em;
+  color: #3c3924;
+  background: #0d0b08;
+  padding: 0 0.5rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Meta */
+.cdm-meta-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  height: 1.4em;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.cdm-finish {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #a87e3c;
+  text-transform: uppercase;
+}
+.cdm-finish-ip {
+  color: #7a8c58;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cdm-ip-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #7a8c58;
+  animation: cdm-pulse 2.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes cdm-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(122, 140, 88, 0.6); }
+  50%       { box-shadow: 0 0 0 4px rgba(122, 140, 88, 0); }
+}
+
+.cdm-pages {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.52rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: #3c3924;
+}
+
+/* Body */
+.cdm-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0.75rem 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cdm-bio {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.755rem;
+  line-height: 1.68;
+  color: #6a6248;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+}
+
+.cdm-bio-loading {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.65rem;
+  color: #3c3924;
+  letter-spacing: 0.2em;
+  animation: cdm-bio-pulse 1.4s ease-in-out infinite;
+  margin: 0;
+}
+@keyframes cdm-bio-pulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+
+.cdm-bio-empty {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.65rem;
+  color: #3c3924;
+  font-style: italic;
+  margin: 0;
+}
+
+.cdm-bio-src {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #3c3924;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-top: -0.25rem;
+  transition: color 120ms;
+}
+.cdm-bio-src:hover { color: #7a8c58; }
+
+.cdm-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.cdm-tag {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.46rem;
+  font-weight: 700;
+  padding: 3px 11px;
+  background: #1c2010;
+  color: #607840;
+  border: 1px solid #2a3018;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+}
+
+.cdm-note {
+  font-size: 0.7rem;
+  color: #524e3c;
+  line-height: 1.55;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Footer */
+.cdm-foot {
+  flex-shrink: 0;
+  padding: 0.65rem 1rem 0.9rem;
+  border-top: 1px solid #2a2618;
+  position: relative;
+  z-index: 1;
+}
+
+.cdm-google {
+  width: 100%;
+  padding: 0.65rem 1.5rem;
+  background: #1c2010;
+  border: 1px solid #2a3018;
+  color: #7a8c58;
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  cursor: pointer;
+  clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+  transition: background 140ms, color 140ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.cdm-google:hover { background: #222e12; color: #9aac70; }
+.cdm-arrow { font-size: 0.9em; }
+
+/* Cover clickable state */
+.cdm-cover-clickable { cursor: zoom-in; }
+.cdm-cover-clickable:hover img { opacity: 0.85; }
+.cdm-cover-clickable img { transition: opacity 150ms ease; }
+
+/* Cover full view */
+.cdm-cover-view {
+  position: absolute;
+  inset: 0;
+  background: #0a0804;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.cdm-cover-view-bg {
+  position: absolute;
+  inset: -10%;
+  width: 120%;
+  height: 120%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(32px) brightness(0.28) saturate(0.6);
+  pointer-events: none;
+}
+
+.cdm-cover-view-img {
+  position: relative;
+  z-index: 1;
+  max-width: 58%;
+  max-height: calc(100% - 3.5rem);
+  object-fit: contain;
+  display: block;
+}
+
+.cdm-cover-hint {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 50%;
+  translate: -50% 0;
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.48rem;
+  font-weight: 700;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: rgba(200, 186, 140, 0.38);
+  white-space: nowrap;
+  pointer-events: none;
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  padding: 3px 14px;
+  animation: cdm-hint-fade 2.2s ease forwards;
+}
+@keyframes cdm-hint-fade {
+  0%, 55%  { opacity: 1; }
+  100%     { opacity: 0.2; }
+}
 </style>

@@ -256,10 +256,13 @@ async function openMosaicDetail(b) {
 }
 
 const cBook = ref(null);
+const cBookIdx = ref(1);
 const cDetailRef = ref(null);
 
 async function openCDetail(b) {
   cBook.value = b;
+  const pos = finishedEntries.value.findIndex(e => e.name === b.name);
+  cBookIdx.value = pos >= 0 ? finishedEntries.value.length - pos : 1;
   await nextTick();
   cDetailRef.value?.open();
 }
@@ -772,6 +775,8 @@ onUnmounted(() => {
     ref="cDetailRef"
     :book="cBook"
     :in-progress="isInProgress(cBook)"
+    :layout-mode="layoutMode"
+    :index="cBookIdx"
     @close="cBook = null"
   />
 </template>
