@@ -472,9 +472,7 @@ function cOnEnter(el, done) {
   const body     = el.querySelector('.cdm-body');
   const foot     = el.querySelector('.cdm-foot');
 
-  const mobile = window.innerWidth < 580;
-
-  gsap.set(panel,    mobile ? { y: '85%' } : { y: 22, opacity: 0 });
+  gsap.set(panel,    { y: 22, opacity: 0 });
   if (coverBar)  gsap.set(coverBar,  { scaleY: 0, transformOrigin: 'top' });
   if (coverWrap) gsap.set(coverWrap, { x: -10, opacity: 0 });
   if (eyebrow)   gsap.set(eyebrow,   { y: -4, opacity: 0 });
@@ -485,30 +483,23 @@ function cOnEnter(el, done) {
   if (foot)      gsap.set(foot,      { y: 10, opacity: 0 });
 
   gsap.timeline({ onComplete: done })
-    .to(el,        { opacity: 1,                                  duration: 0.18, ease: 'power1.out' })
-    .to(panel,     mobile
-      ? { y: 0,                   duration: 0.3,  ease: 'power3.out' }
-      : { y: 0, opacity: 1,       duration: 0.26, ease: 'power2.out' }
-    , 0)
-    .to(coverBar,  { scaleY: 1,                                   duration: 0.28, ease: 'power2.out' }, 0.1)
-    .to(coverWrap, { x: 0, opacity: 1,                            duration: 0.28, ease: 'power2.out' }, 0.14)
-    .to(eyebrow,   { y: 0, opacity: 1,                            duration: 0.2,  ease: 'power2.out' }, 0.18)
-    .to(title,     { x: 0, opacity: 1,                            duration: 0.28, ease: 'power2.out' }, 0.22)
-    .to(slashDiv,  { opacity: 1,                                   duration: 0.2,  ease: 'power1.out' }, 0.3)
-    .to(metaRow,   { y: 0, opacity: 1,                            duration: 0.2,  ease: 'power2.out' }, 0.34)
-    .to(body,      { opacity: 1, y: 0,                            duration: 0.24, ease: 'power1.out' }, 0.4)
-    .to(foot,      { y: 0, opacity: 1,                            duration: 0.2,  ease: 'power2.out' }, 0.44);
+    .to(el,        { opacity: 1,              duration: 0.18, ease: 'power1.out' })
+    .to(panel,     { y: 0, opacity: 1,        duration: 0.26, ease: 'power2.out' }, 0)
+    .to(coverBar,  { scaleY: 1,               duration: 0.28, ease: 'power2.out' }, 0.1)
+    .to(coverWrap, { x: 0, opacity: 1,        duration: 0.28, ease: 'power2.out' }, 0.14)
+    .to(eyebrow,   { y: 0, opacity: 1,        duration: 0.2,  ease: 'power2.out' }, 0.18)
+    .to(title,     { x: 0, opacity: 1,        duration: 0.28, ease: 'power2.out' }, 0.22)
+    .to(slashDiv,  { opacity: 1,              duration: 0.2,  ease: 'power1.out' }, 0.3)
+    .to(metaRow,   { y: 0, opacity: 1,        duration: 0.2,  ease: 'power2.out' }, 0.34)
+    .to(body,      { opacity: 1, y: 0,        duration: 0.24, ease: 'power1.out' }, 0.4)
+    .to(foot,      { y: 0, opacity: 1,        duration: 0.2,  ease: 'power2.out' }, 0.44);
 }
 
 function cOnLeave(el, done) {
-  const panel  = el.querySelector('.cdm-panel');
-  const mobile = window.innerWidth < 580;
+  const panel = el.querySelector('.cdm-panel');
   gsap.timeline({ onComplete: () => { done(); emit('close'); } })
-    .to(panel, mobile
-      ? { y: '60%', duration: 0.22, ease: 'power3.in' }
-      : { y: 18, opacity: 0, duration: 0.18, ease: 'power2.in' }
-    , 0)
-    .to(el, { opacity: 0, duration: 0.2, ease: 'power1.in' }, 0);
+    .to(panel, { y: 18, opacity: 0, duration: 0.18, ease: 'power2.in' }, 0)
+    .to(el,    { opacity: 0,        duration: 0.2,  ease: 'power1.in' }, 0);
 }
 
 function cCoverEnter(el, done) {
@@ -969,35 +960,23 @@ defineExpose({ open: openDetail });
   background: rgba(0, 0, 0, 0.88);
   z-index: 300;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  padding: 0;
-}
-@media (min-width: 580px) {
-  .cdm-overlay {
-    align-items: center;
-    padding: 1.5rem;
-  }
+  padding: 1rem;
 }
 
 .cdm-panel {
   width: 100%;
   max-width: 460px;
-  height: min(520px, 88dvh);
+  height: min(560px, 88dvh);
   max-height: 88dvh;
   background: #0d0b08;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   position: relative;
-  border-top: 1px solid #2a2618;
-}
-@media (min-width: 580px) {
-  .cdm-panel {
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%);
-    border-top: none;
-    border: 1px solid #2a2618;
-  }
+  border: 1px solid #2a2618;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%);
 }
 
 .cdm-ghost {
@@ -1335,6 +1314,90 @@ defineExpose({ open: openDetail });
 }
 .cdm-google:hover { background: #222e12; color: #9aac70; }
 .cdm-arrow { font-size: 0.9em; }
+
+/* ── Mobile overrides (< 580px) ──────────────────────── */
+@media (max-width: 579px) {
+  .cdm-overlay { padding: 0.75rem; }
+
+  .cdm-panel {
+    height: min(88dvh, 580px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Larger close button for touch */
+  .cdm-close {
+    width: 44px;
+    height: 38px;
+    font-size: 1.3rem;
+  }
+
+  /* Taller head with bigger cover */
+  .cdm-head { height: 152px; }
+
+  .cdm-cover-wrap {
+    width: 106px;
+    height: 152px;
+  }
+
+  /* More padding around title area */
+  .cdm-title-col {
+    padding: 0.8rem 3rem 0.8rem 0.9rem;
+    gap: 4px;
+  }
+
+  /* Larger title on mobile */
+  .cdm-title-wrap {
+    font-size: clamp(1.3rem, 6vw, 1.8rem);
+    height: calc(2 * 0.94em);
+  }
+
+  /* Larger author eyebrow */
+  .cdm-eyebrow {
+    font-size: 0.52rem;
+    letter-spacing: 0.4em;
+  }
+  .cdm-eyebrow-zh { font-size: 0.72rem; }
+
+  /* Larger meta */
+  .cdm-finish { font-size: 0.65rem; }
+  .cdm-pages  { font-size: 0.58rem; }
+
+  /* More body padding, bigger text */
+  .cdm-body {
+    padding: 0.9rem 1.1rem 0;
+    gap: 0.75rem;
+  }
+
+  .cdm-bio {
+    font-size: 0.82rem;
+    -webkit-line-clamp: 7;
+    line-height: 1.62;
+  }
+
+  .cdm-bio-loading,
+  .cdm-bio-empty { font-size: 0.72rem; }
+
+  .cdm-bio-src { font-size: 0.56rem; }
+
+  /* Bigger tags for touch */
+  .cdm-tag {
+    font-size: 0.52rem;
+    padding: 4px 13px;
+  }
+
+  .cdm-note { font-size: 0.78rem; }
+
+  /* Taller footer button */
+  .cdm-foot {
+    padding: 0.75rem 1rem calc(0.9rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .cdm-google {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+  }
+}
 
 /* Cover clickable state */
 .cdm-cover-clickable { cursor: zoom-in; }
