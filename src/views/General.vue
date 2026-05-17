@@ -145,18 +145,19 @@ function extractPalette(img) {
     pixels.push({ h, s, l });
   }
 
-  // Vivid accent: highest saturation weighted toward mid-lightness
+  // Earthy accent: prefer mid-dark saturated pixels (target l≈0.38 for richness over brightness)
   const scored = pixels
-    .filter(p => p.l > 0.1 && p.l < 0.85 && p.s > 0.15)
-    .map(p => ({ ...p, score: p.s * (1 - Math.abs(p.l - 0.52) * 1.4) }))
+    .filter(p => p.l > 0.1 && p.l < 0.72 && p.s > 0.12)
+    .map(p => ({ ...p, score: p.s * (1 - Math.abs(p.l - 0.38) * 1.6) }))
     .sort((a, b) => b.score - a.score)
     .slice(0, 40);
 
-  let aH = 0, aS = 0.75, aL = 0.52;
+  let aH = 0, aS = 0.55, aL = 0.38;
   if (scored.length) {
     let tw = 0, sh = 0, ss = 0, sl = 0;
     for (const p of scored) { const w = p.score; sh += p.h*w; ss += p.s*w; sl += p.l*w; tw += w; }
-    aH = sh/tw; aS = Math.max(0.6, ss/tw); aL = Math.max(0.42, Math.min(0.60, sl/tw));
+    // Clamp saturation (0.35–0.65) and lightness (0.28–0.44) for dark, earthy tones
+    aH = sh/tw; aS = Math.max(0.35, Math.min(0.65, ss/tw)); aL = Math.max(0.28, Math.min(0.44, sl/tw));
   }
 
   // Background hue from the darkest pixels in the painting
