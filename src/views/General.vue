@@ -50,6 +50,42 @@ const PAINTINGS = [
     year: 'c. 1927',
     link: 'https://www.russianartcollection.com/en/product/ural-landscape/',
   },
+  {
+    src: `${WORKER}/images/drevin_altai_dry_birch.webp`,
+    title: 'Altai. Dry Birch',
+    titleDisplay: 'ALTAI. DRY BIRCH',
+    artist: 'Aleksandr Drevin',
+    artistDisplay: 'ALEKSANDR DREVIN',
+    year: '1930',
+    link: 'https://macdougallauction.com/en/catalogue/view?id=16179',
+  },
+  {
+    src: `${WORKER}/images/drevin_moss_swamps.webp`,
+    title: 'Moss Swamps',
+    titleDisplay: 'MOSS SWAMPS',
+    artist: 'Aleksandr Drevin',
+    artistDisplay: 'ALEKSANDR DREVIN',
+    year: '1937',
+    link: 'https://sovcom.ru/en/auktsiony/proshedshie_auktsiony/auktsion-11-russkoe-iskusstvo-khkh-veka-11-marta-2006-g/mokhovye-bolota/',
+  },
+  {
+    src: `${WORKER}/images/drevin_white_house_landscape.webp`,
+    title: 'White House Landscape',
+    titleDisplay: 'WHITE HOUSE LANDSCAPE',
+    artist: 'Aleksandr Drevin',
+    artistDisplay: 'ALEKSANDR DREVIN',
+    year: '1931',
+    link: 'https://commons.wikimedia.org/wiki/File:Drevin._White_House_Landscape._1931.jpg',
+  },
+  {
+    src: `${WORKER}/images/drevin_bulls.webp`,
+    title: 'Bulls',
+    titleDisplay: 'BULLS',
+    artist: 'Aleksandr Drevin',
+    artistDisplay: 'ALEKSANDR DREVIN',
+    year: '1931',
+    link: 'https://commons.wikimedia.org/wiki/File:Drevin._Bulls._1931.jpg',
+  },
 ];
 
 const created = ref(false);
