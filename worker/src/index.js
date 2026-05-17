@@ -47,6 +47,25 @@ export default {
       return new Response("ok", { headers: h });
     }
 
+    // ── layout mode ─────────────────────────────────────────
+    if (pathname === "/layout") {
+      if (req.method === "GET") {
+        const mode = await env.KV.get("layout");
+        return new Response(JSON.stringify({ mode: mode ?? "poster" }), {
+          headers: { ...h, "Content-Type": "application/json", "Cache-Control": "no-cache" },
+        });
+      }
+      if (req.method === "PUT") {
+        let body;
+        try { body = await req.json(); } catch { return new Response("Bad JSON", { status: 400, headers: h }); }
+        if (!body.pin || body.pin !== env.LAYOUT_PIN) return new Response("Unauthorized", { status: 401, headers: h });
+        const mode = body.mode;
+        if (!["poster", "constructivist"].includes(mode)) return new Response("Bad request", { status: 400, headers: h });
+        await env.KV.put("layout", mode);
+        return new Response("ok", { headers: h });
+      }
+    }
+
     // ── books.json ───────────────────────────────────────────
     if (pathname === "/books.json") {
       if (req.method === "GET") {

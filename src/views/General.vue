@@ -87,12 +87,63 @@ const grainCanvas = ref(null);
 const painting = ref(PAINTINGS[0]);
 const paintingLoaded = ref(false);
 const booksLoading = ref(true);
+const layoutMode = ref('poster');
+const showPinOverlay = ref(false);
+const pinValue = ref('');
+const pinError = ref(false);
 
 let grainTimer = null;
 let bgStyleEl = null;
 let overlayTimers = [];
+let keyBuffer = '';
 
 function onOverlayEnd() { showOverlay.value = false; }
+
+// ── Layout toggle ────────────────────────────────────────────
+async function fetchLayoutMode() {
+  try {
+    const res = await fetch(`${WORKER}/layout`);
+    const { mode } = await res.json();
+    layoutMode.value = mode ?? 'poster';
+  } catch {}
+}
+
+async function submitPin(pin) {
+  const targetMode = layoutMode.value === 'poster' ? 'constructivist' : 'poster';
+  try {
+    const res = await fetch(`${WORKER}/layout`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pin, mode: targetMode }),
+    });
+    if (!res.ok) { pinError.value = true; pinValue.value = ''; return; }
+    layoutMode.value = targetMode;
+    showPinOverlay.value = false;
+    pinValue.value = '';
+  } catch { pinError.value = true; pinValue.value = ''; }
+}
+
+function onKeyDown(e) {
+  if (showPinOverlay.value) {
+    if (e.key === 'Escape') {
+      showPinOverlay.value = false; pinValue.value = ''; pinError.value = false; return;
+    }
+    if (e.key === 'Backspace') { pinValue.value = pinValue.value.slice(0, -1); pinError.value = false; return; }
+    if (/^\d$/.test(e.key) && pinValue.value.length < 4) {
+      pinValue.value += e.key; pinError.value = false;
+      if (pinValue.value.length === 4) submitPin(pinValue.value);
+    }
+    return;
+  }
+  const tag = document.activeElement?.tagName;
+  if (tag === 'INPUT' || tag === 'TEXTAREA' || e.key.length !== 1) return;
+  keyBuffer += e.key.toLowerCase();
+  if (keyBuffer.length > 5) keyBuffer = keyBuffer.slice(-5);
+  if (keyBuffer.endsWith('admin')) {
+    keyBuffer = '';
+    showPinOverlay.value = true; pinValue.value = ''; pinError.value = false;
+  }
+}
 
 // ── Magnetic tiles ───────────────────────────────────────────
 function handleTileMove(e) {
@@ -228,6 +279,9 @@ onMounted(() => {
   bgStyleEl.textContent = 'html, body { background-color: #111010 !important; }';
   document.head.appendChild(bgStyleEl);
 
+  fetchLayoutMode();
+  document.addEventListener('keydown', onKeyDown);
+
   painting.value = PAINTINGS[Math.floor(Math.random() * PAINTINGS.length)];
 
   created.value = true;
@@ -291,6 +345,7 @@ onUnmounted(() => {
   bgStyleEl?.remove();
   bgStyleEl = null;
   if (grainTimer) clearInterval(grainTimer);
+  document.removeEventListener('keydown', onKeyDown);
   ['--pg-accent','--pg-accent-rgb','--pg-surface','--pg-cap','--pg-bg']
     .forEach(v => document.documentElement.style.removeProperty(v));
 });
@@ -300,7 +355,20 @@ onUnmounted(() => {
   <div class="page">
     <canvas ref="grainCanvas" class="grain" aria-hidden="true" />
 
-    <div v-if="showOverlay" class="overlay" aria-hidden="true">
+    <!-- PIN overlay -->
+  <Transition name="pin-fade">
+    <div v-if="showPinOverlay" class="pin-overlay" @click.self="showPinOverlay = false; pinValue = ''; pinError = false">
+      <div class="pin-box">
+        <div class="pin-label">ENTER PIN</div>
+        <div class="pin-dots">
+          <span v-for="i in 4" :key="i" class="pin-dot" :class="{ 'pin-dot--on': pinValue.length >= i, 'pin-dot--err': pinError }"></span>
+        </div>
+        <div v-if="pinError" class="pin-err-msg">incorrect</div>
+      </div>
+    </div>
+  </Transition>
+
+  <div v-if="showOverlay" class="overlay" aria-hidden="true">
       <svg
         class="overlay-star"
         viewBox="0 0 100 100"
@@ -314,7 +382,7 @@ onUnmounted(() => {
 
     <Transition name="fade">
       <div v-if="created" class="wrap">
-        <div class="poster" :class="showOverlay ? 'poster-hidden' : ''">
+        <div v-if="layoutMode === 'poster'" class="poster" :class="showOverlay ? 'poster-hidden' : ''">
 
           <!-- Top poster banner -->
           <div class="poster-top" aria-hidden="true">
@@ -466,6 +534,145 @@ onUnmounted(() => {
           </div>
 
         </div>
+
+        <!-- ══ CONSTRUCTIVIST LAYOUT ══════════════════════════════ -->
+        <div v-else class="c-canvas" :class="showOverlay ? 'c-hidden' : ''">
+          <div class="c-circle-deco" aria-hidden="true"></div>
+          <div class="c-corner-rule" aria-hidden="true"></div>
+          <div class="c-ghost-title" aria-hidden="true">AI<br>DA</div>
+
+          <div class="c-identity">
+            <div class="c-eyebrow">A Reading Log</div>
+            <div class="c-name">AIDASHPY</div>
+          </div>
+
+          <a :href="painting.link" target="_blank" rel="noopener noreferrer" class="c-painting-block">
+            <div class="c-frame" :class="{ 'c-frame--loaded': paintingLoaded }">
+              <img
+                class="c-img"
+                :class="{ 'c-img--loaded': paintingLoaded }"
+                :src="painting.src"
+                :alt="`${painting.title}, ${painting.artist}, ${painting.year}`"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                @load="paintingLoaded = true"
+                @error="paintingLoaded = true"
+              />
+            </div>
+            <div class="c-cap">
+              <div class="c-cap-bar"></div>
+              <div class="c-cap-text">
+                <span class="c-cap-title">{{ painting.titleDisplay }}</span>
+                <span class="c-cap-dash" aria-hidden="true">—</span>
+                <span class="c-cap-sub">{{ painting.artistDisplay }}, {{ painting.year }}</span>
+              </div>
+            </div>
+          </a>
+
+          <template v-if="booksLoading || inProgressBooks.length || currentBook">
+            <div class="c-slash">
+              <div class="c-slash-line"></div>
+              <div class="c-slash-tag">{{ (booksLoading || inProgressBooks.length) ? 'Currently Reading' : 'Recently Read' }}</div>
+            </div>
+            <div v-if="booksLoading" class="c-reading-strip c-reading-skel" aria-hidden="true">
+              <div class="c-rs-accent"></div>
+              <div class="c-rs-body">
+                <div class="c-rs-thumb c-rs-thumb-empty c-skel"></div>
+                <div class="c-rs-text">
+                  <div class="c-skel-line c-skel-title"></div>
+                  <div class="c-skel-line c-skel-author"></div>
+                </div>
+              </div>
+            </div>
+            <Transition v-else name="strip-fade">
+              <RouterLink v-if="inProgressBooks.length" to="/" class="c-reading-strip">
+                <div class="c-rs-accent"></div>
+                <div class="c-rs-body">
+                  <template v-for="b in inProgressBooks" :key="b.name">
+                    <img v-if="b.img" :src="b.img" class="c-rs-thumb" :alt="b.name" />
+                    <div v-else class="c-rs-thumb c-rs-thumb-empty"></div>
+                    <div class="c-rs-text">
+                      <span class="c-rs-label">Now</span>
+                      <span class="c-rs-title">{{ b.name }}</span>
+                      <span class="c-rs-author">{{ b.author }}</span>
+                    </div>
+                  </template>
+                </div>
+                <span class="c-rs-arr">→</span>
+              </RouterLink>
+              <RouterLink v-else-if="currentBook" to="/" class="c-reading-strip">
+                <div class="c-rs-accent"></div>
+                <div class="c-rs-body">
+                  <img v-if="currentBook.img" :src="currentBook.img" class="c-rs-thumb" :alt="currentBook.name" />
+                  <div v-else class="c-rs-thumb c-rs-thumb-empty"></div>
+                  <div class="c-rs-text">
+                    <span class="c-rs-label">Recently</span>
+                    <span class="c-rs-title">{{ currentBook.name }}</span>
+                    <span class="c-rs-author">{{ currentBook.author }}</span>
+                  </div>
+                </div>
+                <span class="c-rs-arr">→</span>
+              </RouterLink>
+            </Transition>
+          </template>
+
+          <div class="c-slash">
+            <div class="c-slash-line"></div>
+            <div class="c-slash-tag">Links</div>
+          </div>
+
+          <div class="c-links">
+            <RouterLink to="/" class="c-lnk">
+              <div class="c-lnk-ghost" aria-hidden="true">01</div>
+              <div class="c-lnk-inner">
+                <div class="c-lnk-accent"></div>
+                <div class="c-lnk-body">
+                  <span class="c-lnk-num">01</span>
+                  <div class="c-lnk-div"></div>
+                  <span class="c-lnk-name">ARCHIVE</span>
+                  <span class="c-lnk-cat">Reading</span>
+                  <span class="c-lnk-arr">→</span>
+                </div>
+              </div>
+            </RouterLink>
+            <a href="https://letterboxd.com/aidashpy/" target="_blank" rel="noopener noreferrer" class="c-lnk">
+              <div class="c-lnk-ghost" aria-hidden="true">02</div>
+              <div class="c-lnk-inner">
+                <div class="c-lnk-accent"></div>
+                <div class="c-lnk-body">
+                  <span class="c-lnk-num">02</span>
+                  <div class="c-lnk-div"></div>
+                  <span class="c-lnk-name">LETTERBOXD</span>
+                  <span class="c-lnk-cat">Film</span>
+                  <span class="c-lnk-arr">→</span>
+                </div>
+              </div>
+            </a>
+            <a href="https://anilist.co/user/Aidashpy/" target="_blank" rel="noopener noreferrer" class="c-lnk">
+              <div class="c-lnk-ghost" aria-hidden="true">03</div>
+              <div class="c-lnk-inner">
+                <div class="c-lnk-accent"></div>
+                <div class="c-lnk-body">
+                  <span class="c-lnk-num">03</span>
+                  <div class="c-lnk-div"></div>
+                  <span class="c-lnk-name">ANILIST</span>
+                  <span class="c-lnk-cat">Anime</span>
+                  <span class="c-lnk-arr">→</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="c-foot">
+            <div class="c-foot-rule"></div>
+            <svg class="c-foot-star" viewBox="0 0 100 100">
+              <polygon points="50,5 61,39 98,39 67,59 79,91 50,72 21,91 33,59 2,39 39,39" fill="rgba(var(--pg-accent-rgb, 194,32,31),0.38)"/>
+            </svg>
+            <div class="c-foot-rule"></div>
+          </div>
+        </div>
+
       </div>
     </Transition>
   </div>
@@ -944,4 +1151,490 @@ onUnmounted(() => {
 
 .pr-skel-title  { height: 13px; width: 58%; }
 .pr-skel-author { height: 9px; width: 36%; animation-delay: 0.2s; }
+
+/* ── PIN overlay ─────────────────────────────────────────── */
+.pin-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(6px);
+}
+
+.pin-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.pin-label {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.5em;
+  color: rgba(var(--pg-accent-rgb, 194,32,31), 0.6);
+  text-transform: uppercase;
+}
+
+.pin-dots { display: flex; gap: 0.75rem; }
+
+.pin-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(var(--pg-accent-rgb, 194,32,31), 0.35);
+  transition: background 150ms, border-color 150ms;
+}
+
+.pin-dot--on {
+  background: var(--pg-accent, #c2201f);
+  border-color: var(--pg-accent, #c2201f);
+}
+
+.pin-dot--err { border-color: #e84545; }
+.pin-dot--on.pin-dot--err { background: #e84545; border-color: #e84545; }
+
+.pin-err-msg {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #e84545;
+}
+
+.pin-fade-enter-active, .pin-fade-leave-active { transition: opacity 180ms ease; }
+.pin-fade-enter-from, .pin-fade-leave-to { opacity: 0; }
+
+/* ── Constructivist canvas ───────────────────────────────── */
+.c-canvas {
+  position: relative;
+  width: 100%;
+  font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
+  transition: opacity 500ms, transform 300ms ease;
+}
+
+.c-hidden { opacity: 0; transform: scale(0.96) rotate(2deg); }
+
+.c-circle-deco {
+  position: absolute;
+  top: -3rem;
+  right: -5rem;
+  width: 18rem;
+  height: 18rem;
+  border: 2px solid rgba(var(--pg-accent-rgb, 194,32,31), 0.06);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  transition: border-color 800ms ease;
+}
+.c-circle-deco::after {
+  content: '';
+  position: absolute;
+  inset: 2rem;
+  border: 1px solid rgba(var(--pg-accent-rgb, 194,32,31), 0.035);
+  border-radius: 50%;
+  transition: border-color 800ms ease;
+}
+
+.c-corner-rule {
+  position: absolute;
+  top: 2.4rem;
+  right: 0;
+  width: 38%;
+  height: 2px;
+  background: var(--pg-accent, #b81c1c);
+  transform: rotate(-4.5deg);
+  transform-origin: right;
+  z-index: 0;
+  transition: background 800ms ease;
+}
+
+.c-ghost-title {
+  position: absolute;
+  top: -1rem;
+  left: -1.5rem;
+  font-family: 'Bebas Neue', Arial, sans-serif;
+  font-size: clamp(7rem, 28vw, 12rem);
+  line-height: 0.82;
+  color: rgba(255,255,255,0.025);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* ── Identity ────────────────────────────────────────────── */
+.c-identity {
+  position: relative;
+  z-index: 1;
+  padding: 0 0 0 1.2rem;
+  border-left: 4px solid var(--pg-accent, #b81c1c);
+  margin-bottom: 1rem;
+  transition: border-color 800ms ease;
+}
+
+.c-eyebrow {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.45em;
+  color: rgba(var(--pg-accent-rgb, 184,28,28), 0.5);
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+  transition: color 800ms ease;
+}
+
+.c-name {
+  font-family: 'Bebas Neue', Arial, sans-serif;
+  font-size: clamp(3rem, 14vw, 5.5rem);
+  line-height: 0.88;
+  color: #e2d9c2;
+  letter-spacing: 0.03em;
+}
+
+/* ── Painting ────────────────────────────────────────────── */
+.c-painting-block {
+  position: relative;
+  z-index: 1;
+  display: block;
+  text-decoration: none;
+}
+
+.c-frame {
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 36px), calc(100% - 36px) 100%, 0 100%);
+  background: #1a1714;
+  min-height: clamp(160px, 38vh, 380px);
+}
+.c-frame--loaded { min-height: 0; background: none; }
+
+.c-frame::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--pg-accent, #b81c1c);
+  z-index: 2;
+  transition: background 800ms ease;
+}
+
+.c-frame::after {
+  content: '';
+  position: absolute;
+  bottom: 36px; right: 0;
+  width: 52px; height: 2px;
+  background: var(--pg-accent, #b81c1c);
+  transform: rotate(-45deg);
+  transform-origin: right center;
+  z-index: 2;
+  transition: background 800ms ease;
+}
+
+.c-img {
+  width: 100%;
+  display: block;
+  height: 38vh;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: contrast(1.04) saturate(0.92);
+  opacity: 0;
+  transition: opacity 600ms ease;
+}
+.c-img--loaded { opacity: 1; }
+
+.c-cap {
+  display: flex;
+  align-items: stretch;
+  margin-top: 3px;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+}
+
+.c-cap-bar {
+  width: 3px;
+  background: rgba(var(--pg-accent-rgb, 184,28,28), 0.4);
+  flex-shrink: 0;
+  transition: background 800ms ease;
+}
+
+.c-cap-text {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.55rem;
+  padding: 0.45rem 1.2rem 0.45rem 0.9rem;
+  background: var(--pg-surface, #131110);
+  flex: 1;
+  transition: background 800ms ease;
+}
+
+.c-cap-title {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #5c5648;
+  text-transform: uppercase;
+}
+
+.c-cap-dash { color: rgba(var(--pg-accent-rgb, 184,28,28), 0.45); font-size: 0.6rem; transition: color 800ms ease; }
+
+.c-cap-sub { font-size: 0.6rem; letter-spacing: 0.08em; color: #3c3830; text-transform: uppercase; }
+
+/* ── Slash dividers ──────────────────────────────────────── */
+.c-slash {
+  position: relative;
+  height: 2.8rem;
+  margin: 0.5rem 0;
+  overflow: visible;
+}
+
+.c-slash-line {
+  position: absolute;
+  left: -5%;
+  width: 110%;
+  height: 2px;
+  background: var(--pg-accent, #b81c1c);
+  top: 50%;
+  transform: rotate(-3.5deg);
+  transition: background 800ms ease;
+}
+
+.c-slash-tag {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.5em;
+  color: rgba(var(--pg-accent-rgb, 184,28,28), 0.5);
+  background: var(--pg-bg, #0d0b09);
+  padding: 0 0.75rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 800ms ease, background 800ms ease;
+}
+
+/* ── Reading strip ───────────────────────────────────────── */
+.c-reading-strip {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+  background: var(--pg-surface, #131110);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 14px 100%);
+  text-decoration: none;
+  transition: filter 100ms, background 800ms ease;
+}
+.c-reading-strip:hover { filter: brightness(1.18); }
+
+.c-rs-accent {
+  width: 4px;
+  background: var(--pg-accent, #b81c1c);
+  flex-shrink: 0;
+  transition: background 800ms ease;
+}
+
+.c-rs-body {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.65rem 1.2rem 0.65rem 1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.c-rs-thumb {
+  width: 24px; height: 34px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #221e18;
+}
+
+.c-rs-thumb-empty {
+  width: 24px; height: 34px;
+  background: #221e18;
+  border: 1px solid #2e2a22;
+  flex-shrink: 0;
+}
+
+.c-rs-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+
+.c-rs-label {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.48rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: var(--pg-accent, #b81c1c);
+  text-transform: uppercase;
+  transition: color 800ms ease;
+}
+
+.c-rs-title {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e2d9c2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.c-rs-author { font-size: 0.65rem; color: #8a826e; letter-spacing: 0.06em; }
+
+.c-rs-arr {
+  font-size: 0.8rem;
+  color: rgba(var(--pg-accent-rgb, 184,28,28), 0.3);
+  padding-right: 1.5rem;
+  flex-shrink: 0;
+  align-self: center;
+  transition: color 800ms ease;
+}
+
+.c-reading-skel { cursor: default; pointer-events: none; }
+
+.c-skel {
+  background: linear-gradient(90deg, #1c1a14 0%, #252218 45%, #1c1a14 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+.c-skel-line {
+  border-radius: 2px;
+  background: linear-gradient(90deg, #1c1a14 0%, #252218 45%, #1c1a14 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+.c-skel-title  { height: 13px; width: 58%; }
+.c-skel-author { height: 9px;  width: 36%; animation-delay: 0.2s; }
+
+/* ── Links — staircase parallelograms ────────────────────── */
+.c-links {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.c-lnk {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 20px) 100%, 0 100%);
+  background: var(--pg-surface, #131110);
+  transition: background 100ms;
+}
+.c-lnk:hover { filter: brightness(1.14); }
+
+.c-lnk:nth-child(1) { margin-left: 0; }
+.c-lnk:nth-child(2) { margin-left: 1.15rem; }
+.c-lnk:nth-child(3) { margin-left: 2.3rem; }
+
+.c-lnk-ghost {
+  position: absolute;
+  right: 2.8rem;
+  top: 50%;
+  translate: 0 -50%;
+  font-family: 'Bebas Neue', Arial, sans-serif;
+  font-size: 5rem;
+  line-height: 1;
+  color: rgba(255,255,255,0.028);
+  pointer-events: none;
+  user-select: none;
+}
+
+.c-lnk-inner {
+  display: flex;
+  align-items: stretch;
+  padding-right: 2.2rem;
+}
+
+.c-lnk-accent {
+  width: 4px;
+  background: var(--pg-accent, #b81c1c);
+  opacity: 0.65;
+  flex-shrink: 0;
+  transition: opacity 100ms, background 800ms ease;
+}
+.c-lnk:hover .c-lnk-accent { opacity: 1; }
+
+.c-lnk-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 0.8rem 0.8rem 0.9rem;
+  min-width: 0;
+}
+
+.c-lnk-num {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--pg-accent, #b81c1c);
+  letter-spacing: 0.1em;
+  width: 1.4rem;
+  flex-shrink: 0;
+  transition: color 800ms ease;
+}
+
+.c-lnk-div {
+  width: 1px;
+  height: 1.1rem;
+  background: rgba(var(--pg-accent-rgb, 184,28,28), 0.25);
+  flex-shrink: 0;
+  transition: background 800ms ease;
+}
+
+.c-lnk-name {
+  font-family: 'Bebas Neue', Arial, sans-serif;
+  font-size: 1.7rem;
+  letter-spacing: 0.07em;
+  color: #e2d9c2;
+  flex: 1;
+  line-height: 1;
+}
+
+.c-lnk-cat {
+  font-size: 0.47rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.16);
+  flex-shrink: 0;
+}
+
+.c-lnk-arr {
+  font-size: 0.85rem;
+  color: rgba(var(--pg-accent-rgb, 184,28,28), 0.25);
+  flex-shrink: 0;
+  padding-right: 0.4rem;
+  transition: color 100ms, translate 100ms;
+}
+.c-lnk:hover .c-lnk-arr { color: var(--pg-accent, #b81c1c); translate: 4px 0; }
+
+/* ── Constructivist footer ───────────────────────────────── */
+.c-foot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.c-foot-rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(var(--pg-accent-rgb, 184,28,28), 0.16);
+  transition: background 800ms ease;
+}
+
+.c-foot-star { width: 9px; height: 9px; flex-shrink: 0; }
 </style>
