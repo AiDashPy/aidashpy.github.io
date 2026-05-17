@@ -589,7 +589,7 @@ onUnmounted(() => {
               <RouterLink v-if="inProgressBooks.length" to="/" class="c-reading-strip">
                 <div class="c-rs-accent"></div>
                 <div class="c-rs-body">
-                  <template v-for="b in inProgressBooks" :key="b.name">
+                  <div v-for="b in inProgressBooks" :key="b.name" class="c-rs-book">
                     <img v-if="b.img" :src="b.img" class="c-rs-thumb" :alt="b.name" />
                     <div v-else class="c-rs-thumb c-rs-thumb-empty"></div>
                     <div class="c-rs-text">
@@ -597,7 +597,7 @@ onUnmounted(() => {
                       <span class="c-rs-title">{{ b.name }}</span>
                       <span class="c-rs-author">{{ b.author }}</span>
                     </div>
-                  </template>
+                  </div>
                 </div>
                 <span class="c-rs-arr">→</span>
               </RouterLink>
@@ -1441,11 +1441,17 @@ onUnmounted(() => {
 
 .c-rs-body {
   display: flex;
-  align-items: center;
-  gap: 0.7rem;
+  flex-direction: column;
+  gap: 0.55rem;
   padding: 0.65rem 1.2rem 0.65rem 1rem;
   flex: 1;
   min-width: 0;
+}
+
+.c-rs-book {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
 }
 
 .c-rs-thumb {
