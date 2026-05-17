@@ -285,27 +285,37 @@ function cleanupCScrollTriggers() {
   cScrollTriggers = [];
 }
 
-async function setupCAnimations() {
-  cleanupCScrollTriggers();
-  await nextTick();
-
-  const vh = window.innerHeight;
-
+function _setCStates(root) {
   if (viewMode.value === 'list') {
-    document.querySelectorAll('.c-book').forEach((row) => {
+    root.querySelectorAll('.c-book').forEach(row => {
       const accent = row.querySelector('.c-book-accent');
       const cover  = row.querySelector('.c-book-cover, .c-book-cover-skel');
       const title  = row.querySelector('.c-book-title');
       const ghost  = row.querySelector('.c-book-ghost');
       const metas  = row.querySelectorAll('.c-book-author, .c-book-tags, .c-book-note, .c-book-meta');
-
       gsap.set(row, { opacity: 0 });
       if (accent) gsap.set(accent, { scaleY: 0, transformOrigin: 'top' });
       if (cover)  gsap.set(cover,  { scale: 0.88, opacity: 0 });
       if (title)  gsap.set(title,  { y: 6, opacity: 0 });
       if (ghost)  gsap.set(ghost,  { x: 10, opacity: 0 });
       metas.forEach(el => gsap.set(el, { y: 5, opacity: 0 }));
+    });
+  } else {
+    root.querySelectorAll('.c-mosaic-item').forEach(item => {
+      gsap.set(item, { opacity: 0, scale: 0.92 });
+    });
+  }
+}
 
+function _runCAnims(root) {
+  const vh = window.innerHeight;
+  if (viewMode.value === 'list') {
+    root.querySelectorAll('.c-book').forEach(row => {
+      const accent = row.querySelector('.c-book-accent');
+      const cover  = row.querySelector('.c-book-cover, .c-book-cover-skel');
+      const title  = row.querySelector('.c-book-title');
+      const ghost  = row.querySelector('.c-book-ghost');
+      const metas  = row.querySelectorAll('.c-book-author, .c-book-tags, .c-book-note, .c-book-meta');
       const tl = gsap.timeline({ paused: true })
         .to(row,    { opacity: 1, duration: 0.01 })
         .to(accent, { scaleY: 1, duration: 0.28, ease: 'power2.out' }, 0)
@@ -313,36 +323,48 @@ async function setupCAnimations() {
         .to(ghost,  { x: 0, opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.06)
         .to(title,  { y: 0, opacity: 1, duration: 0.3, ease: 'power2.out' }, 0.1)
         .to(metas,  { y: 0, opacity: 1, duration: 0.26, ease: 'power2.out', stagger: 0.04 }, 0.16);
-
       if (row.getBoundingClientRect().top < vh) {
         tl.play();
       } else {
         cScrollTriggers.push(ScrollTrigger.create({
-          trigger: row,
-          start: 'top bottom',
-          once: true,
+          trigger: row, start: 'top bottom', once: true,
           onEnter: () => tl.play(),
         }));
       }
     });
   } else {
-    document.querySelectorAll('.c-mosaic-item').forEach((item, i) => {
-      gsap.set(item, { opacity: 0, scale: 0.92 });
+    root.querySelectorAll('.c-mosaic-item').forEach((item, i) => {
       if (item.getBoundingClientRect().top < vh) {
         gsap.to(item, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out', delay: (i % 6) * 0.028 });
       } else {
         cScrollTriggers.push(ScrollTrigger.create({
-          trigger: item,
-          start: 'top bottom',
-          once: true,
-          onEnter: () => gsap.to(item, {
-            opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out',
-            delay: (i % 6) * 0.028,
-          }),
+          trigger: item, start: 'top bottom', once: true,
+          onEnter: () => gsap.to(item, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out', delay: (i % 6) * 0.028 }),
         }));
       }
     });
   }
+}
+
+async function setupCAnimations() {
+  cleanupCScrollTriggers();
+  await nextTick();
+  _setCStates(document);
+  _runCAnims(document);
+}
+
+function onCLeave(el, done) {
+  gsap.to(el, { opacity: 0, duration: 0.1, ease: 'power1.in', onComplete: done });
+}
+
+function onCBeforeEnter(el) {
+  cleanupCScrollTriggers();
+  _setCStates(el);
+}
+
+function onCEnter(el, done) {
+  _runCAnims(el);
+  done();
 }
 
 watch(layoutMode, async (mode) => {
@@ -582,7 +604,7 @@ onUnmounted(() => {
             </div>
           </div>
 
-          <Transition name="ys-list" mode="out-in">
+          <Transition mode="out-in" :css="false" @leave="onCLeave" @before-enter="onCBeforeEnter" @enter="onCEnter">
 
             <!-- List -->
             <div v-if="viewMode === 'list'" :key="selectedYear" class="c-list-view">
