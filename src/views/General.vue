@@ -271,7 +271,7 @@ onUnmounted(() => {
               <polygon points="50,5 61,39 98,39 67,59 79,91 50,72 21,91 33,59 2,39 39,39" fill="currentColor"/>
             </svg>
             <span class="pt-rule"></span>
-            <span class="pt-year">MMXXVI</span>
+            <span class="pt-year">2026</span>
           </div>
 
           <!-- Title block -->
