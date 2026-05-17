@@ -77,15 +77,6 @@ const PAINTINGS = [
     year: '1931',
     link: 'https://commons.wikimedia.org/wiki/File:Drevin._White_House_Landscape._1931.jpg',
   },
-  {
-    src: `${WORKER}/images/drevin_bulls.webp`,
-    title: 'Bulls',
-    titleDisplay: 'BULLS',
-    artist: 'Aleksandr Drevin',
-    artistDisplay: 'ALEKSANDR DREVIN',
-    year: '1931',
-    link: 'https://commons.wikimedia.org/wiki/File:Drevin._Bulls._1931.jpg',
-  },
 ];
 
 const created = ref(false);
