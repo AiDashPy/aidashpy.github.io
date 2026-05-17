@@ -1074,7 +1074,7 @@ onUnmounted(() => {
 .drawer-close:hover { background: #222016; color: #9a8c6c; border-color: #3a3620; }
 
 .drawer-nav {
-  padding: 0.75rem 0.75rem 2rem;
+  padding: 0.5rem 0 2rem;
   overflow-y: auto;
   flex: 1;
 }
@@ -1690,8 +1690,19 @@ onUnmounted(() => {
 .c-drawer-close:hover { background: #1a1812; color: #c8ba8c; }
 
 .c-drawer-nav {
-  padding: 0.5rem 0.75rem 2rem;
+  padding: 0.5rem 0 2rem;
   overflow-y: auto;
   flex: 1;
+}
+
+.c-drawer-nav .c-year-btn {
+  width: 100%;
+  padding: 0.9rem 1.25rem 0.9rem 1rem;
+  clip-path: none;
+}
+.c-drawer-nav .c-year-btn-active {
+  background: rgba(200,186,140,0.1);
+  border-left: 3px solid #c8ba8c;
+  padding-left: calc(1rem - 3px);
 }
 </style>
