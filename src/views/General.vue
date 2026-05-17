@@ -2,11 +2,62 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import { RouterLink } from "vue-router";
 
+const WORKER = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.adiashpy.workers.dev";
+
+const PAINTINGS = [
+  {
+    src: `${WORKER}/images/ThePaintingNewPlanetNew.webp`,
+    title: 'New Planet',
+    titleDisplay: 'NEW PLANET',
+    artist: 'Konstantin Yuon',
+    artistDisplay: 'KONSTANTIN YUON',
+    year: '1921',
+    link: 'https://quod.lib.umich.edu/h/hart/x-939557/1',
+  },
+  {
+    src: `${WORKER}/images/udaltsova_ural_river.webp`,
+    title: 'Ural — Landscape with River',
+    titleDisplay: 'URAL — LANDSCAPE WITH RIVER',
+    artist: 'Nadezhda Udaltsova',
+    artistDisplay: 'NADEZHDA UDALTSOVA',
+    year: 'c. 1927',
+    link: 'https://www.russianartcollection.com/en/product/ural-landscape/',
+  },
+  {
+    src: `${WORKER}/images/udaltsova_ural_forest.webp`,
+    title: 'Forests of the Ural',
+    titleDisplay: 'FORESTS OF THE URAL',
+    artist: 'Nadezhda Udaltsova',
+    artistDisplay: 'NADEZHDA UDALTSOVA',
+    year: '1926',
+    link: 'https://www.russianartcollection.com/en/product/ural-landscape/',
+  },
+  {
+    src: `${WORKER}/images/udaltsova_ural_sunset.webp`,
+    title: 'Ural — Sunset',
+    titleDisplay: 'URAL — SUNSET',
+    artist: 'Nadezhda Udaltsova',
+    artistDisplay: 'NADEZHDA UDALTSOVA',
+    year: 'c. 1926',
+    link: 'https://www.russianartcollection.com/en/product/ural-landscape/',
+  },
+  {
+    src: `${WORKER}/images/udaltsova_ural_autumn.webp`,
+    title: 'Ural — Autumn River',
+    titleDisplay: 'URAL — AUTUMN RIVER',
+    artist: 'Nadezhda Udaltsova',
+    artistDisplay: 'NADEZHDA UDALTSOVA',
+    year: 'c. 1927',
+    link: 'https://www.russianartcollection.com/en/product/ural-landscape/',
+  },
+];
+
 const created = ref(false);
 const showOverlay = ref(true);
 const currentBook = ref(null);
 const inProgressBooks = ref([]);
 const grainCanvas = ref(null);
+const painting = ref(PAINTINGS[0]);
 
 let grainTimer = null;
 let bgStyleEl = null;
@@ -36,7 +87,6 @@ function startGrain() {
   const ctx = canvas.getContext("2d");
   canvas.width = 300;
   canvas.height = 300;
-
   function draw() {
     const img = ctx.createImageData(300, 300);
     const d = img.data;
@@ -51,18 +101,118 @@ function startGrain() {
   grainTimer = setInterval(draw, 80);
 }
 
+// ── Palette extraction ───────────────────────────────────────
+function hslToRgb(h, s, l) {
+  if (s === 0) { const v = Math.round(l * 255); return [v, v, v]; }
+  const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+  const p = 2 * l - q;
+  const hue2rgb = (p, q, t) => {
+    t = ((t % 1) + 1) % 1;
+    if (t < 1/6) return p + (q - p) * 6 * t;
+    if (t < 0.5) return q;
+    if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+    return p;
+  };
+  return [
+    Math.round(hue2rgb(p, q, h + 1/3) * 255),
+    Math.round(hue2rgb(p, q, h) * 255),
+    Math.round(hue2rgb(p, q, h - 1/3) * 255),
+  ];
+}
+
+function extractPalette(img) {
+  const SIZE = 48;
+  const c = document.createElement('canvas');
+  c.width = c.height = SIZE;
+  const ctx = c.getContext('2d');
+  ctx.drawImage(img, 0, 0, SIZE, SIZE);
+  const { data } = ctx.getImageData(0, 0, SIZE, SIZE);
+
+  const pixels = [];
+  for (let i = 0; i < data.length; i += 4) {
+    if (data[i + 3] < 128) continue;
+    const r = data[i]/255, g = data[i+1]/255, b = data[i+2]/255;
+    const max = Math.max(r,g,b), min = Math.min(r,g,b);
+    const l = (max + min) / 2;
+    const d = max - min;
+    const s = d === 0 ? 0 : (l > 0.5 ? d / (2 - max - min) : d / (max + min));
+    let h = 0;
+    if (d) {
+      if (max === r) h = ((g - b) / d + (g < b ? 6 : 0)) / 6;
+      else if (max === g) h = ((b - r) / d + 2) / 6;
+      else h = ((r - g) / d + 4) / 6;
+    }
+    pixels.push({ h, s, l });
+  }
+
+  // Vivid accent: highest saturation weighted toward mid-lightness
+  const scored = pixels
+    .filter(p => p.l > 0.1 && p.l < 0.85 && p.s > 0.15)
+    .map(p => ({ ...p, score: p.s * (1 - Math.abs(p.l - 0.52) * 1.4) }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 40);
+
+  let aH = 0, aS = 0.75, aL = 0.52;
+  if (scored.length) {
+    let tw = 0, sh = 0, ss = 0, sl = 0;
+    for (const p of scored) { const w = p.score; sh += p.h*w; ss += p.s*w; sl += p.l*w; tw += w; }
+    aH = sh/tw; aS = Math.max(0.6, ss/tw); aL = Math.max(0.42, Math.min(0.60, sl/tw));
+  }
+
+  // Background hue from the darkest pixels in the painting
+  const darks = pixels.filter(p => p.l < 0.22 && p.s > 0.04);
+  let bgH = aH, bgS = 0.10;
+  if (darks.length > 8) {
+    let sh = 0, ss = 0;
+    for (const p of darks) { sh += p.h; ss += p.s; }
+    bgH = sh / darks.length; bgS = Math.min(0.22, ss / darks.length);
+  }
+
+  const [ar, ag, ab] = hslToRgb(aH, aS, aL);
+  const [sr, sg, sb] = hslToRgb(bgH, bgS * 0.55, 0.10);
+  const [pr, pg, pb] = hslToRgb(bgH, bgS * 0.35, 0.074);
+  const [cr, cg, cb] = hslToRgb(bgH, bgS * 0.25, 0.062);
+
+  return {
+    accent:    `rgb(${ar},${ag},${ab})`,
+    accentRgb: `${ar},${ag},${ab}`,
+    surface:   `rgb(${sr},${sg},${sb})`,
+    bg:        `rgb(${pr},${pg},${pb})`,
+    cap:       `rgb(${cr},${cg},${cb})`,
+  };
+}
+
+function applyPalette(pal) {
+  const root = document.documentElement;
+  root.style.setProperty('--pg-accent',     pal.accent);
+  root.style.setProperty('--pg-accent-rgb', pal.accentRgb);
+  root.style.setProperty('--pg-surface',    pal.surface);
+  root.style.setProperty('--pg-cap',        pal.cap);
+  root.style.setProperty('--pg-bg',         pal.bg);
+  if (bgStyleEl) bgStyleEl.textContent = `html, body { background-color: ${pal.bg} !important; }`;
+}
+
 onMounted(() => {
   bgStyleEl = document.createElement('style');
-  bgStyleEl.textContent = 'html, body { background-color: #1f1f21 !important; }';
+  bgStyleEl.textContent = 'html, body { background-color: #111010 !important; }';
   document.head.appendChild(bgStyleEl);
+
+  // Pick painting for this session; persist so nav-back shows the same one
+  const savedIdx = sessionStorage.getItem('pg-painting-idx');
+  const idx = savedIdx !== null ? +savedIdx : Math.floor(Math.random() * PAINTINGS.length);
+  if (savedIdx === null) sessionStorage.setItem('pg-painting-idx', String(idx));
+  painting.value = PAINTINGS[idx];
 
   created.value = true;
   setTimeout(() => { showOverlay.value = false; }, 1400);
 
-  new Image().src = "/images/ThePaintingNewPlanetNew.webp";
+  // Extract palette as soon as the painting loads
+  const sampleImg = new Image();
+  sampleImg.crossOrigin = 'anonymous';
+  sampleImg.onload = () => { try { applyPalette(extractPalette(sampleImg)); } catch {} };
+  sampleImg.src = painting.value.src;
 
-  const workerUrl = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.adiashpy.workers.dev";
-  fetch(`${workerUrl}/books.json`)
+  fetch(`${WORKER}/books.json`)
     .then((r) => r.json())
     .then((data) => {
       const active = [];
@@ -93,6 +243,8 @@ onUnmounted(() => {
   bgStyleEl?.remove();
   bgStyleEl = null;
   if (grainTimer) clearInterval(grainTimer);
+  ['--pg-accent','--pg-accent-rgb','--pg-surface','--pg-cap','--pg-bg']
+    .forEach(v => document.documentElement.style.removeProperty(v));
 });
 </script>
 
@@ -105,9 +257,10 @@ onUnmounted(() => {
         class="overlay-star"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
+        style="color: var(--pg-accent, #c2201f)"
         @animationend="onOverlayEnd"
       >
-        <polygon points="50,5 61,39 98,39 67,59 79,91 50,72 21,91 33,59 2,39 39,39" fill="#c2201f"/>
+        <polygon points="50,5 61,39 98,39 67,59 79,91 50,72 21,91 33,59 2,39 39,39" fill="currentColor"/>
       </svg>
     </div>
 
@@ -135,21 +288,21 @@ onUnmounted(() => {
           </div>
 
           <!-- Painting -->
-          <a href="https://quod.lib.umich.edu/h/hart/x-939557/1" target="_blank" rel="noopener noreferrer" class="poster-painting">
+          <a :href="painting.link" target="_blank" rel="noopener noreferrer" class="poster-painting">
             <figure class="p-figure">
               <img
                 class="p-img"
-                src="/images/ThePaintingNewPlanetNew.webp"
-                alt="New Planet, Konstantin Yuon, 1921"
+                :src="painting.src"
+                :alt="`${painting.title}, ${painting.artist}, ${painting.year}`"
                 loading="eager"
                 fetchpriority="high"
                 decoding="async"
               />
             </figure>
             <div class="p-cap">
-              <span class="pc-title">NEW PLANET</span>
+              <span class="pc-title">{{ painting.titleDisplay }}</span>
               <span class="pc-dash" aria-hidden="true">—</span>
-              <span>KONSTANTIN YUON, 1921</span>
+              <span>{{ painting.artistDisplay }}, {{ painting.year }}</span>
             </div>
           </a>
 
@@ -266,9 +419,10 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #111010;
+  background: var(--pg-bg, #111010);
   padding: 2.5rem 1rem;
   box-sizing: border-box;
+  transition: background 800ms ease;
 }
 
 /* ── Film grain ─────────────────────────────────────────── */
@@ -319,14 +473,15 @@ onUnmounted(() => {
 /* ── Poster ─────────────────────────────────────────────── */
 .poster {
   font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
-  background: #141210;
-  border: 2px solid #c2201f;
+  background: var(--pg-surface, #141210);
+  border: 2px solid var(--pg-accent, #c2201f);
   box-shadow:
-    0 0 0 1px rgba(194,32,31,0.18),
-    inset 0 0 0 2px #141210,
+    0 0 0 1px rgba(var(--pg-accent-rgb, 194, 32, 31), 0.18),
+    inset 0 0 0 2px var(--pg-surface, #141210),
     0 24px 64px rgba(0,0,0,0.6);
   overflow: hidden;
-  transition: opacity 500ms, transform 300ms ease;
+  transition: opacity 500ms, transform 300ms ease,
+              background 800ms ease, border-color 800ms ease, box-shadow 800ms ease;
 }
 
 .poster-hidden {
@@ -336,11 +491,12 @@ onUnmounted(() => {
 
 /* ── Top banner ─────────────────────────────────────────── */
 .poster-top {
-  background: #c2201f;
+  background: var(--pg-accent, #c2201f);
   display: flex;
   align-items: center;
   gap: 0.75rem;
   padding: 0.45rem 1.5rem;
+  transition: background 800ms ease;
 }
 
 .pt-star {
@@ -371,7 +527,8 @@ onUnmounted(() => {
 /* ── Title block ────────────────────────────────────────── */
 .poster-title-block {
   padding: 1.4rem 1.75rem 1.2rem;
-  border-bottom: 2px solid #c2201f;
+  border-bottom: 2px solid var(--pg-accent, #c2201f);
+  transition: border-color 800ms ease;
 }
 
 .p-title {
@@ -395,7 +552,8 @@ onUnmounted(() => {
 .p-tl-rule {
   flex: 1;
   height: 1px;
-  background: rgba(194,32,31,0.28);
+  background: rgba(var(--pg-accent-rgb, 194, 32, 31), 0.28);
+  transition: background 800ms ease;
 }
 
 .p-tl-text {
@@ -403,16 +561,18 @@ onUnmounted(() => {
   font-size: 0.62rem;
   font-weight: 500;
   letter-spacing: 0.32em;
-  color: rgba(194,32,31,0.55);
+  color: rgba(var(--pg-accent-rgb, 194, 32, 31), 0.55);
   white-space: nowrap;
   text-transform: uppercase;
+  transition: color 800ms ease;
 }
 
 /* ── Painting ───────────────────────────────────────────── */
 .poster-painting {
   display: block;
   text-decoration: none;
-  border-bottom: 2px solid #c2201f;
+  border-bottom: 2px solid var(--pg-accent, #c2201f);
+  transition: border-color 800ms ease;
 }
 
 .p-figure { margin: 0; display: block; }
@@ -432,10 +592,11 @@ onUnmounted(() => {
   align-items: baseline;
   gap: 0.5rem;
   padding: 0.5rem 1.75rem;
-  background: #0f0d0b;
+  background: var(--pg-cap, #0f0d0b);
   font-size: 0.6rem;
   letter-spacing: 0.07em;
   color: #3a3830;
+  transition: background 800ms ease;
 }
 
 .pc-title {
@@ -447,20 +608,22 @@ onUnmounted(() => {
 }
 
 .pc-dash {
-  color: #c2201f;
+  color: var(--pg-accent, #c2201f);
   opacity: 0.45;
+  transition: color 800ms ease;
 }
 
 /* ── Poster section ─────────────────────────────────────── */
 .poster-section { display: flex; flex-direction: column; }
 
-/* Full-red section header banner */
+/* Full-accent section header banner */
 .ps-head {
-  background: #c2201f;
+  background: var(--pg-accent, #c2201f);
   display: flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.36rem 1.75rem;
+  transition: background 800ms ease;
 }
 
 .ps-star {
@@ -475,7 +638,7 @@ onUnmounted(() => {
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.3em;
-  color: #141210;
+  color: rgba(20,18,16,0.9);
   text-transform: uppercase;
 }
 
@@ -485,11 +648,11 @@ onUnmounted(() => {
   align-items: center;
   gap: 1rem;
   padding: 0.85rem 1.75rem;
-  border-bottom: 2px solid #c2201f;
+  border-bottom: 2px solid var(--pg-accent, #c2201f);
   text-decoration: none;
-  transition: background 140ms;
+  transition: background 140ms, border-color 800ms ease;
 }
-.p-reading:hover { background: rgba(194,32,31,0.05); }
+.p-reading:hover { background: rgba(var(--pg-accent-rgb, 194, 32, 31), 0.05); }
 
 .pr-books {
   flex: 1;
@@ -548,11 +711,11 @@ onUnmounted(() => {
 
 .pr-arr {
   font-size: 0.9rem;
-  color: rgba(194,32,31,0.3);
+  color: rgba(var(--pg-accent-rgb, 194, 32, 31), 0.3);
   flex-shrink: 0;
   transition: color 140ms, transform 140ms;
 }
-.p-reading:hover .pr-arr { color: #c2201f; transform: translateX(3px); }
+.p-reading:hover .pr-arr { color: var(--pg-accent, #c2201f); transform: translateX(3px); }
 
 .strip-fade-enter-active { transition: opacity 400ms ease, transform 400ms ease; }
 .strip-fade-enter-from   { opacity: 0; transform: translateY(6px); }
@@ -570,28 +733,28 @@ onUnmounted(() => {
   will-change: transform;
   overflow: hidden;
 }
-.plnk:hover { background: rgba(194,32,31,0.05); }
+.plnk:hover { background: rgba(var(--pg-accent-rgb, 194, 32, 31), 0.05); }
 
-/* Red badge column with the number */
+/* Accent badge column with the number */
 .plnk-badge {
   font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem 0.9rem;
-  background: rgba(194,32,31,0.1);
-  border-right: 2px solid rgba(194,32,31,0.22);
+  background: rgba(var(--pg-accent-rgb, 194, 32, 31), 0.1);
+  border-right: 2px solid rgba(var(--pg-accent-rgb, 194, 32, 31), 0.22);
   font-size: 0.75rem;
   font-weight: 700;
-  color: #c2201f;
+  color: var(--pg-accent, #c2201f);
   letter-spacing: 0.1em;
   font-variant-numeric: tabular-nums;
   flex-shrink: 0;
-  transition: background 140ms, border-color 140ms;
+  transition: background 140ms, border-color 140ms, color 800ms ease;
 }
 .plnk:hover .plnk-badge {
-  background: rgba(194,32,31,0.18);
-  border-right-color: rgba(194,32,31,0.45);
+  background: rgba(var(--pg-accent-rgb, 194, 32, 31), 0.18);
+  border-right-color: rgba(var(--pg-accent-rgb, 194, 32, 31), 0.45);
 }
 
 .plnk-name {
@@ -626,15 +789,16 @@ onUnmounted(() => {
   padding: 1rem 1.25rem 1rem 0.25rem;
   transition: color 140ms, transform 140ms;
 }
-.plnk:hover .plnk-arr { color: #c2201f; transform: translateX(4px); }
+.plnk:hover .plnk-arr { color: var(--pg-accent, #c2201f); transform: translateX(4px); }
 
 /* ── Bottom banner ──────────────────────────────────────── */
 .poster-bot {
-  background: #c2201f;
+  background: var(--pg-accent, #c2201f);
   display: flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.3rem 1.5rem;
+  transition: background 800ms ease;
 }
 
 .pb-rule {
@@ -665,7 +829,6 @@ onUnmounted(() => {
 
   .p-reading { padding: 0.8rem 1.25rem; }
 
-  /* link rows: tighter padding, hide low-contrast category */
   .plnk-badge { padding: 0.85rem 0.7rem; font-size: 0.7rem; }
   .plnk-name  { padding: 0.85rem 0.7rem; font-size: 0.96rem; }
   .plnk-cat   { display: none; }
