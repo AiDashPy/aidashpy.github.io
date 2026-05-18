@@ -20,37 +20,8 @@ const router = useRouter();
 const showSearch = ref(false);
 let keyBuffer = "";
 let keyTimer = null;
-let cAnimTimer = null;
 
 const WORKER = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.adiashpy.workers.dev";
-
-const layoutMode   = ref('poster');
-const showPinOverlay = ref(false);
-const pinValue     = ref('');
-const pinError     = ref(false);
-
-async function fetchLayoutMode() {
-  try {
-    const res = await fetch(`${WORKER}/layout`);
-    const { mode } = await res.json();
-    layoutMode.value = mode ?? 'poster';
-  } catch {}
-}
-
-async function submitPin(pin) {
-  const targetMode = layoutMode.value === 'poster' ? 'constructivist' : 'poster';
-  try {
-    const res = await fetch(`${WORKER}/layout`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ pin, mode: targetMode }),
-    });
-    if (!res.ok) { pinError.value = true; pinValue.value = ''; return; }
-    layoutMode.value = targetMode;
-    showPinOverlay.value = false;
-    pinValue.value = '';
-  } catch { pinError.value = true; pinValue.value = ''; }
-}
 
 function bookFinish(b) {
   const { finished, date, finish } = b;
@@ -64,15 +35,6 @@ function bookFinish(b) {
 }
 
 function onKeydown(e) {
-  if (showPinOverlay.value) {
-    if (e.key === 'Escape') { showPinOverlay.value = false; pinValue.value = ''; pinError.value = false; return; }
-    if (e.key === 'Backspace') { pinValue.value = pinValue.value.slice(0, -1); pinError.value = false; return; }
-    if (/^\d$/.test(e.key) && pinValue.value.length < 4) {
-      pinValue.value += e.key; pinError.value = false;
-      if (pinValue.value.length === 4) submitPin(pinValue.value);
-    }
-    return;
-  }
   if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
   if (e.metaKey || e.ctrlKey || e.altKey) return;
   if (e.key === "Escape") { showSearch.value = false; return; }
@@ -82,8 +44,7 @@ function onKeydown(e) {
   keyBuffer += e.key.toLowerCase();
   clearTimeout(keyTimer);
   keyTimer = setTimeout(() => { keyBuffer = ""; }, 1000);
-  if (keyBuffer.endsWith("admin"))  { keyBuffer = ""; clearTimeout(keyTimer); router.push("/admin"); }
-  if (keyBuffer.endsWith("change")) { keyBuffer = ""; clearTimeout(keyTimer); showPinOverlay.value = true; pinValue.value = ''; pinError.value = false; }
+  if (keyBuffer.endsWith("admin")) { keyBuffer = ""; clearTimeout(keyTimer); router.push("/admin"); }
 }
 
 const allEntries = computed(() =>
@@ -211,7 +172,6 @@ watch(selectedYear, () => {
 
 onMounted(async () => {
   document.addEventListener("keydown", onKeydown);
-  fetchLayoutMode();
   NProgress.start();
   try {
     const workerUrl = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.adiashpy.workers.dev";
@@ -295,160 +255,9 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <!-- PIN overlay -->
-  <Transition name="h-pin-fade">
-    <div v-if="showPinOverlay" class="h-pin-overlay" @click.self="showPinOverlay = false; pinValue = ''; pinError = false">
-      <div class="h-pin-box">
-        <div class="h-pin-label">ENTER PIN</div>
-        <div class="h-pin-dots">
-          <span v-for="i in 4" :key="i" class="h-pin-dot" :class="{ 'h-pin-dot--on': pinValue.length >= i, 'h-pin-dot--err': pinError }"></span>
-        </div>
-        <div v-if="pinError" class="h-pin-err">incorrect</div>
-      </div>
-    </div>
-  </Transition>
-
   <div class="root">
     <WebHeader />
 
-    <template v-if="layoutMode === 'poster'">
-    <div class="shell">
-      <!-- Sidebar -->
-      <aside class="sidebar">
-        <nav class="year-nav">
-          <YearBadge
-            v-for="(y, i) in sortedYears"
-            :key="y.year"
-            :year="y.year"
-            :count="y.entries.length"
-            :active="i === selectedYear"
-            @select="selectYear(i)"
-          />
-        </nav>
-      </aside>
-
-      <!-- Main -->
-      <main class="main">
-
-        <div class="year-section">
-
-            <!-- Year header -->
-            <header class="year-head">
-              <div class="year-head-left">
-                <span class="year-num" :aria-label="displayYear">
-                  <span v-for="(c, ci) in displayYear.split('')" :key="ci + '-' + c" class="yn-c" :style="{ '--ci': isCounting ? 0 : ci, 'animation-duration': isCounting ? '80ms' : '420ms' }">{{ c }}</span>
-                </span>
-                <span class="year-count"><span class="year-count-num">{{ displayCount }}</span>&thinsp;books</span>
-              </div>
-              <div class="view-toggle" role="group" aria-label="View mode">
-                <button
-                  class="vt-btn"
-                  :class="{ 'vt-active': viewMode === 'list' }"
-                  @click="switchView('list')"
-                  aria-label="List view"
-                  title="List view"
-                >
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <line x1="4" y1="2.5" x2="13" y2="2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-                    <line x1="4" y1="7"   x2="13" y2="7"   stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-                    <line x1="4" y1="11.5" x2="13" y2="11.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-                    <circle cx="1.5" cy="2.5"  r="1" fill="currentColor"/>
-                    <circle cx="1.5" cy="7"    r="1" fill="currentColor"/>
-                    <circle cx="1.5" cy="11.5" r="1" fill="currentColor"/>
-                  </svg>
-                </button>
-                <button
-                  class="vt-btn"
-                  :class="{ 'vt-active': viewMode === 'mosaic' }"
-                  @click="switchView('mosaic')"
-                  aria-label="Cover grid"
-                  title="Cover grid"
-                >
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <rect x="1" y="1"   width="5" height="5.5" rx="1" stroke="currentColor" stroke-width="1.3"/>
-                    <rect x="8" y="1"   width="5" height="5.5" rx="1" stroke="currentColor" stroke-width="1.3"/>
-                    <rect x="1" y="7.5" width="5" height="5.5" rx="1" stroke="currentColor" stroke-width="1.3"/>
-                    <rect x="8" y="7.5" width="5" height="5.5" rx="1" stroke="currentColor" stroke-width="1.3"/>
-                  </svg>
-                </button>
-              </div>
-            </header>
-
-            <!-- Book list / mosaic — transitions on year or view change -->
-            <Transition name="ys-list" mode="out-in">
-              <ol v-if="viewMode === 'list'" :key="selectedYear" class="book-list">
-                <BookEntry
-                  v-for="(b, idx) in listEntries"
-                  :key="selectedYear + '-' + b.name"
-                  :book="b"
-                  :index="isInProgress(b) ? 0 : finishedEntries.length - (idx - nowReadingForYear.length)"
-                  :in-progress="isInProgress(b)"
-                  :priority="idx < priorityCount"
-                  :style="{ '--i': idx }"
-                  :flip-id="b.img ? 'cover-' + b.name : ''"
-                />
-              </ol>
-              <div v-else :key="selectedYear" class="mosaic">
-                <button
-                  v-for="(b, idx) in listEntries"
-                  :key="idx + '-' + b.name"
-                  class="mosaic-cover"
-                  :class="{ 'mosaic-ip': isInProgress(b) }"
-                  :style="{ '--mi': idx }"
-                  :title="b.name + ' — ' + b.author"
-                  @click="openMosaicDetail(b)"
-                >
-                  <img
-                    v-if="b.img"
-                    :src="b.img"
-                    :alt="b.name"
-                    :loading="idx < 12 ? 'eager' : 'lazy'"
-                    decoding="async"
-                    class="mosaic-img"
-                    :data-flip-id="b.img ? 'cover-' + b.name : undefined"
-                  />
-                  <div v-else class="mosaic-empty"></div>
-                  <span class="mosaic-title">{{ b.name }}</span>
-                  <span v-if="isInProgress(b)" class="mosaic-ip-dot" aria-hidden="true"></span>
-                </button>
-              </div>
-            </Transition>
-
-          </div>
-      </main>
-    </div>
-
-    <!-- Mobile FAB -->
-    <button class="fab" :class="{ 'fab-off': showYears || fabFooterHidden }" @click.stop="toggleYears" aria-label="Open archive">
-      <svg width="17" height="12" viewBox="0 0 17 12" fill="none" aria-hidden="true">
-        <line x1="0" y1="1"   x2="17" y2="1"   stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="0" y1="6"   x2="17" y2="6"   stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="0" y1="11"  x2="17" y2="11"  stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-    </button>
-
-    <div class="trap" :class="showYears ? 'trap-on' : ''" @click="closeYears" aria-hidden="true"></div>
-
-    <aside class="drawer" :class="showYears ? 'drawer-open' : ''" :aria-hidden="!showYears">
-      <div class="drawer-header">
-        <span class="drawer-title">Archive</span>
-        <button class="drawer-close" @click="closeYears" aria-label="Close">×</button>
-      </div>
-      <nav class="year-nav drawer-nav">
-        <YearBadge
-          v-for="(y, i) in sortedYears"
-          :key="y.year + '-d'"
-          :year="y.year"
-          :count="y.entries.length"
-          :active="i === selectedYear"
-          @select="selectYear(i)"
-        />
-      </nav>
-    </aside>
-    </template>
-
-    <!-- ══ CONSTRUCTIVIST LAYOUT ══════════════════════════════ -->
-    <template v-else>
       <div class="c-corner-rule" aria-hidden="true"></div>
       <div class="c-shell">
 
@@ -516,6 +325,7 @@ onUnmounted(() => {
                     v-for="(b, idx) in nowReadingForYear"
                     :key="b.name"
                     class="c-book c-book-ip"
+                    :style="{ '--ci': idx }"
                     @click="openCDetail(b)"
                   >
                     <div class="c-book-ghost" aria-hidden="true">{{ String(idx + 1).padStart(2, '0') }}</div>
@@ -552,6 +362,7 @@ onUnmounted(() => {
                     v-for="(b, idx) in finishedEntries"
                     :key="b.name"
                     class="c-book"
+                    :style="{ '--ci': nowReadingForYear.length + idx }"
                     @click="openCDetail(b)"
                   >
                     <div class="c-book-ghost" aria-hidden="true">{{ String(finishedEntries.length - idx).padStart(2, '0') }}</div>
@@ -652,8 +463,6 @@ onUnmounted(() => {
         </nav>
       </aside>
 
-    </template>
-
     <div ref="footerSentinel" aria-hidden="true" style="height:0"></div>
     <WebFooter />
   </div>
@@ -671,7 +480,6 @@ onUnmounted(() => {
     ref="cDetailRef"
     :book="cBook"
     :in-progress="isInProgress(cBook)"
-    :layout-mode="layoutMode"
     :index="cBookIdx"
     @close="cBook = null"
   />
@@ -1269,11 +1077,18 @@ onUnmounted(() => {
   background: #211f15;
 }
 
+@keyframes c-book-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .c-book {
   position: relative;
   background: #0d0b08;
   cursor: pointer;
   transition: background 140ms;
+  animation: c-book-in 300ms cubic-bezier(0.2, 0, 0, 1) both;
+  animation-delay: calc(var(--ci, 0) * 32ms);
 }
 .c-book:hover { background: rgba(255,245,215,0.028); }
 
@@ -1445,6 +1260,11 @@ onUnmounted(() => {
 }
 @media (min-width: 640px) { .c-mosaic { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 12px; } }
 
+@keyframes c-mosaic-in {
+  from { opacity: 0; transform: scale(0.93); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
 .c-mosaic-item {
   position: relative;
   border: none;
@@ -1455,7 +1275,8 @@ onUnmounted(() => {
   aspect-ratio: 2/3;
   background: linear-gradient(90deg, #181610 0%, #26220e 50%, #181610 100%);
   background-size: 300% 100%;
-  animation: c-shimmer 1.6s ease-in-out infinite calc(var(--mi, 0) * 22ms);
+  animation: c-shimmer 1.6s ease-in-out infinite calc(var(--mi, 0) * 22ms),
+             c-mosaic-in 300ms ease both calc(var(--mi, 0) * 22ms);
   transition: transform 200ms ease, filter 200ms ease;
 }
 .c-mosaic-item:hover { transform: scale(1.04); filter: brightness(1.08); }

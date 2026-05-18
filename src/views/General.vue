@@ -80,15 +80,9 @@ const wrapRef = ref(null);
 const painting = ref(PAINTINGS[0]);
 const paintingLoaded = ref(false);
 const booksLoading = ref(true);
-const layoutMode = ref('poster');
-const showPinOverlay = ref(false);
-const pinValue = ref('');
-const pinError = ref(false);
-
 let grainTimer = null;
 let bgStyleEl = null;
 let overlayTimers = [];
-let keyBuffer = '';
 let resizeTimer = null;
 
 function fitToViewport() {
@@ -113,52 +107,6 @@ watch(booksLoading, (v) => { if (!v) nextTick(fitToViewport); });
 watch(paintingLoaded, (v) => { if (v) nextTick(fitToViewport); });
 
 function onOverlayEnd() { showOverlay.value = false; }
-
-// ── Layout toggle ────────────────────────────────────────────
-async function fetchLayoutMode() {
-  try {
-    const res = await fetch(`${WORKER}/layout`);
-    const { mode } = await res.json();
-    layoutMode.value = mode ?? 'poster';
-  } catch {}
-}
-
-async function submitPin(pin) {
-  const targetMode = layoutMode.value === 'poster' ? 'constructivist' : 'poster';
-  try {
-    const res = await fetch(`${WORKER}/layout`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ pin, mode: targetMode }),
-    });
-    if (!res.ok) { pinError.value = true; pinValue.value = ''; return; }
-    layoutMode.value = targetMode;
-    showPinOverlay.value = false;
-    pinValue.value = '';
-  } catch { pinError.value = true; pinValue.value = ''; }
-}
-
-function onKeyDown(e) {
-  if (showPinOverlay.value) {
-    if (e.key === 'Escape') {
-      showPinOverlay.value = false; pinValue.value = ''; pinError.value = false; return;
-    }
-    if (e.key === 'Backspace') { pinValue.value = pinValue.value.slice(0, -1); pinError.value = false; return; }
-    if (/^\d$/.test(e.key) && pinValue.value.length < 4) {
-      pinValue.value += e.key; pinError.value = false;
-      if (pinValue.value.length === 4) submitPin(pinValue.value);
-    }
-    return;
-  }
-  const tag = document.activeElement?.tagName;
-  if (tag === 'INPUT' || tag === 'TEXTAREA' || e.key.length !== 1) return;
-  keyBuffer += e.key.toLowerCase();
-  if (keyBuffer.length > 5) keyBuffer = keyBuffer.slice(-5);
-  if (keyBuffer.endsWith('admin')) {
-    keyBuffer = '';
-    showPinOverlay.value = true; pinValue.value = ''; pinError.value = false;
-  }
-}
 
 // ── Magnetic tiles ───────────────────────────────────────────
 function handleTileMove(e) {
@@ -297,9 +245,6 @@ onMounted(() => {
   bgStyleEl.textContent = 'html, body { background-color: #111010 !important; }';
   document.head.appendChild(bgStyleEl);
 
-  fetchLayoutMode();
-  document.addEventListener('keydown', onKeyDown);
-
   painting.value = PAINTINGS[Math.floor(Math.random() * PAINTINGS.length)];
 
   created.value = true;
@@ -373,7 +318,6 @@ onUnmounted(() => {
   if (grainTimer) cancelAnimationFrame(grainTimer);
   window.removeEventListener('resize', onResize);
   clearTimeout(resizeTimer);
-  document.removeEventListener('keydown', onKeyDown);
   ['--pg-accent','--pg-accent-rgb','--pg-surface','--pg-cap','--pg-bg']
     .forEach(v => document.documentElement.style.removeProperty(v));
 });
@@ -382,19 +326,6 @@ onUnmounted(() => {
 <template>
   <div class="page">
     <canvas ref="grainCanvas" class="grain" aria-hidden="true" />
-
-    <!-- PIN overlay -->
-  <Transition name="pin-fade">
-    <div v-if="showPinOverlay" class="pin-overlay" @click.self="showPinOverlay = false; pinValue = ''; pinError = false">
-      <div class="pin-box">
-        <div class="pin-label">ENTER PIN</div>
-        <div class="pin-dots">
-          <span v-for="i in 4" :key="i" class="pin-dot" :class="{ 'pin-dot--on': pinValue.length >= i, 'pin-dot--err': pinError }"></span>
-        </div>
-        <div v-if="pinError" class="pin-err-msg">incorrect</div>
-      </div>
-    </div>
-  </Transition>
 
   <div v-if="showOverlay && paletteReady" class="overlay" aria-hidden="true">
       <svg
@@ -410,7 +341,7 @@ onUnmounted(() => {
 
     <Transition name="fade">
       <div v-if="created" ref="wrapRef" class="wrap">
-        <div v-if="layoutMode === 'poster'" class="poster" :class="showOverlay ? 'poster-hidden' : ''">
+        <div class="poster" :class="showOverlay ? 'poster-hidden' : ''">
 
           <!-- Top poster banner -->
           <div class="poster-top" aria-hidden="true">
