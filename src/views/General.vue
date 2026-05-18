@@ -72,6 +72,7 @@ const PAINTINGS = [
 
 const created = ref(false);
 const showOverlay = ref(true);
+const paletteReady = ref(false);
 const currentBook = ref(null);
 const inProgressBooks = ref([]);
 const grainCanvas = ref(null);
@@ -305,18 +306,24 @@ onMounted(() => {
     if (_minElapsed && _paintReady && _booksReady) showOverlay.value = false;
   }
   overlayTimers.push(setTimeout(() => { _minElapsed = true; tryReveal(); }, 1400));
-  overlayTimers.push(setTimeout(() => { showOverlay.value = false; }, 5000));
+  overlayTimers.push(setTimeout(() => { paletteReady.value = true; showOverlay.value = false; }, 5000));
 
   // Extract palette as soon as the painting loads
   const sampleImg = new Image();
   sampleImg.crossOrigin = 'anonymous';
   sampleImg.onload = () => {
     try { applyPalette(extractPalette(sampleImg)); } catch {}
+    paletteReady.value = true;
     _paintReady = true;
     tryReveal();
     requestAnimationFrame(fitToViewport);
   };
-  sampleImg.onerror = () => { _paintReady = true; tryReveal(); requestAnimationFrame(fitToViewport); };
+  sampleImg.onerror = () => {
+    paletteReady.value = true;
+    _paintReady = true;
+    tryReveal();
+    requestAnimationFrame(fitToViewport);
+  };
   sampleImg.src = painting.value.src;
 
   fetch(`${WORKER}/books.json`)
@@ -385,7 +392,7 @@ onUnmounted(() => {
     </div>
   </Transition>
 
-  <div v-if="showOverlay" class="overlay" aria-hidden="true">
+  <div v-if="showOverlay && paletteReady" class="overlay" aria-hidden="true">
       <svg
         class="overlay-star"
         viewBox="0 0 100 100"
@@ -726,7 +733,7 @@ onUnmounted(() => {
 
 /* ── Overlay ────────────────────────────────────────────── */
 .overlay {
-  position: absolute;
+  position: fixed;
   inset: 0;
   z-index: 50;
   display: flex;
