@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink } from "vue-router";
-const top = () => window.scrollTo({ top: 0, behavior: "smooth" });
+import { scrollToTop } from "../composables/useLenis";
 </script>
 
 <template>
@@ -9,8 +9,8 @@ const top = () => window.scrollTo({ top: 0, behavior: "smooth" });
       <span class="ft-mark">· · ·</span>
       <div class="ft-links">
         <a class="fl" href="https://www.goodreads.com/review/list/168293432?ref=nav_mybooks" target="_blank" rel="noopener noreferrer">Goodreads</a>
-<RouterLink class="fl" to="/links">links</RouterLink>
-        <button class="fl fl-btn" @click="top" aria-label="Scroll to top">↑ Top</button>
+        <RouterLink class="fl" to="/links">links</RouterLink>
+        <button class="fl fl-btn" @click="scrollToTop" aria-label="Scroll to top">↑ Top</button>
       </div>
     </div>
   </footer>
@@ -46,5 +46,5 @@ const top = () => window.scrollTo({ top: 0, behavior: "smooth" });
   transition: color 130ms, background 130ms;
 }
 .fl:hover { color: #8a8260; background: rgba(255,245,215,0.04); }
-.fl-btn { border: none; background: transparent; cursor: pointer; font-family: inherit; }
+.fl-btn { border: none; background: transparent; font-family: inherit; }
 </style>

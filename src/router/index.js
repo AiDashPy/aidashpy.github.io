@@ -2,26 +2,26 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import General from '../views/General.vue'
 import Admin from '../views/Admin.vue'
+
 const routes = [
     {
         path: '/',
-        name: 'reading log',
+        name: 'Reading Log — AiDashPy',
         component: Home
     },
     {
         path: '/links',
-        name: "aidashpy - links",
+        name: 'AiDashPy — Links',
         component: General
     },
     {
         path: '/admin',
-        name: 'admin',
+        name: 'Admin — AiDashPy',
         component: Admin
     },
     {
-        path: "/:catchAll(.*)",
-        name: "reading log",
-        component: Home,
+        path: '/:catchAll(.*)',
+        redirect: '/'
     }
 ]
 
@@ -31,7 +31,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    document.title = to.name;
+    if (to.name) document.title = to.name;
     next();
 });
 

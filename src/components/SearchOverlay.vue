@@ -6,7 +6,7 @@ const props = defineProps({
   entries: { type: Array, default: () => [] },
   open: { type: Boolean, default: false },
 });
-const emit = defineEmits(["close"]);
+const emit = defineEmits(["close", "select"]);
 
 const query = ref("");
 const inputRef = ref(null);
@@ -35,10 +35,20 @@ watch(() => props.open, async (val) => {
 
 function close() { emit("close"); }
 
+function select(book) {
+  emit("select", book);
+  close();
+}
+
 function onKeydown(e) {
   if (e.key === "Escape") { close(); return; }
   if (e.key === "ArrowDown") { e.preventDefault(); activeIdx.value = Math.min(activeIdx.value + 1, results.value.length - 1); return; }
   if (e.key === "ArrowUp") { e.preventDefault(); activeIdx.value = Math.max(activeIdx.value - 1, -1); return; }
+  if (e.key === "Enter" && activeIdx.value >= 0 && results.value[activeIdx.value]) {
+    e.preventDefault();
+    select(results.value[activeIdx.value]);
+    return;
+  }
 }
 
 function shortStatus(book) {
@@ -79,6 +89,7 @@ function shortStatus(book) {
             class="result"
             :class="{ 'result-active': i === activeIdx }"
             @mouseenter="activeIdx = i"
+            @click="select(book)"
           >
             <div class="r-img-wrap">
               <img v-if="book.img" :src="book.img" :alt="book.name" class="r-img" loading="lazy" />
@@ -179,7 +190,7 @@ function shortStatus(book) {
   align-items: center;
   gap: 0.85rem;
   padding: 0.6rem 1rem;
-  cursor: default;
+  cursor: pointer;
   transition: background 100ms;
 }
 .result-active { background: rgba(255,245,215,0.04); }

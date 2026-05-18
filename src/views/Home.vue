@@ -173,8 +173,7 @@ onMounted(async () => {
   document.addEventListener("keydown", onKeydown);
   NProgress.start();
   try {
-    const workerUrl = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.adiashpy.workers.dev";
-    const res = await fetch(`${workerUrl}/books.json`);
+    const res = await fetch(`${WORKER}/books.json`);
     books.value = await res.json();
   } catch {}
   NProgress.done();
@@ -526,7 +525,7 @@ onUnmounted(() => {
     <WebFooter />
   </div>
 
-  <SearchOverlay :entries="allEntries" :open="showSearch" @close="showSearch = false" />
+  <SearchOverlay :entries="allEntries" :open="showSearch" @close="showSearch = false" @select="(b) => { showSearch = false; openCDetail(b); }" />
   <BookDetail
     v-if="cBook"
     ref="cDetailRef"
