@@ -1,13 +1,15 @@
 const ALLOWED_ORIGINS = [
   "https://aidashpy.com",
   "https://aidashpy.github.io",
-  "http://localhost:5173",
-  "http://localhost:4173",
-  "http://localhost:8787",
 ];
 
+function isAllowedOrigin(origin) {
+  if (ALLOWED_ORIGINS.includes(origin)) return true;
+  try { return new URL(origin).hostname === "localhost"; } catch { return false; }
+}
+
 function corsHeaders(origin) {
-  const allow = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  const allow = isAllowedOrigin(origin) ? origin : ALLOWED_ORIGINS[0];
   return {
     "Access-Control-Allow-Origin": allow,
     "Access-Control-Allow-Methods": "GET, PUT, OPTIONS",

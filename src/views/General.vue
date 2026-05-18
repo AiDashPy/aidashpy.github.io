@@ -75,6 +75,7 @@ const showOverlay = ref(true);
 const currentBook = ref(null);
 const inProgressBooks = ref([]);
 const grainCanvas = ref(null);
+const wrapRef = ref(null);
 const painting = ref(PAINTINGS[0]);
 const paintingLoaded = ref(false);
 const booksLoading = ref(true);
@@ -87,6 +88,24 @@ let grainTimer = null;
 let bgStyleEl = null;
 let overlayTimers = [];
 let keyBuffer = '';
+let resizeTimer = null;
+
+function fitToViewport() {
+  const el = wrapRef.value;
+  if (!el) return;
+  el.style.zoom = '';
+  if (window.innerWidth < 768) return;
+  const pageEl = el.parentElement;
+  const padY = parseFloat(getComputedStyle(pageEl).paddingTop) * 2;
+  const available = window.innerHeight - padY;
+  const natural = el.offsetHeight;
+  if (natural > available) el.style.zoom = String(available / natural);
+}
+
+function onResize() {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(fitToViewport, 80);
+}
 
 function onOverlayEnd() { showOverlay.value = false; }
 
@@ -159,7 +178,11 @@ function startGrain() {
   const ctx = canvas.getContext("2d");
   canvas.width = 300;
   canvas.height = 300;
-  function draw() {
+  let last = 0;
+  function draw(ts) {
+    grainTimer = requestAnimationFrame(draw);
+    if (ts - last < 150) return;
+    last = ts;
     const img = ctx.createImageData(300, 300);
     const d = img.data;
     for (let i = 0; i < d.length; i += 4) {
@@ -169,8 +192,7 @@ function startGrain() {
     }
     ctx.putImageData(img, 0, 0);
   }
-  draw();
-  grainTimer = setInterval(draw, 80);
+  grainTimer = requestAnimationFrame(draw);
 }
 
 // ── Palette extraction ───────────────────────────────────────
@@ -292,8 +314,9 @@ onMounted(() => {
     try { applyPalette(extractPalette(sampleImg)); } catch {}
     _paintReady = true;
     tryReveal();
+    requestAnimationFrame(fitToViewport);
   };
-  sampleImg.onerror = () => { _paintReady = true; tryReveal(); };
+  sampleImg.onerror = () => { _paintReady = true; tryReveal(); requestAnimationFrame(fitToViewport); };
   sampleImg.src = painting.value.src;
 
   fetch(`${WORKER}/books.json`)
@@ -328,6 +351,7 @@ onMounted(() => {
     });
 
   startGrain();
+  window.addEventListener('resize', onResize);
 });
 
 onUnmounted(() => {
@@ -335,7 +359,9 @@ onUnmounted(() => {
   overlayTimers = [];
   bgStyleEl?.remove();
   bgStyleEl = null;
-  if (grainTimer) clearInterval(grainTimer);
+  if (grainTimer) cancelAnimationFrame(grainTimer);
+  window.removeEventListener('resize', onResize);
+  clearTimeout(resizeTimer);
   document.removeEventListener('keydown', onKeyDown);
   ['--pg-accent','--pg-accent-rgb','--pg-surface','--pg-cap','--pg-bg']
     .forEach(v => document.documentElement.style.removeProperty(v));
@@ -372,7 +398,7 @@ onUnmounted(() => {
     </div>
 
     <Transition name="fade">
-      <div v-if="created" class="wrap">
+      <div v-if="created" ref="wrapRef" class="wrap">
         <div v-if="layoutMode === 'poster'" class="poster" :class="showOverlay ? 'poster-hidden' : ''">
 
           <!-- Top poster banner -->
@@ -694,8 +720,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 200;
-  opacity: 0.065;
-  mix-blend-mode: overlay;
+  opacity: 0.08;
+  will-change: transform;
 }
 
 /* ── Overlay ────────────────────────────────────────────── */
@@ -851,17 +877,14 @@ onUnmounted(() => {
 }
 
 .p-img {
-  width: 100%;
   display: block;
-  object-fit: contain;
-  max-height: 42vh;
+  width: 100%;
+  height: auto;
   filter: contrast(1.05) saturate(0.95);
   opacity: 0;
   transition: opacity 500ms ease;
 }
 .p-img--loaded { opacity: 1; }
-@media (min-width: 768px)  { .p-img { max-height: 52vh; } }
-@media (min-width: 1280px) { .p-img { max-height: 58vh; } }
 
 .p-cap {
   display: flex;
@@ -1326,11 +1349,9 @@ onUnmounted(() => {
 }
 
 .c-img {
-  width: 100%;
   display: block;
-  height: 38vh;
-  object-fit: cover;
-  object-position: center 30%;
+  width: 100%;
+  height: auto;
   filter: contrast(1.04) saturate(0.92);
   opacity: 0;
   transition: opacity 600ms ease;
@@ -1634,4 +1655,5 @@ onUnmounted(() => {
 }
 
 .c-foot-star { width: 9px; height: 9px; flex-shrink: 0; }
+
 </style>
