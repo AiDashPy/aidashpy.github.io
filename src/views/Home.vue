@@ -183,6 +183,12 @@ onMounted(async () => {
   await nextTick();
   footerObs = new IntersectionObserver(([e]) => { fabFooterHidden.value = e.isIntersecting; }, { threshold: 0 });
   if (footerSentinel.value) footerObs.observe(footerSentinel.value);
+
+  const yearDisplay = document.querySelector('.c-year-display');
+  const bookCount   = document.querySelector('.c-book-count');
+  if (yearDisplay) gsap.fromTo(yearDisplay, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' });
+  if (bookCount)   gsap.fromTo(bookCount,   { opacity: 0 },        { opacity: 1,      duration: 0.3,  ease: 'power1.out', delay: 0.22 });
+
   setupCAnimations();
 });
 
