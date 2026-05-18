@@ -3,8 +3,7 @@ import { ref, computed, watch, onMounted, onUnmounted, nextTick } from "vue";
 import { useRouter } from "vue-router";
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(Flip, ScrollTrigger);
+gsap.registerPlugin(Flip);
 import { scrollToTop } from "../composables/useLenis";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
@@ -21,7 +20,7 @@ const router = useRouter();
 const showSearch = ref(false);
 let keyBuffer = "";
 let keyTimer = null;
-let cScrollTriggers = [];
+let cRevealObservers = [];
 let cAnimTimer = null;
 
 const WORKER = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.adiashpy.workers.dev";
@@ -284,8 +283,8 @@ watch(showYears, (open) => {
 });
 
 function cleanupCScrollTriggers() {
-  cScrollTriggers.forEach(st => st.kill());
-  cScrollTriggers = [];
+  cRevealObservers.forEach(obs => obs.disconnect());
+  cRevealObservers = [];
 }
 
 function _setCStates(root) {
@@ -313,6 +312,7 @@ function _setCStates(root) {
 function _runCAnims(root) {
   const vh = window.innerHeight;
   if (viewMode.value === 'list') {
+    const deferred = [];
     root.querySelectorAll('.c-book').forEach(row => {
       const accent = row.querySelector('.c-book-accent');
       const cover  = row.querySelector('.c-book-cover, .c-book-cover-skel');
@@ -329,23 +329,43 @@ function _runCAnims(root) {
       if (row.getBoundingClientRect().top < vh) {
         tl.play();
       } else {
-        cScrollTriggers.push(ScrollTrigger.create({
-          trigger: row, start: 'top bottom', once: true,
-          onEnter: () => tl.play(),
-        }));
+        row._revealTl = tl;
+        deferred.push(row);
       }
     });
+    if (deferred.length) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          obs.unobserve(entry.target);
+          entry.target._revealTl?.play();
+        });
+      }, { threshold: 0 });
+      deferred.forEach(row => obs.observe(row));
+      cRevealObservers.push(obs);
+    }
   } else {
+    const deferred = [];
     root.querySelectorAll('.c-mosaic-item').forEach((item, i) => {
       if (item.getBoundingClientRect().top < vh) {
         gsap.to(item, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out', delay: (i % 6) * 0.028 });
       } else {
-        cScrollTriggers.push(ScrollTrigger.create({
-          trigger: item, start: 'top bottom', once: true,
-          onEnter: () => gsap.to(item, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out', delay: (i % 6) * 0.028 }),
-        }));
+        item._revealIdx = i;
+        deferred.push(item);
       }
     });
+    if (deferred.length) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          obs.unobserve(entry.target);
+          const delay = (entry.target._revealIdx ?? 0) % 6 * 0.028;
+          gsap.to(entry.target, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out', delay });
+        });
+      }, { threshold: 0 });
+      deferred.forEach(item => obs.observe(item));
+      cRevealObservers.push(obs);
+    }
   }
 }
 

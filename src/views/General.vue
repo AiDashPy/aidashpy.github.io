@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, watch, nextTick, onMounted, onUnmounted } from "vue";
 import { RouterLink } from "vue-router";
 
 const WORKER = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.adiashpy.workers.dev";
@@ -107,6 +107,10 @@ function onResize() {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(fitToViewport, 80);
 }
+
+// Re-fit whenever content height changes (books load in, painting renders)
+watch(booksLoading, (v) => { if (!v) nextTick(fitToViewport); });
+watch(paintingLoaded, (v) => { if (v) nextTick(fitToViewport); });
 
 function onOverlayEnd() { showOverlay.value = false; }
 
@@ -703,7 +707,15 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
+@import '@fontsource/bebas-neue/index.css';
+@import '@fontsource/oswald/400.css';
+@import '@fontsource/oswald/500.css';
+@import '@fontsource/oswald/600.css';
+@import '@fontsource/oswald/700.css';
+@import '@fontsource/barlow-condensed/400.css';
+@import '@fontsource/barlow-condensed/500.css';
+@import '@fontsource/barlow-condensed/600.css';
+@import '@fontsource/barlow-condensed/700.css';
 
 /* ── Page shell ─────────────────────────────────────────── */
 .page {
