@@ -21,20 +21,29 @@ function onLogoClick(e) {
 }
 
 const visible = ref(true);
-let lastY = 0, ticking = false;
+let lastY = 0, ticking = false, ready = false;
 
 function onScroll() {
   const y = window.scrollY || 0;
   if (!ticking) {
     window.requestAnimationFrame(() => {
-      if (y > lastY + 10) visible.value = false;
-      else if (y < lastY - 10) visible.value = true;
+      if (ready) {
+        if (y > lastY + 10) visible.value = false;
+        else if (y < lastY - 10) visible.value = true;
+      }
       lastY = y; ticking = false;
     });
     ticking = true;
   }
 }
-onMounted(() => { lastY = window.scrollY || 0; window.addEventListener('scroll', onScroll, { passive: true }); });
+onMounted(() => {
+  lastY = window.scrollY || 0;
+  window.addEventListener('scroll', onScroll, { passive: true });
+  // Allow browser scroll restoration to settle before tracking direction.
+  // Without this, the restoration scroll event (lastY=0 → restored position)
+  // looks like a big downward scroll and hides the header on refresh.
+  setTimeout(() => { lastY = window.scrollY || 0; ready = true; }, 80);
+});
 onUnmounted(() => window.removeEventListener('scroll', onScroll));
 </script>
 

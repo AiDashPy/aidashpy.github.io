@@ -216,8 +216,26 @@ async function openCDetail(b) {
 }
 
 function _setCStates(root) {
-  root.querySelectorAll('.c-book').forEach(el => gsap.set(el, { opacity: 0, y: 10 }));
+  root.querySelectorAll('.c-book').forEach(el => {
+    gsap.set(el, { opacity: 0 });
+    const accent = el.querySelector('.c-book-accent');
+    const body   = el.querySelector('.c-book-body');
+    const cover  = el.querySelector('.c-book-cover') || el.querySelector('.c-book-cover-skel');
+    if (accent) gsap.set(accent, { scaleY: 0, transformOrigin: 'top' });
+    if (body)   gsap.set(body,   { x: -18 });
+    if (cover)  gsap.set(cover,  { x: -8, opacity: 0 });
+  });
   root.querySelectorAll('.c-mosaic-item').forEach(el => gsap.set(el, { opacity: 0, scale: 0.93 }));
+}
+
+function _snapBook(el) {
+  gsap.set(el, { opacity: 1 });
+  const accent = el.querySelector('.c-book-accent');
+  const body   = el.querySelector('.c-book-body');
+  const cover  = el.querySelector('.c-book-cover') || el.querySelector('.c-book-cover-skel');
+  if (accent) gsap.set(accent, { scaleY: 1 });
+  if (body)   gsap.set(body,   { x: 0 });
+  if (cover)  gsap.set(cover,  { x: 0, opacity: 1 });
 }
 
 function _runCAnims(root) {
@@ -226,10 +244,17 @@ function _runCAnims(root) {
     let vi = 0;
     root.querySelectorAll('.c-book').forEach(el => {
       if (el.getBoundingClientRect().top < vh) {
-        gsap.to(el, { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out', delay: vi * 0.032 });
+        const d = vi * 0.048;
+        const accent = el.querySelector('.c-book-accent');
+        const body   = el.querySelector('.c-book-body');
+        const cover  = el.querySelector('.c-book-cover') || el.querySelector('.c-book-cover-skel');
+        gsap.to(el, { opacity: 1, duration: 0.2, ease: 'power1.out', delay: d });
+        if (cover)  gsap.to(cover,  { x: 0, opacity: 1, duration: 0.28, ease: 'power2.out', delay: d + 0.04 });
+        if (accent) gsap.to(accent, { scaleY: 1,         duration: 0.32, ease: 'power2.out', delay: d + 0.05 });
+        if (body)   gsap.to(body,   { x: 0,              duration: 0.34, ease: 'power2.out', delay: d + 0.07 });
         vi++;
       } else {
-        gsap.set(el, { opacity: 1, y: 0 });
+        _snapBook(el);
       }
     });
   } else {
