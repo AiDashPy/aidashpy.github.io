@@ -20,7 +20,6 @@ const router = useRouter();
 const showSearch = ref(false);
 let keyBuffer = "";
 let keyTimer = null;
-let cRevealObservers = [];
 let cAnimTimer = null;
 
 const WORKER = import.meta.env.VITE_WORKER_URL ?? "https://aidashpy-api.adiashpy.workers.dev";
@@ -223,7 +222,6 @@ onMounted(async () => {
   displayYear.value  = currentYear.value;
   displayCount.value = entriesForSelected.value.length;
   await nextTick();
-  if (layoutMode.value === 'constructivist') setupCAnimations();
   footerObs = new IntersectionObserver(([e]) => { fabFooterHidden.value = e.isIntersecting; }, { threshold: 0 });
   if (footerSentinel.value) footerObs.observe(footerSentinel.value);
 });
@@ -282,136 +280,12 @@ watch(showYears, (open) => {
   }
 });
 
-function cleanupCScrollTriggers() {
-  cRevealObservers.forEach(obs => obs.disconnect());
-  cRevealObservers = [];
-}
-
-function _setCStates(root) {
-  if (viewMode.value === 'list') {
-    root.querySelectorAll('.c-book').forEach(row => {
-      const accent = row.querySelector('.c-book-accent');
-      const cover  = row.querySelector('.c-book-cover, .c-book-cover-skel');
-      const title  = row.querySelector('.c-book-title');
-      const ghost  = row.querySelector('.c-book-ghost');
-      const metas  = row.querySelectorAll('.c-book-author, .c-book-tags, .c-book-note, .c-book-meta');
-      gsap.set(row, { opacity: 0 });
-      if (accent) gsap.set(accent, { scaleY: 0, transformOrigin: 'top' });
-      if (cover)  gsap.set(cover,  { scale: 0.88, opacity: 0 });
-      if (title)  gsap.set(title,  { y: 6, opacity: 0 });
-      if (ghost)  gsap.set(ghost,  { x: 10, opacity: 0 });
-      metas.forEach(el => gsap.set(el, { y: 5, opacity: 0 }));
-    });
-  } else {
-    root.querySelectorAll('.c-mosaic-item').forEach(item => {
-      gsap.set(item, { opacity: 0, scale: 0.92 });
-    });
-  }
-}
-
-function _runCAnims(root) {
-  const vh = window.innerHeight;
-  if (viewMode.value === 'list') {
-    const deferred = [];
-    root.querySelectorAll('.c-book').forEach(row => {
-      const accent = row.querySelector('.c-book-accent');
-      const cover  = row.querySelector('.c-book-cover, .c-book-cover-skel');
-      const title  = row.querySelector('.c-book-title');
-      const ghost  = row.querySelector('.c-book-ghost');
-      const metas  = row.querySelectorAll('.c-book-author, .c-book-tags, .c-book-note, .c-book-meta');
-      const tl = gsap.timeline({ paused: true })
-        .to(row,    { opacity: 1, duration: 0.01 })
-        .to(accent, { scaleY: 1, duration: 0.28, ease: 'power2.out' }, 0)
-        .to(cover,  { scale: 1, opacity: 1, duration: 0.36, ease: 'power2.out' }, 0.04)
-        .to(ghost,  { x: 0, opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.06)
-        .to(title,  { y: 0, opacity: 1, duration: 0.3, ease: 'power2.out' }, 0.1)
-        .to(metas,  { y: 0, opacity: 1, duration: 0.26, ease: 'power2.out', stagger: 0.04 }, 0.16);
-      if (row.getBoundingClientRect().top < vh) {
-        tl.play();
-      } else {
-        row._revealTl = tl;
-        deferred.push(row);
-      }
-    });
-    if (deferred.length) {
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          obs.unobserve(entry.target);
-          entry.target._revealTl?.play();
-        });
-      }, { threshold: 0 });
-      deferred.forEach(row => obs.observe(row));
-      cRevealObservers.push(obs);
-    }
-  } else {
-    const deferred = [];
-    root.querySelectorAll('.c-mosaic-item').forEach((item, i) => {
-      if (item.getBoundingClientRect().top < vh) {
-        gsap.to(item, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out', delay: (i % 6) * 0.028 });
-      } else {
-        item._revealIdx = i;
-        deferred.push(item);
-      }
-    });
-    if (deferred.length) {
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          obs.unobserve(entry.target);
-          const delay = (entry.target._revealIdx ?? 0) % 6 * 0.028;
-          gsap.to(entry.target, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out', delay });
-        });
-      }, { threshold: 0 });
-      deferred.forEach(item => obs.observe(item));
-      cRevealObservers.push(obs);
-    }
-  }
-}
-
-async function setupCAnimations() {
-  cleanupCScrollTriggers();
-  await nextTick();
-  _setCStates(document);
-  _runCAnims(document);
-}
-
-function onCLeave(el, done) {
-  gsap.to(el, { opacity: 0, duration: 0.1, ease: 'power1.in', onComplete: done });
-}
-
-function onCBeforeEnter(el) {
-  cleanupCScrollTriggers();
-  _setCStates(el);
-}
-
-function onCEnter(el, done) {
-  _runCAnims(el);
-  done();
-}
-
-watch(layoutMode, async (mode) => {
-  if (mode !== 'constructivist') { cleanupCScrollTriggers(); return; }
-  await nextTick();
-  setupCAnimations();
-});
-
-watch(selectedYear, () => {
-  if (layoutMode.value !== 'constructivist') return;
-  cleanupCScrollTriggers();
-});
-
-watch(viewMode, () => {
-  if (layoutMode.value !== 'constructivist') return;
-  cleanupCScrollTriggers();
-});
 
 onUnmounted(() => {
   document.removeEventListener("keydown", onKeydown);
   clearTimeout(keyTimer);
   if (countTimer)     clearInterval(countTimer);
   if (countBookTimer) clearInterval(countBookTimer);
-  cleanupCScrollTriggers();
   footerObs?.disconnect();
   if (typeof document !== "undefined") {
     document.body.style.overflow = "";
@@ -627,7 +501,7 @@ onUnmounted(() => {
             </div>
           </div>
 
-          <Transition mode="out-in" :css="false" @leave="onCLeave" @before-enter="onCBeforeEnter" @enter="onCEnter">
+          <div>
 
             <!-- List -->
             <div v-if="viewMode === 'list'" :key="selectedYear" class="c-list-view">
@@ -724,7 +598,7 @@ onUnmounted(() => {
               </button>
             </div>
 
-          </Transition>
+          </div>
 
           <div class="c-foot">
             <div class="c-foot-rule"></div>
