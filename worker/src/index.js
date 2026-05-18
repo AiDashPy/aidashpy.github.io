@@ -1,3 +1,13 @@
+const OG_PAINTINGS = [
+  "ThePaintingNewPlanetNew.webp",
+  "udaltsova_ural_river.webp",
+  "udaltsova_ural_forest_2.webp",
+  "udaltsova_ural_sunset_2.webp",
+  "udaltsova_ural_autumn.webp",
+  "drevin_altai_dry_birch.webp",
+  "drevin_gazelles.webp",
+];
+
 const ALLOWED_ORIGINS = [
   "https://aidashpy.com",
   "https://aidashpy.github.io",
@@ -39,6 +49,12 @@ export default {
     if (req.method === "OPTIONS") {
       const isImg = pathname.startsWith("/images/");
       return new Response(null, { status: 204, headers: isImg ? IMAGE_CORS : h });
+    }
+
+    // ── Random OG image (for Discord/social embeds) ──────────
+    if (pathname === "/og-image") {
+      const key = OG_PAINTINGS[Math.floor(Math.random() * OG_PAINTINGS.length)];
+      return Response.redirect(`${url.origin}/images/${key}`, 302);
     }
 
     // ── Health / auth ────────────────────────────────────────

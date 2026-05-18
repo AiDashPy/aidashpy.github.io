@@ -6,13 +6,13 @@ import Admin from '../views/Admin.vue'
 const routes = [
     {
         path: '/',
-        name: 'Reading Log — AiDashPy',
-        component: Home
+        name: 'AiDashPy',
+        component: General
     },
     {
-        path: '/links',
-        name: 'AiDashPy — Links',
-        component: General
+        path: '/log',
+        name: 'Reading Log — AiDashPy',
+        component: Home
     },
     {
         path: '/admin',

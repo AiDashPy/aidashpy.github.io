@@ -375,7 +375,7 @@ onUnmounted(() => {
               </div>
             </div>
             <Transition v-else name="strip-fade">
-              <RouterLink v-if="inProgressBooks.length" to="/" class="c-reading-strip">
+              <RouterLink v-if="inProgressBooks.length" to="/log" class="c-reading-strip">
                 <div class="c-rs-accent"></div>
                 <div class="c-rs-body">
                   <div v-for="b in inProgressBooks" :key="b.name" class="c-rs-book">
@@ -390,7 +390,7 @@ onUnmounted(() => {
                 </div>
                 <span class="c-rs-arr">→</span>
               </RouterLink>
-              <RouterLink v-else-if="currentBook" to="/" class="c-reading-strip">
+              <RouterLink v-else-if="currentBook" to="/log" class="c-reading-strip">
                 <div class="c-rs-accent"></div>
                 <div class="c-rs-body">
                   <img v-if="currentBook.img" :src="currentBook.img" class="c-rs-thumb" :alt="currentBook.name" />
@@ -412,7 +412,7 @@ onUnmounted(() => {
           </div>
 
           <div class="c-links">
-            <RouterLink to="/" class="c-lnk">
+            <RouterLink to="/log" class="c-lnk">
               <div class="c-lnk-ghost" aria-hidden="true">01</div>
               <div class="c-lnk-inner">
                 <div class="c-lnk-accent"></div>
