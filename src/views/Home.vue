@@ -7,11 +7,9 @@ gsap.registerPlugin(Flip);
 import { scrollToTop } from "../composables/useLenis";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
-import BookEntry from "../components/BookEntry.vue";
 import BookDetail from "../components/BookDetail.vue";
 import WebHeader from "../components/WebHeader.vue";
 import WebFooter from "../components/WebFooter.vue";
-import YearBadge from "../components/YearBadge.vue";
 import SearchOverlay from "../components/SearchOverlay.vue";
 
 NProgress.configure({ showSpinner: false });
@@ -168,6 +166,7 @@ watch(selectedYear, () => {
       if (cur === toCount) { clearInterval(countBookTimer); countBookTimer = null; }
     }, tickMs);
   }
+  setupCAnimations();
 });
 
 onMounted(async () => {
@@ -184,6 +183,7 @@ onMounted(async () => {
   await nextTick();
   footerObs = new IntersectionObserver(([e]) => { fabFooterHidden.value = e.isIntersecting; }, { threshold: 0 });
   if (footerSentinel.value) footerObs.observe(footerSentinel.value);
+  setupCAnimations();
 });
 
 function isInProgress(b) {
@@ -203,15 +203,6 @@ const listEntries = computed(() => [
   ...finishedEntries.value,
 ]);
 
-const mosaicBook = ref(null);
-const mosaicDetailRef = ref(null);
-
-async function openMosaicDetail(b) {
-  mosaicBook.value = b;
-  await nextTick();
-  mosaicDetailRef.value?.open();
-}
-
 const cBook = ref(null);
 const cBookIdx = ref(1);
 const cDetailRef = ref(null);
@@ -222,6 +213,44 @@ async function openCDetail(b) {
   cBookIdx.value = pos >= 0 ? finishedEntries.value.length - pos : 1;
   await nextTick();
   cDetailRef.value?.open();
+}
+
+function _setCStates(root) {
+  root.querySelectorAll('.c-book').forEach(el => gsap.set(el, { opacity: 0, y: 10 }));
+  root.querySelectorAll('.c-mosaic-item').forEach(el => gsap.set(el, { opacity: 0, scale: 0.93 }));
+}
+
+function _runCAnims(root) {
+  const vh = window.innerHeight;
+  if (viewMode.value === 'list') {
+    let vi = 0;
+    root.querySelectorAll('.c-book').forEach(el => {
+      if (el.getBoundingClientRect().top < vh) {
+        gsap.to(el, { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out', delay: vi * 0.032 });
+        vi++;
+      } else {
+        gsap.set(el, { opacity: 1, y: 0 });
+      }
+    });
+  } else {
+    let vi = 0;
+    root.querySelectorAll('.c-mosaic-item').forEach(el => {
+      if (el.getBoundingClientRect().top < vh) {
+        gsap.to(el, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out', delay: (vi % 6) * 0.028 });
+        vi++;
+      } else {
+        gsap.set(el, { opacity: 1, scale: 1 });
+      }
+    });
+  }
+}
+
+async function setupCAnimations() {
+  await nextTick();
+  const root = document.querySelector('.c-main');
+  if (!root) return;
+  _setCStates(root);
+  requestAnimationFrame(() => _runCAnims(root));
 }
 
 function selectYear(i) {
@@ -239,6 +268,8 @@ watch(showYears, (open) => {
     document.documentElement.style.overflow = open ? "hidden" : "";
   }
 });
+
+watch(viewMode, () => { setupCAnimations(); });
 
 
 onUnmounted(() => {
@@ -325,7 +356,6 @@ onUnmounted(() => {
                     v-for="(b, idx) in nowReadingForYear"
                     :key="b.name"
                     class="c-book c-book-ip"
-                    :style="{ '--ci': idx }"
                     @click="openCDetail(b)"
                   >
                     <div class="c-book-ghost" aria-hidden="true">{{ String(idx + 1).padStart(2, '0') }}</div>
@@ -362,7 +392,6 @@ onUnmounted(() => {
                     v-for="(b, idx) in finishedEntries"
                     :key="b.name"
                     class="c-book"
-                    :style="{ '--ci': nowReadingForYear.length + idx }"
                     @click="openCDetail(b)"
                   >
                     <div class="c-book-ghost" aria-hidden="true">{{ String(finishedEntries.length - idx).padStart(2, '0') }}</div>
@@ -395,7 +424,6 @@ onUnmounted(() => {
                 :key="b.name"
                 class="c-mosaic-item"
                 :class="{ 'c-mosaic-item-ip': isInProgress(b) }"
-                :style="{ '--mi': idx }"
                 :title="b.name + ' — ' + b.author"
                 @click="openCDetail(b)"
               >
@@ -469,13 +497,6 @@ onUnmounted(() => {
 
   <SearchOverlay :entries="allEntries" :open="showSearch" @close="showSearch = false" />
   <BookDetail
-    v-if="mosaicBook"
-    ref="mosaicDetailRef"
-    :book="mosaicBook"
-    :in-progress="isInProgress(mosaicBook)"
-    @close="mosaicBook = null"
-  />
-  <BookDetail
     v-if="cBook"
     ref="cDetailRef"
     :book="cBook"
@@ -492,354 +513,6 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
 }
-
-/* ── Shell ─────────────────────────────────────────────── */
-.shell {
-  flex: 1;
-  display: flex;
-  gap: 0;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-  box-sizing: border-box;
-  padding-top: 4.5rem;
-}
-@media (min-width: 640px) { .shell { padding-top: 5rem; } }
-
-/* ── Sidebar ────────────────────────────────────────────── */
-.sidebar {
-  display: none;
-  width: 10rem;
-  flex-shrink: 0;
-  padding: 2.5rem 0.75rem 2rem 0.75rem;
-  border-right: 1px solid #1d1b10;
-  background: #131108;
-  align-self: stretch;
-}
-@media (min-width: 1024px) { .sidebar { display: block; } }
-
-.year-nav {
-  position: sticky;
-  top: 5.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-/* ── Main ───────────────────────────────────────────────── */
-.main {
-  flex: 1;
-  min-width: 0;
-  padding: 0 1.25rem 5rem;
-}
-@media (min-width: 640px)  { .main { padding: 0 1.75rem 4rem; } }
-@media (min-width: 1024px) { .main { padding: 0 2.5rem 4rem 2rem; } }
-
-/* ── Year section ───────────────────────────────────────── */
-.year-section { padding-top: 1.25rem; }
-@media (min-width: 640px) { .year-section { padding-top: 2rem; } }
-
-.year-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid #2a2618;
-  margin-bottom: 0;
-}
-
-.year-head-left {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-}
-
-.year-num {
-  font-size: clamp(2.75rem, 7vw, 5rem);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  color: #c8ba8c;
-  display: inline-flex;
-}
-
-.yn-c {
-  display: inline-block;
-  animation: yn-in 420ms cubic-bezier(0.2, 0, 0, 1) both;
-  animation-delay: calc(var(--ci, 0) * 55ms);
-}
-@keyframes yn-in {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.year-count {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #3c3924;
-}
-
-.book-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-/* ── View toggle ────────────────────────────────────────── */
-.view-toggle {
-  display: flex;
-  gap: 2px;
-  background: #1a1812;
-  border: 1px solid #2a2618;
-  border-radius: 7px;
-  padding: 3px;
-}
-
-.vt-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 24px;
-  border: none;
-  border-radius: 5px;
-  background: transparent;
-  color: #40392a;
-  cursor: pointer;
-  transition: color 140ms, background 140ms;
-}
-.vt-btn:hover { color: #7a8c58; }
-.vt-active { background: #252110 !important; color: #c8ba8c !important; }
-
-/* ── Mosaic / shelf ─────────────────────────────────────── */
-.mosaic {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
-  gap: 10px;
-  padding-top: 1.25rem;
-}
-@media (min-width: 640px) { .mosaic { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 12px; } }
-
-.mosaic-cover {
-  position: relative;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  border-radius: 5px;
-  overflow: hidden;
-  aspect-ratio: 2 / 3;
-  opacity: 0;
-  transform: scale(0.94);
-  background: linear-gradient(90deg, #181610 0%, #26220e 50%, #181610 100%);
-  background-size: 300% 100%;
-  animation:
-    mosaic-in 280ms ease both calc(var(--mi, 0) * 22ms),
-    cover-shimmer 1.6s ease-in-out infinite;
-}
-@keyframes cover-shimmer {
-  0%   { background-position: 100% 0; }
-  100% { background-position: -100% 0; }
-}
-@keyframes mosaic-in {
-  to { opacity: 1; transform: scale(1); }
-}
-
-.mosaic-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 5px;
-  transition: transform 280ms ease, filter 280ms ease;
-}
-.mosaic-empty {
-  width: 100%;
-  height: 100%;
-}
-
-.mosaic-cover:hover .mosaic-img { transform: scale(1.05); filter: brightness(1.08); }
-
-.mosaic-title {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  padding: 6px 6px 7px;
-  font-size: 8.5px;
-  font-weight: 600;
-  color: #e0d4b4;
-  line-height: 1.3;
-  background: linear-gradient(to top, rgba(12,10,6,0.85) 0%, transparent 60%);
-  border-radius: 5px;
-  opacity: 0;
-  transition: opacity 180ms ease;
-  text-align: left;
-}
-.mosaic-cover:hover .mosaic-title { opacity: 1; }
-@media (hover: none) { .mosaic-title { opacity: 1; } }
-
-.mosaic-ip { outline: 1.5px solid rgba(122, 140, 88, 0.45); outline-offset: -1.5px; }
-
-.mosaic-ip-dot {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #7a8c58;
-  animation: ip-pulse 2.4s ease-in-out infinite;
-}
-@keyframes ip-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(122, 140, 88, 0.6); }
-  50%       { box-shadow: 0 0 0 4px rgba(122, 140, 88, 0); }
-}
-
-/* ── Year switch transitions ────────────────────────────── */
-/* book list / mosaic cross-fade */
-.ys-list-leave-from  { opacity: 1; }
-.ys-list-leave-active { transition: opacity 120ms ease; }
-.ys-list-leave-to    { opacity: 0; }
-.ys-list-enter-from  { opacity: 0; }
-.ys-list-enter-active { transition: opacity 220ms ease; transition-delay: 40ms; }
-.ys-list-enter-to    { opacity: 1; }
-
-.year-count-num { font-variant-numeric: tabular-nums; }
-
-/* ── FAB ────────────────────────────────────────────────── */
-.fab {
-  position: fixed;
-  right: 1rem; bottom: 1.5rem;
-  z-index: 80;
-  display: flex; align-items: center; justify-content: center;
-  width: 42px; height: 42px;
-  border-radius: 11px;
-  border: 1px solid #2a2618;
-  background: #1c1a12;
-  color: #7a8c58;
-  cursor: pointer;
-  transition: opacity 180ms, transform 180ms;
-}
-.fab:hover { border-color: #3a3620; }
-.fab-off { opacity: 0; transform: scale(0.85); pointer-events: none; }
-@media (min-width: 1024px) { .fab { display: none; } }
-
-/* ── Click trap ─────────────────────────────────────────── */
-.trap {
-  position: fixed; inset: 0; z-index: 60;
-  pointer-events: none;
-  background: rgba(8, 7, 4, 0);
-  transition: background 260ms ease;
-}
-.trap-on {
-  pointer-events: auto;
-  background: rgba(8, 7, 4, 0.55);
-}
-
-/* ── Drawer ─────────────────────────────────────────────── */
-.drawer {
-  position: fixed;
-  right: 0; top: env(safe-area-inset-top, 0); bottom: 0;
-  z-index: 70;
-  width: 16rem;
-  background: #181610;
-  border-left: 1px solid #252210;
-  box-shadow: -12px 0 40px rgba(0,0,0,0.6);
-  transform: translateX(100%);
-  transition: transform 300ms cubic-bezier(0.32, 0, 0.15, 1);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-.drawer-open { transform: translateX(0); }
-
-.drawer-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.1rem 1rem 1rem;
-  border-bottom: 1px solid #222016;
-  flex-shrink: 0;
-}
-
-.drawer-title {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #4a4630;
-}
-
-.drawer-close {
-  width: 26px; height: 26px;
-  display: flex; align-items: center; justify-content: center;
-  border: 1px solid #2a2618; border-radius: 7px;
-  background: transparent; color: #5a5440; font-size: 1rem;
-  cursor: pointer;
-  transition: background 130ms, color 130ms, border-color 130ms;
-}
-.drawer-close:hover { background: #222016; color: #9a8c6c; border-color: #3a3620; }
-
-.drawer-nav {
-  padding: 0.75rem 0.75rem 2rem;
-  overflow-y: auto;
-  flex: 1;
-}
-
-
-/* ── PIN overlay ─────────────────────────────────────────── */
-.h-pin-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 300;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.72);
-  backdrop-filter: blur(6px);
-}
-
-.h-pin-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.1rem;
-}
-
-.h-pin-label {
-  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
-  font-size: 0.56rem;
-  font-weight: 700;
-  letter-spacing: 0.5em;
-  color: rgba(200,186,140,0.55);
-  text-transform: uppercase;
-}
-
-.h-pin-dots { display: flex; gap: 0.75rem; }
-
-.h-pin-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(200,186,140,0.3);
-  transition: background 150ms, border-color 150ms;
-}
-.h-pin-dot--on  { background: #c8ba8c; border-color: #c8ba8c; }
-.h-pin-dot--err { border-color: #e84545; }
-.h-pin-dot--on.h-pin-dot--err { background: #e84545; border-color: #e84545; }
-
-.h-pin-err {
-  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
-  font-size: 0.5rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: #e84545;
-}
-
-.h-pin-fade-enter-active, .h-pin-fade-leave-active { transition: opacity 180ms ease; }
-.h-pin-fade-enter-from, .h-pin-fade-leave-to { opacity: 0; }
 
 /* ── Constructivist shell ────────────────────────────────── */
 .c-corner-rule {
@@ -1077,18 +750,11 @@ onUnmounted(() => {
   background: #211f15;
 }
 
-@keyframes c-book-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 .c-book {
   position: relative;
   background: #0d0b08;
   cursor: pointer;
   transition: background 140ms;
-  animation: c-book-in 300ms cubic-bezier(0.2, 0, 0, 1) both;
-  animation-delay: calc(var(--ci, 0) * 32ms);
 }
 .c-book:hover { background: rgba(255,245,215,0.028); }
 
@@ -1260,11 +926,6 @@ onUnmounted(() => {
 }
 @media (min-width: 640px) { .c-mosaic { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 12px; } }
 
-@keyframes c-mosaic-in {
-  from { opacity: 0; transform: scale(0.93); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
 .c-mosaic-item {
   position: relative;
   border: none;
@@ -1275,8 +936,7 @@ onUnmounted(() => {
   aspect-ratio: 2/3;
   background: linear-gradient(90deg, #181610 0%, #26220e 50%, #181610 100%);
   background-size: 300% 100%;
-  animation: c-shimmer 1.6s ease-in-out infinite calc(var(--mi, 0) * 22ms),
-             c-mosaic-in 300ms ease both calc(var(--mi, 0) * 22ms);
+  animation: c-shimmer 1.6s ease-in-out infinite;
   transition: transform 200ms ease, filter 200ms ease;
 }
 .c-mosaic-item:hover { transform: scale(1.04); filter: brightness(1.08); }
