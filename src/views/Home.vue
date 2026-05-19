@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed, watch, onMounted, onUnmounted, nextTick } from "vue";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
 gsap.registerPlugin(Flip);
@@ -15,6 +15,7 @@ import SearchOverlay from "../components/SearchOverlay.vue";
 NProgress.configure({ showSpinner: false });
 
 const router = useRouter();
+const route  = useRoute();
 const showSearch = ref(false);
 let keyBuffer = "";
 let keyTimer = null;
@@ -189,6 +190,12 @@ onMounted(async () => {
   if (bookCount)   gsap.fromTo(bookCount,   { opacity: 0 },        { opacity: 1,      duration: 0.3,  ease: 'power1.out', delay: 0.22 });
 
   setupCAnimations();
+
+  const bookParam = route.query.book;
+  if (bookParam) {
+    const match = allEntries.value.find(e => e.name === String(bookParam));
+    if (match) openCDetail(match);
+  }
 });
 
 function isInProgress(b) {
@@ -214,11 +221,16 @@ const cDetailRef = ref(null);
 
 async function openCDetail(b) {
   cBook.value = b;
+  router.replace({ query: { book: b.name } });
   const pos = finishedEntries.value.findIndex(e => e.name === b.name);
   cBookIdx.value = pos >= 0 ? finishedEntries.value.length - pos : 1;
   await nextTick();
   cDetailRef.value?.open();
 }
+
+watch(cBook, (val) => {
+  if (!val) router.replace({ query: {} });
+});
 
 function _setCStates(root) {
   root.querySelectorAll('.c-book').forEach(el => {
