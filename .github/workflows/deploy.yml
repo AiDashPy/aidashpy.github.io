@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]  # or your default branch
+    branches: [main]
 
 permissions:
   contents: write
@@ -11,23 +11,27 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
+
       - run: npm ci
 
-      - name: Configure git
+      - name: Build
+        run: npm run build
+        env:
+          VITE_BOOKS_API_KEY: ${{ secrets.VITE_BOOKS_API_KEY }}
+          VITE_ENCRYPTED_PAT: ${{ secrets.VITE_ENCRYPTED_PAT }}
+
+      - name: Deploy
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-
-      - name: Deploy to GitHub Pages
-        run: |
           git config --global credential.helper store
           echo "https://x-access-token:${GITHUB_TOKEN}@github.com" > ~/.git-credentials
-          npm run deploy
+          npx gh-pages -d dist --cname aidashpy.com
         env:
           GITHUB_TOKEN: ${{ github.token }}
-          VITE_BOOKS_API_KEY: ${{ secrets.VITE_BOOKS_API_KEY }}
-          VITE_ENCRYPTED_PAT: ${{ secrets.VITE_ENCRYPTED_PAT }}

@@ -393,12 +393,14 @@ onUnmounted(() => {
               <RouterLink v-else-if="currentBook" to="/log" class="c-reading-strip">
                 <div class="c-rs-accent"></div>
                 <div class="c-rs-body">
-                  <img v-if="currentBook.img" :src="currentBook.img" class="c-rs-thumb" :alt="currentBook.name" />
-                  <div v-else class="c-rs-thumb c-rs-thumb-empty"></div>
-                  <div class="c-rs-text">
-                    <span class="c-rs-label">Recently</span>
-                    <span class="c-rs-title">{{ currentBook.name }}</span>
-                    <span class="c-rs-author">{{ currentBook.author }}</span>
+                  <div class="c-rs-book">
+                    <img v-if="currentBook.img" :src="currentBook.img" class="c-rs-thumb" :alt="currentBook.name" />
+                    <div v-else class="c-rs-thumb c-rs-thumb-empty"></div>
+                    <div class="c-rs-text">
+                      <span class="c-rs-label">Recently</span>
+                      <span class="c-rs-title">{{ currentBook.name }}</span>
+                      <span class="c-rs-author">{{ currentBook.author }}</span>
+                    </div>
                   </div>
                 </div>
                 <span class="c-rs-arr">→</span>
