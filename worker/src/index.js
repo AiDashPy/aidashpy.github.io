@@ -156,6 +156,75 @@ export default {
       }
     }
 
+    // ── NACLA English feed ───────────────────────────────────
+    if (pathname === "/nacla-feed.xml") {
+      const xml = await env.KV.get("nacla-feed");
+      if (!xml) return new Response("Feed not yet generated — check back in a minute.", { status: 503 });
+      return new Response(xml, {
+        headers: {
+          "Content-Type": "application/rss+xml; charset=utf-8",
+          "Cache-Control": "public, max-age=3600",
+        },
+      });
+    }
+
     return new Response("Not found", { status: 404, headers: h });
   },
+
+  async scheduled(_event, env) {
+    await buildNaclaFeed(env);
+  },
 };
+
+async function buildNaclaFeed(env) {
+  const apiUrl = "https://nacla.org/wp-json/wp/v2/posts"
+    + "?categories=11598,9303"
+    + "&categories_exclude=11606,11716"
+    + "&per_page=50&orderby=date&order=desc"
+    + "&_fields=id,title,link,date,excerpt";
+
+  const apiRes = await fetch(apiUrl, {
+    headers: {
+      Accept: "application/json",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    },
+  });
+
+  const ct = apiRes.headers.get("content-type") ?? "";
+  if (!apiRes.ok || !ct.includes("json")) throw new Error(`nacla API returned ${apiRes.status} ${ct}`);
+
+  const posts = await apiRes.json();
+
+  const escXml = (s) =>
+    s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  const stripTags = (s) => s.replace(/<[^>]+>/g, "").trim();
+
+  const items = posts.map((p) => {
+    const title = escXml(stripTags(p.title.rendered));
+    const link = escXml(p.link);
+    const desc = escXml(stripTags(p.excerpt.rendered));
+    const pub = new Date(p.date + "Z").toUTCString();
+    return `  <item>
+    <title>${title}</title>
+    <link>${link}</link>
+    <guid isPermaLink="true">${link}</guid>
+    <pubDate>${pub}</pubDate>
+    <description>${desc}</description>
+  </item>`;
+  }).join("\n");
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NACLA – News &amp; Analysis + Reviews (English)</title>
+    <link>https://nacla.org/web/</link>
+    <description>English-language articles and reviews from NACLA</description>
+    <language>en</language>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <atom:link href="https://aidashpy-api.adiashpy.workers.dev/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+${items}
+  </channel>
+</rss>`;
+
+  await env.KV.put("nacla-feed", xml, { expirationTtl: 7200 });
+}
