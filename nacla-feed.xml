@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Mon, 29 Jun 2026 16:01:55 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2026 19:07:42 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Devastating Earthquakes Strike the North of Venezuela</title>
+    <link>https://nacla.org/devastating-earthquakes-strike-the-north-of-venezuela/</link>
+    <guid isPermaLink="true">https://nacla.org/devastating-earthquakes-strike-the-north-of-venezuela/</guid>
+    <pubDate>Mon, 29 Jun 2026 14:11:39 GMT</pubDate>
+    <description>What should international solidarity demand from the Venezuelan and U.S. governments?</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/06/Edificios_colapsados_e_danificados_em_Los_Palos_Grandes_2026-06-26.jpg" medium="image"/>
+  </item>
   <item>
     <title>The Battle Over a Proposed Pipeline in Mexico&amp;#8217;s Gulf of California</title>
     <link>https://nacla.org/the-battle-over-a-proposed-pipeline-in-mexicos-gulf-of-california/</link>
@@ -400,14 +408,6 @@
     <pubDate>Tue, 24 Mar 2026 12:36:44 GMT</pubDate>
     <description>As Argentina marks 50 years since the beginning of its last bloody dictatorship, a feminist fútbol club in Buenos Aires keeps the memory of the disappeared alive as the government fosters negationism.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/03/3.-23-marzo-25.jpeg" medium="image"/>
-  </item>
-  <item>
-    <title>Cuba’s Cosmopolitan Enclaves: Imperialism and Internationalism in Eastern Sugar Towns (Review)</title>
-    <link>https://nacla.org/cubas-cosmopolitan-enclaves-imperialism-and-internationalism-in-eastern-sugar-towns-review/</link>
-    <guid isPermaLink="true">https://nacla.org/cubas-cosmopolitan-enclaves-imperialism-and-internationalism-in-eastern-sugar-towns-review/</guid>
-    <pubDate>Fri, 20 Mar 2026 10:29:26 GMT</pubDate>
-    <description>A new book places multiracial sugar workers in Cuba’s northeast at the vanguard of inter-war internationalism, solidarity, and anti-imperialism.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/03/Screenshot-2026-03-19-at-5.15.46-PM.png" medium="image"/>
   </item>
   </channel>
 </rss>
