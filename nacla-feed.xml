@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Mon, 29 Jun 2026 11:21:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2026 16:01:55 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>The Battle Over a Proposed Pipeline in Mexico&amp;#8217;s Gulf of California</title>
+    <link>https://nacla.org/the-battle-over-a-proposed-pipeline-in-mexicos-gulf-of-california/</link>
+    <guid isPermaLink="true">https://nacla.org/the-battle-over-a-proposed-pipeline-in-mexicos-gulf-of-california/</guid>
+    <pubDate>Mon, 29 Jun 2026 11:01:33 GMT</pubDate>
+    <description>The livelihoods of local fishing villages and the Indigenous Comcáac community are under threat from a proposed energy project in the Gulf of California, despite their protests.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/06/Screenshot-2026-06-28-at-8.55.05-PM.jpg" medium="image"/>
+  </item>
   <item>
     <title>Desiring Temporalities in the Face of Permanent War</title>
     <link>https://nacla.org/desiring-temporalities-in-the-face-of-permanent-war/</link>
@@ -400,14 +408,6 @@
     <pubDate>Fri, 20 Mar 2026 10:29:26 GMT</pubDate>
     <description>A new book places multiracial sugar workers in Cuba’s northeast at the vanguard of inter-war internationalism, solidarity, and anti-imperialism.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/03/Screenshot-2026-03-19-at-5.15.46-PM.png" medium="image"/>
-  </item>
-  <item>
-    <title>Will the Coca Leaf Ever Lose its Stigma?</title>
-    <link>https://nacla.org/will-the-coca-leaf-ever-lose-its-stigma/</link>
-    <guid isPermaLink="true">https://nacla.org/will-the-coca-leaf-ever-lose-its-stigma/</guid>
-    <pubDate>Tue, 17 Mar 2026 10:08:58 GMT</pubDate>
-    <description>The World Health Organization’s recent refusal to reclassify coca leaf is yet another failure to understand the plant’s cultural significance.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/03/DSC1811-Coca-Leaf-Cultivation-in-Bolivia-4-NACLA-scaled.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
