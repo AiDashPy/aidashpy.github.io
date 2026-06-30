@@ -7,8 +7,24 @@
     <link>https://brooklynrail.org/section/field-notes/</link>
     <description>Field Notes section from The Brooklyn Rail</description>
     <language>en</language>
-    <lastBuildDate>Tue, 30 Jun 2026 20:56:34 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jun 2026 22:17:12 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/brooklynrail-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Editor’s Note</title>
+    <link>https://brooklynrail.org/2026/07/field-notes/editor-note-mattick/</link>
+    <guid isPermaLink="true">https://brooklynrail.org/2026/07/field-notes/editor-note-mattick/</guid>
+    <pubDate>Fri, 26 Jun 2026 18:58:00 GMT</pubDate>
+    <description>Like everyone else who has just returned from ten days in China, I feel compelled, if not authorized, to hold forth on the place. Unlike New York Times opinionizers and world-class pundits, I was not taken to see the robotized factories in Shenzhen, the universities leading the world in the production of scientists, engineers, and programmers, or the labs mass-producing medical patents, cheap AI, and other inventions.</description>
+    <media:content url="https://studio.brooklynrail.org/assets/65e14a47-1eed-4551-bf71-95bb72197575.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>On DHS, or Defeating Homeland Security: The Movement Against Deportations in the US, 2025–26</title>
+    <link>https://brooklynrail.org/2026/07/field-notes/on-dhs-or-defeating-homeland-security/</link>
+    <guid isPermaLink="true">https://brooklynrail.org/2026/07/field-notes/on-dhs-or-defeating-homeland-security/</guid>
+    <pubDate>Fri, 26 Jun 2026 20:50:43 GMT</pubDate>
+    <description>Over the past several years many had forgotten, or were in denial, that not only is the US a nation of immigrants but that everyone in the US relies on immigrants, directly or indirectly, every single day. At the start of 2025, nearly 16 percent of people living here were born in another country, totaling 53.3 million.</description>
+    <media:content url="https://studio.brooklynrail.org/assets/2fdeb00c-0a47-40b1-8a8b-561984e0f3a6.jpg" medium="image"/>
+  </item>
   <item>
     <title>War and the Production of Space: Notes from Beirut</title>
     <link>https://brooklynrail.org/2026/06/field-notes/war-and-the-production-of-space-notes-from-beirut/</link>
@@ -89,22 +105,6 @@ The changes I observe do not only reflect the disruption of the old urban scene,
     <pubDate>Mon, 23 Feb 2026 21:14:04 GMT</pubDate>
     <description>Most of this interview was conducted in Paris by members of Communisme Libertaire in September 2025; the last questions were posed by a Rail editor in late January 2026.</description>
     <media:content url="https://studio.brooklynrail.org/assets/88e0437d-c762-4be1-b2a0-de967bf2b048.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Worse Than We Thought: Public Health in the First Year of Trump II</title>
-    <link>https://brooklynrail.org/2026/03/field-notes/worse-than-we-thought-public-health-in-the-first-year-of-trump-ii/</link>
-    <guid isPermaLink="true">https://brooklynrail.org/2026/03/field-notes/worse-than-we-thought-public-health-in-the-first-year-of-trump-ii/</guid>
-    <pubDate>Mon, 23 Feb 2026 21:19:30 GMT</pubDate>
-    <description>It can be argued that the public health implications of the second Trump administration pale in comparison to broader implications for freedom of speech, rule of law, and respect for human rights. But the impacts on public health offer a specific illustration of the ways in which this administration is threatening very basic aspects of our society fundamental to everyone’s health and well-being.</description>
-    <media:content url="https://studio.brooklynrail.org/assets/d15765d5-5570-4fca-96f2-0d9bba2130c4.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The Whole World is Watching Its Own Snuff Film</title>
-    <link>https://brooklynrail.org/2026/03/field-notes/the-whole-world-is-watching-its-own-snuff-film/</link>
-    <guid isPermaLink="true">https://brooklynrail.org/2026/03/field-notes/the-whole-world-is-watching-its-own-snuff-film/</guid>
-    <pubDate>Mon, 23 Feb 2026 21:42:05 GMT</pubDate>
-    <description>When we rely on cameras to document state violence, how much are we actually relying on other people to do something when they see those images? How do we preserve the potency of these images and direct their interpretation without manipulating or fabricating them, as the state has already demonstrated its willingness to do, and without dishonoring the people being assaulted, kidnapped, or killed?</description>
-    <media:content url="https://studio.brooklynrail.org/assets/ca0b2589-b773-438a-9009-c31f5ef9ece6.png" medium="image"/>
   </item>
   </channel>
 </rss>
