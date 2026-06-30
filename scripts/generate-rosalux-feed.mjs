@@ -5,11 +5,10 @@ const OUT = process.argv[2] ?? "rosalux-feed.xml";
 // Rosa Luxemburg Foundation — English news (also includes publications)
 const SOURCE = "https://www.rosalux.de/en/rss.xml";
 
+const HEADERS = { "User-Agent": "Mozilla/5.0 (compatible; FeedBot/1.0)" };
+
 const res = await fetch(SOURCE, {
-  headers: {
-    "User-Agent": "Mozilla/5.0 (compatible; FeedBot/1.0)",
-    Accept: "application/rss+xml, application/xml, text/xml, */*",
-  },
+  headers: { ...HEADERS, Accept: "application/rss+xml, application/xml, text/xml, */*" },
 });
 if (!res.ok) throw new Error(`rosalux RSS returned HTTP ${res.status}`);
 const xmlText = await res.text();
@@ -39,6 +38,21 @@ const esc = (s) =>
 
 const strip = (s) => s.replace(/<[^>]+>/g, "").trim();
 
+const ogImage = async (url) => {
+  try {
+    const r = await fetch(url, { headers: HEADERS });
+    if (!r.ok) return null;
+    const html = await r.text();
+    return (
+      html.match(/<meta[^>]+property="og:image"[^>]+content="([^"]+)"/)?.[1] ??
+      html.match(/<meta[^>]+content="([^"]+)"[^>]+property="og:image"/)?.[1] ??
+      null
+    );
+  } catch {
+    return null;
+  }
+};
+
 const items = [];
 for (const m of xmlText.matchAll(/<item>([\s\S]*?)<\/item>/g)) {
   const body = m[1];
@@ -54,21 +68,28 @@ for (const m of xmlText.matchAll(/<item>([\s\S]*?)<\/item>/g)) {
 if (items.length === 0)
   throw new Error("No items parsed from rosalux feed — check the feed URL or response format");
 
+// Fetch og:image for each article (sequentially to be polite)
+for (const item of items) {
+  item.image = await ogImage(item.link);
+}
+
 const itemsXml = items
   .map(
-    ({ title, link, pubDate, description }) =>
+    ({ title, link, pubDate, description, image }) =>
       `  <item>
     <title>${esc(title)}</title>
     <link>${esc(link)}</link>
     <guid isPermaLink="true">${esc(link)}</guid>
     <pubDate>${pubDate}</pubDate>
-    <description>${esc(description)}</description>
+    <description>${esc(description)}</description>${image ? `\n    <media:content url="${esc(image)}" medium="image"/>` : ""}
   </item>`
   )
   .join("\n");
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Rosa Luxemburg Foundation – English</title>
     <link>https://www.rosalux.de/en/</link>
