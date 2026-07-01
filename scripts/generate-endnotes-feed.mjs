@@ -19,7 +19,7 @@ const esc = (s) =>
 const strip = (s) => s.replace(/<[^>]+>/g, "").trim();
 
 // ── Load existing feed for date + description persistence ─────
-// New articles get freshly fetched metadata; previously seen articles
+// New items get freshly fetched metadata; previously seen items
 // keep their date and description so pubDates remain stable.
 const knownMeta = new Map(); // url -> { pubDate, description }
 try {
@@ -29,7 +29,7 @@ try {
   )) {
     knownMeta.set(m[1].trim(), { pubDate: m[2].trim(), description: m[3]?.trim() ?? "" });
   }
-  console.log(`Loaded ${knownMeta.size} known article entries from existing feed`);
+  console.log(`Loaded ${knownMeta.size} known entries from existing feed`);
 } catch {
   // First run — file doesn't exist yet
 }
@@ -47,21 +47,51 @@ for (const m of listHtml.matchAll(
   const title = strip(m[2]);
   const author = m[3] ? strip(m[3]) : "";
   if (title && url && !url.includes("/page:")) {
-    articles.push({ url, title, author });
+    articles.push({ url, title, author, kind: "palabre" });
   }
 }
 
 if (articles.length === 0)
   throw new Error("No articles parsed from palabre listing — page structure may have changed");
 
-// ── Fetch metadata for each article ──────────────────────────
-async function fetchMeta(url) {
+// ── Scrape dossiers listing ───────────────────────────────────
+const dossierRes = await fetch(`${BASE}/dossiers`, { headers: HEADERS });
+if (!dossierRes.ok) throw new Error(`Endnotes dossiers listing returned HTTP ${dossierRes.status}`);
+const dossierHtml = await dossierRes.text();
+
+// Extract id->timestamp from background image URLs before parsing list items
+const bgTimestamps = new Map();
+for (const m of dossierHtml.matchAll(
+  /class="dossier-background[^"]*"[^>]*data-id="([^"]+)"[^>]*style="[^"]*\/[a-f0-9]+-(\d{9,10})\//g
+)) {
+  bgTimestamps.set(m[1], Number(m[2]));
+}
+
+const dossiers = [];
+for (const m of dossierHtml.matchAll(
+  /<li[^>]*data-id="([^"]+)"[^>]*>\s*<a href="(https:\/\/www\.endnotes\.org\.uk\/dossiers\/[^"]+)"[^>]*>\s*<div[^>]*>([\s\S]*?)<\/div>\s*(?:<div[^>]*>([\s\S]*?)<\/div>)?/g
+)) {
+  const id = m[1];
+  const url = m[2];
+  const title = strip(m[3]);
+  const subtitle = strip(m[4] ?? "");
+  if (!title) continue;
+  const ts = bgTimestamps.get(id);
+  const pubDate = ts ? new Date(ts * 1000).toUTCString() : null;
+  dossiers.push({ url, title, subtitle, pubDate, kind: "dossier" });
+}
+
+if (dossiers.length === 0)
+  throw new Error("No dossiers parsed from dossiers listing — page structure may have changed");
+
+// ── Fetch metadata for new palabre articles ───────────────────
+async function fetchPalabreMeta(url) {
   try {
     const r = await fetch(url, { headers: HEADERS });
     if (!r.ok) return {};
     const html = await r.text();
 
-    // Unix timestamp embedded in media URL: /media/pages/palabre/<slug>/<hash>-<timestamp>/filename
+    // Unix timestamp embedded in media URL
     const tsM = html.match(/\/media\/pages\/palabre\/[^/]+\/[a-f0-9]+-(\d{9,10})\//);
     const pubDate = tsM ? new Date(Number(tsM[1]) * 1000).toUTCString() : null;
 
@@ -81,21 +111,34 @@ async function fetchMeta(url) {
   }
 }
 
+// ── Resolve all items ─────────────────────────────────────────
 const items = [];
+
 for (const article of articles.slice(0, LIMIT)) {
   const known = knownMeta.get(article.url);
   let pubDate = known?.pubDate ?? null;
   let description = known?.description ?? "";
 
   if (!known) {
-    console.log(`  fetching metadata for: ${article.title.slice(0, 60)}`);
-    const meta = await fetchMeta(article.url);
+    console.log(`  fetching: ${article.title.slice(0, 60)}`);
+    const meta = await fetchPalabreMeta(article.url);
     pubDate = meta.pubDate ?? new Date().toUTCString();
     description = meta.description ?? "";
   }
 
-  items.push({ ...article, pubDate, description });
+  items.push({ url: article.url, title: article.title, author: article.author, pubDate, description });
 }
+
+for (const dossier of dossiers) {
+  const known = knownMeta.get(dossier.url);
+  const pubDate = known?.pubDate ?? dossier.pubDate ?? new Date().toUTCString();
+  // Description: subtitle text if present, otherwise nothing
+  const description = known?.description ?? dossier.subtitle ?? "";
+  items.push({ url: dossier.url, title: `Dossier: ${dossier.title}`, author: "", pubDate, description });
+}
+
+// Sort newest first
+items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
 // ── Build RSS ─────────────────────────────────────────────────
 const itemsXml = items
@@ -112,9 +155,9 @@ const itemsXml = items
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Endnotes – Palabre</title>
+    <title>Endnotes</title>
     <link>${BASE}</link>
-    <description>Recent articles from Endnotes (endnotes.org.uk)</description>
+    <description>Recent articles and dossiers from Endnotes (endnotes.org.uk)</description>
     <language>en</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${SELF}" rel="self" type="application/rss+xml"/>
@@ -123,4 +166,4 @@ ${itemsXml}
 </rss>`;
 
 writeFileSync(OUT, xml, "utf-8");
-console.log(`Wrote ${items.length} items → ${OUT}`);
+console.log(`Wrote ${items.length} items (${articles.length} palabre + ${dossiers.length} dossiers) → ${OUT}`);
