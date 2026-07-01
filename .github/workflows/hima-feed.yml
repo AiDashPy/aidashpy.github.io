@@ -1,0 +1,37 @@
+name: Update HIMA Feed
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate feed
+        run: node scripts/generate-hima-feed.mjs /tmp/hima-feed.xml
+
+      - name: Push to gh-pages
+        run: |
+          git fetch origin gh-pages
+          git checkout gh-pages
+          cp /tmp/hima-feed.xml hima-feed.xml
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add hima-feed.xml
+          git diff --staged --quiet || git commit -m "update hima feed"
+          git push origin gh-pages
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

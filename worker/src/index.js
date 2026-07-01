@@ -28,10 +28,13 @@ function corsHeaders(origin) {
   };
 }
 
-// Images are public assets — wildcard CORS so cached responses work for all origins
+// Images are public assets — wildcard CORS so cached responses work for all origins.
+// PUT is included because the admin cover-upload flow PUTs here with an Authorization
+// header, which makes the browser preflight the request and check this list.
 const IMAGE_CORS = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET, OPTIONS",
+  "Access-Control-Allow-Methods": "GET, PUT, OPTIONS",
+  "Access-Control-Allow-Headers": "Authorization, Content-Type, If-None-Match",
 };
 
 function isAuthed(req, env) {
