@@ -5,7 +5,8 @@
         <!-- base href so history routing resolves correctly when deployed under a subpath -->
         <base href="/" />
         <!-- preload main painting used on General page for fastest initial fetch -->
-        <link rel="preload" as="image" href="/images/ThePaintingNewPlanetNew.webp" />
+        <!-- must match the worker-hosted URL General.vue actually fetches, not a same-origin path -->
+        <link rel="preload" as="image" href="https://aidashpy-api.adiashpy.workers.dev/images/ThePaintingNewPlanetNew.webp" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
         <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png" />
@@ -30,8 +31,8 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="aidashpy" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-      <script type="module" crossorigin src="/assets/index-04ZEWQGS.js"></script>
-      <link rel="stylesheet" crossorigin href="/assets/index-BygW_kqw.css">
+      <script type="module" crossorigin src="/assets/index-CDOmSwoO.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/index-Dz2v2pOz.css">
     </head>
     <body>
         <div id="app"></div>
