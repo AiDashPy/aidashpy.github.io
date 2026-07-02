@@ -7,7 +7,7 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Thu, 02 Jul 2026 14:21:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2026 16:56:34 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title>Happy Birthday, USA?</title>
@@ -16,6 +16,14 @@
     <pubDate>Thu, 02 Jul 2026 16:34:00 +0200</pubDate>
     <description>As the USA celebrates it's 250th independence day this July, a Black perspective on centuries of injustice.</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Nordamerika/civil-rights-march-washington-1963_pa.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>"Resilience Doesn't Mean Being Strong All the Time"</title>
+    <link>https://www.rosalux.de/en/news/id/54980</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54980</guid>
+    <pubDate>Wed, 01 Jul 2026 15:48:40 +0200</pubDate>
+    <description>Theatre director Wisam Al-Deirawi on the psychological burden facing women in Gaza and how art becomes a tool for healing</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/070226_Wissam_Women_Gaza_small.jpeg" medium="image"/>
   </item>
   <item>
     <title>“Many voters want a more left-leaning government”</title>
@@ -80,14 +88,6 @@
     <pubDate>Thu, 11 Jun 2026 14:55:28 +0200</pubDate>
     <description>German chancellor Merz wants Syrians gone. But Syria's shattered economy can't absorb forced returns.</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/061126_Syria_Refugees_Reconstruction_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Bolivia: Between Legitimate Protest and Economic Strangulation</title>
-    <link>https://www.rosalux.de/en/news/id/54902</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54902</guid>
-    <pubDate>Thu, 11 Jun 2026 14:08:10 +0200</pubDate>
-    <description>What is driving the latest wave of protests and road blockades?</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Lateinamerika/Bolivien-el-alto_imago.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
