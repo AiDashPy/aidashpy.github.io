@@ -7,8 +7,16 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Thu, 02 Jul 2026 11:40:05 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2026 14:21:00 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Happy Birthday, USA?</title>
+    <link>https://www.rosalux.de/en/news/id/54963</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54963</guid>
+    <pubDate>Thu, 02 Jul 2026 16:34:00 +0200</pubDate>
+    <description>As the USA celebrates it's 250th independence day this July, a Black perspective on centuries of injustice.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Nordamerika/civil-rights-march-washington-1963_pa.jpg" medium="image"/>
+  </item>
   <item>
     <title>“Many voters want a more left-leaning government”</title>
     <link>https://www.rosalux.de/en/news/id/54973</link>
@@ -18,12 +26,28 @@
     <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Europa/pelle-dragsted.jpg" medium="image"/>
   </item>
   <item>
+    <title>Colombia’s Trump</title>
+    <link>https://www.rosalux.de/en/news/id/54960</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54960</guid>
+    <pubDate>Thu, 25 Jun 2026 10:36:41 +0200</pubDate>
+    <description>Colombia elects right-winger Abelardo de la Espriella, continuing the right's ascendance in Latin America</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Lateinamerika/Kolumbien/de-la-Espriella_pa.jpg" medium="image"/>
+  </item>
+  <item>
     <title>Congo's Minerals Power the World. Why Are Its People Going Hungry?</title>
     <link>https://www.rosalux.de/en/news/id/54956</link>
     <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54956</guid>
     <pubDate>Wed, 24 Jun 2026 13:48:29 +0200</pubDate>
     <description>The DRC supplies cobalt for EV batteries, smartphones, and the green transition. But little remains for the local economy.</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/062426_Congo_Mining_SMALL.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>China: The Loneliness of Gen Z</title>
+    <link>https://www.rosalux.de/en/news/id/54906</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54906</guid>
+    <pubDate>Wed, 17 Jun 2026 17:47:00 +0200</pubDate>
+    <description>Chinese economic growth has opened up new opportunities for millions of people—but at the same time has undermined the social structures that fostered a sense of belonging within organized</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/China/Schanghai-metro_imago.jpg" medium="image"/>
   </item>
   <item>
     <title>Gaza’s Food Sovereignty Crisis</title>
@@ -64,30 +88,6 @@
     <pubDate>Thu, 11 Jun 2026 14:08:10 +0200</pubDate>
     <description>What is driving the latest wave of protests and road blockades?</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Lateinamerika/Bolivien-el-alto_imago.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>How Rapper Balen Shah Is Reshaping Nepal's Politics</title>
-    <link>https://www.rosalux.de/en/news/id/54901</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54901</guid>
-    <pubDate>Thu, 11 Jun 2026 10:54:41 +0200</pubDate>
-    <description>After Gen Z protests toppled the government, Nepal has elected its youngest-ever Prime Minister</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/061126_Nepal_Balen_Shah_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Hyrasia One: Kazakhstan's Green Hydrogen Mega-Project</title>
-    <link>https://www.rosalux.de/en/news/id/54897</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54897</guid>
-    <pubDate>Wed, 10 Jun 2026 12:39:36 +0200</pubDate>
-    <description>Germany is driving the hydrogen project - but Kazakh communities and ecosystems might pay the price</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/061026_Kazakhstan_Hydrogen_Mangystau_Tairov_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Understanding Albania’s Flamingo Revolution</title>
-    <link>https://www.rosalux.de/en/news/id/54911</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54911</guid>
-    <pubDate>Tue, 09 Jun 2026 15:58:21 +0200</pubDate>
-    <description>How a Jared Kushner real estate project became a rallying point against crony capitalism</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/060926_Albania_Flamingo_Revolution_small.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
