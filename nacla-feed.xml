@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Thu, 02 Jul 2026 22:14:04 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 00:14:10 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>While the World Shouts Goal, Mexico Seeks Its Disappeared</title>
+    <link>https://nacla.org/while-the-world-shouts-goal-mexico-seeks-its-disappeared/</link>
+    <guid isPermaLink="true">https://nacla.org/while-the-world-shouts-goal-mexico-seeks-its-disappeared/</guid>
+    <pubDate>Thu, 02 Jul 2026 18:25:06 GMT</pubDate>
+    <description>As the eyes of the world shifted to Mexico for the FIFA World Cup, the families of the thousands of disappeared tried to bring their plight to a global stage.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/07/1-DSC00137-scaled.jpg" medium="image"/>
+  </item>
   <item>
     <title>Why Mexico Welcomed Iran</title>
     <link>https://nacla.org/why-mexico-welcomed-iran/</link>
@@ -400,14 +408,6 @@
     <pubDate>Fri, 27 Mar 2026 09:13:29 GMT</pubDate>
     <description>The announcement of a permanent FBI office in Quito is the latest iteration of the U.S. using security cooperation to intervene in the country’s domestic politics.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/03/EL_PRESIDENTE_NOBOA_CUMPLE_CON_EL_FORTALECIMIENTO_A_LA_POLICIA_NACIONAL_Y_ENTREGA_DE_MAS_DE_1.700_FUSILES_DE_ULTIMA_GENERACION-2-scaled.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Milei’s War against the Working Class</title>
-    <link>https://nacla.org/mileis-war-against-the-working-class/</link>
-    <guid isPermaLink="true">https://nacla.org/mileis-war-against-the-working-class/</guid>
-    <pubDate>Thu, 26 Mar 2026 09:20:25 GMT</pubDate>
-    <description>Argentina’s sweeping labor reform, heavily resisted in the streets, is set to roll back nearly a century of hard-fought rights.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/03/CIUDAD-DE-BUENOS-AIRES_-REFORMA-LABORAL_-190226_-MIGUEL-M.-CAAMANO_-1-scaled.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
