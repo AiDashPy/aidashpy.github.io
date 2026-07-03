@@ -7,8 +7,16 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Fri, 03 Jul 2026 08:15:24 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 11:38:28 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Belfast Race Riots: How Loyalism Turned on Migrants</title>
+    <link>https://www.rosalux.de/en/news/id/54992</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54992</guid>
+    <pubDate>Fri, 03 Jul 2026 11:57:18 +0200</pubDate>
+    <description>Northern Ireland's summer riots reveal how old sectarian conflicts created the conditions for new pogroms.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/070326_Belfast_Race_Riots_small.jpg" medium="image"/>
+  </item>
   <item>
     <title>Happy Birthday, USA?</title>
     <link>https://www.rosalux.de/en/news/id/54963</link>
@@ -16,6 +24,14 @@
     <pubDate>Thu, 02 Jul 2026 16:34:00 +0200</pubDate>
     <description>As the USA celebrates it's 250th independence day this July, a Black perspective on centuries of injustice.</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Nordamerika/civil-rights-march-washington-1963_pa.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Kyrgyzstan's Gig Economy: Taxed But Unprotected</title>
+    <link>https://www.rosalux.de/en/news/id/54989</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54989</guid>
+    <pubDate>Thu, 02 Jul 2026 14:24:06 +0200</pubDate>
+    <description>Platform work is booming in Kyrgyzstan, but labour law hasn't caught up with the gig economy.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Zentralasien/bishkek_courier_imago697443014.jpg" medium="image"/>
   </item>
   <item>
     <title>"Resilience Doesn't Mean Being Strong All the Time"</title>
@@ -72,22 +88,6 @@
     <pubDate>Thu, 11 Jun 2026 17:10:23 +0200</pubDate>
     <description>One hundred days after the new president took office, opposition is beginning to take shape</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Lateinamerika/chile_anti-kast-demo_imago.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Dispatches From Gaza: Return Us to Ourselves</title>
-    <link>https://www.rosalux.de/en/news/id/54904</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54904</guid>
-    <pubDate>Thu, 11 Jun 2026 16:17:11 +0200</pubDate>
-    <description>Palestinian writer Ali Abu Yassin on the silent war - life after the ceasefire</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/061126_Gaza_Ali_Abu_Yassin_Retun_Us_t_o_Ourselves_Rafah_Crossing_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Forcing Refugees To Return to Syria is a Bad Idea</title>
-    <link>https://www.rosalux.de/en/news/id/54903</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54903</guid>
-    <pubDate>Thu, 11 Jun 2026 14:55:28 +0200</pubDate>
-    <description>German chancellor Merz wants Syrians gone. But Syria's shattered economy can't absorb forced returns.</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/061126_Syria_Refugees_Reconstruction_SMALL.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
