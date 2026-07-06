@@ -7,8 +7,16 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Mon, 06 Jul 2026 09:06:04 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2026 13:53:54 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Britain's Greens Are on the Rise</title>
+    <link>https://www.rosalux.de/en/news/id/54996</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54996</guid>
+    <pubDate>Mon, 06 Jul 2026 14:27:44 +0200</pubDate>
+    <description>Zack Polanski's Greens are skyrocketing in the polls, but can they out-flank Labour on the left?</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/070126_Zack_Polanski_Greens_small.jpg" medium="image"/>
+  </item>
   <item>
     <title>Belfast Race Riots: How Loyalism Turned on Migrants</title>
     <link>https://www.rosalux.de/en/news/id/54992</link>
@@ -80,14 +88,6 @@
     <pubDate>Tue, 16 Jun 2026 16:30:45 +0200</pubDate>
     <description>In Gaza, the hungry forage for food while farmers and seed keepers struggle to preserve Palestinian agriculture</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/061526_Gaza_Food_Sovereignty_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Chile under Kast: Pinochet's Neoliberalism Returns</title>
-    <link>https://www.rosalux.de/en/news/id/54905</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54905</guid>
-    <pubDate>Thu, 11 Jun 2026 17:10:23 +0200</pubDate>
-    <description>One hundred days after the new president took office, opposition is beginning to take shape</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Lateinamerika/chile_anti-kast-demo_imago.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
