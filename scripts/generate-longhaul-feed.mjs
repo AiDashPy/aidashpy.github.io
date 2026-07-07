@@ -61,40 +61,53 @@ if (slugs.length === 0)
 
 console.log(`Found ${onlineOnly.size} online-only + ${allArticles.size} all-articles = ${slugs.length} unique articles`);
 
-// ── Fetch all pages via WP REST API ──────────────────────────
-// Pages API returns up to 100 per page; fetch all in one go since total is small
-const apiRes = await fetch(
-  `${BASE}/wp-json/wp/v2/pages?per_page=100&_fields=id,slug,title,link,date,excerpt`,
-  { headers: { "User-Agent": HEADERS["User-Agent"] } }
-);
-if (!apiRes.ok) throw new Error(`WP API returned HTTP ${apiRes.status}`);
-const allPages = await apiRes.json();
+// ── Fetch pages + posts from WP REST API in parallel ─────────
+const API_FIELDS = "id,slug,title,link,date,excerpt";
+const [pagesRes, postsRes] = await Promise.all([
+  fetch(`${BASE}/wp-json/wp/v2/pages?per_page=100&_fields=${API_FIELDS}`, { headers: { "User-Agent": HEADERS["User-Agent"] } }),
+  fetch(`${BASE}/wp-json/wp/v2/posts?per_page=100&_fields=${API_FIELDS}`, { headers: { "User-Agent": HEADERS["User-Agent"] } }),
+]);
+if (!pagesRes.ok) throw new Error(`WP pages API returned HTTP ${pagesRes.status}`);
+if (!postsRes.ok) throw new Error(`WP posts API returned HTTP ${postsRes.status}`);
+
+const allPages = await pagesRes.json();
+const allPosts = await postsRes.json();
 
 // Index pages by slug for O(1) lookup
 const bySlug = new Map(allPages.map((p) => [p.slug, p]));
 
+const toItem = (p) => ({
+  url: p.link.replace(/\/$/, ""),
+  title: decode(strip(p.title.rendered)),
+  excerpt: decode(strip(p.excerpt?.rendered ?? "")).slice(0, 300),
+  pubDate: new Date(p.date).toUTCString(),
+});
+
+// Materials: resolve scraped slugs against pages index
 const items = [];
 for (const slug of slugs) {
   const page = bySlug.get(slug);
-  if (!page) {
-    console.warn(`  no API data for slug: ${slug}`);
-    continue;
-  }
-  const title = decode(strip(page.title.rendered));
-  const excerpt = decode(strip(page.excerpt?.rendered ?? "")).slice(0, 300);
-  const pubDate = new Date(page.date).toUTCString();
-  const url = page.link.replace(/\/$/, "");
-  items.push({ url, title, pubDate, excerpt });
+  if (!page) { console.warn(`  no API data for slug: ${slug}`); continue; }
+  items.push(toItem(page));
 }
 
-// Sort newest first
-items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+// Dispatches: all WP Posts (higher-ed + k-12) — their full post set matches exactly
+for (const post of allPosts) {
+  items.push(toItem(post));
+}
 
-if (items.length === 0)
+// Deduplicate by URL, sort newest first
+const seen = new Set();
+const deduped = items.filter((i) => { if (seen.has(i.url)) return false; seen.add(i.url); return true; });
+deduped.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+
+if (deduped.length === 0)
   throw new Error("No items resolved from WP API — check slug matching");
 
+console.log(`${items.length - deduped.length} duplicates removed; ${deduped.length} total items`);
+
 // ── Build RSS ─────────────────────────────────────────────────
-const itemsXml = items
+const itemsXml = deduped
   .map(({ url, title, pubDate, excerpt }) =>
     `  <item>
     <title>${esc(title)}</title>
@@ -108,9 +121,9 @@ const itemsXml = items
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Long-Haul Mag – Materials</title>
-    <link>${BASE}/materials/</link>
-    <description>Materials articles from Long-Haul Mag (online-only + all articles)</description>
+    <title>Long-Haul Mag</title>
+    <link>${BASE}</link>
+    <description>Materials and Dispatches articles from Long-Haul Mag</description>
     <language>en</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${SELF}" rel="self" type="application/rss+xml"/>
@@ -119,4 +132,4 @@ ${itemsXml}
 </rss>`;
 
 writeFileSync(OUT, xml, "utf-8");
-console.log(`Wrote ${items.length} items → ${OUT}`);
+console.log(`Wrote ${deduped.length} items → ${OUT}`);
