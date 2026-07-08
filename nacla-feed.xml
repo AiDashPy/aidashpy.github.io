@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Wed, 08 Jul 2026 21:17:04 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jul 2026 23:16:50 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>A Thread in the Thicket</title>
+    <link>https://nacla.org/a-thread-in-the-thicket/</link>
+    <guid isPermaLink="true">https://nacla.org/a-thread-in-the-thicket/</guid>
+    <pubDate>Wed, 08 Jul 2026 18:38:15 GMT</pubDate>
+    <description>What forms of listening make the commons possible in contexts of conflict? An approach to “wild listening” as a micropolitical practice in the face of contemporary violence.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/06/06-Zambrano-Murillo01-scaled.jpeg" medium="image"/>
+  </item>
   <item>
     <title>While the World Shouts Goal, Mexico Seeks Its Disappeared</title>
     <link>https://nacla.org/while-the-world-shouts-goal-mexico-seeks-its-disappeared/</link>
@@ -400,14 +408,6 @@
     <pubDate>Sun, 29 Mar 2026 11:24:22 GMT</pubDate>
     <description>Even as borders harden, life continues to exceed them. The Spring 2026 issue of the NACLA Report traces how border violence has moved from the margins to the center of political life across the Americas.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/03/00-Editors-Intro01-copy-scaled.jpeg" medium="image"/>
-  </item>
-  <item>
-    <title>The FBI’s Return to Ecuador Is Nothing New</title>
-    <link>https://nacla.org/fbi-return-to-ecuador-is-nothing-new/</link>
-    <guid isPermaLink="true">https://nacla.org/fbi-return-to-ecuador-is-nothing-new/</guid>
-    <pubDate>Fri, 27 Mar 2026 09:13:29 GMT</pubDate>
-    <description>The announcement of a permanent FBI office in Quito is the latest iteration of the U.S. using security cooperation to intervene in the country’s domestic politics.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/03/EL_PRESIDENTE_NOBOA_CUMPLE_CON_EL_FORTALECIMIENTO_A_LA_POLICIA_NACIONAL_Y_ENTREGA_DE_MAS_DE_1.700_FUSILES_DE_ULTIMA_GENERACION-2-scaled.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
