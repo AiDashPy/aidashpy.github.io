@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Thu, 09 Jul 2026 12:12:14 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jul 2026 16:06:09 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>“No Football Between The Concentration Camps”</title>
+    <link>https://nacla.org/no-football-between-the-concentration-camps/</link>
+    <guid isPermaLink="true">https://nacla.org/no-football-between-the-concentration-camps/</guid>
+    <pubDate>Thu, 09 Jul 2026 11:17:28 GMT</pubDate>
+    <description>The 1978 World Cup, hosted by Argentina’s military dictatorship, spawned powerful calls for a boycott, demands that echo today in the U.S. as social movements confront rising authoritarianism through fútbol.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/07/Screenshot-2026-07-08-at-3.58.06-PM.jpg" medium="image"/>
+  </item>
   <item>
     <title>A Thread in the Thicket</title>
     <link>https://nacla.org/a-thread-in-the-thicket/</link>
@@ -400,14 +408,6 @@
     <pubDate>Tue, 31 Mar 2026 15:08:42 GMT</pubDate>
     <description>An Indigenous man in Brazil endured torture and forced labor for 19 months in a dictatorship “concentration camp”. Fifty-five years later, his son seeks justice.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/03/Foto2-Reproducao_Microficha-disponibilizada-pelo-Museu-do-Indio-e-juntada-pela-Funai-na-acao-judicial.png" medium="image"/>
-  </item>
-  <item>
-    <title>Counter-Archives to Border Fascism</title>
-    <link>https://nacla.org/counter-archives-to-border-fascism/</link>
-    <guid isPermaLink="true">https://nacla.org/counter-archives-to-border-fascism/</guid>
-    <pubDate>Sun, 29 Mar 2026 11:24:22 GMT</pubDate>
-    <description>Even as borders harden, life continues to exceed them. The Spring 2026 issue of the NACLA Report traces how border violence has moved from the margins to the center of political life across the Americas.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/03/00-Editors-Intro01-copy-scaled.jpeg" medium="image"/>
   </item>
   </channel>
 </rss>
