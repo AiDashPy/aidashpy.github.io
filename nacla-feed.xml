@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Fri, 10 Jul 2026 12:04:54 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jul 2026 15:36:12 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>The Teachers’ Strike, the World Cup, and the Struggle for Mexican Sovereignty</title>
+    <link>https://nacla.org/the-teachers-strike-the-world-cup-and-the-struggle-for-mexican-sovereignty/</link>
+    <guid isPermaLink="true">https://nacla.org/the-teachers-strike-the-world-cup-and-the-struggle-for-mexican-sovereignty/</guid>
+    <pubDate>Fri, 10 Jul 2026 10:17:57 GMT</pubDate>
+    <description>As Mexico co-hosts the World Cup, the CNTE fights a broader struggle over who controls the nation’s wealth, public institutions, and future.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/07/Screenshot-2026-07-10-at-10.01.52-AM.jpg" medium="image"/>
+  </item>
   <item>
     <title>“No Football Between The Concentration Camps”</title>
     <link>https://nacla.org/no-football-between-the-concentration-camps/</link>
@@ -400,14 +408,6 @@
     <pubDate>Wed, 01 Apr 2026 10:52:08 GMT</pubDate>
     <description>In January, Venezuelans in Chile briefly celebrated the fall of Nicolás Maduro, but many now fear a harsher climate for migrants as the country shifts to the right.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/04/IMG_0499-scaled.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>In His Father&amp;#8217;s Name, an Indigenous Man Takes on the Government for Abuses at the Krenak Reformatory</title>
-    <link>https://nacla.org/an-indigenous-man-takes-on-the-government-for-abuses-at-the-krenak-reformatory/</link>
-    <guid isPermaLink="true">https://nacla.org/an-indigenous-man-takes-on-the-government-for-abuses-at-the-krenak-reformatory/</guid>
-    <pubDate>Tue, 31 Mar 2026 15:08:42 GMT</pubDate>
-    <description>An Indigenous man in Brazil endured torture and forced labor for 19 months in a dictatorship “concentration camp”. Fifty-five years later, his son seeks justice.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/03/Foto2-Reproducao_Microficha-disponibilizada-pelo-Museu-do-Indio-e-juntada-pela-Funai-na-acao-judicial.png" medium="image"/>
   </item>
   </channel>
 </rss>
