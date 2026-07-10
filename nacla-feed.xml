@@ -7,8 +7,24 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Fri, 10 Jul 2026 15:36:12 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jul 2026 17:53:05 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>NACLA Web Series: The 2026 World Cup</title>
+    <link>https://nacla.org/nacla-web-series-the-2026-world-cup/</link>
+    <guid isPermaLink="true">https://nacla.org/nacla-web-series-the-2026-world-cup/</guid>
+    <pubDate>Fri, 10 Jul 2026 12:41:24 GMT</pubDate>
+    <description>In this web series, NACLA contributors cover the intersection of fútbol and politics from a wide variety of angles.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/07/3-DSC00764-scaled.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Mexico 86 (Review)</title>
+    <link>https://nacla.org/mexico-86-review/</link>
+    <guid isPermaLink="true">https://nacla.org/mexico-86-review/</guid>
+    <pubDate>Fri, 10 Jul 2026 12:40:04 GMT</pubDate>
+    <description>Mexico 86 highlights the parallels between the 1986 and 2026 FIFA World Cup, as well as the threads of corruption and scandal that bind them together.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/07/Book-Review-Top-Image-1350-x-870.jpg" medium="image"/>
+  </item>
   <item>
     <title>The Teachers’ Strike, the World Cup, and the Struggle for Mexican Sovereignty</title>
     <link>https://nacla.org/the-teachers-strike-the-world-cup-and-the-struggle-for-mexican-sovereignty/</link>
@@ -392,22 +408,6 @@
     <pubDate>Mon, 06 Apr 2026 10:50:52 GMT</pubDate>
     <description>From the Bracero crisis of 1954 to today&amp;#8217;s cartel wars, Mexico has framed subordination as partnership, though history suggests that room to maneuver exists—albeit within limits set by Washington.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/04/Rioting-crowds-of-Mexican-workers-cross-the-U.S.-Mexico-Border-Mexicali-Mexico-scaled.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Argentina’s Glaciers are Under Threat</title>
-    <link>https://nacla.org/argentinas-glaciers-are-under-threat/</link>
-    <guid isPermaLink="true">https://nacla.org/argentinas-glaciers-are-under-threat/</guid>
-    <pubDate>Fri, 03 Apr 2026 09:08:20 GMT</pubDate>
-    <description>As the country’s far-right government attempts to undo groundbreaking legislation that has protected glaciers for 15 years, activists are fighting back.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/04/Screenshot-2026-04-02-at-6.17.49-PM-1024x745.png" medium="image"/>
-  </item>
-  <item>
-    <title>From Hope to Uncertainty: Venezuelans in Far-Right Chile</title>
-    <link>https://nacla.org/from-hope-to-uncertainty-venezuelans-in-far-right-chile/</link>
-    <guid isPermaLink="true">https://nacla.org/from-hope-to-uncertainty-venezuelans-in-far-right-chile/</guid>
-    <pubDate>Wed, 01 Apr 2026 10:52:08 GMT</pubDate>
-    <description>In January, Venezuelans in Chile briefly celebrated the fall of Nicolás Maduro, but many now fear a harsher climate for migrants as the country shifts to the right.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/04/IMG_0499-scaled.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
