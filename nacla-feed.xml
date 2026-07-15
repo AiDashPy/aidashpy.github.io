@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Wed, 15 Jul 2026 13:59:13 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jul 2026 15:42:25 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Tortured by Israel, Abandoned by Argentina</title>
+    <link>https://nacla.org/tortured-by-israel-abandoned-by-argentina/</link>
+    <guid isPermaLink="true">https://nacla.org/tortured-by-israel-abandoned-by-argentina/</guid>
+    <pubDate>Wed, 15 Jul 2026 10:53:49 GMT</pubDate>
+    <description>As the country’s far-right Zionist president seeks to deepen ties with Israel, Argentine activists in solidarity with Palestine have been left to pay the price.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/07/Screenshot-2026-07-15-at-10.13.32-AM.jpg" medium="image"/>
+  </item>
   <item>
     <title>NACLA Web Series: The 2026 World Cup</title>
     <link>https://nacla.org/nacla-web-series-the-2026-world-cup/</link>
@@ -400,14 +408,6 @@
     <pubDate>Thu, 09 Apr 2026 11:45:45 GMT</pubDate>
     <description>Drugs. They have been the boogeyman across Latin America for decades. An excuse that has led to so much violence. And Trump is turning up the temperature.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/04/3840px-Mexican_army_soldier-scaled.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Mexico and the Hegemon’s Handcuffs</title>
-    <link>https://nacla.org/mexico-and-the-hegemons-handcuffs/</link>
-    <guid isPermaLink="true">https://nacla.org/mexico-and-the-hegemons-handcuffs/</guid>
-    <pubDate>Mon, 06 Apr 2026 10:50:52 GMT</pubDate>
-    <description>From the Bracero crisis of 1954 to today&amp;#8217;s cartel wars, Mexico has framed subordination as partnership, though history suggests that room to maneuver exists—albeit within limits set by Washington.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/04/Rioting-crowds-of-Mexican-workers-cross-the-U.S.-Mexico-Border-Mexicali-Mexico-scaled.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
