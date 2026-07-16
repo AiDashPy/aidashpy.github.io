@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Thu, 16 Jul 2026 11:46:24 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2026 14:11:30 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Looking North, Building East</title>
+    <link>https://nacla.org/looking-north-building-east/</link>
+    <guid isPermaLink="true">https://nacla.org/looking-north-building-east/</guid>
+    <pubDate>Thu, 16 Jul 2026 10:10:39 GMT</pubDate>
+    <description>As Chinese investment reshapes Colombia&amp;#8217;s infrastructure, the country&amp;#8217;s longstanding alliance with the United States enters a new era of strategic balancing.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/07/Screenshot-2026-07-15-at-4.30.55-PM.jpg" medium="image"/>
+  </item>
   <item>
     <title>Tortured by Israel, Abandoned by Argentina</title>
     <link>https://nacla.org/tortured-by-israel-abandoned-by-argentina/</link>
@@ -400,14 +408,6 @@
     <pubDate>Fri, 10 Apr 2026 10:21:27 GMT</pubDate>
     <description>As the government moves to establish a coast guard station in Gorgona Island, local communities claim they have been left out of the process.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/04/Gorgona_AC_26-scaled.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>How U.S. Policy Fueled Mexico&amp;#8217;s Cartel Crisis | Under the Shadow Season 2, Episode 10</title>
-    <link>https://nacla.org/how-us-policy-fueled-mexicos-cartel-crisis/</link>
-    <guid isPermaLink="true">https://nacla.org/how-us-policy-fueled-mexicos-cartel-crisis/</guid>
-    <pubDate>Thu, 09 Apr 2026 11:45:45 GMT</pubDate>
-    <description>Drugs. They have been the boogeyman across Latin America for decades. An excuse that has led to so much violence. And Trump is turning up the temperature.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/04/3840px-Mexican_army_soldier-scaled.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
