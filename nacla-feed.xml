@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Fri, 17 Jul 2026 18:11:34 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 17 Jul 2026 20:11:31 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Nicaragua: The Undoing of a Dream</title>
+    <link>https://nacla.org/nicaragua-the-undoing-of-a-dream/</link>
+    <guid isPermaLink="true">https://nacla.org/nicaragua-the-undoing-of-a-dream/</guid>
+    <pubDate>Fri, 17 Jul 2026 15:03:11 GMT</pubDate>
+    <description>Ahead of the 47th anniversary of the Sandinista victory in Nicaragua, former comandante Dora María Téllez details how the movement lost its way—and how the future can be reclaimed.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/07/Screenshot-2026-07-17-at-2.45.25-PM.jpg" medium="image"/>
+  </item>
   <item>
     <title>Radical Sovereignty: Debating Race, Nation, and Empire in Interwar Latin America (Review)</title>
     <link>https://nacla.org/radical-sovereignty-debating-race-nation-and-empire-in-interwar-latin-america-review/</link>
@@ -400,14 +408,6 @@
     <pubDate>Tue, 14 Apr 2026 17:11:44 GMT</pubDate>
     <description>In a continent marked by multiple overlapping crises, Migrant Struggles in Times of Pandemic and Crisis: A View from the Americas emerges as an urgent and deeply necessary work.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/04/Screenshot-2026-04-14-at-5.15.21-PM.png" medium="image"/>
-  </item>
-  <item>
-    <title>Lessons from the Zapatistas: From Armed Insurgency to People’s Autonomy (Review)</title>
-    <link>https://nacla.org/lessons-from-the-zapatistas-from-armed-insurgency-to-peoples-autonomy-review/</link>
-    <guid isPermaLink="true">https://nacla.org/lessons-from-the-zapatistas-from-armed-insurgency-to-peoples-autonomy-review/</guid>
-    <pubDate>Fri, 10 Apr 2026 10:29:34 GMT</pubDate>
-    <description>A new book summarizes nearly 30 years of Zapatista political activity, tracing the construction of Mayan self-governance, unpacking the insurgency’s “critical theory,” and drawing lessons for the present.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/04/Screenshot-2026-04-09-at-6.25.20-PM-1024x658.png" medium="image"/>
   </item>
   </channel>
 </rss>
