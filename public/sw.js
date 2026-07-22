@@ -1,4 +1,4 @@
-const CACHE = "aidashpy-v1";
+const CACHE = "aidashpy-v2";
 const SHELL = ["/", "/index.html", "/src/main.js"];
 
 self.addEventListener("install", (e) => {
