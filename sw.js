@@ -1,4 +1,4 @@
-const CACHE = "aidashpy-v2";
+const CACHE = "aidashpy-v3";
 const SHELL = ["/", "/index.html", "/src/main.js"];
 
 self.addEventListener("install", (e) => {
@@ -27,7 +27,7 @@ self.addEventListener("fetch", (e) => {
   // Network-first for navigation (HTML) so updates are always fresh
   if (request.mode === "navigate") {
     e.respondWith(
-      fetch(request)
+      fetch(request, { cache: "no-store" })
         .then((res) => {
           const clone = res.clone();
           caches.open(CACHE).then((c) => c.put(request, clone));
