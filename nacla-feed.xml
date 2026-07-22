@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Wed, 22 Jul 2026 14:13:47 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jul 2026 16:26:06 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Life Sentences Threaten Women and Youth in El Salvador</title>
+    <link>https://nacla.org/life-sentences-threaten-women-and-youth-in-el-salvador/</link>
+    <guid isPermaLink="true">https://nacla.org/life-sentences-threaten-women-and-youth-in-el-salvador/</guid>
+    <pubDate>Wed, 22 Jul 2026 10:44:42 GMT</pubDate>
+    <description>Four years into a crackdown on alleged gang members that has discarded civil liberties, recent constitutional reforms create opportunities for further abuse.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/07/Screenshot-2026-07-20-at-2.19.08-PM.jpg" medium="image"/>
+  </item>
   <item>
     <title>Nicaragua: The Undoing of a Dream</title>
     <link>https://nacla.org/nicaragua-the-undoing-of-a-dream/</link>
@@ -400,14 +408,6 @@
     <pubDate>Wed, 15 Apr 2026 10:36:56 GMT</pubDate>
     <description>The 2026 “Save the World Cup Act” Stirs Up Hidden Histories of Latino Immigration Activism during USA ‘94.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/04/Screenshot-2026-04-15-at-8.35.34-AM.png" medium="image"/>
-  </item>
-  <item>
-    <title>Review of Migrant Struggles in Times of Pandemic and Crisis: A View from the Americas</title>
-    <link>https://nacla.org/review-of-migrant-struggles-in-times-of-pandemic-and-crisis-a-view-from-the-americas/</link>
-    <guid isPermaLink="true">https://nacla.org/review-of-migrant-struggles-in-times-of-pandemic-and-crisis-a-view-from-the-americas/</guid>
-    <pubDate>Tue, 14 Apr 2026 17:11:44 GMT</pubDate>
-    <description>In a continent marked by multiple overlapping crises, Migrant Struggles in Times of Pandemic and Crisis: A View from the Americas emerges as an urgent and deeply necessary work.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/04/Screenshot-2026-04-14-at-5.15.21-PM.png" medium="image"/>
   </item>
   </channel>
 </rss>
