@@ -20,6 +20,12 @@ const routes = [
         component: Admin
     },
     {
+        path: '/qbt',
+        beforeEnter() {
+            window.location.href = 'https://averys-mac-mini-1.tail8e2e46.ts.net/'
+        }
+    },
+    {
         path: '/:catchAll(.*)',
         redirect: '/'
     }
