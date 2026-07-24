@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Fri, 24 Jul 2026 16:47:56 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jul 2026 18:23:40 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Venezuela Dealt Another Blow</title>
+    <link>https://nacla.org/venezuela-dealt-another-blow/</link>
+    <guid isPermaLink="true">https://nacla.org/venezuela-dealt-another-blow/</guid>
+    <pubDate>Fri, 24 Jul 2026 13:31:09 GMT</pubDate>
+    <description>As the international community focuses on the reconstruction of Venezuela, the state finds itself in a historically weak position.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/07/OG_00219-scaled.jpg" medium="image"/>
+  </item>
   <item>
     <title>Life Sentences Threaten Women and Youth in El Salvador</title>
     <link>https://nacla.org/life-sentences-threaten-women-and-youth-in-el-salvador/</link>
@@ -400,14 +408,6 @@
     <pubDate>Fri, 17 Apr 2026 10:35:22 GMT</pubDate>
     <description>Óscar Martínez’s profile of Salvadoran President Nayib Bukele unmasks an authoritarian leader who hangs on to power through propaganda, gang pacts, and repression.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/04/Screenshot-2026-04-16-at-7.35.08-PM.png" medium="image"/>
-  </item>
-  <item>
-    <title>The 2026 World Cup, ICE, and the Long Shadow of USA ‘94</title>
-    <link>https://nacla.org/the-2026-world-cup-ice-and-the-long-shadow-of-usa-94/</link>
-    <guid isPermaLink="true">https://nacla.org/the-2026-world-cup-ice-and-the-long-shadow-of-usa-94/</guid>
-    <pubDate>Wed, 15 Apr 2026 10:36:56 GMT</pubDate>
-    <description>The 2026 “Save the World Cup Act” Stirs Up Hidden Histories of Latino Immigration Activism during USA ‘94.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/04/Screenshot-2026-04-15-at-8.35.34-AM.png" medium="image"/>
   </item>
   </channel>
 </rss>
