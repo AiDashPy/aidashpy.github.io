@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Mon, 27 Jul 2026 14:33:06 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2026 17:00:13 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>The Animator’s New Groove</title>
+    <link>https://lareviewofbooks.org/article/disney-drawing-life-back-into-animation-tom-sito/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/disney-drawing-life-back-into-animation-tom-sito/</guid>
+    <pubDate>Mon, 27 Jul 2026 15:00:00 GMT</pubDate>
+    <description>A personal history of animation’s reconquest of Hollywood.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Drawing Life Back into Animation.jpg" medium="image"/>
+  </item>
   <item>
     <title>An Echo, a Movement</title>
     <link>https://lareviewofbooks.org/article/echo-city-kx-song-everyday-movement-gigi-leung/</link>
@@ -224,14 +232,6 @@
     <pubDate>Thu, 09 Jul 2026 12:30:00 GMT</pubDate>
     <description>Alexis Almeida discusses her debut poetry collection ‘Caetano,’ a meditation on family, memory, and language.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Caetano - almeida-1.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Organizing Pessimism</title>
-    <link>https://lareviewofbooks.org/article/andre-breton-nadja-magic-art-cavalier-perspective-pessimism/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/andre-breton-nadja-magic-art-cavalier-perspective-pessimism/</guid>
-    <pubDate>Wed, 08 Jul 2026 12:30:00 GMT</pubDate>
-    <description>André Breton, necropolitics, and 100 years of surrealism.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Andre Breton Photo by Henri Manuel 1927.jpg" medium="image"/>
   </item>
   <item>
     <title>The Beginning of the Story</title>
