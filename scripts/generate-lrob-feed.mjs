@@ -1,19 +1,25 @@
-// Generates RSS for lareviewofbooks.org via Wayback Machine snapshots.
-// The site blocks automated requests; we use Wayback CDX to find the most
-// recent real snapshot of each article-type listing, extract __NEXT_DATA__,
-// combine reviews + essays + interviews, sort newest-first.
+// Generates RSS for lareviewofbooks.org.
+// The site blocks plain curl/wget but passes Node.js fetch with standard
+// browser Sec-Fetch headers. Fetches page 1 of reviews, essays, and
+// interviews listings, combines, deduplicates, and sorts newest-first.
 
 import { writeFileSync } from "fs";
 
 const OUT = process.argv[2] ?? "lrob-feed.xml";
 const BASE = "https://lareviewofbooks.org";
 const SELF = "https://aidashpy.com/lrob-feed.xml";
-const WB = "https://web.archive.org";
-const MIN_BYTES = 10_000;
 const MAX_ITEMS = 50;
 const TYPES = ["reviews", "essays", "interviews"];
 
-const UA = "Mozilla/5.0 (compatible; FeedBot/1.0)";
+const HEADERS = {
+  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+  "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+  "Accept-Language": "en-US,en;q=0.9",
+  "Sec-Fetch-Dest": "document",
+  "Sec-Fetch-Mode": "navigate",
+  "Sec-Fetch-Site": "none",
+  "Sec-Fetch-User": "?1",
+};
 
 const esc = (s) =>
   String(s ?? "")
@@ -21,67 +27,26 @@ const esc = (s) =>
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
 
-function fixMojibake(s) {
-  if (!s) return s;
-  // If all codepoints are in Latin-1 range, the string was likely UTF-8
-  // bytes mis-decoded as Latin-1 — re-encode as bytes then decode as UTF-8.
-  try {
-    if ([...s].every((c) => c.charCodeAt(0) <= 255)) {
-      return Buffer.from(s, "binary").toString("utf8");
-    }
-  } catch {}
-  return s;
-}
-
-function stripWayback(url) {
-  return url.replace(/^https?:\/\/web\.archive\.org\/web\/[^/]+(?:im_|cs_|js_)?\//, "");
-}
-
-async function get(url) {
-  const res = await fetch(url, { headers: { "User-Agent": UA } });
-  if (!res.ok) throw new Error(`HTTP ${res.status} ${url}`);
-  return res.text();
-}
-
-async function bestSnapshotUrl(origUrl) {
-  const cdx = `${WB}/cdx/search/cdx?url=${encodeURIComponent(origUrl)}&matchType=exact&output=json&fl=timestamp,length&sort=reverse&limit=20`;
-  const rows = JSON.parse(await get(cdx)).slice(1);
-  const good = rows.find((r) => parseInt(r[1], 10) >= MIN_BYTES);
-  if (!good) return null;
-  return `${WB}/web/${good[0]}/${origUrl}`;
-}
-
 async function fetchTypeArticles(type) {
-  const listUrl = `${BASE}/articles/${type}/all`;
-  const snapUrl = await bestSnapshotUrl(listUrl);
-  if (!snapUrl) {
-    console.warn(`  [${type}] no usable Wayback snapshot`);
-    return [];
-  }
-  console.log(`  [${type}] ${snapUrl}`);
-  const html = await get(snapUrl);
+  const url = `${BASE}/articles/${type}/all`;
+  const res = await fetch(url, { headers: HEADERS });
+  if (!res.ok) throw new Error(`HTTP ${res.status} ${url}`);
+  const html = await res.text();
   const m = html.match(/<script[^>]*id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
-  if (!m) {
-    console.warn(`  [${type}] no __NEXT_DATA__`);
-    return [];
-  }
+  if (!m) throw new Error(`No __NEXT_DATA__ on ${type} listing`);
   const docs = JSON.parse(m[1]).props?.pageProps?.articles?.docs ?? [];
-  console.log(`  [${type}] ${docs.length} articles on page 1`);
-  return docs.map((d) => {
-    const imgRaw = d.featured_image?.url;
-    const img = imgRaw ? stripWayback(imgRaw) : null;
-    return {
-      url: `${BASE}/article/${d.slug}/`,
-      title: fixMojibake(d.title ?? d.slug),
-      description: fixMojibake(d.description ?? ""),
-      pubDate: new Date(d.publish_date).toUTCString(),
-      pubMs: new Date(d.publish_date).getTime(),
-      img: fixMojibake(img),
-    };
-  });
+  console.log(`  [${type}] ${docs.length} articles`);
+  return docs.map((d) => ({
+    url: `${BASE}/article/${d.slug}/`,
+    title: d.title ?? d.slug,
+    description: d.description ?? "",
+    pubDate: new Date(d.publish_date).toUTCString(),
+    pubMs: new Date(d.publish_date).getTime(),
+    img: d.featured_image?.url ?? null,
+  }));
 }
 
-console.log("Fetching article listings from Wayback Machine...");
+console.log("Fetching article listings...");
 const raw = (await Promise.all(TYPES.map(fetchTypeArticles))).flat();
 
 const seen = new Set();
@@ -90,7 +55,7 @@ const items = raw
   .sort((a, b) => b.pubMs - a.pubMs)
   .slice(0, MAX_ITEMS);
 
-if (items.length === 0) throw new Error("No articles found — check Wayback snapshots");
+if (items.length === 0) throw new Error("No articles found");
 console.log(`${raw.length} raw → ${items.length} after dedup/sort`);
 
 const itemsXml = items
