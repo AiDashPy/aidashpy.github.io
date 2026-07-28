@@ -7,8 +7,24 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Tue, 28 Jul 2026 14:12:25 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2026 16:42:23 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Anarcho-Thumbelina</title>
+    <link>https://lareviewofbooks.org/article/astronaut-oana-aristide-romanian-novel-dictatorship/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/astronaut-oana-aristide-romanian-novel-dictatorship/</guid>
+    <pubDate>Tue, 28 Jul 2026 15:00:00 GMT</pubDate>
+    <description>Romanian author Oana Aristide’s new novel is an entertaining fable of serial murder, killer bears, and revolution.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Astronaut.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Drowning Airplanes Give You So Much More</title>
+    <link>https://lareviewofbooks.org/article/megan-mi-ai-lee-small-fortune-tiffanys-townsend/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/megan-mi-ai-lee-small-fortune-tiffanys-townsend/</guid>
+    <pubDate>Tue, 28 Jul 2026 12:30:00 GMT</pubDate>
+    <description>On Megan Mi-Ai Lee at Tiffany’s in Los Angeles.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Jack Slavin - Megan Lee Studio-Session-010-Edit_1600_c.jpg" medium="image"/>
+  </item>
   <item>
     <title>The Animator’s New Groove</title>
     <link>https://lareviewofbooks.org/article/disney-drawing-life-back-into-animation-tom-sito/</link>
@@ -208,22 +224,6 @@
     <pubDate>Sat, 11 Jul 2026 12:30:00 GMT</pubDate>
     <description>The legendary director talks about his films’ induction into the Criterion Collection, comedy as our best weapon against fascism, and ‘going on 81.’</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Waters Hairspray 12.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>All Humanity Now Stands on the Edge of the Abyss</title>
-    <link>https://lareviewofbooks.org/article/vasily-grossman-from-front-line-stalingrad-treblinka-reporting/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/vasily-grossman-from-front-line-stalingrad-treblinka-reporting/</guid>
-    <pubDate>Fri, 10 Jul 2026 12:30:00 GMT</pubDate>
-    <description>Vasily Grossman’s fearless and compelling war journalism demonstrates his courage and integrity as a writer and a man.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/From the Front Line.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The Estranged Worlds of J. G. Ballard</title>
-    <link>https://lareviewofbooks.org/article/jg-ballard-illuminated-man-christopher-priest-nina-allan/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/jg-ballard-illuminated-man-christopher-priest-nina-allan/</guid>
-    <pubDate>Thu, 09 Jul 2026 15:00:00 GMT</pubDate>
-    <description>An incisive and moving new critical biography of one of the nuclear age’s greatest visionaries.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Illuminated-Man.jpg" medium="image"/>
   </item>
   <item>
     <title>A Room Inside Another Room</title>
