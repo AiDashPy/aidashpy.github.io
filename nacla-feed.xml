@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Tue, 28 Jul 2026 12:02:56 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2026 15:26:40 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Cuba’s Students and Teachers are Paying the Price</title>
+    <link>https://nacla.org/cubas-students-and-teachers-are-paying-the-price/</link>
+    <guid isPermaLink="true">https://nacla.org/cubas-students-and-teachers-are-paying-the-price/</guid>
+    <pubDate>Tue, 28 Jul 2026 09:06:34 GMT</pubDate>
+    <description>In the face of unprecedented hardships caused by a crippling U.S. oil blockade, Cuba’s students and teachers fight to carry forward the revolution’s long-running commitment to high-quality education.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/07/Screenshot-2026-07-27-at-7.09.54-PM.jpg" medium="image"/>
+  </item>
   <item>
     <title>Venezuela Dealt Another Blow</title>
     <link>https://nacla.org/venezuela-dealt-another-blow/</link>
@@ -400,14 +408,6 @@
     <pubDate>Mon, 20 Apr 2026 13:41:29 GMT</pubDate>
     <description>Two years on, far-right President Daniel Noboa’s prison crackdown—characterized by militarization, corruption, and deadly violence—has yielded no results.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/04/DSC00244-scaled.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Bukele, El rey desnudo (Review)</title>
-    <link>https://nacla.org/bukele-el-rey-desnudo-review/</link>
-    <guid isPermaLink="true">https://nacla.org/bukele-el-rey-desnudo-review/</guid>
-    <pubDate>Fri, 17 Apr 2026 10:35:22 GMT</pubDate>
-    <description>Óscar Martínez’s profile of Salvadoran President Nayib Bukele unmasks an authoritarian leader who hangs on to power through propaganda, gang pacts, and repression.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/04/Screenshot-2026-04-16-at-7.35.08-PM.png" medium="image"/>
   </item>
   </channel>
 </rss>
