@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Wed, 29 Jul 2026 12:02:44 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2026 15:09:58 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Character Study</title>
+    <link>https://lareviewofbooks.org/article/fictional-character-biographies-shakespeare-margaret-hannibal-juliet-bigger/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/fictional-character-biographies-shakespeare-margaret-hannibal-juliet-bigger/</guid>
+    <pubDate>Wed, 29 Jul 2026 12:30:00 GMT</pubDate>
+    <description>The burgeoning field of fiction character biographies.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Shakespeares Margaret.jpg" medium="image"/>
+  </item>
   <item>
     <title>Anarcho-Thumbelina</title>
     <link>https://lareviewofbooks.org/article/astronaut-oana-aristide-romanian-novel-dictatorship/</link>
@@ -320,14 +328,6 @@
     <pubDate>Tue, 23 Jun 2026 15:00:00 GMT</pubDate>
     <description>In Ashton Politanoff’s second novel, tennis becomes a vehicle for exploring fatherhood and masculinity.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Ashton Politanoff_007.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>How Does a Country Sound?</title>
-    <link>https://lareviewofbooks.org/article/country-sound-south-sudan-frost-war/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/country-sound-south-sudan-frost-war/</guid>
-    <pubDate>Sun, 21 Jun 2026 12:30:00 GMT</pubDate>
-    <description>Reading Robert Frost in a newly independent South Sudan.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Chioma Russolo cc0.jpg" medium="image"/>
   </item>
   <item>
     <title>Is There Such a Thing as Death?</title>
