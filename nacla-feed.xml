@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Wed, 29 Jul 2026 15:12:47 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2026 19:34:33 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Mexico Favors Israel for Weapons Imports</title>
+    <link>https://nacla.org/mexico-favors-israel-for-weapons-imports/</link>
+    <guid isPermaLink="true">https://nacla.org/mexico-favors-israel-for-weapons-imports/</guid>
+    <pubDate>Wed, 29 Jul 2026 12:39:41 GMT</pubDate>
+    <description>The government’s deepening commercial ties to Israel are emblematic of its contradictory approach to Palestinian solidarity.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/07/54682536968_0ba616efa1_k.jpg" medium="image"/>
+  </item>
   <item>
     <title>Cuba’s Students and Teachers are Paying the Price</title>
     <link>https://nacla.org/cubas-students-and-teachers-are-paying-the-price/</link>
@@ -400,14 +408,6 @@
     <pubDate>Wed, 22 Apr 2026 12:28:11 GMT</pubDate>
     <description>Recent elections in Honduras have returned right-wing leadership to power, with immediate implications for the autonomy of Indigenous communities.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/04/Screenshot-2026-04-21-at-9.51.14-PM.png" medium="image"/>
-  </item>
-  <item>
-    <title>Militarizing Ecuador&amp;#8217;s Prisons has Failed</title>
-    <link>https://nacla.org/militarizing-ecuadors-prisons-has-failed/</link>
-    <guid isPermaLink="true">https://nacla.org/militarizing-ecuadors-prisons-has-failed/</guid>
-    <pubDate>Mon, 20 Apr 2026 13:41:29 GMT</pubDate>
-    <description>Two years on, far-right President Daniel Noboa’s prison crackdown—characterized by militarization, corruption, and deadly violence—has yielded no results.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/04/DSC00244-scaled.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
