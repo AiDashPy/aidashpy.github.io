@@ -7,7 +7,7 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Fri, 31 Jul 2026 07:56:13 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2026 10:48:01 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title>Brazil's Flood Survivors: A Movement Fights for Justice</title>
@@ -66,6 +66,14 @@
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/070226_Wissam_Women_Gaza_small.jpeg" medium="image"/>
   </item>
   <item>
+    <title>Power Struggles in Senegal</title>
+    <link>https://www.rosalux.de/en/news/id/54975</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54975</guid>
+    <pubDate>Tue, 30 Jun 2026 15:16:38 +0200</pubDate>
+    <description>After the "sovereigntist revolution", the West African country's politicians are fighting for control.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Afrika/Westafrika/Sonko-Faye_Senegal_pa.jpg" medium="image"/>
+  </item>
+  <item>
     <title>“Many voters want a more left-leaning government”</title>
     <link>https://www.rosalux.de/en/news/id/54973</link>
     <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54973</guid>
@@ -80,14 +88,6 @@
     <pubDate>Thu, 25 Jun 2026 10:36:41 +0200</pubDate>
     <description>Colombia elects right-winger Abelardo de la Espriella, continuing the right's ascendance in Latin America</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Lateinamerika/Kolumbien/de-la-Espriella_pa.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Congo's Minerals Power the World. Why Are Its People Going Hungry?</title>
-    <link>https://www.rosalux.de/en/news/id/55006</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55006</guid>
-    <pubDate>Wed, 24 Jun 2026 13:48:29 +0200</pubDate>
-    <description>The DRC supplies cobalt for EV batteries, smartphones, and the green transition. But little remains for the local economy.</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Afrika/Ostafrika/kongo_mining_imago817435821.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
