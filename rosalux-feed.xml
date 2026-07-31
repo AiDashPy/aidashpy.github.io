@@ -7,8 +7,16 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Fri, 31 Jul 2026 04:28:55 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2026 07:56:13 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Brazil's Flood Survivors: A Movement Fights for Justice</title>
+    <link>https://www.rosalux.de/en/news/id/55076</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55076</guid>
+    <pubDate>Thu, 30 Jul 2026 12:12:30 +0200</pubDate>
+    <description>Movement of People Affected by Dams organizer Alexania Rossato on organizing flood-affected communities in Brazil, government failures, and the fight against disaster capitalism.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0731_Brazil_Floods_SMALL.jpg" medium="image"/>
+  </item>
   <item>
     <title>A Greater Israel Stretching as Far as the Litani River?</title>
     <link>https://www.rosalux.de/en/news/id/55002</link>
@@ -80,14 +88,6 @@
     <pubDate>Wed, 24 Jun 2026 13:48:29 +0200</pubDate>
     <description>The DRC supplies cobalt for EV batteries, smartphones, and the green transition. But little remains for the local economy.</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Afrika/Ostafrika/kongo_mining_imago817435821.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>China: The Loneliness of Gen Z</title>
-    <link>https://www.rosalux.de/en/news/id/54906</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54906</guid>
-    <pubDate>Wed, 17 Jun 2026 17:47:00 +0200</pubDate>
-    <description>Chinese economic growth has opened up new opportunities for millions of people—but at the same time has undermined the social structures that fostered a sense of belonging within organized</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/China/Schanghai-metro_imago.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
