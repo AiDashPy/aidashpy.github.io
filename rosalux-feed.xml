@@ -7,14 +7,22 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Fri, 31 Jul 2026 10:48:01 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2026 13:01:47 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>"This War Is a Blessing for the Islamic Regime"</title>
+    <link>https://www.rosalux.de/en/news/id/55080</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55080</guid>
+    <pubDate>Fri, 31 Jul 2026 13:47:09 +0200</pubDate>
+    <description>Firoozeh Farvardin reflects on the role of feminism during war and on the struggles over who speaks for the Iranian opposition.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0731_IV_Iran_Feminism_Teheran_SMALL.jpg" medium="image"/>
+  </item>
   <item>
     <title>Brazil's Flood Survivors: A Movement Fights for Justice</title>
     <link>https://www.rosalux.de/en/news/id/55076</link>
     <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55076</guid>
     <pubDate>Thu, 30 Jul 2026 12:12:30 +0200</pubDate>
-    <description>Movement of People Affected by Dams organizer Alexania Rossato on organizing flood-affected communities in Brazil, government failures, and the fight against disaster capitalism.</description>
+    <description>MAB organizer Alexania Rossato on organizing flood-affected communities in Brazil, government failures, and the fight against disaster capitalism.</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0731_Brazil_Floods_SMALL.jpg" medium="image"/>
   </item>
   <item>
@@ -80,14 +88,6 @@
     <pubDate>Tue, 30 Jun 2026 12:06:58 +0200</pubDate>
     <description>Danish socialist party Enhedslisten's Pelle Dragsted explains how the left won concessions from Denmark's new government coalition</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Europa/pelle-dragsted.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Colombia’s Trump</title>
-    <link>https://www.rosalux.de/en/news/id/54960</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54960</guid>
-    <pubDate>Thu, 25 Jun 2026 10:36:41 +0200</pubDate>
-    <description>Colombia elects right-winger Abelardo de la Espriella, continuing the right's ascendance in Latin America</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Lateinamerika/Kolumbien/de-la-Espriella_pa.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
