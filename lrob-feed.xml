@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Sat, 01 Aug 2026 11:18:08 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2026 13:26:05 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>An Intrusive Culture of Care</title>
+    <link>https://lareviewofbooks.org/article/an-intrusive-culture-of-care/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/an-intrusive-culture-of-care/</guid>
+    <pubDate>Sat, 01 Aug 2026 12:30:00 GMT</pubDate>
+    <description>Aruni Kashyap discusses his new novel, a portrayal of the small pleasures of everyday life that a group of friends tries to safeguard against the violence of the Indian state.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/AruniKashyap_0044-1.jpg" medium="image"/>
+  </item>
   <item>
     <title>The Filmography That Launched a Thousand Ships</title>
     <link>https://lareviewofbooks.org/article/homer-odyssey-christopher-nolan-career-retrospective-memory-adaptation/</link>
@@ -384,14 +392,6 @@
     <pubDate>Thu, 21 May 2026 15:00:00 GMT</pubDate>
     <description>Jamie Metzl talks about human-centered technology, why he still bets on our species, and what creative collaboration with machines could look like.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/theaitencommandments.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>A Survival Kit</title>
-    <link>https://lareviewofbooks.org/article/firespitter-collected-poems-jayne-cortez-activist-sapphire-interview/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/firespitter-collected-poems-jayne-cortez-activist-sapphire-interview/</guid>
-    <pubDate>Mon, 18 May 2026 12:30:00 GMT</pubDate>
-    <description>Sapphire discusses the life and work of poet, activist, publisher, performer, and Black Arts Movement innovator Jayne Cortez.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Firespitter.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
