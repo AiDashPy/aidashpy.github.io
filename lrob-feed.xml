@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Aug 2026 15:04:30 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2026 17:02:13 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>A Place of Greater Safety</title>
+    <link>https://lareviewofbooks.org/article/armenia-turkey-relations-yerevan-azerbaijan-soviet-russia-west/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/armenia-turkey-relations-yerevan-azerbaijan-soviet-russia-west/</guid>
+    <pubDate>Sun, 02 Aug 2026 12:30:00 GMT</pubDate>
+    <description>In granting their prime minister a third term, Armenians have embarked on a bold historic gamble to align their country with Turkey and the West.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Evan Pheiffer 1F7A1311 Storks taking refuge near the border crossing outside Echmiadzin.jpg" medium="image"/>
+  </item>
   <item>
     <title>An Intrusive Culture of Care</title>
     <link>https://lareviewofbooks.org/article/aruni-kashyap-how-to-date-a-fanatic/</link>
@@ -320,14 +328,6 @@
     <pubDate>Fri, 26 Jun 2026 12:30:00 GMT</pubDate>
     <description>Vernon Lee’s ghost stories explore what it takes to resist male gaslighting and what it means to believe women.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Vernon Lee - John Singer Sargent.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The Consensus Sublime</title>
-    <link>https://lareviewofbooks.org/article/canon-building-guardian-100-best-novels-all-time/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/canon-building-guardian-100-best-novels-all-time/</guid>
-    <pubDate>Wed, 24 Jun 2026 12:30:00 GMT</pubDate>
-    <description>Canon formation is not criticism.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/van wickle gates - highsmith.jpg" medium="image"/>
   </item>
   <item>
     <title>Beating a Dead Racket</title>
