@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Mon, 03 Aug 2026 08:35:20 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2026 15:48:13 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>The Return of Fujimorismo</title>
+    <link>https://nacla.org/the-return-of-fujimorismo/</link>
+    <guid isPermaLink="true">https://nacla.org/the-return-of-fujimorismo/</guid>
+    <pubDate>Mon, 03 Aug 2026 10:52:23 GMT</pubDate>
+    <description>As Keiko Fujimori assumes power, the new president is reviving her father&amp;#8217;s hard-line approach to security and the economy—policies that once pushed Peru&amp;#8217;s fragile democracy to the brink.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/08/55426509976_90b0a1a24e_k.jpg" medium="image"/>
+  </item>
   <item>
     <title>Sarhuapa Willakuynin: Stories and Songs of Sarhua (Review)</title>
     <link>https://nacla.org/sarhuapa-willakuynin-stories-and-songs-of-sarhua-review/</link>
@@ -400,14 +408,6 @@
     <pubDate>Mon, 27 Apr 2026 10:20:34 GMT</pubDate>
     <description>The “Donroe Doctrine” is compelling Latin American governments into arbitration courts that benefit large multinational corporations, with limited success.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/04/Screenshot-2026-04-26-at-9.33.52-PM.png" medium="image"/>
-  </item>
-  <item>
-    <title>At a Historic Conference, Frontline Groups Push for a Just Transition</title>
-    <link>https://nacla.org/at-a-historic-conference-frontline-groups-push-for-a-just-transition/</link>
-    <guid isPermaLink="true">https://nacla.org/at-a-historic-conference-frontline-groups-push-for-a-just-transition/</guid>
-    <pubDate>Fri, 24 Apr 2026 10:33:02 GMT</pubDate>
-    <description>Though the First Conference on Transitioning away from Fossil Fuels is a historic achievement, movement organizers question if it will create needed pathways toward a just transition.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/04/Image-1-1.jpeg" medium="image"/>
   </item>
   </channel>
 </rss>
