@@ -7,8 +7,24 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Mon, 03 Aug 2026 14:43:57 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2026 17:10:21 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>The Uncommitted Man</title>
+    <link>https://lareviewofbooks.org/article/smoke-ivan-turgenev-russian-class-novel-donald-rayfield/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/smoke-ivan-turgenev-russian-class-novel-donald-rayfield/</guid>
+    <pubDate>Mon, 03 Aug 2026 15:00:00 GMT</pubDate>
+    <description>A new translation of Ivan Turgenev’s 1867 novel ‘Smoke’ explores the main concerns of the author’s life.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Smoke.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Why Did the Roman Empire Last So Long?</title>
+    <link>https://lareviewofbooks.org/article/romans-2000-year-history-edward-watts-political-historiography/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/romans-2000-year-history-edward-watts-political-historiography/</guid>
+    <pubDate>Mon, 03 Aug 2026 12:30:00 GMT</pubDate>
+    <description>Edward J. Watts’s history of the long Roman Empire is a traditional, top-down political narrative.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/The Romans.jpg" medium="image"/>
+  </item>
   <item>
     <title>A Place of Greater Safety</title>
     <link>https://lareviewofbooks.org/article/armenia-turkey-relations-yerevan-azerbaijan-soviet-russia-west/</link>
@@ -200,22 +216,6 @@
     <pubDate>Thu, 16 Jul 2026 15:00:00 GMT</pubDate>
     <description>A professor of Arabic literature on seeing herself on the small screen.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/racist Palestine &amp; Law Order.png" medium="image"/>
-  </item>
-  <item>
-    <title>Imagining New Ways to Live</title>
-    <link>https://lareviewofbooks.org/article/living-together-reimaging-community-disconnection-samantha-paige-rosen/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/living-together-reimaging-community-disconnection-samantha-paige-rosen/</guid>
-    <pubDate>Thu, 16 Jul 2026 12:30:00 GMT</pubDate>
-    <description>A new essay anthology offers a portrait of communal life that is far more expansive than popular representations often allow.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Living,Together.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Correctional Facility: A Response to Jonathan Basile’s ‘Natural Election’</title>
-    <link>https://lareviewofbooks.org/article/kathryn-harden-original-sin-mike-fortun-jonathan-basile/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/kathryn-harden-original-sin-mike-fortun-jonathan-basile/</guid>
-    <pubDate>Wed, 15 Jul 2026 12:30:00 GMT</pubDate>
-    <description>How could a UC Irvine anthropology professor and his fellow science studies scholar have such different responses to Kathryn Paige Harden’s recent book?</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/originalsin.jpg" medium="image"/>
   </item>
   <item>
     <title>Two Ships in Touch</title>
