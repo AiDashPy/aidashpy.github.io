@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Tue, 04 Aug 2026 14:21:02 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 04 Aug 2026 16:53:46 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Bending the Arc of History</title>
+    <link>https://lareviewofbooks.org/article/bending-the-arc-of-history/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/bending-the-arc-of-history/</guid>
+    <pubDate>Tue, 04 Aug 2026 12:30:00 GMT</pubDate>
+    <description>A new biography of Howard Zinn functions less as a detailed portrait of a man than as an inspirational manual for contemporary endurance.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/The People's Historian.jpg" medium="image"/>
+  </item>
   <item>
     <title>The Uncommitted Man</title>
     <link>https://lareviewofbooks.org/article/smoke-ivan-turgenev-russian-class-novel-donald-rayfield/</link>
@@ -176,14 +184,6 @@
     <pubDate>Mon, 20 Jul 2026 15:00:00 GMT</pubDate>
     <description>Antonio Moresco’s newly translated novel is a series of a non-epiphanies played out against a background of static malaise.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Antonio Moresco.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>To Touch the Music That Touches You</title>
-    <link>https://lareviewofbooks.org/article/poetry-jennifer-clarvoe-piano-piano-susan-stewart-bramble/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/poetry-jennifer-clarvoe-piano-piano-susan-stewart-bramble/</guid>
-    <pubDate>Mon, 20 Jul 2026 12:30:00 GMT</pubDate>
-    <description>On the music of new poetry collections from Jennifer Clarvoe and Susan Stewart.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Bramble.jpg" medium="image"/>
   </item>
   <item>
     <title>The Other Asimov</title>
