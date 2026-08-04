@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Tue, 04 Aug 2026 16:53:46 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 04 Aug 2026 18:39:31 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Sowing the Seeds of Apology</title>
+    <link>https://lareviewofbooks.org/article/roland-orzabal-tears-fears-welcome-your-life-memoir/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/roland-orzabal-tears-fears-welcome-your-life-memoir/</guid>
+    <pubDate>Tue, 04 Aug 2026 15:00:00 GMT</pubDate>
+    <description>Roland Orzabal of Tears for Fears makes amends in his new ‘astrological memoir.’</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Welcome to your life crop.jpg" medium="image"/>
+  </item>
   <item>
     <title>Bending the Arc of History</title>
     <link>https://lareviewofbooks.org/article/bending-the-arc-of-history/</link>
@@ -176,14 +184,6 @@
     <pubDate>Tue, 21 Jul 2026 12:30:00 GMT</pubDate>
     <description>Katja Hoyer’s new book is a compelling study of a city on the brink of autocracy, recounted through the eyes and voices of its citizens.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Weimar Life on the Edge.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Doing It Wrong</title>
-    <link>https://lareviewofbooks.org/article/beginnings-antonio-moresco-translation-max-lawton-francesco-pacifico/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/beginnings-antonio-moresco-translation-max-lawton-francesco-pacifico/</guid>
-    <pubDate>Mon, 20 Jul 2026 15:00:00 GMT</pubDate>
-    <description>Antonio Moresco’s newly translated novel is a series of a non-epiphanies played out against a background of static malaise.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Antonio Moresco.jpg" medium="image"/>
   </item>
   <item>
     <title>The Other Asimov</title>
