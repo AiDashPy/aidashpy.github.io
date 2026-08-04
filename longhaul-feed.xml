@@ -5,8 +5,20 @@
     <link>https://longhaulmag.com</link>
     <description>Materials and Dispatches articles from Long-Haul Mag</description>
     <language>en</language>
-    <lastBuildDate>Tue, 04 Aug 2026 12:57:15 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 04 Aug 2026 15:24:17 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/longhaul-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Checkout</title>
+    <link>https://longhaulmag.com/checkout</link>
+    <guid isPermaLink="true">https://longhaulmag.com/checkout</guid>
+    <pubDate>Tue, 04 Aug 2026 07:07:04 GMT</pubDate>
+  </item>
+  <item>
+    <title>Cart</title>
+    <link>https://longhaulmag.com/cart</link>
+    <guid isPermaLink="true">https://longhaulmag.com/cart</guid>
+    <pubDate>Tue, 04 Aug 2026 07:07:03 GMT</pubDate>
+  </item>
   <item>
     <title>Strike Power in the University</title>
     <link>https://longhaulmag.com/strike-power-university</link>
