@@ -7,7 +7,7 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Wed, 05 Aug 2026 06:34:35 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2026 09:41:25 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title>South Africa’s Waves of Xenophobic Violence</title>
@@ -32,6 +32,14 @@
     <pubDate>Thu, 30 Jul 2026 12:12:30 +0200</pubDate>
     <description>MAB organizer Alexania Rossato on organizing flood-affected communities in Brazil, government failures, and the fight against disaster capitalism.</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0731_Brazil_Floods_SMALL.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>How India’s Gen Z Cockroaches Forced Modi's Hand</title>
+    <link>https://www.rosalux.de/en/news/id/55071</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55071</guid>
+    <pubDate>Wed, 29 Jul 2026 10:31:07 +0200</pubDate>
+    <description>After an exam leak sparked a protests, young Indians built a satirical movement that toppled a minister.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Suedasien/cjp_indien_imago858502162.jpg" medium="image"/>
   </item>
   <item>
     <title>A Greater Israel Stretching as Far as the Litani River?</title>
@@ -80,14 +88,6 @@
     <pubDate>Wed, 01 Jul 2026 15:48:40 +0200</pubDate>
     <description>Theatre director Wisam Al-Deirawi on the psychological burden facing women in Gaza and how art becomes a tool for healing</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/070226_Wissam_Women_Gaza_small.jpeg" medium="image"/>
-  </item>
-  <item>
-    <title>Power Struggles in Senegal</title>
-    <link>https://www.rosalux.de/en/news/id/54975</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54975</guid>
-    <pubDate>Tue, 30 Jun 2026 15:16:38 +0200</pubDate>
-    <description>After the "sovereigntist revolution", the West African country's politicians are fighting for control.</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Afrika/Westafrika/Sonko-Faye_Senegal_pa.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
