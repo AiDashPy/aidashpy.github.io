@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Wed, 05 Aug 2026 12:54:52 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2026 15:15:55 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Why Didn’t India Build Its Own Silicon Valley?</title>
+    <link>https://lareviewofbooks.org/article/computing-age-decolonization-india-silicon-valley-nehru-bhabha/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/computing-age-decolonization-india-silicon-valley-nehru-bhabha/</guid>
+    <pubDate>Wed, 05 Aug 2026 12:30:00 GMT</pubDate>
+    <description>Dwaipayan Banerjee’s new book investigates India’s role in the history of 20th-century tech development, and what caused it always to seem a step behind the West.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Computing in the Age of Decolonization.jpg" medium="image"/>
+  </item>
   <item>
     <title>Sowing the Seeds of Apology</title>
     <link>https://lareviewofbooks.org/article/roland-orzabal-tears-fears-welcome-your-life-memoir/</link>
@@ -176,14 +184,6 @@
     <pubDate>Tue, 21 Jul 2026 15:00:00 GMT</pubDate>
     <description>Now that Miss Marple and Nancy Drew’s early novels are entering the public domain, what comes next for them?</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/The_Secret_of_the_Old_Clock_(1930)_front_cover,_printing_1933B-14.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>How a Democratic Republic Dies</title>
-    <link>https://lareviewofbooks.org/article/weimar-life-edge-catastrophe-katja-hoyer-buchenwald-fascism/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/weimar-life-edge-catastrophe-katja-hoyer-buchenwald-fascism/</guid>
-    <pubDate>Tue, 21 Jul 2026 12:30:00 GMT</pubDate>
-    <description>Katja Hoyer’s new book is a compelling study of a city on the brink of autocracy, recounted through the eyes and voices of its citizens.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Weimar Life on the Edge.jpg" medium="image"/>
   </item>
   <item>
     <title>The Other Asimov</title>
