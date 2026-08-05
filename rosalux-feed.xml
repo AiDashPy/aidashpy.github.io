@@ -7,8 +7,16 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Wed, 05 Aug 2026 12:04:17 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2026 15:20:48 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Ovaherero: Germany’s Billions Aren’t Reparations</title>
+    <link>https://www.rosalux.de/en/news/id/55089</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55089</guid>
+    <pubDate>Wed, 05 Aug 2026 11:39:29 +0200</pubDate>
+    <description>Namibia’s Nandiuasora Mazeingo on German accountability for genocide and the fight to reclaim looted heritage</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0805_Namibia_Genocide_SMALL.jpg" medium="image"/>
+  </item>
   <item>
     <title>South Africa’s Waves of Xenophobic Violence</title>
     <link>https://www.rosalux.de/en/news/id/55083</link>
@@ -80,14 +88,6 @@
     <pubDate>Thu, 02 Jul 2026 14:24:06 +0200</pubDate>
     <description>Platform work is booming in Kyrgyzstan, but labour law hasn't caught up with the gig economy.</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Zentralasien/bishkek_courier_imago697443014.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>"Resilience Doesn't Mean Being Strong All the Time"</title>
-    <link>https://www.rosalux.de/en/news/id/55066</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55066</guid>
-    <pubDate>Wed, 01 Jul 2026 15:48:40 +0200</pubDate>
-    <description>Theatre director Wisam Al-Deirawi on the psychological burden facing women in Gaza and how art becomes a tool for healing</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/070226_Wissam_Women_Gaza_small.jpeg" medium="image"/>
   </item>
   </channel>
 </rss>
