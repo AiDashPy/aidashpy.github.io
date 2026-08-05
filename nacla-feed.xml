@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Wed, 05 Aug 2026 12:04:37 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2026 15:20:54 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Disaster Diplomacy: Israel’s Aid Mission to Venezuela Paves the Way for the Restoration of Ties</title>
+    <link>https://nacla.org/disaster-diplomacy-israels-aid-mission-to-venezuela-paves-the-way-for-the-restoration-of-ties/</link>
+    <guid isPermaLink="true">https://nacla.org/disaster-diplomacy-israels-aid-mission-to-venezuela-paves-the-way-for-the-restoration-of-ties/</guid>
+    <pubDate>Wed, 05 Aug 2026 09:28:00 GMT</pubDate>
+    <description>Israel’s aid mission to Venezuela has been framed by both sides as a step towards a deeper relationship, much to the chagrin of activists on the ground.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/08/Screenshot-2026-08-04-at-12.35.57-PM.jpg" medium="image"/>
+  </item>
   <item>
     <title>The Return of Fujimorismo</title>
     <link>https://nacla.org/the-return-of-fujimorismo/</link>
@@ -400,14 +408,6 @@
     <pubDate>Wed, 29 Apr 2026 12:40:14 GMT</pubDate>
     <description>As environmental crimes threaten Indigenous communities in the Amazon, their struggles are ignored by a humanitarian system that has rendered such emergencies invisible.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/04/Peru-illegal-mining-Madre-de-Dios.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The New Litmus Test for Sovereign Governance: ISDS Arbitration</title>
-    <link>https://nacla.org/the-new-litmus-test-for-sovereign-governance-isds-arbitration/</link>
-    <guid isPermaLink="true">https://nacla.org/the-new-litmus-test-for-sovereign-governance-isds-arbitration/</guid>
-    <pubDate>Mon, 27 Apr 2026 10:20:34 GMT</pubDate>
-    <description>The “Donroe Doctrine” is compelling Latin American governments into arbitration courts that benefit large multinational corporations, with limited success.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/04/Screenshot-2026-04-26-at-9.33.52-PM.png" medium="image"/>
   </item>
   </channel>
 </rss>
