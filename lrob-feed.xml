@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Thu, 06 Aug 2026 11:24:54 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2026 14:17:40 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Poets in the Workplace</title>
+    <link>https://lareviewofbooks.org/article/copywriter-daniel-poppick-corporate-novel-workplace-poet-recession/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/copywriter-daniel-poppick-corporate-novel-workplace-poet-recession/</guid>
+    <pubDate>Thu, 06 Aug 2026 12:30:00 GMT</pubDate>
+    <description>Daniel Poppick discusses his new novel, an exploration of ‘the unique absurdism of the gone-but-not-forgotten era of office culture between the Great Recession and the COVID-19 pandemic.’</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Daniel Poppick by Sarah Friedland crop.jpg" medium="image"/>
+  </item>
   <item>
     <title>Why Didn’t India Build Its Own Silicon Valley?</title>
     <link>https://lareviewofbooks.org/article/computing-age-decolonization-india-silicon-valley-nehru-bhabha/</link>
@@ -384,14 +392,6 @@
     <pubDate>Sat, 23 May 2026 12:30:00 GMT</pubDate>
     <description>Artist and critic Hal Fischer discusses his seminal photographic series ‘Gay Semiotics’ and a new career-spanning monograph.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Hal Fischer Seminal Works.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Rewriting the Commandments with ChatGPT</title>
-    <link>https://lareviewofbooks.org/article/artificial-intelligence-ten-commandments-collaboration-jamie-metzl-morality/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/artificial-intelligence-ten-commandments-collaboration-jamie-metzl-morality/</guid>
-    <pubDate>Thu, 21 May 2026 15:00:00 GMT</pubDate>
-    <description>Jamie Metzl talks about human-centered technology, why he still bets on our species, and what creative collaboration with machines could look like.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/theaitencommandments.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
