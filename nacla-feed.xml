@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Thu, 06 Aug 2026 12:07:09 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2026 00:09:35 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Call for Pitches | Peru’s Perpetual Crisis</title>
+    <link>https://nacla.org/call-for-pitches-perus-perpetual-crisis/</link>
+    <guid isPermaLink="true">https://nacla.org/call-for-pitches-perus-perpetual-crisis/</guid>
+    <pubDate>Thu, 06 Aug 2026 10:59:56 GMT</pubDate>
+    <description>NACLA is currently accepting proposals for our Spring 2027 issue on the resurgence of Fujimorismo and institutional crisis in Peru. Send us your pitches by August 24, 2026.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/08/Peru-CFP_2.jpg" medium="image"/>
+  </item>
   <item>
     <title>Disaster Diplomacy: Israel’s Aid Mission to Venezuela Paves the Way for the Restoration of Ties</title>
     <link>https://nacla.org/disaster-diplomacy-israels-aid-mission-to-venezuela-paves-the-way-for-the-restoration-of-ties/</link>
@@ -400,14 +408,6 @@
     <pubDate>Fri, 08 May 2026 11:05:52 GMT</pubDate>
     <description>Minou Tavárez Mirabal’s 2022 book sheds light on the complex lives of her parents, two Dominican revolutionaries who were assassinated for their political activism.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/05/Screenshot-2026-05-08-at-10.27.35-AM.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The Amazon&amp;#8217;s Invisible Crisis: How Environmental Crime Is Reshaping Humanitarian Emergencies</title>
-    <link>https://nacla.org/the-amazons-invisible-crisis-how-environmental-crime-is-reshaping-humanitarian-emergencies/</link>
-    <guid isPermaLink="true">https://nacla.org/the-amazons-invisible-crisis-how-environmental-crime-is-reshaping-humanitarian-emergencies/</guid>
-    <pubDate>Wed, 29 Apr 2026 12:40:14 GMT</pubDate>
-    <description>As environmental crimes threaten Indigenous communities in the Amazon, their struggles are ignored by a humanitarian system that has rendered such emergencies invisible.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/04/Peru-illegal-mining-Madre-de-Dios.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
