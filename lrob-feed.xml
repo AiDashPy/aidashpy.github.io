@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Fri, 07 Aug 2026 14:54:47 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2026 15:58:28 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Lone Geniuses in Political Worlds</title>
+    <link>https://lareviewofbooks.org/article/andy-weir-project-hail-mary-jules-verne-science/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/andy-weir-project-hail-mary-jules-verne-science/</guid>
+    <pubDate>Fri, 07 Aug 2026 12:30:00 GMT</pubDate>
+    <description>Comparing Andy Weir’s and Jules Verne’s political visions of science.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/project hail mary.jpg" medium="image"/>
+  </item>
   <item>
     <title>Female Power Versus Toxic Masculinity</title>
     <link>https://lareviewofbooks.org/article/jacqueline-harpman-we-were-forbidden-vichy-france-morocco/</link>
@@ -328,14 +336,6 @@
     <pubDate>Sun, 28 Jun 2026 12:30:00 GMT</pubDate>
     <description>Remembering the friendship and legacy of Irish writer Dermot Healy.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/dermot healy ballyconnell (c) Noel Kilgallon-1.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Oh No Babe, We Gotta Go</title>
-    <link>https://lareviewofbooks.org/article/kate-durbin-eaton-fire-palisades-altadena-capitalism-disaster/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/kate-durbin-eaton-fire-palisades-altadena-capitalism-disaster/</guid>
-    <pubDate>Sat, 27 Jun 2026 12:30:00 GMT</pubDate>
-    <description>One poet’s journal entries during the 2025 L.A. fires.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/cheesecake factory on fire 2 - Durbin.png" medium="image"/>
   </item>
   <item>
     <title>Beating a Dead Racket</title>
