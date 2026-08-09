@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Sun, 09 Aug 2026 11:31:07 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 09 Aug 2026 12:55:08 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>I Ain’t Mad at Cha</title>
+    <link>https://lareviewofbooks.org/article/tupac-shakur-madonna-relationship-prison-letter-race-gender/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/tupac-shakur-madonna-relationship-prison-letter-race-gender/</guid>
+    <pubDate>Sun, 09 Aug 2026 12:30:00 GMT</pubDate>
+    <description>On Tupac’s letter to Madonna from prison, and their complex romantic relationship mediated by race, sexualization, and fame.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Madonna Letterman 1994.png" medium="image"/>
+  </item>
   <item>
     <title>Lone Geniuses in Political Worlds</title>
     <link>https://lareviewofbooks.org/article/andy-weir-project-hail-mary-jules-verne-science/</link>
@@ -328,14 +336,6 @@
     <pubDate>Mon, 29 Jun 2026 12:30:00 GMT</pubDate>
     <description>Woody Brown discusses his debut novel and the challenges those with nonspeaking autism face today.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Upward Bound.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Cape Neurotic</title>
-    <link>https://lareviewofbooks.org/article/dermot-healy-ireland-sligo-molly-mccloskey-alcoholism-writing/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/dermot-healy-ireland-sligo-molly-mccloskey-alcoholism-writing/</guid>
-    <pubDate>Sun, 28 Jun 2026 12:30:00 GMT</pubDate>
-    <description>Remembering the friendship and legacy of Irish writer Dermot Healy.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/dermot healy ballyconnell (c) Noel Kilgallon-1.jpg" medium="image"/>
   </item>
   <item>
     <title>Beating a Dead Racket</title>
