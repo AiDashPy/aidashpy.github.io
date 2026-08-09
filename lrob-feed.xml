@@ -7,7 +7,7 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Sun, 09 Aug 2026 17:33:48 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 09 Aug 2026 18:43:45 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title>I Ain’t Mad at Cha</title>
@@ -16,6 +16,14 @@
     <pubDate>Sun, 09 Aug 2026 12:30:00 GMT</pubDate>
     <description>On Tupac’s letter to Madonna from prison, and their complex romantic relationship mediated by race, sexualization, and fame.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Madonna Letterman 1994.png" medium="image"/>
+  </item>
+  <item>
+    <title>Fighting the Frackers</title>
+    <link>https://lareviewofbooks.org/article/friends-of-attention-d-graham-burnett-artificial-intelligence/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/friends-of-attention-d-graham-burnett-artificial-intelligence/</guid>
+    <pubDate>Sat, 08 Aug 2026 12:30:00 GMT</pubDate>
+    <description>D. Graham Burnett discusses the politics of attention in our algorithmic age.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Burnett - Headshot-1.jpg" medium="image"/>
   </item>
   <item>
     <title>Lone Geniuses in Political Worlds</title>
@@ -384,14 +392,6 @@
     <pubDate>Thu, 28 May 2026 12:30:00 GMT</pubDate>
     <description>Sangamithra Iyer discusses strategies for living ethically, incorporating veganism, nonviolence, and truth into ‘fractal responsibility.’</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Sangamithra Iyer Headshot NYPL color_photo by Jonathan Blanc.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Jock, Basic, Leather, Western</title>
-    <link>https://lareviewofbooks.org/article/hal-fischer-gay-semiotics-seminal-works-photography-interview/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/hal-fischer-gay-semiotics-seminal-works-photography-interview/</guid>
-    <pubDate>Sat, 23 May 2026 12:30:00 GMT</pubDate>
-    <description>Artist and critic Hal Fischer discusses his seminal photographic series ‘Gay Semiotics’ and a new career-spanning monograph.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Hal Fischer Seminal Works.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
