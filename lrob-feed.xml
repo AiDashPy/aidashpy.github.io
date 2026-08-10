@@ -7,8 +7,24 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Mon, 10 Aug 2026 13:13:28 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 10 Aug 2026 15:01:03 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Hell in a Go Bag</title>
+    <link>https://lareviewofbooks.org/article/jorie-graham-killing-spree-ecology-poetry-climate-disaster/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/jorie-graham-killing-spree-ecology-poetry-climate-disaster/</guid>
+    <pubDate>Mon, 10 Aug 2026 15:00:00 GMT</pubDate>
+    <description>Jorie Graham takes a sparer approach to hell in her newest poetry collection.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Killing Spree.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Christina Davis’s ‘Vigil Strange’</title>
+    <link>https://lareviewofbooks.org/article/vigil-strange-christina-davis-poetry-larb-quarterly/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/vigil-strange-christina-davis-poetry-larb-quarterly/</guid>
+    <pubDate>Mon, 10 Aug 2026 12:30:00 GMT</pubDate>
+    <description>From the LARB Quarterly no 49: ‘Traffic,’ a new poem by Christina Davis, dedicated to John H. Davis (1938–2006).</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Richard P Baker NMAH-2001-8960.jpg" medium="image"/>
+  </item>
   <item>
     <title>I Ain’t Mad at Cha</title>
     <link>https://lareviewofbooks.org/article/tupac-shakur-madonna-relationship-prison-letter-race-gender/</link>
@@ -202,14 +218,6 @@
     <media:content url="https://assets.lareviewofbooks.org/uploads/odyssey athena beheading.png" medium="image"/>
   </item>
   <item>
-    <title>Lights in the Sky</title>
-    <link>https://lareviewofbooks.org/article/disclosure-day-hodges-spielberg/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/disclosure-day-hodges-spielberg/</guid>
-    <pubDate>Thu, 23 Jul 2026 12:30:00 GMT</pubDate>
-    <description>Considering Steven Spielberg’s ‘Disclosure Day’ and his magic-of-movies persona.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/disclosure day hansel house.png" medium="image"/>
-  </item>
-  <item>
     <title>"The Bed Trick" by Izabella Scott</title>
     <link>https://lareviewofbooks.org/article/the-bed-trick-by-izabella-scott/</link>
     <guid isPermaLink="true">https://lareviewofbooks.org/article/the-bed-trick-by-izabella-scott/</guid>
@@ -336,14 +344,6 @@
     <pubDate>Tue, 30 Jun 2026 12:30:00 GMT</pubDate>
     <description>David Fishkind discusses his debut novel, narcissism, and walking on the edge of the earth.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Don't Step Into My Office.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Nonspeakers Speaking Out</title>
-    <link>https://lareviewofbooks.org/article/woody-brown-upward-bound-novel-interview-nonspeaking-autism/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/woody-brown-upward-bound-novel-interview-nonspeaking-autism/</guid>
-    <pubDate>Mon, 29 Jun 2026 12:30:00 GMT</pubDate>
-    <description>Woody Brown discusses his debut novel and the challenges those with nonspeaking autism face today.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Upward Bound.jpg" medium="image"/>
   </item>
   <item>
     <title>Beating a Dead Racket</title>
