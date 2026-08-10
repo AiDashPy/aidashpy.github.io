@@ -7,7 +7,7 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Mon, 10 Aug 2026 13:24:03 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 10 Aug 2026 15:05:42 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title>Ovaherero: Germany’s Billions Aren’t Reparations</title>
@@ -24,6 +24,14 @@
     <pubDate>Mon, 03 Aug 2026 10:39:05 +0200</pubDate>
     <description>A 30 June anti-migrant deadline passed as diplomatic tensions across Africa conjure the rainbow nation's historic debt to its neighbors.</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0803_South_Africa_Xenophobia_SMALL.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Five Years Since the Return of the Taliban</title>
+    <link>https://www.rosalux.de/en/news/id/55082</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55082</guid>
+    <pubDate>Mon, 03 Aug 2026 09:42:00 +0200</pubDate>
+    <description>Afghan women have lost almost all their rights, but Western governments are meeting with the Taliban to make deportations easier.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0803_Afghanistan_5_Years_Taliban_SMALL.jpg" medium="image"/>
   </item>
   <item>
     <title>"This War Is a Blessing for the Islamic Regime"</title>
@@ -80,14 +88,6 @@
     <pubDate>Thu, 02 Jul 2026 16:34:00 +0200</pubDate>
     <description>As the USA celebrates its 250th independence day this July, a Black perspective on centuries of injustice.</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Nordamerika/civil-rights-march-washington-1963_pa.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Kyrgyzstan's Gig Economy: Taxed But Unprotected</title>
-    <link>https://www.rosalux.de/en/news/id/54989</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54989</guid>
-    <pubDate>Thu, 02 Jul 2026 14:24:06 +0200</pubDate>
-    <description>Platform work is booming in Kyrgyzstan, but labour law hasn't caught up with the gig economy.</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Zentralasien/bishkek_courier_imago697443014.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
