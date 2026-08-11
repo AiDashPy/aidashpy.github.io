@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Tue, 11 Aug 2026 20:48:57 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 11 Aug 2026 21:51:19 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Mutual Aid Is the Norm</title>
+    <link>https://lareviewofbooks.org/article/ray-nayler-palaces-crow-science-fiction-biorealism-interview/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/ray-nayler-palaces-crow-science-fiction-biorealism-interview/</guid>
+    <pubDate>Tue, 11 Aug 2026 15:00:00 GMT</pubDate>
+    <description>Ray Nayler discusses his new novel and the ‘rhizome of care’ that links us with nonhuman species.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Palaces of the Crow crop.jpg" medium="image"/>
+  </item>
   <item>
     <title>Eleni Sikelianos’s ‘Human Mornings’</title>
     <link>https://lareviewofbooks.org/article/human-mornings-elenia-sikelianos-poetry-larb-quarterly-traffic/</link>
@@ -384,14 +392,6 @@
     <pubDate>Fri, 29 May 2026 12:30:00 GMT</pubDate>
     <description>Bruno Carvalho discusses the history of city planning and how urban design intertwines with a society’s prognostications and projections.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/The Invention of the Future.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Losing Our Cruelty</title>
-    <link>https://lareviewofbooks.org/article/sangamithra-iyer-governing-bodies-memoir-confluence-watershed-interview/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/sangamithra-iyer-governing-bodies-memoir-confluence-watershed-interview/</guid>
-    <pubDate>Thu, 28 May 2026 12:30:00 GMT</pubDate>
-    <description>Sangamithra Iyer discusses strategies for living ethically, incorporating veganism, nonviolence, and truth into ‘fractal responsibility.’</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Sangamithra Iyer Headshot NYPL color_photo by Jonathan Blanc.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
