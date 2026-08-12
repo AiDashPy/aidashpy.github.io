@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Wed, 12 Aug 2026 14:59:30 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 12 Aug 2026 16:05:24 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>J. D. Vance’s Straussian Moment</title>
+    <link>https://lareviewofbooks.org/article/jd-vance-communion-straussian-peter-thiel-plagiarism-maga/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/jd-vance-communion-straussian-peter-thiel-plagiarism-maga/</guid>
+    <pubDate>Wed, 12 Aug 2026 15:00:00 GMT</pubDate>
+    <description>The US vice president wrote his new book without citing his source—Peter Thiel.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Communion_Vance.jpg" medium="image"/>
+  </item>
   <item>
     <title>Kyle Carrero Lopez’s ‘A Few Miles from Prison’</title>
     <link>https://lareviewofbooks.org/article/few-miles-from-prison-kyle-carrero-lopez-quarterly/</link>
@@ -232,14 +240,6 @@
     <pubDate>Sat, 25 Jul 2026 12:30:00 GMT</pubDate>
     <description>Reporting from a car in Baghdad.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Salih Baghdad insurance company.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Know Your Own Men</title>
-    <link>https://lareviewofbooks.org/article/odyssey-christopher-nolan-women-circe-athena-calypso-penelope/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/odyssey-christopher-nolan-women-circe-athena-calypso-penelope/</guid>
-    <pubDate>Fri, 24 Jul 2026 12:30:00 GMT</pubDate>
-    <description>Some say that Christopher Nolan has finally transformed into a women’s director, but the gender dynamics in his new mythology epic are actually much more complicated.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/odyssey athena beheading.png" medium="image"/>
   </item>
   <item>
     <title>"The Bed Trick" by Izabella Scott</title>
