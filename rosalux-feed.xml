@@ -7,7 +7,7 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Wed, 12 Aug 2026 10:13:53 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 12 Aug 2026 11:53:36 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title>Ovaherero: Germany’s Billions Aren’t Reparations</title>
@@ -40,6 +40,14 @@
     <pubDate>Fri, 31 Jul 2026 13:47:09 +0200</pubDate>
     <description>Firoozeh Farvardin reflects on the role of feminism during war and on the struggles over who speaks for the Iranian opposition.</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0731_IV_Iran_Feminism_Teheran_SMALL.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Cuba: The Biggest Changes Since The Revolution</title>
+    <link>https://www.rosalux.de/en/news/id/55077</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55077</guid>
+    <pubDate>Fri, 31 Jul 2026 09:51:21 +0200</pubDate>
+    <description>Cuba has announced drastic economic liberalisation, transforming the Cuban economy.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/3107_Cuba_Economic_Reforms_SMALL.jpg" medium="image"/>
   </item>
   <item>
     <title>Brazil's Flood Survivors: A Movement Fights for Justice</title>
@@ -80,14 +88,6 @@
     <pubDate>Fri, 03 Jul 2026 11:57:18 +0200</pubDate>
     <description>Northern Ireland's summer riots reveal how old sectarian conflicts created the conditions for new pogroms.</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/070326_Belfast_Race_Riots_small.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Happy Birthday, USA?</title>
-    <link>https://www.rosalux.de/en/news/id/54963</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54963</guid>
-    <pubDate>Thu, 02 Jul 2026 16:34:00 +0200</pubDate>
-    <description>As the USA celebrates its 250th independence day this July, a Black perspective on centuries of injustice.</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Nordamerika/civil-rights-march-washington-1963_pa.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
