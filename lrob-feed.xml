@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Wed, 12 Aug 2026 13:14:39 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 12 Aug 2026 14:59:30 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Kyle Carrero Lopez’s ‘A Few Miles from Prison’</title>
+    <link>https://lareviewofbooks.org/article/few-miles-from-prison-kyle-carrero-lopez-quarterly/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/few-miles-from-prison-kyle-carrero-lopez-quarterly/</guid>
+    <pubDate>Wed, 12 Aug 2026 12:30:00 GMT</pubDate>
+    <description>A new poem by Kyle Carrero Lopez from the LARB Quarterly, no 49: ‘Traffic.’</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/First knot - albrecht durer copy.jpg" medium="image"/>
+  </item>
   <item>
     <title>Mutual Aid Is the Norm</title>
     <link>https://lareviewofbooks.org/article/ray-nayler-palaces-crow-science-fiction-biorealism-interview/</link>
@@ -296,14 +304,6 @@
     <pubDate>Sun, 12 Jul 2026 12:30:00 GMT</pubDate>
     <description>Exploring the links between the history of semiotics and the creation of LLMs.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/PunctuationPersonified_0007.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>A Brief History of Flow</title>
-    <link>https://lareviewofbooks.org/article/max-l-feldman-internet-television-flow-traffic/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/max-l-feldman-internet-television-flow-traffic/</guid>
-    <pubDate>Sat, 11 Jul 2026 15:00:00 GMT</pubDate>
-    <description>What the internet learned from television.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/En_lan_2000_00014-1.jpg" medium="image"/>
   </item>
   <item>
     <title>John Waters Is ‘Officially Good’</title>
