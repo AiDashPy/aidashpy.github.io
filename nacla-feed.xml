@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Wed, 12 Aug 2026 17:03:35 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 12 Aug 2026 19:11:38 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Garífuna Communities Face Forced Displacement in Honduras</title>
+    <link>https://nacla.org/garifuna-communities-face-forced-displacement-in-honduras/</link>
+    <guid isPermaLink="true">https://nacla.org/garifuna-communities-face-forced-displacement-in-honduras/</guid>
+    <pubDate>Wed, 12 Aug 2026 14:48:48 GMT</pubDate>
+    <description>A business-friendly agro-industry law, implemented by the country’s new right-wing government, is intensifying pressure on Garífuna land.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/08/pbi20julbanner.jpg" medium="image"/>
+  </item>
   <item>
     <title>Call for Pitches | Peru’s Perpetual Crisis</title>
     <link>https://nacla.org/call-for-pitches-perus-perpetual-crisis/</link>
@@ -400,14 +408,6 @@
     <pubDate>Mon, 11 May 2026 11:12:48 GMT</pubDate>
     <description>At a historic conference in Bogotá, heterodox thinkers and politicians gathered to debate the construction of a new international economic order oriented around human life and dignity.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/05/Economiaparalavida-AK.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The Letters of Minerva Mirabal and Manolo Tavárez: Love and Resistance in the Time of Trujillo (Review)</title>
-    <link>https://nacla.org/the-letters-of-minerva-mirabal-and-manolo-tavarez-love-and-resistance-in-the-time-of-trujillo-review/</link>
-    <guid isPermaLink="true">https://nacla.org/the-letters-of-minerva-mirabal-and-manolo-tavarez-love-and-resistance-in-the-time-of-trujillo-review/</guid>
-    <pubDate>Fri, 08 May 2026 11:05:52 GMT</pubDate>
-    <description>Minou Tavárez Mirabal’s 2022 book sheds light on the complex lives of her parents, two Dominican revolutionaries who were assassinated for their political activism.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/05/Screenshot-2026-05-08-at-10.27.35-AM.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
