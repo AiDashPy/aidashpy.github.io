@@ -7,8 +7,16 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Thu, 13 Aug 2026 08:26:02 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 10:15:21 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>How South Africa Sees Elon Musk</title>
+    <link>https://www.rosalux.de/en/news/id/55116</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55116</guid>
+    <pubDate>Thu, 13 Aug 2026 11:16:10 +0200</pubDate>
+    <description>With the Stop Starlink campaign, resistance is growing to the rainbow nation's most famous son</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0813_Elon_Musk_SMALL.jpg" medium="image"/>
+  </item>
   <item>
     <title>Ovaherero: Germany’s Billions Aren’t Reparations</title>
     <link>https://www.rosalux.de/en/news/id/55101</link>
@@ -46,7 +54,7 @@
     <link>https://www.rosalux.de/en/news/id/55077</link>
     <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55077</guid>
     <pubDate>Fri, 31 Jul 2026 09:51:21 +0200</pubDate>
-    <description>Cuba has announced drastic economic liberalisation, transforming the Cuban economy.</description>
+    <description>Cuba has announced drastic economic reforms. What will remain of socialism?</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/3107_Cuba_Economic_Reforms_SMALL.jpg" medium="image"/>
   </item>
   <item>
@@ -80,14 +88,6 @@
     <pubDate>Mon, 06 Jul 2026 14:27:44 +0200</pubDate>
     <description>Zack Polanski's Greens are skyrocketing in the polls, but can they out-flank Labour on the left?</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/070126_Zack_Polanski_Greens_small.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Belfast Race Riots: How Loyalism Turned on Migrants</title>
-    <link>https://www.rosalux.de/en/news/id/55009</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55009</guid>
-    <pubDate>Fri, 03 Jul 2026 11:57:18 +0200</pubDate>
-    <description>Northern Ireland's summer riots reveal how old sectarian conflicts created the conditions for new pogroms.</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/070326_Belfast_Race_Riots_small.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
