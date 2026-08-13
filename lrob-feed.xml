@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Thu, 13 Aug 2026 11:49:43 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 13:16:10 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Fatimah Asghar’s ‘[i can’t fight]’</title>
+    <link>https://lareviewofbooks.org/article/i-cant-fight-fatimah-asghar-larb-quarterly-traffic/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/i-cant-fight-fatimah-asghar-larb-quarterly-traffic/</guid>
+    <pubDate>Thu, 13 Aug 2026 12:30:00 GMT</pubDate>
+    <description>A new poem by Fatimah Asghar from the LARB Quarterly, no 49: ‘Traffic.’</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Antonio_Pollaiuolo_-_Battle_of_the_Nudes_-_Google_Art_Project_(CAH0xbSFiSpKkg) crop-1.jpg" medium="image"/>
+  </item>
   <item>
     <title>J. D. Vance’s Straussian Moment</title>
     <link>https://lareviewofbooks.org/article/jd-vance-communion-straussian-peter-thiel-plagiarism-maga/</link>
@@ -296,14 +304,6 @@
     <pubDate>Tue, 14 Jul 2026 12:30:00 GMT</pubDate>
     <description>Maya C. Popa discusses distance, wonder, and the 19th-century love letters explored in her newest collection.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Maya C Popa by Diana SolÃ­s.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Empire of Signs</title>
-    <link>https://lareviewofbooks.org/article/signifiers-differance-saussure-barthes-derrida-llm-ai-slop/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/signifiers-differance-saussure-barthes-derrida-llm-ai-slop/</guid>
-    <pubDate>Sun, 12 Jul 2026 12:30:00 GMT</pubDate>
-    <description>Exploring the links between the history of semiotics and the creation of LLMs.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/PunctuationPersonified_0007.jpg" medium="image"/>
   </item>
   <item>
     <title>John Waters Is ‘Officially Good’</title>
