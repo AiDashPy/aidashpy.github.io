@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Thu, 13 Aug 2026 16:05:22 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 17:58:32 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Hands and Fins and Feet</title>
+    <link>https://lareviewofbooks.org/article/goliath-grouper-florida-industrial-spill-cerebrocentrism-tampa/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/goliath-grouper-florida-industrial-spill-cerebrocentrism-tampa/</guid>
+    <pubDate>Thu, 13 Aug 2026 15:00:00 GMT</pubDate>
+    <description>What a dead goliath grouper, killed by an industrial spill, tells us about cerebrocentrism and our denied kinship with other species.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Grouper - Historia Naturalis Brasiliae.jpg" medium="image"/>
+  </item>
   <item>
     <title>Fatimah Asghar’s ‘[i can’t fight]’</title>
     <link>https://lareviewofbooks.org/article/i-cant-fight-fatimah-asghar-larb-quarterly-traffic/</link>
@@ -288,14 +296,6 @@
     <pubDate>Fri, 17 Jul 2026 12:30:00 GMT</pubDate>
     <description>Reflecting on a grandfather’s time as a thoracic surgeon treating tuberculosis patients in wartime Germany.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Grundner Photo1 pneumothorax.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Law &amp; Order: Higher Ed Unit</title>
-    <link>https://lareviewofbooks.org/article/law-order-racist-dick-wolf-middle-eastern-studies/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/law-order-racist-dick-wolf-middle-eastern-studies/</guid>
-    <pubDate>Thu, 16 Jul 2026 15:00:00 GMT</pubDate>
-    <description>A professor of Arabic literature on seeing herself on the small screen.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/racist Palestine &amp; Law Order.png" medium="image"/>
   </item>
   <item>
     <title>Two Ships in Touch</title>
