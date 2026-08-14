@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Fri, 14 Aug 2026 14:53:51 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2026 15:53:55 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>La Petite Mort</title>
+    <link>https://lareviewofbooks.org/article/pillion-kink-bdsm-box-hill-a24-harry-lighton/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/pillion-kink-bdsm-box-hill-a24-harry-lighton/</guid>
+    <pubDate>Fri, 14 Aug 2026 15:00:00 GMT</pubDate>
+    <description>Harry Lighton’s film ‘Pillion’ offers a discreetly sanitized version of gay BDSM.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Pillion movies.png" medium="image"/>
+  </item>
   <item>
     <title>Weijia Pan’s ‘Tokyo’</title>
     <link>https://lareviewofbooks.org/article/tokyo-weijia-pan-prose-poetry-larb-quarterly-traffic/</link>
@@ -248,14 +256,6 @@
     <pubDate>Sun, 26 Jul 2026 12:30:00 GMT</pubDate>
     <description>‘Papilio nobilis, male.’</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/IMG_3838.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>A Reign of Silence</title>
-    <link>https://lareviewofbooks.org/article/queen-birgitta-trotzig-swedish-modernist-deportee-novel-weil/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/queen-birgitta-trotzig-swedish-modernist-deportee-novel-weil/</guid>
-    <pubDate>Sat, 25 Jul 2026 15:00:00 GMT</pubDate>
-    <description>The first novel to appear in English from a Swedish modern master.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Queen-1.jpg" medium="image"/>
   </item>
   <item>
     <title>Only a Place Like This</title>
