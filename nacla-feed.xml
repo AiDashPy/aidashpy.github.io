@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Fri, 14 Aug 2026 14:58:44 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2026 16:00:21 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Operation Condor: The Pact that Terrorized a Continent (Review)</title>
+    <link>https://nacla.org/operation-condor-the-pact-that-terrorized-a-continent-review/</link>
+    <guid isPermaLink="true">https://nacla.org/operation-condor-the-pact-that-terrorized-a-continent-review/</guid>
+    <pubDate>Fri, 14 Aug 2026 11:33:30 GMT</pubDate>
+    <description>Francesca Lessa and Sebastián Santana walk readers through the tangled transnational web of Operation Condor and the abuses it facilitated.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/08/Book-Review-Top-Image-1350-x-870.png" medium="image"/>
+  </item>
   <item>
     <title>Garífuna Communities Face Forced Displacement in Honduras</title>
     <link>https://nacla.org/garifuna-communities-face-forced-displacement-in-honduras/</link>
@@ -400,14 +408,6 @@
     <pubDate>Wed, 13 May 2026 14:38:16 GMT</pubDate>
     <description>John Avina’s comics, set in Chicago’s Pilsen neighborhood, re-imagine Mexican American life beyond conquest narratives, deportation regimes, and generational loss.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/05/image1-scaled.jpeg" medium="image"/>
-  </item>
-  <item>
-    <title>Building the “Economía para la vida”</title>
-    <link>https://nacla.org/building-the-economia-para-la-vida/</link>
-    <guid isPermaLink="true">https://nacla.org/building-the-economia-para-la-vida/</guid>
-    <pubDate>Mon, 11 May 2026 11:12:48 GMT</pubDate>
-    <description>At a historic conference in Bogotá, heterodox thinkers and politicians gathered to debate the construction of a new international economic order oriented around human life and dignity.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/05/Economiaparalavida-AK.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
