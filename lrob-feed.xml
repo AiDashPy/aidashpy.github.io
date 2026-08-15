@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Sat, 15 Aug 2026 12:41:01 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 15 Aug 2026 13:31:48 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>The Ultimate Borderland</title>
+    <link>https://lareviewofbooks.org/article/valeria-luiselli-sicily-borders-immigration-beginning-middle-end/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/valeria-luiselli-sicily-borders-immigration-beginning-middle-end/</guid>
+    <pubDate>Sat, 15 Aug 2026 12:30:00 GMT</pubDate>
+    <description>Valeria Luiselli discusses her new novel, ‘Beginning Middle End.’</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Valeria Luiselli (c) Clayton Cubitt crop.jpg" medium="image"/>
+  </item>
   <item>
     <title>La Petite Mort</title>
     <link>https://lareviewofbooks.org/article/pillion-kink-bdsm-box-hill-a24-harry-lighton/</link>
@@ -384,14 +392,6 @@
     <pubDate>Thu, 04 Jun 2026 12:30:00 GMT</pubDate>
     <description>A conversation with prolific writer Reyna Grande about her new book of essays on vision loss, language trauma, motherhood, and more.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Reyna Grande by Ara Arbabzadeh.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Where Did the Future Go?</title>
-    <link>https://lareviewofbooks.org/article/bruno-carvalho-invention-future-history-cities-modernity-interview/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/bruno-carvalho-invention-future-history-cities-modernity-interview/</guid>
-    <pubDate>Fri, 29 May 2026 12:30:00 GMT</pubDate>
-    <description>Bruno Carvalho discusses the history of city planning and how urban design intertwines with a society’s prognostications and projections.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/The Invention of the Future.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
