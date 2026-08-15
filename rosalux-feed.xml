@@ -7,8 +7,24 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Sat, 15 Aug 2026 08:36:43 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 15 Aug 2026 09:31:54 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>“Israel is using this registration process to waste our time.”</title>
+    <link>https://www.rosalux.de/en/news/id/55128</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55128</guid>
+    <pubDate>Sat, 15 Aug 2026 11:10:11 +0200</pubDate>
+    <description>medico international's Riad Othman on the bureaucratic hurdles Israel is putting up to increase pressure on humanitarian aid work in Palestine.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/06_Medico_Palestine_3_SMALL.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Germany’s Die Linke Takes A Stand</title>
+    <link>https://www.rosalux.de/en/news/id/55125</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55125</guid>
+    <pubDate>Fri, 14 Aug 2026 12:05:37 +0200</pubDate>
+    <description>For the first time, Die Linke surges past the SPD in polls as it battles austerity and the far-right—and names the genocide in Gaza.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0814_Linke_Parteitag_SMALL.jpg" medium="image"/>
+  </item>
   <item>
     <title>Cuba: The Greatest Transformation Since The Revolution</title>
     <link>https://www.rosalux.de/en/news/id/55123</link>
@@ -72,22 +88,6 @@
     <pubDate>Wed, 29 Jul 2026 10:31:07 +0200</pubDate>
     <description>After an exam leak sparked a protests, young Indians built a satirical movement that toppled a minister.</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Suedasien/cjp_indien_imago858502162.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>A Greater Israel Stretching as Far as the Litani River?</title>
-    <link>https://www.rosalux.de/en/news/id/55002</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55002</guid>
-    <pubDate>Wed, 15 Jul 2026 16:41:48 +0200</pubDate>
-    <description>On the Expansion of Israeli Power in Lebanon and Syria in Ideology and in Practice.</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Nahost/beaufort_imago857975519.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Britain's Greens Are on the Rise</title>
-    <link>https://www.rosalux.de/en/news/id/54996</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/54996</guid>
-    <pubDate>Mon, 06 Jul 2026 14:27:44 +0200</pubDate>
-    <description>Zack Polanski's Greens are skyrocketing in the polls, but can they out-flank Labour on the left?</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/070126_Zack_Polanski_Greens_small.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
