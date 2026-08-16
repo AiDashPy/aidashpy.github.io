@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Aug 2026 12:42:26 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 13:33:14 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Free Work Isn’t Free</title>
+    <link>https://lareviewofbooks.org/article/screenwriters-hollywood-mergers-paramount-warner-oracle-artificial-intelligence/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/screenwriters-hollywood-mergers-paramount-warner-oracle-artificial-intelligence/</guid>
+    <pubDate>Sun, 16 Aug 2026 12:30:00 GMT</pubDate>
+    <description>On the true cost of unpaid creativity in the age of IP and AI.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Christian Joudrey - Paramount_Studios,_Los_Angeles,_United_States_(Unsplash).jpg" medium="image"/>
+  </item>
   <item>
     <title>An Alternative Future for Struggling Colleges</title>
     <link>https://lareviewofbooks.org/article/microcollege-movement-liberal-arts-deep-springs-sheldon-jackson/</link>
@@ -296,14 +304,6 @@
     <pubDate>Tue, 21 Jul 2026 15:00:00 GMT</pubDate>
     <description>Now that Miss Marple and Nancy Drew’s early novels are entering the public domain, what comes next for them?</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/The_Secret_of_the_Old_Clock_(1930)_front_cover,_printing_1933B-14.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The Other Asimov</title>
-    <link>https://lareviewofbooks.org/article/asimov-robotics-laws-claude-chatbots-consciousness-human-interaction/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/asimov-robotics-laws-claude-chatbots-consciousness-human-interaction/</guid>
-    <pubDate>Sun, 19 Jul 2026 12:30:00 GMT</pubDate>
-    <description>Isaac Asimov’s laws of robotics have influenced AI’s development, but to what end?</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Asimov at Rochester Inst of Technology.jpg" medium="image"/>
   </item>
   <item>
     <title>Two Ships in Touch</title>
