@@ -7,8 +7,16 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Mon, 17 Aug 2026 09:50:19 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2026 10:38:21 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Hungary: From authoritarian to normal capitalism?</title>
+    <link>https://www.rosalux.de/en/news/id/55129</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55129</guid>
+    <pubDate>Mon, 17 Aug 2026 11:32:29 +0200</pubDate>
+    <description>What changes will Peter Magyar's premiership bring to Hungary? A review of his first 100 days in office.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0817_Peter_Magyar_100_Days_SMALL.jpg" medium="image"/>
+  </item>
   <item>
     <title>“Israel is using this registration process to waste our time.”</title>
     <link>https://www.rosalux.de/en/news/id/55128</link>
@@ -80,14 +88,6 @@
     <pubDate>Thu, 30 Jul 2026 12:12:30 +0200</pubDate>
     <description>MAB organizer Alexania Rossato on organizing flood-affected communities in Brazil, government failures, and the fight against disaster capitalism.</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0731_Brazil_Floods_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>How India’s Gen Z Cockroaches Forced Modi's Hand</title>
-    <link>https://www.rosalux.de/en/news/id/55071</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55071</guid>
-    <pubDate>Wed, 29 Jul 2026 10:31:07 +0200</pubDate>
-    <description>After an exam leak sparked a protests, young Indians built a satirical movement that toppled a minister.</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Suedasien/cjp_indien_imago858502162.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
