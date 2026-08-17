@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Mon, 17 Aug 2026 12:48:10 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2026 13:40:55 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Megafire and Other Hauntings</title>
+    <link>https://lareviewofbooks.org/article/california-futures-daniel-lanza-rivers-wildfires-indigenous-decolonial/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/california-futures-daniel-lanza-rivers-wildfires-indigenous-decolonial/</guid>
+    <pubDate>Mon, 17 Aug 2026 12:30:00 GMT</pubDate>
+    <description>Climate disaster in the Colonial Anthropocene and returning ‘good fire’ to California.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/California Futures.jpg" medium="image"/>
+  </item>
   <item>
     <title>Free Work Isn’t Free</title>
     <link>https://lareviewofbooks.org/article/screenwriters-hollywood-mergers-paramount-warner-oracle-artificial-intelligence/</link>
@@ -296,14 +304,6 @@
     <pubDate>Thu, 23 Jul 2026 07:00:00 GMT</pubDate>
     <description>We’re thrilled to announce Izabella Scott's The Bed Trick as the LARB Book Club Fall 2026 selection, a riveting debut work of nonfiction that unravels the twisted tale of a catfishing scheme between best friends that lasted more than a decade and ended in a very public trial. </description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/BC_I Scott (2).png" medium="image"/>
-  </item>
-  <item>
-    <title>Who Owns Women Detectives?</title>
-    <link>https://lareviewofbooks.org/article/women-detectives-oconnell-whittet/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/women-detectives-oconnell-whittet/</guid>
-    <pubDate>Tue, 21 Jul 2026 15:00:00 GMT</pubDate>
-    <description>Now that Miss Marple and Nancy Drew’s early novels are entering the public domain, what comes next for them?</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/The_Secret_of_the_Old_Clock_(1930)_front_cover,_printing_1933B-14.jpg" medium="image"/>
   </item>
   <item>
     <title>Two Ships in Touch</title>
