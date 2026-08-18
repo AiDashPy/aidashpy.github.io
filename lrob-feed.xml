@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Tue, 18 Aug 2026 14:35:35 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2026 15:33:52 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>How to Lose More Slowly</title>
+    <link>https://lareviewofbooks.org/article/self-sabotage-todd-mcgowan-freud-death-drive-pleasure/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/self-sabotage-todd-mcgowan-freud-death-drive-pleasure/</guid>
+    <pubDate>Tue, 18 Aug 2026 15:00:00 GMT</pubDate>
+    <description>Finding freedom through the death drive.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Self-Sabotage.jpg" medium="image"/>
+  </item>
   <item>
     <title>A Book of Hags</title>
     <link>https://lareviewofbooks.org/article/lisa-robertson-riverwork-paris-aging-bodies-flaneur-novel/</link>
@@ -288,14 +296,6 @@
     <pubDate>Mon, 27 Jul 2026 15:00:00 GMT</pubDate>
     <description>A personal history of animation’s reconquest of Hollywood.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Drawing Life Back into Animation.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>An Echo, a Movement</title>
-    <link>https://lareviewofbooks.org/article/echo-city-kx-song-everyday-movement-gigi-leung/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/echo-city-kx-song-everyday-movement-gigi-leung/</guid>
-    <pubDate>Mon, 27 Jul 2026 12:30:00 GMT</pubDate>
-    <description>Two recent novels tackle the complex aftermath of the 2019–20 Hong Kong protests.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Everyday Movement crop-1.jpg" medium="image"/>
   </item>
   <item>
     <title>The Last of the Great Butterfly Collectors</title>
