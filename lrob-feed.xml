@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Tue, 18 Aug 2026 13:43:45 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2026 14:35:35 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>A Book of Hags</title>
+    <link>https://lareviewofbooks.org/article/lisa-robertson-riverwork-paris-aging-bodies-flaneur-novel/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/lisa-robertson-riverwork-paris-aging-bodies-flaneur-novel/</guid>
+    <pubDate>Tue, 18 Aug 2026 12:30:00 GMT</pubDate>
+    <description>Lisa Robertson on aging, wandering, bodies, and her new novel.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Lisa Robertson at Western Front 2026-25.jpg" medium="image"/>
+  </item>
   <item>
     <title>Traveling Through the Desert Toward Repose</title>
     <link>https://lareviewofbooks.org/article/yellow-pine-claire-vaye-watkins-green-energy-interview/</link>
@@ -384,14 +392,6 @@
     <pubDate>Tue, 09 Jun 2026 12:30:00 GMT</pubDate>
     <description>Deb Olin Unferth’s new novel counts down to the end of humanity.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/DebUnferth-1939-Nick-Berard-scaled.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>A Study in Vulnerability</title>
-    <link>https://lareviewofbooks.org/article/suit-suitcase-maggie-smith-poetry-collection-process-inspiration/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/suit-suitcase-maggie-smith-poetry-collection-process-inspiration/</guid>
-    <pubDate>Mon, 08 Jun 2026 12:30:00 GMT</pubDate>
-    <description>Maggie Smith discusses her new book of poems, ‘A Suit or a Suitcase.’</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/maggie-smith-portrait-home-Chad Cochran.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
