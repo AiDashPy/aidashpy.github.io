@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Tue, 18 Aug 2026 12:59:31 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2026 13:51:38 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Colombia and Israel’s Cynical Disaster Diplomacy</title>
+    <link>https://nacla.org/colombia-and-israels-cynical-disaster-diplomacy/</link>
+    <guid isPermaLink="true">https://nacla.org/colombia-and-israels-cynical-disaster-diplomacy/</guid>
+    <pubDate>Tue, 18 Aug 2026 09:00:00 GMT</pubDate>
+    <description>Under the cover of earthquake response, Colombian President Abelardo de la Espriella has dramatically reversed Colombia’s stance toward Israel, recognizing controversial Israeli claims over the occupied Golan Heights.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/08/Colombian_President_Abelardo_de_la_Espriella.jpg" medium="image"/>
+  </item>
   <item>
     <title>Operation Condor: The Pact that Terrorized a Continent (Review)</title>
     <link>https://nacla.org/operation-condor-the-pact-that-terrorized-a-continent-review/</link>
@@ -400,14 +408,6 @@
     <pubDate>Fri, 15 May 2026 11:08:49 GMT</pubDate>
     <description>[CLOSED] NACLA is currently accepting proposals for our Winter 2026 issue on state violence, insecurity, and the political production of “criminality.”</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/05/Winter-CFP-2026_2.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Lucha, Play, and Possibility: Reimagining Mexican American Stories Through Comics</title>
-    <link>https://nacla.org/lucha-play-and-possibility-reimagining-mexican-american-stories-through-comics/</link>
-    <guid isPermaLink="true">https://nacla.org/lucha-play-and-possibility-reimagining-mexican-american-stories-through-comics/</guid>
-    <pubDate>Wed, 13 May 2026 14:38:16 GMT</pubDate>
-    <description>John Avina’s comics, set in Chicago’s Pilsen neighborhood, re-imagine Mexican American life beyond conquest narratives, deportation regimes, and generational loss.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/05/image1-scaled.jpeg" medium="image"/>
   </item>
   </channel>
 </rss>
