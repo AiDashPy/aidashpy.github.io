@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Wed, 19 Aug 2026 12:59:48 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2026 13:52:40 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>The Necromantic State: Spectral Remains in the Afterglow of Venezuela’s Bolivarian Revolution (Review)</title>
+    <link>https://nacla.org/the-necromantic-state-spectral-remains-in-the-afterglow-of-venezuelas-bolivarian-revolution-review/</link>
+    <guid isPermaLink="true">https://nacla.org/the-necromantic-state-spectral-remains-in-the-afterglow-of-venezuelas-bolivarian-revolution-review/</guid>
+    <pubDate>Wed, 19 Aug 2026 09:00:00 GMT</pubDate>
+    <description>The Necromantic State examines the creative acts that sustain, materialize, and engage the ghost of Hugo Chávez.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/08/Book-Review-Top-Image-1350-x-870.jpg" medium="image"/>
+  </item>
   <item>
     <title>Colombia and Israel’s Cynical Disaster Diplomacy</title>
     <link>https://nacla.org/colombia-and-israels-cynical-disaster-diplomacy/</link>
@@ -400,14 +408,6 @@
     <pubDate>Fri, 15 May 2026 12:29:00 GMT</pubDate>
     <description>The far-right government’s attacks on public institutions and the knowledge they produce have weakened Argentina’s workers, economy, and democracy.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/05/PSX_2871-scaled.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Call for Pitches | Narcoterrorism, State Power, and Transnational Criminal Organizations Reconsidered</title>
-    <link>https://nacla.org/call-for-pitches-narcoterrorism-state-power-and-transnational-criminal-organizations-reconsidered/</link>
-    <guid isPermaLink="true">https://nacla.org/call-for-pitches-narcoterrorism-state-power-and-transnational-criminal-organizations-reconsidered/</guid>
-    <pubDate>Fri, 15 May 2026 11:08:49 GMT</pubDate>
-    <description>[CLOSED] NACLA is currently accepting proposals for our Winter 2026 issue on state violence, insecurity, and the political production of “criminality.”</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/05/Winter-CFP-2026_2.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
