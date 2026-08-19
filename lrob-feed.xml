@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Wed, 19 Aug 2026 13:46:23 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2026 14:36:13 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>No Reason to Hide It</title>
+    <link>https://lareviewofbooks.org/article/mesha-maren-reissues-women-publishing-conglomerates-independent-presses/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/mesha-maren-reissues-women-publishing-conglomerates-independent-presses/</guid>
+    <pubDate>Wed, 19 Aug 2026 12:30:00 GMT</pubDate>
+    <description>What is going on with the reissue trend in publishing?</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/British Library Stacks cc0.jpg" medium="image"/>
+  </item>
   <item>
     <title>How to Lose More Slowly</title>
     <link>https://lareviewofbooks.org/article/self-sabotage-todd-mcgowan-freud-death-drive-pleasure/</link>
@@ -312,14 +320,6 @@
     <pubDate>Sat, 25 Jul 2026 12:30:00 GMT</pubDate>
     <description>Reporting from a car in Baghdad.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Salih Baghdad insurance company.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>"The Bed Trick" by Izabella Scott</title>
-    <link>https://lareviewofbooks.org/article/the-bed-trick-by-izabella-scott/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/the-bed-trick-by-izabella-scott/</guid>
-    <pubDate>Thu, 23 Jul 2026 07:00:00 GMT</pubDate>
-    <description>We’re thrilled to announce Izabella Scott's The Bed Trick as the LARB Book Club Fall 2026 selection, a riveting debut work of nonfiction that unravels the twisted tale of a catfishing scheme between best friends that lasted more than a decade and ended in a very public trial. </description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/BC_I Scott (2).png" medium="image"/>
   </item>
   <item>
     <title>Two Ships in Touch</title>
