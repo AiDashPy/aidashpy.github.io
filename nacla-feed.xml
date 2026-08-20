@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Thu, 20 Aug 2026 13:02:37 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 20 Aug 2026 14:43:05 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Struggling for Truth and Reconciliation in Uruguay</title>
+    <link>https://nacla.org/struggling-for-truth-and-reconciliation-in-uruguay/</link>
+    <guid isPermaLink="true">https://nacla.org/struggling-for-truth-and-reconciliation-in-uruguay/</guid>
+    <pubDate>Thu, 20 Aug 2026 09:00:00 GMT</pubDate>
+    <description>Proposed legislation calls into question how far the current government is willing to go to help victims of the dictatorship find justice.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/08/Desaparecidos_Uy-scaled.jpg" medium="image"/>
+  </item>
   <item>
     <title>The Necromantic State: Spectral Remains in the Afterglow of Venezuela’s Bolivarian Revolution (Review)</title>
     <link>https://nacla.org/the-necromantic-state-spectral-remains-in-the-afterglow-of-venezuelas-bolivarian-revolution-review/</link>
@@ -399,14 +407,6 @@
     <guid isPermaLink="true">https://nacla.org/motosierra-contra-el-pensamiento-ciencia-publica-autoritarismo-erosion-democratica-argentina/</guid>
     <pubDate>Mon, 18 May 2026 16:38:12 GMT</pubDate>
     <description>Los ataques del gobierno de extrema derecha contra las instituciones públicas y el conocimiento que producen han debilitado a los trabajadores, la economía, y la democracia de Argentina.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/05/PSX_2871-scaled.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>A Chainsaw Against Thought: Public Science, Authoritarianism, and the Erosion of Democracy in Argentina</title>
-    <link>https://nacla.org/a-chainsaw-against-thought-public-science-authoritarianism-and-the-erosion-of-democracy-in-argentina/</link>
-    <guid isPermaLink="true">https://nacla.org/a-chainsaw-against-thought-public-science-authoritarianism-and-the-erosion-of-democracy-in-argentina/</guid>
-    <pubDate>Fri, 15 May 2026 12:29:00 GMT</pubDate>
-    <description>The far-right government’s attacks on public institutions and the knowledge they produce have weakened Argentina’s workers, economy, and democracy.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/05/PSX_2871-scaled.jpg" medium="image"/>
   </item>
   </channel>
