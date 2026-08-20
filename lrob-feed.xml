@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Thu, 20 Aug 2026 14:38:20 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 20 Aug 2026 15:36:00 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Let’s Talk About ‘Lovers XXX’</title>
+    <link>https://lareviewofbooks.org/article/lovers-xxx-allie-rowbottom-feminist-porn-valley-girls/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/lovers-xxx-allie-rowbottom-feminist-porn-valley-girls/</guid>
+    <pubDate>Thu, 20 Aug 2026 15:00:00 GMT</pubDate>
+    <description>Allie Rowbottom on her new novel about two best friends in 1980s Los Angeles.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/LoversXXX.jpg" medium="image"/>
+  </item>
   <item>
     <title>When Byron Comes to Warsaw</title>
     <link>https://lareviewofbooks.org/article/erupcja-pete-ohs-charli-xcx-mount-etna-warsaw/</link>
@@ -384,14 +392,6 @@
     <pubDate>Tue, 23 Jun 2026 15:00:00 GMT</pubDate>
     <description>In Ashton Politanoff’s second novel, tennis becomes a vehicle for exploring fatherhood and masculinity.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Ashton Politanoff_007.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Is There Such a Thing as Death?</title>
-    <link>https://lareviewofbooks.org/article/deb-olin-unferth-earth-7-humanity-apocalypse-immortality/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/deb-olin-unferth-earth-7-humanity-apocalypse-immortality/</guid>
-    <pubDate>Tue, 09 Jun 2026 12:30:00 GMT</pubDate>
-    <description>Deb Olin Unferth’s new novel counts down to the end of humanity.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/DebUnferth-1939-Nick-Berard-scaled.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
