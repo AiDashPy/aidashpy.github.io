@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Thu, 20 Aug 2026 12:53:16 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 20 Aug 2026 13:49:09 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>When Byron Comes to Warsaw</title>
+    <link>https://lareviewofbooks.org/article/erupcja-pete-ohs-charli-xcx-mount-etna-warsaw/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/erupcja-pete-ohs-charli-xcx-mount-etna-warsaw/</guid>
+    <pubDate>Thu, 20 Aug 2026 12:30:00 GMT</pubDate>
+    <description>Eruptions and disruptions break Charli XCX and her friends in the new film from Pete Ohs.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Charli Erupcja.png" medium="image"/>
+  </item>
   <item>
     <title>No Reason to Hide It</title>
     <link>https://lareviewofbooks.org/article/mesha-maren-reissues-women-publishing-conglomerates-independent-presses/</link>
@@ -296,14 +304,6 @@
     <pubDate>Tue, 28 Jul 2026 12:30:00 GMT</pubDate>
     <description>On Megan Mi-Ai Lee at Tiffany’s in Los Angeles.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Jack Slavin - Megan Lee Studio-Session-010-Edit_1600_c.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The Animator’s New Groove</title>
-    <link>https://lareviewofbooks.org/article/disney-drawing-life-back-into-animation-tom-sito/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/disney-drawing-life-back-into-animation-tom-sito/</guid>
-    <pubDate>Mon, 27 Jul 2026 15:00:00 GMT</pubDate>
-    <description>A personal history of animation’s reconquest of Hollywood.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Drawing Life Back into Animation.jpg" medium="image"/>
   </item>
   <item>
     <title>The Last of the Great Butterfly Collectors</title>
