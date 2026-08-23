@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Sun, 23 Aug 2026 12:43:07 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 23 Aug 2026 13:33:37 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>To Be Femme</title>
+    <link>https://lareviewofbooks.org/article/femme-feminism-lori-marso-sophie-lewis-eileen-gsell/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/femme-feminism-lori-marso-sophie-lewis-eileen-gsell/</guid>
+    <pubDate>Sun, 23 Aug 2026 12:30:00 GMT</pubDate>
+    <description>Is ‘femme’ feminist?</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Lipstick gsell-1.jpg" medium="image"/>
+  </item>
   <item>
     <title>Kill or Be Thrilled</title>
     <link>https://lareviewofbooks.org/article/teenage-sex-death-camp-miasma-jane-schoenbrun-slashers/</link>
@@ -296,14 +304,6 @@
     <pubDate>Thu, 30 Jul 2026 15:00:00 GMT</pubDate>
     <description>Isaac Butler’s new book mixes history and personal testimony to examine the ‘culture wars’ that shaped the 1980s—conflicts that differed in striking ways from the ones we’re witnessing today.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/The Perfect Moment.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The Fate of China’s Muslims</title>
-    <link>https://lareviewofbooks.org/article/islamic-china-rian-thum-muslim-transnationalism-hale-eroglu/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/islamic-china-rian-thum-muslim-transnationalism-hale-eroglu/</guid>
-    <pubDate>Thu, 30 Jul 2026 12:30:00 GMT</pubDate>
-    <description>Two recent books track the history of China’s Muslim minority during a period of suspicion and suppression.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Muslim Transnationalism in China crop-1.jpg" medium="image"/>
   </item>
   <item>
     <title>Character Study</title>
