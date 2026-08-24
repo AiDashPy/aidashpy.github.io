@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Mon, 24 Aug 2026 15:41:14 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 16:40:19 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Compliance, a Love Story</title>
+    <link>https://lareviewofbooks.org/article/one-night-only-fascist-sex-dystopia-rom-com/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/one-night-only-fascist-sex-dystopia-rom-com/</guid>
+    <pubDate>Mon, 24 Aug 2026 15:00:00 GMT</pubDate>
+    <description>‘One Night Only’ gets it all wrong.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/One night only.png" medium="image"/>
+  </item>
   <item>
     <title>Everything You Wanted to Know About the Constitution but Were Afraid to Ask</title>
     <link>https://lareviewofbooks.org/article/constitution-comprehensive-annotated-guide-melissa-murray-amendments-rights/</link>
@@ -296,14 +304,6 @@
     <pubDate>Sat, 01 Aug 2026 12:30:00 GMT</pubDate>
     <description>Aruni Kashyap discusses his new novel, a portrayal of the small pleasures of everyday life that a group of friends tries to safeguard against the violence of the Indian state.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/AruniKashyap_0044-1.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The Filmography That Launched a Thousand Ships</title>
-    <link>https://lareviewofbooks.org/article/homer-odyssey-christopher-nolan-career-retrospective-memory-adaptation/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/homer-odyssey-christopher-nolan-career-retrospective-memory-adaptation/</guid>
-    <pubDate>Fri, 31 Jul 2026 12:30:00 GMT</pubDate>
-    <description>Decentering Homer and reflecting on the self-referential nature of Christopher Nolan’s ‘The Odyssey.’</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Nolan Odyssey charybdis.png" medium="image"/>
   </item>
   <item>
     <title>Character Study</title>
