@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Mon, 24 Aug 2026 11:31:17 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 12:54:11 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Everything You Wanted to Know About the Constitution but Were Afraid to Ask</title>
+    <link>https://lareviewofbooks.org/article/constitution-comprehensive-annotated-guide-melissa-murray-amendments-rights/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/constitution-comprehensive-annotated-guide-melissa-murray-amendments-rights/</guid>
+    <pubDate>Mon, 24 Aug 2026 12:30:00 GMT</pubDate>
+    <description>Melissa Murray’s new book offers an invaluable primer on the structure, history, and meaning of US law’s most important document.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/US Constitution.jpg" medium="image"/>
+  </item>
   <item>
     <title>To Be Femme</title>
     <link>https://lareviewofbooks.org/article/femme-feminism-lori-marso-sophie-lewis-eileen-gsell/</link>
@@ -296,14 +304,6 @@
     <pubDate>Fri, 31 Jul 2026 12:30:00 GMT</pubDate>
     <description>Decentering Homer and reflecting on the self-referential nature of Christopher Nolan’s ‘The Odyssey.’</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Nolan Odyssey charybdis.png" medium="image"/>
-  </item>
-  <item>
-    <title>Anything Could Become a Battleground</title>
-    <link>https://lareviewofbooks.org/article/perfect-moment-god-sex-art-culture-wars-butler/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/perfect-moment-god-sex-art-culture-wars-butler/</guid>
-    <pubDate>Thu, 30 Jul 2026 15:00:00 GMT</pubDate>
-    <description>Isaac Butler’s new book mixes history and personal testimony to examine the ‘culture wars’ that shaped the 1980s—conflicts that differed in striking ways from the ones we’re witnessing today.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/The Perfect Moment.jpg" medium="image"/>
   </item>
   <item>
     <title>Character Study</title>
