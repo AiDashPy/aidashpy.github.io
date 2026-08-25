@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Aug 2026 15:52:58 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 16:46:05 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>A Rightward Turn in Honduras Puts Land Defenders At Risk</title>
+    <link>https://nacla.org/a-rightward-turn-in-honduras-puts-land-defenders-at-risk/</link>
+    <guid isPermaLink="true">https://nacla.org/a-rightward-turn-in-honduras-puts-land-defenders-at-risk/</guid>
+    <pubDate>Tue, 25 Aug 2026 12:32:04 GMT</pubDate>
+    <description>The massacre of 20 campesinos in the Bajo Aguán Valley demonstrates the deadly consequences of their struggle against powerful landowners with ties to the recently elected far-right government.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/08/18957518012_0ab6ecff0a_o-scaled.jpg" medium="image"/>
+  </item>
   <item>
     <title>Struggling for Truth and Reconciliation in Uruguay</title>
     <link>https://nacla.org/struggling-for-truth-and-reconciliation-in-uruguay/</link>
@@ -400,14 +408,6 @@
     <pubDate>Tue, 19 May 2026 11:39:30 GMT</pubDate>
     <description>Forty years after the fall of Jean-Claude Duvalier, Haiti’s ongoing crisis exposes the devastating legacy of permanent foreign intervention.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/05/Haiti-series_flag.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>La motosierra contra el pensamiento: ciencia pública, autoritarismo y erosión democrática en Argentina</title>
-    <link>https://nacla.org/motosierra-contra-el-pensamiento-ciencia-publica-autoritarismo-erosion-democratica-argentina/</link>
-    <guid isPermaLink="true">https://nacla.org/motosierra-contra-el-pensamiento-ciencia-publica-autoritarismo-erosion-democratica-argentina/</guid>
-    <pubDate>Mon, 18 May 2026 16:38:12 GMT</pubDate>
-    <description>Los ataques del gobierno de extrema derecha contra las instituciones públicas y el conocimiento que producen han debilitado a los trabajadores, la economía, y la democracia de Argentina.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/05/PSX_2871-scaled.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
