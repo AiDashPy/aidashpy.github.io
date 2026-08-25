@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Aug 2026 14:48:20 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 15:44:06 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Sleight-of-Hand Soul</title>
+    <link>https://lareviewofbooks.org/article/did-you-find-everything-donna-masini-poetry-death/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/did-you-find-everything-donna-masini-poetry-death/</guid>
+    <pubDate>Tue, 25 Aug 2026 15:00:00 GMT</pubDate>
+    <description>Donna Masini’s new collection mixes dread and inanity to explore death and the weirdness of language.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/DonnaMasini.jpg" medium="image"/>
+  </item>
   <item>
     <title>We Can Answer for Ourselves</title>
     <link>https://lareviewofbooks.org/article/moving-toward-freedom-susan-eva-odonovan-slavery-politics/</link>
@@ -280,14 +288,6 @@
     <pubDate>Tue, 04 Aug 2026 12:30:00 GMT</pubDate>
     <description>A new biography of Howard Zinn functions less as a detailed portrait of a man than as an inspirational manual for contemporary endurance.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/The People's Historian.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The Uncommitted Man</title>
-    <link>https://lareviewofbooks.org/article/smoke-ivan-turgenev-russian-class-novel-donald-rayfield/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/smoke-ivan-turgenev-russian-class-novel-donald-rayfield/</guid>
-    <pubDate>Mon, 03 Aug 2026 15:00:00 GMT</pubDate>
-    <description>A new translation of Ivan Turgenev’s 1867 novel ‘Smoke’ explores the main concerns of the author’s life.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Smoke.jpg" medium="image"/>
   </item>
   <item>
     <title>A Place of Greater Safety</title>
