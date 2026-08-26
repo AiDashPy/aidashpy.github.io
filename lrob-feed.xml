@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Wed, 26 Aug 2026 11:31:57 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2026 12:56:26 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Have Moviegoers Been Suckered?</title>
+    <link>https://lareviewofbooks.org/article/david-thomson-sudden-flicker-light-film-history-revisionist/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/david-thomson-sudden-flicker-light-film-history-revisionist/</guid>
+    <pubDate>Wed, 26 Aug 2026 12:30:00 GMT</pubDate>
+    <description>Eminent film historian David Thomson fears that the medium has finally tricked him.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Sudden Flicker of Light crop-1.jpg" medium="image"/>
+  </item>
   <item>
     <title>Sleight-of-Hand Soul</title>
     <link>https://lareviewofbooks.org/article/did-you-find-everything-donna-masini-poetry-death/</link>
@@ -280,14 +288,6 @@
     <pubDate>Tue, 04 Aug 2026 15:00:00 GMT</pubDate>
     <description>Roland Orzabal of Tears for Fears makes amends in his new ‘astrological memoir.’</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Welcome to your life crop.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Bending the Arc of History</title>
-    <link>https://lareviewofbooks.org/article/bending-the-arc-of-history/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/bending-the-arc-of-history/</guid>
-    <pubDate>Tue, 04 Aug 2026 12:30:00 GMT</pubDate>
-    <description>A new biography of Howard Zinn functions less as a detailed portrait of a man than as an inspirational manual for contemporary endurance.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/The People's Historian.jpg" medium="image"/>
   </item>
   <item>
     <title>A Place of Greater Safety</title>
