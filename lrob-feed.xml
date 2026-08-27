@@ -7,8 +7,24 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Thu, 27 Aug 2026 04:22:48 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 16:12:24 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Stranger, Love Your Life</title>
+    <link>https://lareviewofbooks.org/article/franz-wright-axe-blossom-last-poems-fragments-posthumous/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/franz-wright-axe-blossom-last-poems-fragments-posthumous/</guid>
+    <pubDate>Thu, 27 Aug 2026 15:00:00 GMT</pubDate>
+    <description>The final collection from one of contemporary poetry’s essential voices.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Axe in blossom.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Response to Megan Milks and Amber Dawn Regarding ‘The New Qweird’</title>
+    <link>https://lareviewofbooks.org/article/new-qweird-letter-editor-response-lovecraft-cute-accelerationism/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/new-qweird-letter-editor-response-lovecraft-cute-accelerationism/</guid>
+    <pubDate>Thu, 27 Aug 2026 12:30:00 GMT</pubDate>
+    <description>Addressing the concerns recently raised by the editors of the anthology ‘New Queer Weird.’</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Lovecraft Qweird.png" medium="image"/>
+  </item>
   <item>
     <title>Have Moviegoers Been Suckered?</title>
     <link>https://lareviewofbooks.org/article/david-thomson-sudden-flicker-light-film-history-revisionist/</link>
@@ -282,14 +298,6 @@
     <media:content url="https://assets.lareviewofbooks.org/uploads/Computing in the Age of Decolonization.jpg" medium="image"/>
   </item>
   <item>
-    <title>Sowing the Seeds of Apology</title>
-    <link>https://lareviewofbooks.org/article/roland-orzabal-tears-fears-welcome-your-life-memoir/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/roland-orzabal-tears-fears-welcome-your-life-memoir/</guid>
-    <pubDate>Tue, 04 Aug 2026 15:00:00 GMT</pubDate>
-    <description>Roland Orzabal of Tears for Fears makes amends in his new ‘astrological memoir.’</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Welcome to your life crop.jpg" medium="image"/>
-  </item>
-  <item>
     <title>A Place of Greater Safety</title>
     <link>https://lareviewofbooks.org/article/armenia-turkey-relations-yerevan-azerbaijan-soviet-russia-west/</link>
     <guid isPermaLink="true">https://lareviewofbooks.org/article/armenia-turkey-relations-yerevan-azerbaijan-soviet-russia-west/</guid>
@@ -320,14 +328,6 @@
     <pubDate>Tue, 28 Jul 2026 23:55:48 GMT</pubDate>
     <description>We’re thrilled to announce Izabella Scott's The Bed Trick as the LARB Book Club Fall 2026 selection, a riveting debut work of nonfiction that unravels the twisted tale of a catfishing scheme between best friends that lasted more than a decade and ended in a very public trial. </description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/BC_I Scott (2).png" medium="image"/>
-  </item>
-  <item>
-    <title>The Last of the Great Butterfly Collectors</title>
-    <link>https://lareviewofbooks.org/article/emil-beiter-butterfly-collector/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/emil-beiter-butterfly-collector/</guid>
-    <pubDate>Sun, 26 Jul 2026 12:30:00 GMT</pubDate>
-    <description>‘Papilio nobilis, male.’</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/IMG_3838.jpg" medium="image"/>
   </item>
   <item>
     <title>Two Ships in Touch</title>
