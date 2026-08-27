@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Thu, 27 Aug 2026 08:53:25 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 19:46:59 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Guatemala’s Future with the United States is Sealed at a Port</title>
+    <link>https://nacla.org/guatemalas-future-with-the-united-states-is-sealed-at-a-port/</link>
+    <guid isPermaLink="true">https://nacla.org/guatemalas-future-with-the-united-states-is-sealed-at-a-port/</guid>
+    <pubDate>Thu, 27 Aug 2026 13:32:03 GMT</pubDate>
+    <description>Over the past year, the U.S. Army Corps of Engineers has received $170 million from the Guatemalan government for road and port infrastructure projects that are deepening its dependence on the U.S.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/08/FAB_9492-scaled.jpg" medium="image"/>
+  </item>
   <item>
     <title>A Rightward Turn in Honduras Puts Land Defenders At Risk</title>
     <link>https://nacla.org/a-rightward-turn-in-honduras-puts-land-defenders-at-risk/</link>
@@ -400,14 +408,6 @@
     <pubDate>Tue, 19 May 2026 11:40:32 GMT</pubDate>
     <description>A framework for confronting imperial narratives and rebuilding Haiti through local knowledge and collective power.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/05/Haiti-series_tree-scaled.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Parables of Empire &amp;amp; Unfreedom in Haiti Today</title>
-    <link>https://nacla.org/parables-of-empire-unfreedom-in-haiti-today/</link>
-    <guid isPermaLink="true">https://nacla.org/parables-of-empire-unfreedom-in-haiti-today/</guid>
-    <pubDate>Tue, 19 May 2026 11:39:30 GMT</pubDate>
-    <description>Forty years after the fall of Jean-Claude Duvalier, Haiti’s ongoing crisis exposes the devastating legacy of permanent foreign intervention.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/05/Haiti-series_flag.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
