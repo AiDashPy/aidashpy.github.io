@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Fri, 28 Aug 2026 01:20:29 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2026 14:05:26 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Everything Else Is Bad, Get Your Books</title>
+    <link>https://lareviewofbooks.org/article/anthony-jeselnik-comedy-celebrity-book-clubs-classics-canon/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/anthony-jeselnik-comedy-celebrity-book-clubs-classics-canon/</guid>
+    <pubDate>Fri, 28 Aug 2026 12:30:00 GMT</pubDate>
+    <description>Anthony Jeselnik’s case for reading fiction in the attention economy.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/jeselnik-Samanta-Schweblin-Little-Eyes-scaled.jpeg" medium="image"/>
+  </item>
   <item>
     <title>Stranger, Love Your Life</title>
     <link>https://lareviewofbooks.org/article/franz-wright-axe-blossom-last-poems-fragments-posthumous/</link>
@@ -384,14 +392,6 @@
     <pubDate>Tue, 30 Jun 2026 12:30:00 GMT</pubDate>
     <description>David Fishkind discusses his debut novel, narcissism, and walking on the edge of the earth.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Don't Step Into My Office.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Beating a Dead Racket</title>
-    <link>https://lareviewofbooks.org/article/dad-had-bad-day-ashton-politanoff-tennis-masculinity/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/dad-had-bad-day-ashton-politanoff-tennis-masculinity/</guid>
-    <pubDate>Tue, 23 Jun 2026 15:00:00 GMT</pubDate>
-    <description>In Ashton Politanoff’s second novel, tennis becomes a vehicle for exploring fatherhood and masculinity.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Ashton Politanoff_007.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
