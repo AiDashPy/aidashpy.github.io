@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Sat, 29 Aug 2026 06:13:13 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2026 13:01:25 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Toppling the Deportation Regime</title>
+    <link>https://lareviewofbooks.org/article/john-washington-how-close-camp-ice-detention-resistance/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/john-washington-how-close-camp-ice-detention-resistance/</guid>
+    <pubDate>Sat, 29 Aug 2026 12:30:00 GMT</pubDate>
+    <description>John Washington’s new book excavates the historical origins and geographic scope of the Trump regime’s deportation agenda.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/How to Close a Camp.jpg" medium="image"/>
+  </item>
   <item>
     <title>Everything Else Is Bad, Get Your Books</title>
     <link>https://lareviewofbooks.org/article/anthony-jeselnik-comedy-celebrity-book-clubs-classics-canon/</link>
@@ -296,14 +304,6 @@
     <pubDate>Thu, 06 Aug 2026 12:30:00 GMT</pubDate>
     <description>Daniel Poppick discusses his new novel, an exploration of ‘the unique absurdism of the gone-but-not-forgotten era of office culture between the Great Recession and the COVID-19 pandemic.’</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Daniel Poppick by Sarah Friedland crop.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Why Didn’t India Build Its Own Silicon Valley?</title>
-    <link>https://lareviewofbooks.org/article/computing-age-decolonization-india-silicon-valley-nehru-bhabha/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/computing-age-decolonization-india-silicon-valley-nehru-bhabha/</guid>
-    <pubDate>Wed, 05 Aug 2026 12:30:00 GMT</pubDate>
-    <description>Dwaipayan Banerjee’s new book investigates India’s role in the history of 20th-century tech development, and what caused it always to seem a step behind the West.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Computing in the Age of Decolonization.jpg" medium="image"/>
   </item>
   <item>
     <title>A Place of Greater Safety</title>
