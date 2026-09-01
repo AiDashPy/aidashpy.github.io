@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Tue, 01 Sep 2026 07:27:26 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2026 13:14:15 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>The Empire of Information</title>
+    <link>https://lareviewofbooks.org/article/data-empire-roopika-risam-information-organize-control-dominate/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/data-empire-roopika-risam-information-organize-control-dominate/</guid>
+    <pubDate>Tue, 01 Sep 2026 12:30:00 GMT</pubDate>
+    <description>Roopika Risam’s new book shows how various data regimes, from clay tablets in ancient Mesopotamia to today’s biometric databases, shaped human lives.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/DataEmpire.jpg" medium="image"/>
+  </item>
   <item>
     <title>Leaving Stone Mountain</title>
     <link>https://lareviewofbooks.org/article/richard-russo-under-falls-upstate-new-york-racism/</link>
@@ -240,14 +248,6 @@
     <pubDate>Thu, 13 Aug 2026 12:30:00 GMT</pubDate>
     <description>A new poem by Fatimah Asghar from the LARB Quarterly, no 49: ‘Traffic.’</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Antonio_Pollaiuolo_-_Battle_of_the_Nudes_-_Google_Art_Project_(CAH0xbSFiSpKkg) crop-1.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>J. D. Vance’s Straussian Moment</title>
-    <link>https://lareviewofbooks.org/article/jd-vance-communion-straussian-peter-thiel-plagiarism-maga/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/jd-vance-communion-straussian-peter-thiel-plagiarism-maga/</guid>
-    <pubDate>Wed, 12 Aug 2026 15:00:00 GMT</pubDate>
-    <description>The US vice president wrote his new book without citing his source—Peter Thiel.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Communion_Vance.jpg" medium="image"/>
   </item>
   <item>
     <title>Kyle Carrero Lopez’s ‘A Few Miles from Prison’</title>
