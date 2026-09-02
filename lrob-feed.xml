@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Wed, 02 Sep 2026 08:33:10 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 13:22:46 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Sex Reeducation</title>
+    <link>https://lareviewofbooks.org/article/perrin-roosevelt-ireland-thirsty-science-poking-the-squid/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/perrin-roosevelt-ireland-thirsty-science-poking-the-squid/</guid>
+    <pubDate>Wed, 02 Sep 2026 12:30:00 GMT</pubDate>
+    <description>Reading and watching the work of Perrin Roosevelt Ireland.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Poking the Squid.jpg" medium="image"/>
+  </item>
   <item>
     <title>Whither, Then, Are You Speeding, O Russia of Mine?</title>
     <link>https://lareviewofbooks.org/article/putin-ideology-russias-new-imperialism-closing-russian-mind/</link>
@@ -384,14 +392,6 @@
     <pubDate>Wed, 01 Jul 2026 12:30:00 GMT</pubDate>
     <description>Andy Brown talks about the 30th anniversary of Conundrum Press and building a support system for Canadian comics publishing.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/30x30_Cover_Final.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Neurosis and Necessity</title>
-    <link>https://lareviewofbooks.org/article/dont-step-into-my-office-david-fishkind-novel/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/dont-step-into-my-office-david-fishkind-novel/</guid>
-    <pubDate>Tue, 30 Jun 2026 12:30:00 GMT</pubDate>
-    <description>David Fishkind discusses his debut novel, narcissism, and walking on the edge of the earth.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Don't Step Into My Office.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
