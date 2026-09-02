@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Wed, 02 Sep 2026 14:17:07 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 18:31:52 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Progressives Build a Common Agenda in Montevideo</title>
+    <link>https://nacla.org/progressives-build-a-common-agenda-in-montevideo/</link>
+    <guid isPermaLink="true">https://nacla.org/progressives-build-a-common-agenda-in-montevideo/</guid>
+    <pubDate>Wed, 02 Sep 2026 11:14:49 GMT</pubDate>
+    <description>As the Americas shift to the right, the region’s progressive forces met in Uruguay to chart a path forward.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/09/25876390135_b19fdd5449_o-scaled.jpg" medium="image"/>
+  </item>
   <item>
     <title>El futuro de Guatemala frente a Estados Unidos se sella en un puerto</title>
     <link>https://nacla.org/el-futuro-de-guatemala-frente-a-estados-unidos-se-sella-en-un-puerto/</link>
@@ -400,14 +408,6 @@
     <pubDate>Tue, 19 May 2026 12:10:19 GMT</pubDate>
     <description>These articles offer new ways of thinking about Haiti and a powerful vision and approach rooted in the country’s culture and history that can build a different future.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/05/Haiti-series_hillside.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Haiti and the Black Radical Tradition</title>
-    <link>https://nacla.org/haiti-and-the-black-radical-tradition/</link>
-    <guid isPermaLink="true">https://nacla.org/haiti-and-the-black-radical-tradition/</guid>
-    <pubDate>Tue, 19 May 2026 12:01:19 GMT</pubDate>
-    <description>Haiti’s revolutionary legacy offers a blueprint for coalition-building, political struggle, and mutual investment in the age of Trump.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/05/Haiti-series_event-scaled.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
