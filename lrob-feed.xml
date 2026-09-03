@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Sep 2026 13:21:29 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2026 17:37:35 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>The Magic of Sisterhood</title>
+    <link>https://lareviewofbooks.org/article/meg-howrey-body-language-sisters-mother-alzheimers-care/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/meg-howrey-body-language-sisters-mother-alzheimers-care/</guid>
+    <pubDate>Thu, 03 Sep 2026 15:00:00 GMT</pubDate>
+    <description>Meg Howrey discusses her new coming-of-middle-age novel about Alzheimer’s, three adult sisters, and grace in last requests.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/MegHowrey by David Zaugh.jpg" medium="image"/>
+  </item>
   <item>
     <title>Response to Mike Fortun Regarding ‘Original Sin’</title>
     <link>https://lareviewofbooks.org/article/eugenics-nature-nurture-jonathan-basile-responding-mike-fortun/</link>
@@ -168,14 +176,6 @@
     <pubDate>Thu, 20 Aug 2026 15:00:00 GMT</pubDate>
     <description>Allie Rowbottom on her new novel about two best friends in 1980s Los Angeles.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/LoversXXX.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>When Byron Comes to Warsaw</title>
-    <link>https://lareviewofbooks.org/article/erupcja-pete-ohs-charli-xcx-mount-etna-warsaw/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/erupcja-pete-ohs-charli-xcx-mount-etna-warsaw/</guid>
-    <pubDate>Thu, 20 Aug 2026 12:30:00 GMT</pubDate>
-    <description>Eruptions and disruptions break Charli XCX and her friends in the new film from Pete Ohs.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Charli Erupcja.png" medium="image"/>
   </item>
   <item>
     <title>No Reason to Hide It</title>
