@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Sep 2026 09:36:04 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2026 14:20:22 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>How The Rescue Effort is Unfolding in Colombia</title>
+    <link>https://nacla.org/how-the-rescue-effort-is-unfolding-in-colombia/</link>
+    <guid isPermaLink="true">https://nacla.org/how-the-rescue-effort-is-unfolding-in-colombia/</guid>
+    <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
+    <description>In the aftermath of a massive earthquake, local communities in the city of Cali have taken on a large share of the rescue efforts, driven by solidarity.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/09/Looking-for-survivors-scaled.jpg" medium="image"/>
+  </item>
   <item>
     <title>Progressives Build a Common Agenda in Montevideo</title>
     <link>https://nacla.org/progressives-build-a-common-agenda-in-montevideo/</link>
@@ -400,14 +408,6 @@
     <pubDate>Thu, 21 May 2026 11:01:56 GMT</pubDate>
     <description>A 185-year-old territorial dispute between Venezuela and Guyana reveals the enduring contradictions of U.S. foreign policy in the Caribbean, with the “Donroe Doctrine” introducing fresh diplomatic risks.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/05/Screenshot-2026-05-20-at-11.41.15-AM.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Web Series: Haiti&amp;#8217;s Path to Liberation</title>
-    <link>https://nacla.org/haitis-path-to-liberation/</link>
-    <guid isPermaLink="true">https://nacla.org/haitis-path-to-liberation/</guid>
-    <pubDate>Tue, 19 May 2026 12:10:19 GMT</pubDate>
-    <description>These articles offer new ways of thinking about Haiti and a powerful vision and approach rooted in the country’s culture and history that can build a different future.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/05/Haiti-series_hillside.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
