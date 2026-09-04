@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Fri, 04 Sep 2026 08:36:23 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2026 13:15:17 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Literary Web 2.0</title>
+    <link>https://lareviewofbooks.org/article/we-the-platform-artificial-intelligence-aarthi-vadde-internet/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/we-the-platform-artificial-intelligence-aarthi-vadde-internet/</guid>
+    <pubDate>Fri, 04 Sep 2026 12:30:00 GMT</pubDate>
+    <description>Is it the end of reading or a brand-new era?</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Aarthi Vadde headshot.jpeg" medium="image"/>
+  </item>
   <item>
     <title>The Magic of Sisterhood</title>
     <link>https://lareviewofbooks.org/article/meg-howrey-body-language-sisters-mother-alzheimers-care/</link>
@@ -384,14 +392,6 @@
     <pubDate>Mon, 06 Jul 2026 12:30:00 GMT</pubDate>
     <description>Algerian novelist Kamel Daoud discusses the position of the writer in postcolonial Algeria and what it means to receive global acclaim while being criminalized at home.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Kamel Daoud.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Diving In Feetfirst</title>
-    <link>https://lareviewofbooks.org/article/andy-brown-conundrum-press-canada-montreal-comics-publishing/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/andy-brown-conundrum-press-canada-montreal-comics-publishing/</guid>
-    <pubDate>Wed, 01 Jul 2026 12:30:00 GMT</pubDate>
-    <description>Andy Brown talks about the 30th anniversary of Conundrum Press and building a support system for Canadian comics publishing.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/30x30_Cover_Final.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
