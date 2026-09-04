@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Fri, 04 Sep 2026 14:09:32 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2026 18:14:59 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Asco: Without Permission (Review)</title>
+    <link>https://nacla.org/asco-without-permission-review/</link>
+    <guid isPermaLink="true">https://nacla.org/asco-without-permission-review/</guid>
+    <pubDate>Fri, 04 Sep 2026 11:11:18 GMT</pubDate>
+    <description>Mexican American filmmaker Travis Gutiérrez Senger follows the evolution of the Los Angeles-based art collective Asco, and their lasting impact on Chicano art.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/09/ASCO-Review-Cover.png" medium="image"/>
+  </item>
   <item>
     <title>How The Rescue Effort is Unfolding in Colombia</title>
     <link>https://nacla.org/how-the-rescue-effort-is-unfolding-in-colombia/</link>
@@ -400,14 +408,6 @@
     <pubDate>Fri, 22 May 2026 12:05:23 GMT</pubDate>
     <description>Katia Chornik&amp;#8217;s book details how music was used as a form of torture and resistance during the Pinochet dictatorship.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/05/Book-Review-Top-Image-1350-x-870.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The Essequibo Illusion</title>
-    <link>https://nacla.org/the-essequibo-illusion/</link>
-    <guid isPermaLink="true">https://nacla.org/the-essequibo-illusion/</guid>
-    <pubDate>Thu, 21 May 2026 11:01:56 GMT</pubDate>
-    <description>A 185-year-old territorial dispute between Venezuela and Guyana reveals the enduring contradictions of U.S. foreign policy in the Caribbean, with the “Donroe Doctrine” introducing fresh diplomatic risks.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/05/Screenshot-2026-05-20-at-11.41.15-AM.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
