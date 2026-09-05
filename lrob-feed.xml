@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Sep 2026 13:44:30 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 16:37:33 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>She Wrote Me a Letter</title>
+    <link>https://lareviewofbooks.org/article/virginia-woolf-uncollected-letters-paul-delaney-modernism-correspondence/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/virginia-woolf-uncollected-letters-paul-delaney-modernism-correspondence/</guid>
+    <pubDate>Sat, 05 Sep 2026 15:00:00 GMT</pubDate>
+    <description>Do Virginia Woolf’s uncollected letters raise the author’s stature, or lower it?</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/The Uncollected Letters of Virginia Woolf.jpg" medium="image"/>
+  </item>
   <item>
     <title>The Old Dog Stays</title>
     <link>https://lareviewofbooks.org/article/etna-paul-yoon-war-fiction-combat-dog-narrator/</link>
@@ -168,14 +176,6 @@
     <pubDate>Sun, 23 Aug 2026 12:30:00 GMT</pubDate>
     <description>Is ‘femme’ feminist?</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Lipstick gsell-1.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Kill or Be Thrilled</title>
-    <link>https://lareviewofbooks.org/article/teenage-sex-death-camp-miasma-jane-schoenbrun-slashers/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/teenage-sex-death-camp-miasma-jane-schoenbrun-slashers/</guid>
-    <pubDate>Sat, 22 Aug 2026 12:30:00 GMT</pubDate>
-    <description>Losing ourselves to teenage horror and stimulation in Jane Schoenbrun’s slasher love letter.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Teenage Sex and Death.png" medium="image"/>
   </item>
   <item>
     <title>Let’s Talk About ‘Lovers XXX’</title>
