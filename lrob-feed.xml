@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Sep 2026 10:10:27 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 13:44:30 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>The Old Dog Stays</title>
+    <link>https://lareviewofbooks.org/article/etna-paul-yoon-war-fiction-combat-dog-narrator/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/etna-paul-yoon-war-fiction-combat-dog-narrator/</guid>
+    <pubDate>Sat, 05 Sep 2026 12:30:00 GMT</pubDate>
+    <description>War through the eyes of a soldier’s best friend.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Etna crop.jpg" medium="image"/>
+  </item>
   <item>
     <title>Literary Web 2.0</title>
     <link>https://lareviewofbooks.org/article/we-the-platform-artificial-intelligence-aarthi-vadde-internet/</link>
@@ -168,14 +176,6 @@
     <pubDate>Sat, 22 Aug 2026 12:30:00 GMT</pubDate>
     <description>Losing ourselves to teenage horror and stimulation in Jane Schoenbrun’s slasher love letter.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Teenage Sex and Death.png" medium="image"/>
-  </item>
-  <item>
-    <title>Beds and Tombstones</title>
-    <link>https://lareviewofbooks.org/article/sophie-calle-overshare-herve-guibert-photography-langson-museum/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/sophie-calle-overshare-herve-guibert-photography-langson-museum/</guid>
-    <pubDate>Fri, 21 Aug 2026 12:30:00 GMT</pubDate>
-    <description>Viewing Sophie Calle’s survey at the Langson museum through the work of Hervé Guibert.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Sophie Calle, Double Blind No Sex Last Night crop-1.png" medium="image"/>
   </item>
   <item>
     <title>Let’s Talk About ‘Lovers XXX’</title>
