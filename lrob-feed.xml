@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Sun, 06 Sep 2026 10:31:01 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 06 Sep 2026 14:00:40 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Eugenics and the Nihilism of Law-and-Order Politics</title>
+    <link>https://lareviewofbooks.org/article/eugenics-nihilism-law-order-politics-race-george-floyd/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/eugenics-nihilism-law-order-politics-race-george-floyd/</guid>
+    <pubDate>Sun, 06 Sep 2026 12:30:00 GMT</pubDate>
+    <description>For the Legacies of Eugenics series, Terence Keel examines how eugenics shapes the way we think about people who lose their lives during violent encounters with the state.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Eugenics Keel Police nihilism.png" medium="image"/>
+  </item>
   <item>
     <title>She Wrote Me a Letter</title>
     <link>https://lareviewofbooks.org/article/virginia-woolf-uncollected-letters-paul-delaney-modernism-correspondence/</link>
@@ -344,14 +352,6 @@
     <pubDate>Sat, 01 Aug 2026 12:30:00 GMT</pubDate>
     <description>Aruni Kashyap discusses his new novel, a portrayal of the small pleasures of everyday life that a group of friends tries to safeguard against the violence of the Indian state.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/AruniKashyap_0044-1.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Character Study</title>
-    <link>https://lareviewofbooks.org/article/fictional-character-biographies-shakespeare-margaret-hannibal-juliet-bigger/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/fictional-character-biographies-shakespeare-margaret-hannibal-juliet-bigger/</guid>
-    <pubDate>Wed, 29 Jul 2026 12:30:00 GMT</pubDate>
-    <description>The burgeoning field of fiction character biographies.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Shakespeares Margaret.jpg" medium="image"/>
   </item>
   <item>
     <title>Two Ships in Touch</title>
