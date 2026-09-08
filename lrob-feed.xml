@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Tue, 08 Sep 2026 14:58:35 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2026 18:30:44 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Nobody, Falling Through the Darkness</title>
+    <link>https://lareviewofbooks.org/article/emma-cline-switzy-alzheimers-assisted-suicide-business-class/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/emma-cline-switzy-alzheimers-assisted-suicide-business-class/</guid>
+    <pubDate>Tue, 08 Sep 2026 15:00:00 GMT</pubDate>
+    <description>Emma Cline’s new novel chronicles the final days of a man who never knew himself.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Switzy.jpg" medium="image"/>
+  </item>
   <item>
     <title>What a Long, Strange Trip</title>
     <link>https://lareviewofbooks.org/article/grace-krilanovich-acid-green-velvet-1800s-hippies-occupation/</link>
@@ -176,14 +184,6 @@
     <pubDate>Mon, 24 Aug 2026 15:00:00 GMT</pubDate>
     <description>‘One Night Only’ gets it all wrong.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/One night only.png" medium="image"/>
-  </item>
-  <item>
-    <title>Everything You Wanted to Know About the Constitution but Were Afraid to Ask</title>
-    <link>https://lareviewofbooks.org/article/constitution-comprehensive-annotated-guide-melissa-murray-amendments-rights/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/constitution-comprehensive-annotated-guide-melissa-murray-amendments-rights/</guid>
-    <pubDate>Mon, 24 Aug 2026 12:30:00 GMT</pubDate>
-    <description>Melissa Murray’s new book offers an invaluable primer on the structure, history, and meaning of US law’s most important document.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/US Constitution.jpg" medium="image"/>
   </item>
   <item>
     <title>Let’s Talk About ‘Lovers XXX’</title>
