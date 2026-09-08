@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Tue, 08 Sep 2026 10:50:39 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2026 14:58:35 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>What a Long, Strange Trip</title>
+    <link>https://lareviewofbooks.org/article/grace-krilanovich-acid-green-velvet-1800s-hippies-occupation/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/grace-krilanovich-acid-green-velvet-1800s-hippies-occupation/</guid>
+    <pubDate>Tue, 08 Sep 2026 12:30:00 GMT</pubDate>
+    <description>Grace Krilanovich’s new novel reads as if the Summer of Love took a time machine back to the 19th century.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Acid Green Velvet crop.jpg" medium="image"/>
+  </item>
   <item>
     <title>Eugenics and the Nihilism of Law-and-Order Politics</title>
     <link>https://lareviewofbooks.org/article/eugenics-nihilism-law-order-politics-race-george-floyd/</link>
@@ -176,14 +184,6 @@
     <pubDate>Mon, 24 Aug 2026 12:30:00 GMT</pubDate>
     <description>Melissa Murray’s new book offers an invaluable primer on the structure, history, and meaning of US law’s most important document.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/US Constitution.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>To Be Femme</title>
-    <link>https://lareviewofbooks.org/article/femme-feminism-lori-marso-sophie-lewis-eileen-gsell/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/femme-feminism-lori-marso-sophie-lewis-eileen-gsell/</guid>
-    <pubDate>Sun, 23 Aug 2026 12:30:00 GMT</pubDate>
-    <description>Is ‘femme’ feminist?</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Lipstick gsell-1.jpg" medium="image"/>
   </item>
   <item>
     <title>Let’s Talk About ‘Lovers XXX’</title>
