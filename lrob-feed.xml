@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Wed, 09 Sep 2026 08:47:39 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 09 Sep 2026 13:32:42 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>War Bros</title>
+    <link>https://lareviewofbooks.org/article/valley-death-big-tech-future-war-sharon-weinberger/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/valley-death-big-tech-future-war-sharon-weinberger/</guid>
+    <pubDate>Wed, 09 Sep 2026 12:30:00 GMT</pubDate>
+    <description>Sharon Weinberger’s new book exposes the extent to which the US government has bound itself to the ‘arsenal of the broligarchy.’</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Valley of Death.jpg" medium="image"/>
+  </item>
   <item>
     <title>Nobody, Falling Through the Darkness</title>
     <link>https://lareviewofbooks.org/article/emma-cline-switzy-alzheimers-assisted-suicide-business-class/</link>
@@ -176,14 +184,6 @@
     <pubDate>Tue, 25 Aug 2026 12:30:00 GMT</pubDate>
     <description>Susan Eva O’Donovan argues that the political building blocks of freedom were inherent in the project of slavery itself.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Moving Toward Freedom.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Compliance, a Love Story</title>
-    <link>https://lareviewofbooks.org/article/one-night-only-fascist-sex-dystopia-rom-com/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/one-night-only-fascist-sex-dystopia-rom-com/</guid>
-    <pubDate>Mon, 24 Aug 2026 15:00:00 GMT</pubDate>
-    <description>‘One Night Only’ gets it all wrong.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/One night only.png" medium="image"/>
   </item>
   <item>
     <title>Let’s Talk About ‘Lovers XXX’</title>
