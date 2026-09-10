@@ -7,8 +7,16 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Sep 2026 16:14:22 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2026 19:30:36 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>9/11: A Quarter Century of Imperial War</title>
+    <link>https://www.rosalux.de/en/news/id/55207</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55207</guid>
+    <pubDate>Thu, 10 Sep 2026 17:34:02 +0200</pubDate>
+    <description>Socialist scholar Gilbert Achcar on the legacy of the War on Terror, the Arab Spring's defeat, and the Gaza genocide</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0910_9_11_US_Soldiers_Afghanistan_Helicopter_SMALL.jpg" medium="image"/>
+  </item>
   <item>
     <title>Sweden’s 2026 Election on a Knife-Edge</title>
     <link>https://www.rosalux.de/en/news/id/55206</link>
@@ -80,14 +88,6 @@
     <pubDate>Fri, 14 Aug 2026 11:47:44 +0200</pubDate>
     <description>Cuba has announced sweeping economic reforms. What will be left of socialism?</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/3107_Cuba_Economic_Reforms_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>How South Africa Sees Elon Musk</title>
-    <link>https://www.rosalux.de/en/news/id/55116</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55116</guid>
-    <pubDate>Thu, 13 Aug 2026 11:16:10 +0200</pubDate>
-    <description>With the Stop Starlink campaign, resistance is growing to the rainbow nation's most famous son</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0813_Elon_Musk_SMALL.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
