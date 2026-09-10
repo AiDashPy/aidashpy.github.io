@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Sep 2026 14:14:31 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2026 18:16:24 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Who Decides the Fate of Colombia&amp;#8217;s Quebradona Mine?</title>
+    <link>https://nacla.org/who-decides-the-fate-of-colombias-quebradona-mine/</link>
+    <guid isPermaLink="true">https://nacla.org/who-decides-the-fate-of-colombias-quebradona-mine/</guid>
+    <pubDate>Thu, 10 Sep 2026 11:08:11 GMT</pubDate>
+    <description>A South-African mining company’s lawsuit against the government in an international, pro-corporate court, exposes the insidious nature of investor-state dispute settlement mechanisms.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/09/Cathedral_of_Our_Lady_of_Mercy_Jerico_Antioquia_Colombia-scaled.jpg" medium="image"/>
+  </item>
   <item>
     <title>Call for Submissions: NACLA 60th Anniversary Artwork</title>
     <link>https://nacla.org/call-for-submissions-nacla-60th-anniversary-artwork/</link>
@@ -400,14 +408,6 @@
     <pubDate>Wed, 27 May 2026 12:42:06 GMT</pubDate>
     <description>Fuel shortages, inflation, and political exclusion have triggered a wave of fragmented unrest with no clear movement capable of channeling popular anger.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/05/Bolivia-into-the-Abyss_marcha.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Learning Mandarin, Riding the Metro: China’s Street-Level Presence in Bogotá</title>
-    <link>https://nacla.org/learning-mandarin-riding-the-metro-chinas-street-level-presence-in-bogota/</link>
-    <guid isPermaLink="true">https://nacla.org/learning-mandarin-riding-the-metro-chinas-street-level-presence-in-bogota/</guid>
-    <pubDate>Mon, 25 May 2026 12:44:35 GMT</pubDate>
-    <description>China’s presence in Colombia is no longer an abstract geopolitical discussion but rather a reality negotiated day by day through construction work, commercial exchange, language learning, and personal relationships.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/05/Metro-Construction3-scaled.jpeg" medium="image"/>
   </item>
   </channel>
 </rss>
