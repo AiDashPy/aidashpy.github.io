@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Sep 2026 13:23:16 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2026 17:32:36 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Revelatory Life</title>
+    <link>https://lareviewofbooks.org/article/transcendence-for-beginners-biography-philosophy-spinoza-clare-carlisle/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/transcendence-for-beginners-biography-philosophy-spinoza-clare-carlisle/</guid>
+    <pubDate>Thu, 10 Sep 2026 15:00:00 GMT</pubDate>
+    <description>Clare Carlisle asks—what is the relationship between biography and philosophy?</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Transcendence for Beginners.jpg" medium="image"/>
+  </item>
   <item>
     <title>Such Sights to Show You</title>
     <link>https://lareviewofbooks.org/article/shintaro-kago-brain-damage-manga-erotic-grotesque-nonsense/</link>
@@ -176,14 +184,6 @@
     <pubDate>Wed, 26 Aug 2026 12:30:00 GMT</pubDate>
     <description>Eminent film historian David Thomson fears that the medium has finally tricked him.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Sudden Flicker of Light crop-1.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Sleight-of-Hand Soul</title>
-    <link>https://lareviewofbooks.org/article/did-you-find-everything-donna-masini-poetry-death/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/did-you-find-everything-donna-masini-poetry-death/</guid>
-    <pubDate>Tue, 25 Aug 2026 15:00:00 GMT</pubDate>
-    <description>Donna Masini’s new collection mixes dread and inanity to explore death and the weirdness of language.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/DonnaMasini.jpg" medium="image"/>
   </item>
   <item>
     <title>Let’s Talk About ‘Lovers XXX’</title>
