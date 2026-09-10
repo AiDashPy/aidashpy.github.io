@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Sep 2026 08:45:28 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2026 13:23:16 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Such Sights to Show You</title>
+    <link>https://lareviewofbooks.org/article/shintaro-kago-brain-damage-manga-erotic-grotesque-nonsense/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/shintaro-kago-brain-damage-manga-erotic-grotesque-nonsense/</guid>
+    <pubDate>Thu, 10 Sep 2026 12:30:00 GMT</pubDate>
+    <description>On Shintaro Kago, manga master of the ‘erotic grotesque nonsense’ genre. </description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Brain Damage.jpg" medium="image"/>
+  </item>
   <item>
     <title>War Bros</title>
     <link>https://lareviewofbooks.org/article/valley-death-big-tech-future-war-sharon-weinberger/</link>
@@ -176,14 +184,6 @@
     <pubDate>Tue, 25 Aug 2026 15:00:00 GMT</pubDate>
     <description>Donna Masini’s new collection mixes dread and inanity to explore death and the weirdness of language.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/DonnaMasini.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>We Can Answer for Ourselves</title>
-    <link>https://lareviewofbooks.org/article/moving-toward-freedom-susan-eva-odonovan-slavery-politics/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/moving-toward-freedom-susan-eva-odonovan-slavery-politics/</guid>
-    <pubDate>Tue, 25 Aug 2026 12:30:00 GMT</pubDate>
-    <description>Susan Eva O’Donovan argues that the political building blocks of freedom were inherent in the project of slavery itself.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Moving Toward Freedom.jpg" medium="image"/>
   </item>
   <item>
     <title>Let’s Talk About ‘Lovers XXX’</title>
