@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Fri, 11 Sep 2026 14:14:17 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 11 Sep 2026 18:20:36 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>A Legendary Chilean Band’s Tour and the Unsettled Past</title>
+    <link>https://nacla.org/a-legendary-chilean-bands-tour-and-the-unsettled-past/</link>
+    <guid isPermaLink="true">https://nacla.org/a-legendary-chilean-bands-tour-and-the-unsettled-past/</guid>
+    <pubDate>Fri, 11 Sep 2026 10:54:10 GMT</pubDate>
+    <description>One of Latin America’s most influential bands, Los Jaivas, recently toured Alturas de Macchu Picchu, a relic of the dictatorship era whose relevance today is striking.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/09/9576180674_828529e739_o-scaled.jpg" medium="image"/>
+  </item>
   <item>
     <title>Who Decides the Fate of Colombia&amp;#8217;s Quebradona Mine?</title>
     <link>https://nacla.org/who-decides-the-fate-of-colombias-quebradona-mine/</link>
@@ -400,14 +408,6 @@
     <pubDate>Thu, 28 May 2026 10:51:37 GMT</pubDate>
     <description>As Peru heads toward another polarized runoff, the country remains caught between two competing visions of the national future.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/05/Peru-Elections.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Bolivia into the Abyss</title>
-    <link>https://nacla.org/bolivia-into-the-abyss/</link>
-    <guid isPermaLink="true">https://nacla.org/bolivia-into-the-abyss/</guid>
-    <pubDate>Wed, 27 May 2026 12:42:06 GMT</pubDate>
-    <description>Fuel shortages, inflation, and political exclusion have triggered a wave of fragmented unrest with no clear movement capable of channeling popular anger.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/05/Bolivia-into-the-Abyss_marcha.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
