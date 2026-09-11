@@ -7,14 +7,22 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Fri, 11 Sep 2026 11:02:23 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 11 Sep 2026 16:18:13 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Palestine in the Arab World</title>
+    <link>https://www.rosalux.de/en/news/id/55216</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55216</guid>
+    <pubDate>Fri, 11 Sep 2026 17:29:41 +0200</pubDate>
+    <description>Arab states publicly profess solidarity with Palestinians, but realpolitik tells a different story</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0911_Palestine_In_Arab_World_SMALL.jpg" medium="image"/>
+  </item>
   <item>
     <title>9/11: A Quarter Century of Imperial War</title>
     <link>https://www.rosalux.de/en/news/id/55207</link>
     <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55207</guid>
     <pubDate>Thu, 10 Sep 2026 17:34:02 +0200</pubDate>
-    <description>Socialist scholar Gilbert Achcar on the legacy of the War on Terror, the Arab Spring's defeat, and the Gaza genocide</description>
+    <description>Socialist scholar Gilbert Achcar on the legacy of the War on Terror and the Arab Spring</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0910_9_11_US_Soldiers_Afghanistan_Helicopter_SMALL.jpg" medium="image"/>
   </item>
   <item>
@@ -80,14 +88,6 @@
     <pubDate>Fri, 14 Aug 2026 12:05:37 +0200</pubDate>
     <description>Die Linke surges past the SPD in polls as it battles austerity and the far-right—and names the genocide in Gaza.</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0814_Linke_Parteitag_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Cuba: The Greatest Transformation Since The Revolution</title>
-    <link>https://www.rosalux.de/en/news/id/55123</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55123</guid>
-    <pubDate>Fri, 14 Aug 2026 11:47:44 +0200</pubDate>
-    <description>Cuba has announced sweeping economic reforms. What will be left of socialism?</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/3107_Cuba_Economic_Reforms_SMALL.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
