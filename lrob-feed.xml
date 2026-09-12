@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Sat, 12 Sep 2026 13:25:04 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 12 Sep 2026 16:49:15 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Who’s Afraid of Sylvia Plath?</title>
+    <link>https://lareviewofbooks.org/article/poems-sylvia-plath-golden-kukil-faber-complete-edition/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/poems-sylvia-plath-golden-kukil-faber-complete-edition/</guid>
+    <pubDate>Sat, 12 Sep 2026 12:30:00 GMT</pubDate>
+    <description>Amanda Golden and Karen V. Kukil’s complete collection of Sylvia Plath’s poetry paints a more encompassing portrait of the artist than previous collections could.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Poems of Sylvia Plath.jpg" medium="image"/>
+  </item>
   <item>
     <title>Evidence Isn’t Always Enough</title>
     <link>https://lareviewofbooks.org/article/beyond-belief-evidence-what-really-works-helen-pearson/</link>
@@ -168,14 +176,6 @@
     <pubDate>Fri, 28 Aug 2026 12:30:00 GMT</pubDate>
     <description>Anthony Jeselnik’s case for reading fiction in the attention economy.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/jeselnik-Samanta-Schweblin-Little-Eyes-scaled.jpeg" medium="image"/>
-  </item>
-  <item>
-    <title>Stranger, Love Your Life</title>
-    <link>https://lareviewofbooks.org/article/franz-wright-axe-blossom-last-poems-fragments-posthumous/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/franz-wright-axe-blossom-last-poems-fragments-posthumous/</guid>
-    <pubDate>Thu, 27 Aug 2026 15:00:00 GMT</pubDate>
-    <description>The final collection from one of contemporary poetry’s essential voices.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Axe in blossom.jpg" medium="image"/>
   </item>
   <item>
     <title>Response to Megan Milks and Amber Dawn Regarding ‘The New Qweird’</title>
