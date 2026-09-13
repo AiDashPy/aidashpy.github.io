@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Sun, 13 Sep 2026 10:02:45 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2026 14:50:04 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Therapy Used to Be Hot</title>
+    <link>https://lareviewofbooks.org/article/psychoanalysis-therapy-freud-cbt-desire-depression-affective-neuroscience/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/psychoanalysis-therapy-freud-cbt-desire-depression-affective-neuroscience/</guid>
+    <pubDate>Sun, 13 Sep 2026 12:30:00 GMT</pubDate>
+    <description>How desire was exiled out of therapy and out of our lives.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Zdeněk Kratochvíl - Freud study with the couch.jpg" medium="image"/>
+  </item>
   <item>
     <title>Who’s Afraid of Sylvia Plath?</title>
     <link>https://lareviewofbooks.org/article/poems-sylvia-plath-golden-kukil-faber-complete-edition/</link>
@@ -336,14 +344,6 @@
     <pubDate>Thu, 06 Aug 2026 12:30:00 GMT</pubDate>
     <description>Daniel Poppick discusses his new novel, an exploration of ‘the unique absurdism of the gone-but-not-forgotten era of office culture between the Great Recession and the COVID-19 pandemic.’</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Daniel Poppick by Sarah Friedland crop.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>A Place of Greater Safety</title>
-    <link>https://lareviewofbooks.org/article/armenia-turkey-relations-yerevan-azerbaijan-soviet-russia-west/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/armenia-turkey-relations-yerevan-azerbaijan-soviet-russia-west/</guid>
-    <pubDate>Sun, 02 Aug 2026 12:30:00 GMT</pubDate>
-    <description>In granting their prime minister a third term, Armenians have embarked on a bold historic gamble to align their country with Turkey and the West.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Evan Pheiffer 1F7A1311 Storks taking refuge near the border crossing outside Echmiadzin.jpg" medium="image"/>
   </item>
   <item>
     <title>An Intrusive Culture of Care</title>
