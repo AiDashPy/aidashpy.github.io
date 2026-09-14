@@ -7,7 +7,7 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Mon, 14 Sep 2026 06:00:27 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2026 13:49:57 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title>Palestine in the Arab World</title>
@@ -40,6 +40,14 @@
     <pubDate>Wed, 09 Sep 2026 12:35:32 +0200</pubDate>
     <description>Poland’s PiS splits as rival groups vie for power. Will divisions on the right strengthen the left?</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0909_Poland_Split_Pis_Far_Right_Demo_SMALL.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Why Did the AfD Win in Saxony-Anhalt?</title>
+    <link>https://www.rosalux.de/en/news/id/55194</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55194</guid>
+    <pubDate>Tue, 08 Sep 2026 15:20:01 +0200</pubDate>
+    <description>As Ulrich Siegmund celebrates his victory, the left face a hard question: How to respond</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0914_AfD_Sachsen_Anhalt_SMALL.jpg" medium="image"/>
   </item>
   <item>
     <title>UK: An Outsider Prime Minister?</title>
@@ -80,14 +88,6 @@
     <pubDate>Mon, 17 Aug 2026 11:32:29 +0200</pubDate>
     <description>What changes will Peter Magyar's premiership bring to Hungary? A review of his first 100 days in office.</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0817_Peter_Magyar_100_Days_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Germany’s Die Linke Takes A Stand</title>
-    <link>https://www.rosalux.de/en/news/id/55125</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55125</guid>
-    <pubDate>Fri, 14 Aug 2026 12:05:37 +0200</pubDate>
-    <description>Die Linke surges past the SPD in polls as it battles austerity and the far-right—and names the genocide in Gaza.</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0814_Linke_Parteitag_SMALL.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
