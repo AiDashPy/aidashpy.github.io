@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Mon, 14 Sep 2026 13:50:36 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2026 19:12:59 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>“Chavismo Tico” and the Limits of Costa Rican Exceptionalism</title>
+    <link>https://nacla.org/chavismo-tico-and-the-limits-of-costa-rican-exceptionalism/</link>
+    <guid isPermaLink="true">https://nacla.org/chavismo-tico-and-the-limits-of-costa-rican-exceptionalism/</guid>
+    <pubDate>Mon, 14 Sep 2026 11:36:06 GMT</pubDate>
+    <description>Costa Rica is in the midst of an intense period of political upheaval driven by the right-wing populist project of former President Rodrigo Chaves and his successor.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/09/Chavismo-Tico.jpg" medium="image"/>
+  </item>
   <item>
     <title>A Legendary Chilean Band’s Tour and the Unsettled Past</title>
     <link>https://nacla.org/a-legendary-chilean-bands-tour-and-the-unsettled-past/</link>
@@ -400,14 +408,6 @@
     <pubDate>Fri, 29 May 2026 12:58:22 GMT</pubDate>
     <description>Padura&amp;#8217;s novel traces the dreams, disappointments, and dispersal of a generation shaped by the Cuban Revolution.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/05/Screenshot-2026-05-29-at-11.14.47-AM.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Could Anti-Fujimorismo Prevail Again?</title>
-    <link>https://nacla.org/could-anti-fujimorismo-prevail-again/</link>
-    <guid isPermaLink="true">https://nacla.org/could-anti-fujimorismo-prevail-again/</guid>
-    <pubDate>Thu, 28 May 2026 10:51:37 GMT</pubDate>
-    <description>As Peru heads toward another polarized runoff, the country remains caught between two competing visions of the national future.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/05/Peru-Elections.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
