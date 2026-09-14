@@ -7,8 +7,24 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Mon, 14 Sep 2026 12:32:41 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2026 18:25:24 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Granite, Not Gridlock</title>
+    <link>https://lareviewofbooks.org/article/mountains-are-calling-national-parks-history-michael-childers/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/mountains-are-calling-national-parks-history-michael-childers/</guid>
+    <pubDate>Mon, 14 Sep 2026 15:00:00 GMT</pubDate>
+    <description>Michael W. Childers’s new book explores the devastations wrought by tourism at American national parks.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Mountains Are Calling crop-1.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Interracial Desire in a Galaxy Far, Far Away</title>
+    <link>https://lareviewofbooks.org/article/just-soon-kiss-wookiee-greg-carter-star-wars/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/just-soon-kiss-wookiee-greg-carter-star-wars/</guid>
+    <pubDate>Mon, 14 Sep 2026 12:30:00 GMT</pubDate>
+    <description>Greg Carter’s new book reads the ‘Star Wars’ galaxy through the lens of critical mixed-race studies.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/kiss a wookiee.jpg" medium="image"/>
+  </item>
   <item>
     <title>Therapy Used to Be Hot</title>
     <link>https://lareviewofbooks.org/article/psychoanalysis-therapy-freud-cbt-desire-depression-affective-neuroscience/</link>
@@ -154,28 +170,12 @@
     <media:content url="https://assets.lareviewofbooks.org/uploads/Under the Falls.jpg" medium="image"/>
   </item>
   <item>
-    <title>Danger and Doikayt in the Time of Revolution</title>
-    <link>https://lareviewofbooks.org/article/radiant-stars-elaine-elinson-jewish-ukraine-russian-empire/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/radiant-stars-elaine-elinson-jewish-ukraine-russian-empire/</guid>
-    <pubDate>Mon, 31 Aug 2026 12:30:00 GMT</pubDate>
-    <description>Elaine Elinson’s new novel brings to light Jewish life in the Russian Empire.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Radiant as the Stars.jpeg" medium="image"/>
-  </item>
-  <item>
     <title>The Art of Copying</title>
     <link>https://lareviewofbooks.org/article/ken-liu-excerpt-art-copying-first-encounters-ai/</link>
     <guid isPermaLink="true">https://lareviewofbooks.org/article/ken-liu-excerpt-art-copying-first-encounters-ai/</guid>
     <pubDate>Sun, 30 Aug 2026 12:30:00 GMT</pubDate>
     <description>The long history of scribes being replaced by machines, and what cannot be replaced by LLM imitation in current writing. </description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/First encounters with AI.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Toppling the Deportation Regime</title>
-    <link>https://lareviewofbooks.org/article/john-washington-how-close-camp-ice-detention-resistance/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/john-washington-how-close-camp-ice-detention-resistance/</guid>
-    <pubDate>Sat, 29 Aug 2026 12:30:00 GMT</pubDate>
-    <description>John Washington’s new book excavates the historical origins and geographic scope of the Trump regime’s deportation agenda.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/How to Close a Camp.jpg" medium="image"/>
   </item>
   <item>
     <title>Everything Else Is Bad, Get Your Books</title>
