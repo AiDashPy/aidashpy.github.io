@@ -7,8 +7,24 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Tue, 15 Sep 2026 09:57:25 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 15 Sep 2026 14:49:24 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Drones and Democracy: Inside the AI Arms Race</title>
+    <link>https://www.rosalux.de/en/news/id/55230</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55230</guid>
+    <pubDate>Tue, 15 Sep 2026 16:06:57 +0200</pubDate>
+    <description>How defence tech start-ups, kamikaze drones, and  AI are reshaping war and eroding democracy</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0915_Drones_and_Democracy_SMALL.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Artificial Intelligence At Any Cost?</title>
+    <link>https://www.rosalux.de/en/news/id/55228</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55228</guid>
+    <pubDate>Tue, 15 Sep 2026 15:58:26 +0200</pubDate>
+    <description>Europe wants digital sovereignty. But its own policies are deepening dependency on US Big Tech.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0915_AI_at_any_cost_SMALL.jpg" medium="image"/>
+  </item>
   <item>
     <title>Palestine in the Arab World</title>
     <link>https://www.rosalux.de/en/news/id/55216</link>
@@ -35,8 +51,8 @@
   </item>
   <item>
     <title>The Polish Right Is Splintering</title>
-    <link>https://www.rosalux.de/en/news/id/55200</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55200</guid>
+    <link>https://www.rosalux.de/en/news/id/55223</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55223</guid>
     <pubDate>Wed, 09 Sep 2026 12:35:32 +0200</pubDate>
     <description>Poland’s PiS splits as rival groups vie for power. Will divisions on the right strengthen the left?</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0909_Poland_Split_Pis_Far_Right_Demo_SMALL.jpg" medium="image"/>
@@ -72,22 +88,6 @@
     <pubDate>Tue, 25 Aug 2026 15:55:55 +0200</pubDate>
     <description>Intersectional Perspectives on Property, Domination, and Production</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0825_Feministisch_Vergesellschaften_Demo_8M_Barcelona_2025.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>NGOs: Israel Is Wasting Our Time</title>
-    <link>https://www.rosalux.de/en/news/id/55177</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55177</guid>
-    <pubDate>Tue, 18 Aug 2026 09:35:24 +0200</pubDate>
-    <description>Israel banned 37 aid organizations from operating in Palestine. medico international's Riad Othman on the bureaucratic hurdles making humanitarian work almost impossible.</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/06_Medico_Palestine_3_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Hungary: From Authoritarian To Normal Capitalism?</title>
-    <link>https://www.rosalux.de/en/news/id/55129</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55129</guid>
-    <pubDate>Mon, 17 Aug 2026 11:32:29 +0200</pubDate>
-    <description>What changes will Peter Magyar's premiership bring to Hungary? A review of his first 100 days in office.</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0817_Peter_Magyar_100_Days_SMALL.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
