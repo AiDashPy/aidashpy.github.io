@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Wed, 16 Sep 2026 11:03:49 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 16 Sep 2026 16:23:56 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Lord Knows What I Am</title>
+    <link>https://lareviewofbooks.org/article/harold-bloom-letters-man-who-read-everything-influence/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/harold-bloom-letters-man-who-read-everything-influence/</guid>
+    <pubDate>Wed, 16 Sep 2026 12:30:00 GMT</pubDate>
+    <description>What we can learn from the published correspondence of literary critic and academic titan Harold Bloom.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Man-Who-Read-Everything.jpg" medium="image"/>
+  </item>
   <item>
     <title>I Am Not the Same as Another Mother</title>
     <link>https://lareviewofbooks.org/article/dorothea-lasky-mother-poetry-horror-negligence-protection-birth/</link>
@@ -160,14 +168,6 @@
     <pubDate>Wed, 02 Sep 2026 12:30:00 GMT</pubDate>
     <description>Reading and watching the work of Perrin Roosevelt Ireland.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Poking the Squid.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Whither, Then, Are You Speeding, O Russia of Mine?</title>
-    <link>https://lareviewofbooks.org/article/putin-ideology-russias-new-imperialism-closing-russian-mind/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/putin-ideology-russias-new-imperialism-closing-russian-mind/</guid>
-    <pubDate>Tue, 01 Sep 2026 15:00:00 GMT</pubDate>
-    <description>Two new books analyze Russia’s messianic civilizational mission under Putin.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/The Closing of the Russian Mind.jpg" medium="image"/>
   </item>
   <item>
     <title>The Art of Copying</title>
