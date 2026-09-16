@@ -7,8 +7,16 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Wed, 16 Sep 2026 13:22:35 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 16 Sep 2026 18:05:34 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Security in a Multipolar World: A Peace Policy for the Left</title>
+    <link>https://www.rosalux.de/en/news/id/55240</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55240</guid>
+    <pubDate>Wed, 16 Sep 2026 16:58:12 +0200</pubDate>
+    <description>What would a left-wing, non-offensive defence policy look like?</description>
+    <media:content url="https://www.rosalux.de//fileadmin/user_upload/0916_Left_Peace_Policy_SMALL.jpg" medium="image"/>
+  </item>
   <item>
     <title>Criminals or Terrorists? US Security Policy in Latin America</title>
     <link>https://www.rosalux.de/en/news/id/55234</link>
@@ -80,14 +88,6 @@
     <pubDate>Thu, 03 Sep 2026 11:02:22 +0200</pubDate>
     <description>Blairite roots, post-Corbyn reinvention, Mancunian creed: what kind of Labour PM is Andy Burnham?</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0903_Andy_Burham_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Turkey’s CHP Splits. Can The New Party Beat Erdoğan?</title>
-    <link>https://www.rosalux.de/en/news/id/55198</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55198</guid>
-    <pubDate>Thu, 27 Aug 2026 12:10:22 +0200</pubDate>
-    <description>Özgür Özel's Yeni Parti promises a fresh start. But can it escape the CHP's old contradictions?</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/2708_Turkey_CHP_Split_SMALL.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
