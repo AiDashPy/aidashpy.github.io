@@ -7,8 +7,16 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Wed, 16 Sep 2026 01:15:24 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 16 Sep 2026 07:33:06 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Criminals or Terrorists? US Security Policy in Latin America</title>
+    <link>https://www.rosalux.de/en/news/id/55234</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55234</guid>
+    <pubDate>Wed, 16 Sep 2026 08:50:04 +0200</pubDate>
+    <description>The US calls Brazilian criminal groups terrorists. Researcher Ana Penido on how US security doctrine impacts Latin America.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0916_Brazil_Gangs_SMALL.jpg" medium="image"/>
+  </item>
   <item>
     <title>Drones and Democracy: Inside the AI Arms Race</title>
     <link>https://www.rosalux.de/en/news/id/55230</link>
@@ -80,14 +88,6 @@
     <pubDate>Thu, 27 Aug 2026 12:10:22 +0200</pubDate>
     <description>Özgür Özel's Yeni Parti promises a fresh start. But can it escape the CHP's old contradictions?</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/2708_Turkey_CHP_Split_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Feminist Socialization</title>
-    <link>https://www.rosalux.de/en/news/id/55149</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55149</guid>
-    <pubDate>Tue, 25 Aug 2026 15:55:55 +0200</pubDate>
-    <description>Intersectional Perspectives on Property, Domination, and Production</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0825_Feministisch_Vergesellschaften_Demo_8M_Barcelona_2025.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
