@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Thu, 17 Sep 2026 07:30:02 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 13:19:10 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>In Manta, A Community is Devastated by U.S. Boat Strikes</title>
+    <link>https://nacla.org/in-manta-a-community-is-devastated-by-us-boat-strikes/</link>
+    <guid isPermaLink="true">https://nacla.org/in-manta-a-community-is-devastated-by-us-boat-strikes/</guid>
+    <pubDate>Thu, 17 Sep 2026 09:00:00 GMT</pubDate>
+    <description>As Ecuador and the U.S. continue their aggressive campaign in the Pacific, a lone judge and victims&amp;#8217; families are trying to hold them accountable.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/09/image-1.jpg" medium="image"/>
+  </item>
   <item>
     <title>“Chavismo Tico” and the Limits of Costa Rican Exceptionalism</title>
     <link>https://nacla.org/chavismo-tico-and-the-limits-of-costa-rican-exceptionalism/</link>
@@ -400,14 +408,6 @@
     <pubDate>Fri, 29 May 2026 17:44:06 GMT</pubDate>
     <description>Michael Fox walks you through the HondurasGate leaks. What they are, what they mean, and the repercussions for the region.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/05/Asfura-White-House.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Leonardo Padura’s Like Dust in the Wind and the Afterlife of a Generation</title>
-    <link>https://nacla.org/leonardo-paduras-like-dust-in-the-wind-and-the-afterlife-of-a-generation/</link>
-    <guid isPermaLink="true">https://nacla.org/leonardo-paduras-like-dust-in-the-wind-and-the-afterlife-of-a-generation/</guid>
-    <pubDate>Fri, 29 May 2026 12:58:22 GMT</pubDate>
-    <description>Padura&amp;#8217;s novel traces the dreams, disappointments, and dispersal of a generation shaped by the Cuban Revolution.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/05/Screenshot-2026-05-29-at-11.14.47-AM.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
