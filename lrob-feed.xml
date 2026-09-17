@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Thu, 17 Sep 2026 07:19:45 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 13:09:46 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>A Chorus of Lovers</title>
+    <link>https://lareviewofbooks.org/article/keetje-kuipers-lonely-women-make-good-lovers-body/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/keetje-kuipers-lonely-women-make-good-lovers-body/</guid>
+    <pubDate>Thu, 17 Sep 2026 12:30:00 GMT</pubDate>
+    <description>Keetje Kuipers on her new book of poetry, which explores motherhood, sex, and the body.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/KeetjeKuipers092824_031BeowulfSheehan-scaled.jpg" medium="image"/>
+  </item>
   <item>
     <title>Lord Knows What I Am</title>
     <link>https://lareviewofbooks.org/article/harold-bloom-letters-man-who-read-everything-influence/</link>
@@ -384,14 +392,6 @@
     <pubDate>Tue, 07 Jul 2026 15:00:00 GMT</pubDate>
     <description>Is Rachel Aviv extroverted?</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/You Won't Get Free of It.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The Novel Is a Universal Passport</title>
-    <link>https://lareviewofbooks.org/article/kamel-daoud-french-algerian-exile-postcolonial-censorship-houris/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/kamel-daoud-french-algerian-exile-postcolonial-censorship-houris/</guid>
-    <pubDate>Mon, 06 Jul 2026 12:30:00 GMT</pubDate>
-    <description>Algerian novelist Kamel Daoud discusses the position of the writer in postcolonial Algeria and what it means to receive global acclaim while being criminalized at home.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Kamel Daoud.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
