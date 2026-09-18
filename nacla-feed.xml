@@ -7,8 +7,24 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Fri, 18 Sep 2026 17:01:33 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 18 Sep 2026 20:47:01 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Un encuentro de revistas de izquierda, ¿para qué?</title>
+    <link>https://nacla.org/un-encuentro-de-revistas-de-izquierda-para-que/</link>
+    <guid isPermaLink="true">https://nacla.org/un-encuentro-de-revistas-de-izquierda-para-que/</guid>
+    <pubDate>Fri, 18 Sep 2026 13:24:45 GMT</pubDate>
+    <description>NACLA se suma a publicaciones progresistas de toda América Latina en la Ciudad de México para reflexionar sobre el avance de la ultraderecha, un panorama mediático en transformación y las posibilidades de un periodismo crítico de izquierda.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/09/Encuentro_Esperanza-Critica-1.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>A Gathering of Left Publications: What For?</title>
+    <link>https://nacla.org/a-gathering-of-left-publications-what-for/</link>
+    <guid isPermaLink="true">https://nacla.org/a-gathering-of-left-publications-what-for/</guid>
+    <pubDate>Fri, 18 Sep 2026 13:20:02 GMT</pubDate>
+    <description>NACLA joins progressive publications from across Latin America in Mexico City to reflect on the rise of the far right, a changing media landscape, and the possibilities of critical left journalism.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/09/Encuentro_Esperanza-Critica.jpg" medium="image"/>
+  </item>
   <item>
     <title>I, Giovanna, A trans childhood in Bogotá (Review)</title>
     <link>https://nacla.org/i-giovanna-a-trans-childhood-in-bogota-review/</link>
@@ -392,22 +408,6 @@
     <pubDate>Wed, 03 Jun 2026 12:17:33 GMT</pubDate>
     <description>Abelardo de la Espriella’s first-round victory demonstrated the strength of the country&amp;#8217;s surging populist far-right, putting the left in a bind.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/06/Screenshot-2026-06-03-at-11.57.52-AM.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Impunity and the Permanent Coup in Peru</title>
-    <link>https://nacla.org/impunity-and-the-permanent-coup-in-peru/</link>
-    <guid isPermaLink="true">https://nacla.org/impunity-and-the-permanent-coup-in-peru/</guid>
-    <pubDate>Tue, 02 Jun 2026 11:22:56 GMT</pubDate>
-    <description>A massacre in a peripheral area of Peru highlights how the state has built a system that perpetuates impunity.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/06/IMG-20260528-WA0007.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>A Flotilla Exposes the Dutch Caribbean’s Struggle for Climate Justice</title>
-    <link>https://nacla.org/a-flotilla-exposes-the-dutch-caribbeans-struggle-for-climate-justice/</link>
-    <guid isPermaLink="true">https://nacla.org/a-flotilla-exposes-the-dutch-caribbeans-struggle-for-climate-justice/</guid>
-    <pubDate>Mon, 01 Jun 2026 10:33:13 GMT</pubDate>
-    <description>Despite co-hosting a milestone climate conference, the Netherlands has left the Dutch Caribbean islands alone in their fight against climate change.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/05/Climate-flotilla-sailboat-moored-in-Santa-Marta.-Credit-Matheus-Melo.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
