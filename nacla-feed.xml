@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Fri, 18 Sep 2026 12:53:35 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 18 Sep 2026 17:01:33 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>I, Giovanna, A trans childhood in Bogotá (Review)</title>
+    <link>https://nacla.org/i-giovanna-a-trans-childhood-in-bogota-review/</link>
+    <guid isPermaLink="true">https://nacla.org/i-giovanna-a-trans-childhood-in-bogota-review/</guid>
+    <pubDate>Fri, 18 Sep 2026 10:58:49 GMT</pubDate>
+    <description>In her autobiography, Giovanna Rincón, a renowned transgender activist living in Europe, recounts her difficult upbringing in Bogotá, her battle with HIV, and her knack for survival.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/09/Book-Review-Top-Image-1350-x-870-1.jpg" medium="image"/>
+  </item>
   <item>
     <title>In Manta, A Community is Devastated by U.S. Boat Strikes</title>
     <link>https://nacla.org/in-manta-a-community-is-devastated-by-us-boat-strikes/</link>
@@ -400,14 +408,6 @@
     <pubDate>Mon, 01 Jun 2026 10:33:13 GMT</pubDate>
     <description>Despite co-hosting a milestone climate conference, the Netherlands has left the Dutch Caribbean islands alone in their fight against climate change.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/05/Climate-flotilla-sailboat-moored-in-Santa-Marta.-Credit-Matheus-Melo.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>HondurasGate | Under the Shadow, Season 2, Episode 11</title>
-    <link>https://nacla.org/hondurasgate-under-the-shadow-season-2-episode-11/</link>
-    <guid isPermaLink="true">https://nacla.org/hondurasgate-under-the-shadow-season-2-episode-11/</guid>
-    <pubDate>Fri, 29 May 2026 17:44:06 GMT</pubDate>
-    <description>Michael Fox walks you through the HondurasGate leaks. What they are, what they mean, and the repercussions for the region.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/05/Asfura-White-House.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
