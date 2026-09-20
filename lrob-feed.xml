@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Sep 2026 10:53:08 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 14:35:47 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Generous Opacities</title>
+    <link>https://lareviewofbooks.org/article/theresa-hak-kyung-cha-multiple-offerings-art-language/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/theresa-hak-kyung-cha-multiple-offerings-art-language/</guid>
+    <pubDate>Sun, 20 Sep 2026 12:30:00 GMT</pubDate>
+    <description>Theresa Hak Kyung Cha’s wide-ranging art practice is on display in a traveling retrospective.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Permutations_01 Theresa Cha.jpg" medium="image"/>
+  </item>
   <item>
     <title>Please Tell Your Boyfriend to Resign</title>
     <link>https://lareviewofbooks.org/article/cockroach-party-india-student-protests-narendra-modi-hindutva/</link>
@@ -168,14 +176,6 @@
     <pubDate>Sat, 05 Sep 2026 15:00:00 GMT</pubDate>
     <description>Do Virginia Woolf’s uncollected letters raise the author’s stature, or lower it?</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/The Uncollected Letters of Virginia Woolf.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The Old Dog Stays</title>
-    <link>https://lareviewofbooks.org/article/etna-paul-yoon-war-fiction-combat-dog-narrator/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/etna-paul-yoon-war-fiction-combat-dog-narrator/</guid>
-    <pubDate>Sat, 05 Sep 2026 12:30:00 GMT</pubDate>
-    <description>War through the eyes of a soldier’s best friend.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Etna crop.jpg" medium="image"/>
   </item>
   <item>
     <title>Literary Web 2.0</title>
