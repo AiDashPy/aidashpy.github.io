@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Mon, 21 Sep 2026 06:05:59 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 21 Sep 2026 13:52:29 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>El caso del expresidente hondureño muestra la lucha de una nación por su soberanía</title>
+    <link>https://nacla.org/el-caso-del-expresidente-hondureno-muestra-la-lucha-de-una-nacion-por-su-soberania/</link>
+    <guid isPermaLink="true">https://nacla.org/el-caso-del-expresidente-hondureno-muestra-la-lucha-de-una-nacion-por-su-soberania/</guid>
+    <pubDate>Mon, 21 Sep 2026 09:43:21 GMT</pubDate>
+    <description>La llegada a Honduras del expresidente y narcotraficante Juan Orlando Hernández ha puesto a prueba las instituciones del país.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/09/Juan_Orlando_Hernandez_at_a_conference-scaled.jpg" medium="image"/>
+  </item>
   <item>
     <title>Un encuentro de revistas de izquierda, ¿para qué?</title>
     <link>https://nacla.org/un-encuentro-de-revistas-de-izquierda-para-que/</link>
@@ -400,14 +408,6 @@
     <pubDate>Thu, 04 Jun 2026 12:57:22 GMT</pubDate>
     <description>The June 21 presidential runoff will feature starkly different approaches to the growing power of armed and criminal groups.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/06/Screenshot-2026-06-03-at-11.38.08-PM.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>A Far-Right Surge and a Historic Runoff in Colombia</title>
-    <link>https://nacla.org/a-far-right-surge-and-a-historic-runoff-in-colombia/</link>
-    <guid isPermaLink="true">https://nacla.org/a-far-right-surge-and-a-historic-runoff-in-colombia/</guid>
-    <pubDate>Wed, 03 Jun 2026 12:17:33 GMT</pubDate>
-    <description>Abelardo de la Espriella’s first-round victory demonstrated the strength of the country&amp;#8217;s surging populist far-right, putting the left in a bind.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/06/Screenshot-2026-06-03-at-11.57.52-AM.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
