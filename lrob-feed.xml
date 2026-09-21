@@ -7,8 +7,24 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Mon, 21 Sep 2026 10:27:56 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 21 Sep 2026 16:50:23 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Decolonizing the Dead</title>
+    <link>https://lareviewofbooks.org/article/china-mieville-new-weird-science-fiction-lovecraft-spy/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/china-mieville-new-weird-science-fiction-lovecraft-spy/</guid>
+    <pubDate>Mon, 21 Sep 2026 15:00:00 GMT</pubDate>
+    <description>China Miéville’s first solo novel in over a decade is part Lovecraft, part le Carré—and quintessentially weird.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/The Rouse.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>A Life Without a Paper Trail</title>
+    <link>https://lareviewofbooks.org/article/joan-vollmer-she-was-wild-grass-katie-bennett/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/joan-vollmer-she-was-wild-grass-katie-bennett/</guid>
+    <pubDate>Mon, 21 Sep 2026 12:30:00 GMT</pubDate>
+    <description>Katie Bennett’s hybrid memoir intertwines her artistic coming-of-age with the story of Joan Vollmer and her murder by Beat author William Burroughs.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/she-was-wild-grass.jpg" medium="image"/>
+  </item>
   <item>
     <title>Generous Opacities</title>
     <link>https://lareviewofbooks.org/article/theresa-hak-kyung-cha-multiple-offerings-art-language/</link>
@@ -154,28 +170,12 @@
     <media:content url="https://assets.lareviewofbooks.org/uploads/Switzy.jpg" medium="image"/>
   </item>
   <item>
-    <title>What a Long, Strange Trip</title>
-    <link>https://lareviewofbooks.org/article/grace-krilanovich-acid-green-velvet-1800s-hippies-occupation/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/grace-krilanovich-acid-green-velvet-1800s-hippies-occupation/</guid>
-    <pubDate>Tue, 08 Sep 2026 12:30:00 GMT</pubDate>
-    <description>Grace Krilanovich’s new novel reads as if the Summer of Love took a time machine back to the 19th century.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Acid Green Velvet crop.jpg" medium="image"/>
-  </item>
-  <item>
     <title>Eugenics and the Nihilism of Law-and-Order Politics</title>
     <link>https://lareviewofbooks.org/article/eugenics-nihilism-law-order-politics-race-george-floyd/</link>
     <guid isPermaLink="true">https://lareviewofbooks.org/article/eugenics-nihilism-law-order-politics-race-george-floyd/</guid>
     <pubDate>Sun, 06 Sep 2026 12:30:00 GMT</pubDate>
     <description>For the Legacies of Eugenics series, Terence Keel examines how eugenics shapes the way we think about people who lose their lives during violent encounters with the state.</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Eugenics Keel Police nihilism.png" medium="image"/>
-  </item>
-  <item>
-    <title>She Wrote Me a Letter</title>
-    <link>https://lareviewofbooks.org/article/virginia-woolf-uncollected-letters-paul-delaney-modernism-correspondence/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/virginia-woolf-uncollected-letters-paul-delaney-modernism-correspondence/</guid>
-    <pubDate>Sat, 05 Sep 2026 15:00:00 GMT</pubDate>
-    <description>Do Virginia Woolf’s uncollected letters raise the author’s stature, or lower it?</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/The Uncollected Letters of Virginia Woolf.jpg" medium="image"/>
   </item>
   <item>
     <title>Literary Web 2.0</title>
