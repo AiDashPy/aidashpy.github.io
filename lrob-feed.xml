@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Tue, 22 Sep 2026 09:11:09 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2026 14:27:27 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>A Discount Heaven</title>
+    <link>https://lareviewofbooks.org/article/amy-fusselman-cloud-six-afterlife-absurd-caring-parenthood/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/amy-fusselman-cloud-six-afterlife-absurd-caring-parenthood/</guid>
+    <pubDate>Tue, 22 Sep 2026 12:30:00 GMT</pubDate>
+    <description>Amy Fusselman’s new novel is an afterlife comedy about the importance of giving care.</description>
+    <media:content url="https://assets.lareviewofbooks.org/uploads/Cloud Six.jpg" medium="image"/>
+  </item>
   <item>
     <title>Decolonizing the Dead</title>
     <link>https://lareviewofbooks.org/article/china-mieville-new-weird-science-fiction-lovecraft-spy/</link>
@@ -160,14 +168,6 @@
     <pubDate>Wed, 09 Sep 2026 12:30:00 GMT</pubDate>
     <description>Sharon Weinberger’s new book exposes the extent to which the US government has bound itself to the ‘arsenal of the broligarchy.’</description>
     <media:content url="https://assets.lareviewofbooks.org/uploads/Valley of Death.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Nobody, Falling Through the Darkness</title>
-    <link>https://lareviewofbooks.org/article/emma-cline-switzy-alzheimers-assisted-suicide-business-class/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/emma-cline-switzy-alzheimers-assisted-suicide-business-class/</guid>
-    <pubDate>Tue, 08 Sep 2026 15:00:00 GMT</pubDate>
-    <description>Emma Cline’s new novel chronicles the final days of a man who never knew himself.</description>
-    <media:content url="https://assets.lareviewofbooks.org/uploads/Switzy.jpg" medium="image"/>
   </item>
   <item>
     <title>Eugenics and the Nihilism of Law-and-Order Politics</title>
