@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Sep 2026 16:41:33 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 23 Sep 2026 20:07:54 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Puerto Rican Communities Bear the Brunt of the Water Crisis</title>
+    <link>https://nacla.org/puerto-rican-communities-bear-the-brunt-of-the-water-crisis/</link>
+    <guid isPermaLink="true">https://nacla.org/puerto-rican-communities-bear-the-brunt-of-the-water-crisis/</guid>
+    <pubDate>Wed, 23 Sep 2026 14:15:41 GMT</pubDate>
+    <description>The archipelago’s current water crisis, the product of a colonial system of debt, austerity, and extraction, cannot be solved by community organizing alone.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/09/Puerto_Rico_Aqueducts_and_Sewers_Authority_station_in_Jayuya_Puerto_Rico-scaled.jpg" medium="image"/>
+  </item>
   <item>
     <title>El caso del expresidente hondureño muestra la lucha de una nación por su soberanía</title>
     <link>https://nacla.org/el-caso-del-expresidente-hondureno-muestra-la-lucha-de-una-nacion-por-su-soberania/</link>
@@ -400,14 +408,6 @@
     <pubDate>Fri, 05 Jun 2026 11:40:39 GMT</pubDate>
     <description>A recent book treats economic sanctions as a tool of benevolent intervention, an argument justified by a series of egregious analytical errors.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/06/Venezuela_CEPR_Sanctions.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Colombia Debates “Total Peace” and “Total War”</title>
-    <link>https://nacla.org/colombia-debates-total-peace-and-total-war/</link>
-    <guid isPermaLink="true">https://nacla.org/colombia-debates-total-peace-and-total-war/</guid>
-    <pubDate>Thu, 04 Jun 2026 12:57:22 GMT</pubDate>
-    <description>The June 21 presidential runoff will feature starkly different approaches to the growing power of armed and criminal groups.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/06/Screenshot-2026-06-03-at-11.38.08-PM.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
