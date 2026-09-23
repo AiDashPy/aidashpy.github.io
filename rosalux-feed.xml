@@ -7,8 +7,16 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Sep 2026 11:18:05 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 23 Sep 2026 16:40:26 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Die Linke Takes Berlin as the AfD Sweeps East Germany</title>
+    <link>https://www.rosalux.de/en/news/id/55260</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55260</guid>
+    <pubDate>Wed, 23 Sep 2026 16:19:43 +0200</pubDate>
+    <description>The party’s historic win in Berlin state elections offers lessons in confronting the far-right</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0923_Elif_Eralp_Linke_Berlin_SMALL.jpg" medium="image"/>
+  </item>
   <item>
     <title>Security in a Multipolar World: A Peace Policy for the Left</title>
     <link>https://www.rosalux.de/en/news/id/55240</link>
@@ -59,8 +67,8 @@
   </item>
   <item>
     <title>Sweden’s 2026 Election on a Knife-Edge</title>
-    <link>https://www.rosalux.de/en/news/id/55206</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55206</guid>
+    <link>https://www.rosalux.de/en/news/id/55258</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55258</guid>
     <pubDate>Thu, 10 Sep 2026 15:24:39 +0200</pubDate>
     <description>After Sweden went to the polls, the left party bloc ekes out a 0.2 percent victory over the right bloc.</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0910_Sweden_Elections_SMALL.jpg" medium="image"/>
@@ -74,20 +82,12 @@
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0909_Poland_Split_Pis_Far_Right_Demo_SMALL.jpg" medium="image"/>
   </item>
   <item>
-    <title>Why Did the AfD Win in Saxony-Anhalt?</title>
-    <link>https://www.rosalux.de/en/news/id/55194</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55194</guid>
-    <pubDate>Tue, 08 Sep 2026 15:20:01 +0200</pubDate>
-    <description>As Ulrich Siegmund celebrates his victory, the left face a hard question: How to respond</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0914_AfD_Sachsen_Anhalt_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>UK: An Outsider Prime Minister?</title>
-    <link>https://www.rosalux.de/en/news/id/55178</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55178</guid>
-    <pubDate>Thu, 03 Sep 2026 11:02:22 +0200</pubDate>
-    <description>Blairite roots, post-Corbyn reinvention, Mancunian creed: what kind of Labour PM is Andy Burnham?</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0903_Andy_Burham_SMALL.jpg" medium="image"/>
+    <title>Brazil’s 2026 Election: Lula or Bolsonaro Jr.?</title>
+    <link>https://www.rosalux.de/en/news/id/55180</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55180</guid>
+    <pubDate>Wed, 09 Sep 2026 12:13:00 +0200</pubDate>
+    <description>As Brazilians prepare to vote on 4 October, they're also choosing sides in Trump's Latin America</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Lateinamerika/Brasilien/Bolsonaro-Clan_pa.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
