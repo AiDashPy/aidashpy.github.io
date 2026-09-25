@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Fri, 25 Sep 2026 13:34:48 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 25 Sep 2026 18:26:53 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Can the Favelas be Heard?</title>
+    <link>https://nacla.org/can-the-favelas-be-heard/</link>
+    <guid isPermaLink="true">https://nacla.org/can-the-favelas-be-heard/</guid>
+    <pubDate>Fri, 25 Sep 2026 11:20:47 GMT</pubDate>
+    <description>Ben-Hur Nogueira, a 24-year-old Afro-Brazilian documentarian, presents a different view of the favelas and the resilience of its people.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/09/benhur1-scaled.jpeg" medium="image"/>
+  </item>
   <item>
     <title>Puerto Rican Communities Bear the Brunt of the Water Crisis</title>
     <link>https://nacla.org/puerto-rican-communities-bear-the-brunt-of-the-water-crisis/</link>
@@ -400,14 +408,6 @@
     <pubDate>Wed, 10 Jun 2026 09:10:26 GMT</pubDate>
     <description>New charges against one of the Pinochet dictatorship’s most prominent human rights abusers come as the country shifts markedly to the right, casting historical memory in doubt.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/06/Screenshot-2026-06-09-at-11.44.47-PM.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Getting Sanctions Wrong: Why Recent Claims About Venezuela Just Don&amp;#8217;t Add Up</title>
-    <link>https://nacla.org/getting-sanctions-wrong-why-recent-claims-about-venezuela-just-dont-add-up/</link>
-    <guid isPermaLink="true">https://nacla.org/getting-sanctions-wrong-why-recent-claims-about-venezuela-just-dont-add-up/</guid>
-    <pubDate>Fri, 05 Jun 2026 11:40:39 GMT</pubDate>
-    <description>A recent book treats economic sanctions as a tool of benevolent intervention, an argument justified by a series of egregious analytical errors.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/06/Venezuela_CEPR_Sanctions.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
