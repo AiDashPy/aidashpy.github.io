@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Wed, 30 Sep 2026 12:22:18 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2026 18:21:30 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Brazilian Workers Fight for a Second Day Off</title>
+    <link>https://nacla.org/brazilian-workers-fight-for-a-second-day-off/</link>
+    <guid isPermaLink="true">https://nacla.org/brazilian-workers-fight-for-a-second-day-off/</guid>
+    <pubDate>Wed, 30 Sep 2026 09:00:00 GMT</pubDate>
+    <description>Ahead of the country’s general elections, a proposal to shorten the workweek from six days to five is gaining ground.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/09/Brazil-6x1-1-scaled.jpg" medium="image"/>
+  </item>
   <item>
     <title>Can the Favelas be Heard?</title>
     <link>https://nacla.org/can-the-favelas-be-heard/</link>
@@ -400,14 +408,6 @@
     <pubDate>Fri, 12 Jun 2026 11:33:37 GMT</pubDate>
     <description>In his new book, Eric A. Vázquez looks at how solidarity in Central America has evolved through time.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/06/Book-Review-Top-Image-1350-x-870.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Miguel Krassnoff and the Memory Question in Chile</title>
-    <link>https://nacla.org/miguel-krassnoff-and-the-memory-question-in-chile/</link>
-    <guid isPermaLink="true">https://nacla.org/miguel-krassnoff-and-the-memory-question-in-chile/</guid>
-    <pubDate>Wed, 10 Jun 2026 09:10:26 GMT</pubDate>
-    <description>New charges against one of the Pinochet dictatorship’s most prominent human rights abusers come as the country shifts markedly to the right, casting historical memory in doubt.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/06/Screenshot-2026-06-09-at-11.44.47-PM.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
