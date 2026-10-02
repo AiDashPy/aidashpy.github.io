@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Fri, 02 Oct 2026 15:39:34 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2026 20:35:55 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>When Terrorists Struck in the Heart of Washington, D.C.</title>
+    <link>https://nacla.org/when-terrorists-struck-in-the-heart-of-washington-d-c/</link>
+    <guid isPermaLink="true">https://nacla.org/when-terrorists-struck-in-the-heart-of-washington-d-c/</guid>
+    <pubDate>Fri, 02 Oct 2026 15:04:17 GMT</pubDate>
+    <description>Orlando Letelier was assassinated 50 years ago this week on  Embassy Row. Henry Kissinger could have stopped it. Now,  transnational terrorism is a commonplace.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/10/Screenshot-2026-10-01-at-10.33.50-AM.jpg" medium="image"/>
+  </item>
   <item>
     <title>Brazilian Workers Fight for a Second Day Off</title>
     <link>https://nacla.org/brazilian-workers-fight-for-a-second-day-off/</link>
@@ -400,14 +408,6 @@
     <pubDate>Tue, 16 Jun 2026 10:08:23 GMT</pubDate>
     <description>A far-right victory in upcoming elections could reverse hard-fought gains for victims of the armed conflict, including survivors of one of Colombia’s most notorious paramilitary massacres.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/06/Screenshot-2026-06-15-at-3.44.35-PM.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>States of Defeat: U.S. Imaginaries of Revolutionary Central America (Review)</title>
-    <link>https://nacla.org/states-of-defeat-u-s-imaginaries-of-revolutionary-central-america-review/</link>
-    <guid isPermaLink="true">https://nacla.org/states-of-defeat-u-s-imaginaries-of-revolutionary-central-america-review/</guid>
-    <pubDate>Fri, 12 Jun 2026 11:33:37 GMT</pubDate>
-    <description>In his new book, Eric A. Vázquez looks at how solidarity in Central America has evolved through time.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/06/Book-Review-Top-Image-1350-x-870.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
