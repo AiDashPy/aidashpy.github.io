@@ -7,8 +7,16 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Mon, 05 Oct 2026 08:47:53 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 05 Oct 2026 18:15:22 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Spain’s Housing Crisis Explodes</title>
+    <link>https://www.rosalux.de/en/news/id/55292</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55292</guid>
+    <pubDate>Mon, 05 Oct 2026 14:23:50 +0200</pubDate>
+    <description>How the eviction of Maricarmen in Madrid triggered housing protests and snap elections</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/100526_Spain_Tenants_Protests_SMALL.jpg" medium="image"/>
+  </item>
   <item>
     <title>Die Linke Takes Berlin as the AfD Sweeps East Germany</title>
     <link>https://www.rosalux.de/en/news/id/55260</link>
@@ -80,14 +88,6 @@
     <pubDate>Wed, 09 Sep 2026 12:35:32 +0200</pubDate>
     <description>Poland’s PiS splits as rival groups vie for power. Will divisions on the right strengthen the left?</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0909_Poland_Split_Pis_Far_Right_Demo_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Brazil’s 2026 Election: Lula or Bolsonaro Jr.?</title>
-    <link>https://www.rosalux.de/en/news/id/55180</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55180</guid>
-    <pubDate>Wed, 09 Sep 2026 12:13:00 +0200</pubDate>
-    <description>As Brazilians prepare to vote on 4 October, they're also choosing sides in Trump's Latin America</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Lateinamerika/Brasilien/Bolsonaro-Clan_pa.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
