@@ -7,12 +7,20 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Wed, 07 Oct 2026 07:04:38 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 15:27:16 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Israel’s Logic of Violence Can’t Be Overcome From Within</title>
+    <link>https://www.rosalux.de/en/news/id/55300</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55300</guid>
+    <pubDate>Wed, 07 Oct 2026 14:38:56 +0200</pubDate>
+    <description>RLS’s Gil Shohat on October 7th, the upcoming elections, and the state of Israeli society</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Nahost/klagemauer_imago0378014631h.jpg" medium="image"/>
+  </item>
+  <item>
     <title>France’s Students in Revolt</title>
-    <link>https://www.rosalux.de/en/news/id/55296</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55296</guid>
+    <link>https://www.rosalux.de/en/news/id/55298</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55298</guid>
     <pubDate>Tue, 06 Oct 2026 12:45:22 +0200</pubDate>
     <description>Will French lycéens protesting austerity ignite a wider social movement ahead of the 2027 presidential campaign?</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/100626_France_Student_Protests_2_SMALL.jpg" medium="image"/>
@@ -24,6 +32,14 @@
     <pubDate>Mon, 05 Oct 2026 14:48:00 +0200</pubDate>
     <description>How the eviction of Maricarmen in Madrid triggered housing protests and snap elections</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/100526_Spain_Tenants_Protests_SMALL.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Brazil Turns To The Right</title>
+    <link>https://www.rosalux.de/en/news/id/55180</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55180</guid>
+    <pubDate>Mon, 05 Oct 2026 12:13:00 +0200</pubDate>
+    <description>Flavio Bolsonaro leads in presidential election's round one, poised to win runoff in late October</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Lateinamerika/Brasilien/Bolsonaro-Clan_pa.jpg" medium="image"/>
   </item>
   <item>
     <title>Die Linke Takes Berlin as the AfD Sweeps East Germany</title>
@@ -72,22 +88,6 @@
     <pubDate>Fri, 11 Sep 2026 17:29:41 +0200</pubDate>
     <description>Arab states publicly profess solidarity with Palestinians, but realpolitik tells a different story</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/Dossiers/Westasien/Hossam-Hassan_Pal-Flagge_pa.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>9/11: A Quarter Century of Imperial War</title>
-    <link>https://www.rosalux.de/en/news/id/55207</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55207</guid>
-    <pubDate>Thu, 10 Sep 2026 17:34:02 +0200</pubDate>
-    <description>Socialist scholar Gilbert Achcar on the legacy of the War on Terror and the Arab Spring</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0910_9_11_US_Soldiers_Afghanistan_Helicopter_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Sweden’s 2026 Election on a Knife-Edge</title>
-    <link>https://www.rosalux.de/en/news/id/55258</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55258</guid>
-    <pubDate>Thu, 10 Sep 2026 15:24:39 +0200</pubDate>
-    <description>After Sweden went to the polls, the left party bloc ekes out a 0.2 percent victory over the right bloc.</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0910_Sweden_Elections_SMALL.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
