@@ -7,16 +7,8 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Thu, 08 Oct 2026 17:48:33 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2026 23:12:49 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
-  <item>
-    <title>Colombia’s New Government is Trying to Strangle Peace</title>
-    <link>https://nacla.org/colombias-new-government-is-trying-to-strangle-peace/</link>
-    <guid isPermaLink="true">https://nacla.org/colombias-new-government-is-trying-to-strangle-peace/</guid>
-    <pubDate>Thu, 08 Oct 2026 09:50:13 GMT</pubDate>
-    <description>The right-wing government&amp;#8217;s attack on the country’s peace court threatens to undo a decade of work and hinders the ongoing search for the country’s disappeared</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/10/13-Langa-Martinez02.jpeg" medium="image"/>
-  </item>
   <item>
     <title>When Terrorists Struck in the Heart of Washington, D.C.</title>
     <link>https://nacla.org/when-terrorists-struck-in-the-heart-of-washington-d-c/</link>
@@ -408,6 +400,14 @@
     <pubDate>Fri, 19 Jun 2026 13:29:12 GMT</pubDate>
     <description>In his book, Andrew G. Britt explores the ways in which urban planning was used as a tool to erase São Paulo&amp;#8217;s once vibrant black neighborhoods.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/06/Screenshot-2026-06-19-at-12.50.28-PM.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Colombia’s Land Reform is At Stake</title>
+    <link>https://nacla.org/colombias-land-reform-is-at-stake/</link>
+    <guid isPermaLink="true">https://nacla.org/colombias-land-reform-is-at-stake/</guid>
+    <pubDate>Tue, 16 Jun 2026 10:08:23 GMT</pubDate>
+    <description>A far-right victory in upcoming elections could reverse hard-fought gains for victims of the armed conflict, including survivors of one of Colombia’s most notorious paramilitary massacres.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/06/Screenshot-2026-06-15-at-3.44.35-PM.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
