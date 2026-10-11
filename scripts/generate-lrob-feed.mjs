@@ -2,6 +2,13 @@
 // The site blocks plain curl/wget but passes Node.js fetch with standard
 // browser Sec-Fetch headers. Fetches page 1 of reviews, essays, and
 // interviews listings, combines, deduplicates, and sorts newest-first.
+//
+// The listing pages are Next.js App Router pages rendered server-side as
+// plain HTML (no __NEXT_DATA__ blob — that was the old Pages Router), so
+// article cards are scraped directly out of the markup. Dates on the
+// listing only show "Mon D" with no year, so the current year is assumed
+// unless that would put the date in the future, in which case it's assumed
+// to be last year's.
 
 import { writeFileSync } from "fs";
 
@@ -27,23 +34,72 @@ const esc = (s) =>
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
 
+const stripTags = (s) => s.replace(/<[^>]+>/g, "").trim();
+
+const decodeEntities = (s) =>
+  s
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&#39;/g, "'")
+    .replace(/&quot;/g, '"');
+
+function parseListingDate(text) {
+  const now = new Date();
+  let d = new Date(`${text} ${now.getUTCFullYear()} UTC`);
+  if (isNaN(d.getTime())) return null;
+  if (d.getTime() > now.getTime() + 2 * 24 * 60 * 60 * 1000) {
+    d = new Date(`${text} ${now.getUTCFullYear() - 1} UTC`);
+  }
+  return d;
+}
+
 async function fetchTypeArticles(type) {
   const url = `${BASE}/articles/${type}/all`;
   const res = await fetch(url, { headers: HEADERS });
   if (!res.ok) throw new Error(`HTTP ${res.status} ${url}`);
   const html = await res.text();
-  const m = html.match(/<script[^>]*id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
-  if (!m) throw new Error(`No __NEXT_DATA__ on ${type} listing`);
-  const docs = JSON.parse(m[1]).props?.pageProps?.articles?.docs ?? [];
+
+  const entryRe = /<article class="[^"]*Px-I7a__container[^"]*"/g;
+  const positions = [];
+  let m;
+  while ((m = entryRe.exec(html)) !== null) positions.push(m.index);
+  if (positions.length === 0) throw new Error(`No article cards found on ${type} listing — page structure may have changed`);
+  positions.push(html.length);
+
+  const docs = [];
+  for (let i = 0; i < positions.length - 1; i++) {
+    const block = html.slice(positions[i], positions[i + 1]);
+
+    const hrefM = block.match(/href="(\/article\/[^"/]+)\/?"/);
+    if (!hrefM) continue;
+    const slug = hrefM[1].replace(/^\/article\//, "");
+
+    const titleM = block.match(/<h2[^>]*>[\s\S]*?<a[^>]*>([\s\S]*?)<\/a>[\s\S]*?<\/h2>/);
+    const title = titleM ? decodeEntities(stripTags(titleM[1])) : "";
+    if (!title) continue;
+
+    const dekM = block.match(/__dek[^"]*">([\s\S]*?)<\/p>/);
+    const description = dekM ? decodeEntities(stripTags(dekM[1])) : "";
+
+    const dateM = block.match(/Px-I7a__date"[^>]*>([^<]+)/);
+    const date = dateM ? parseListingDate(dateM[1].trim()) : null;
+    if (!date) continue;
+
+    const imgM = block.match(/\ssrc="(https:\/\/cdn\.lareviewofbooks\.org[^"]+)"/);
+
+    docs.push({
+      url: `${BASE}/article/${slug}/`,
+      title,
+      description,
+      pubDate: date.toUTCString(),
+      pubMs: date.getTime(),
+      img: imgM ? imgM[1] : null,
+    });
+  }
+
   console.log(`  [${type}] ${docs.length} articles`);
-  return docs.map((d) => ({
-    url: `${BASE}/article/${d.slug}/`,
-    title: d.title ?? d.slug,
-    description: d.description ?? "",
-    pubDate: new Date(d.publish_date).toUTCString(),
-    pubMs: new Date(d.publish_date).getTime(),
-    img: d.featured_image?.url ?? null,
-  }));
+  return docs;
 }
 
 console.log("Fetching article listings...");
