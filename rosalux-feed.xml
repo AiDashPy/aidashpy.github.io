@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Rosa Luxemburg Foundation – English</title>
+    <link>https://www.rosalux.de/en/</link>
+    <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
+    <language>en</language>
+    <lastBuildDate>Sun, 11 Oct 2026 17:58:47 GMT</lastBuildDate>
+    <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Israel’s Logic of Violence Can’t Be Overcome From Within</title>
+    <link>https://www.rosalux.de/en/news/id/55300</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55300</guid>
+    <pubDate>Wed, 07 Oct 2026 14:38:56 +0200</pubDate>
+    <description>RLS’s Gil Shohat on October 7th, the upcoming elections, and the state of Israeli society</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Nahost/klagemauer_imago0378014631h.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>France’s Students in Revolt</title>
+    <link>https://www.rosalux.de/en/news/id/55298</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55298</guid>
+    <pubDate>Tue, 06 Oct 2026 12:45:22 +0200</pubDate>
+    <description>Will French lycéens protesting austerity ignite a wider social movement ahead of the 2027 presidential campaign?</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/100626_France_Student_Protests_2_SMALL.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Spain’s Housing Crisis Explodes</title>
+    <link>https://www.rosalux.de/en/news/id/55297</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55297</guid>
+    <pubDate>Mon, 05 Oct 2026 14:48:00 +0200</pubDate>
+    <description>How the eviction of Maricarmen in Madrid triggered housing protests and snap elections</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/100526_Spain_Tenants_Protests_SMALL.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Brazil Turns To The Right</title>
+    <link>https://www.rosalux.de/en/news/id/55180</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55180</guid>
+    <pubDate>Mon, 05 Oct 2026 12:13:00 +0200</pubDate>
+    <description>Flavio Bolsonaro leads in presidential election's round one, poised to win runoff in late October</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Lateinamerika/Brasilien/Bolsonaro-Clan_pa.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Die Linke Takes Berlin as the AfD Sweeps East Germany</title>
+    <link>https://www.rosalux.de/en/news/id/55260</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55260</guid>
+    <pubDate>Wed, 23 Sep 2026 16:19:43 +0200</pubDate>
+    <description>The party’s historic win in Berlin state elections offers lessons in confronting the far-right</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0923_Elif_Eralp_Linke_Berlin_SMALL.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Security in a Multipolar World: A Peace Policy for the Left</title>
+    <link>https://www.rosalux.de/en/news/id/55240</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55240</guid>
+    <pubDate>Wed, 16 Sep 2026 16:58:12 +0200</pubDate>
+    <description>What would a left-wing, non-offensive defence policy look like?</description>
+    <media:content url="https://www.rosalux.de//fileadmin/user_upload/0916_Left_Peace_Policy_SMALL.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Criminals or Terrorists? US Security Policy in Latin America</title>
+    <link>https://www.rosalux.de/en/news/id/55234</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55234</guid>
+    <pubDate>Wed, 16 Sep 2026 08:50:04 +0200</pubDate>
+    <description>The US calls Brazilian criminal groups terrorists. Researcher Ana Penido on how US security doctrine impacts Latin America.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0916_Brazil_Gangs_SMALL.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Drones and Democracy: Inside the AI Arms Race</title>
+    <link>https://www.rosalux.de/en/news/id/55230</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55230</guid>
+    <pubDate>Tue, 15 Sep 2026 16:06:57 +0200</pubDate>
+    <description>How defence tech start-ups, kamikaze drones, and  AI are reshaping war and eroding democracy</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0915_Drones_and_Democracy_SMALL.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Artificial Intelligence At Any Cost?</title>
+    <link>https://www.rosalux.de/en/news/id/55228</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55228</guid>
+    <pubDate>Tue, 15 Sep 2026 15:58:26 +0200</pubDate>
+    <description>Europe wants digital sovereignty. But its own policies are deepening dependency on US Big Tech.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0915_AI_at_any_cost_SMALL.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Palestine in the Arab World</title>
+    <link>https://www.rosalux.de/en/news/id/55151</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55151</guid>
+    <pubDate>Fri, 11 Sep 2026 17:29:41 +0200</pubDate>
+    <description>Arab states publicly profess solidarity with Palestinians, but realpolitik tells a different story</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/Dossiers/Westasien/Hossam-Hassan_Pal-Flagge_pa.jpg" medium="image"/>
+  </item>
+  </channel>
+</rss>
