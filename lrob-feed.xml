@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Mon, 12 Oct 2026 04:59:27 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 13:01:21 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>When Speaking Fails</title>
+    <link>https://lareviewofbooks.org/article/douglas-stuart-john-of-john-novel-scotland-gaelic/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/douglas-stuart-john-of-john-novel-scotland-gaelic/</guid>
+    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Douglas Stuart’s new novel shows how unspoken secrets can ravage a family and a community.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FJohnofJohn.jpg" medium="image"/>
+  </item>
   <item>
     <title>Angels with Dirty Faces</title>
     <link>https://lareviewofbooks.org/article/pop-divas-queer-fandom-mainstream-conformity-appropriation-vogue/</link>
@@ -168,14 +176,6 @@
     <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
     <description>Jake Rose’s new poetry collection transports Joan of Arc from the 15th century to today.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FJoan.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Another Means to Torment</title>
-    <link>https://lareviewofbooks.org/article/alma-katsu-incarnate-beauty-horror-social-media-image/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/alma-katsu-incarnate-beauty-horror-social-media-image/</guid>
-    <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Alma Katsu crafts beauty horror for the age of influencers.</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FIncarnate.jpg" medium="image"/>
   </item>
   <item>
     <title>Greetings from the Inferno</title>
