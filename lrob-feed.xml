@@ -7,8 +7,24 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Tue, 13 Oct 2026 10:25:05 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 13 Oct 2026 18:02:04 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Revenge of a Church Lady</title>
+    <link>https://lareviewofbooks.org/article/confessions-first-lady-freeman-deesha-philyaw-black-church/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/confessions-first-lady-freeman-deesha-philyaw-black-church/</guid>
+    <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Deesha Philyaw’s debut novel is a high-stakes tale of morality, shame, and vulnerability.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FThe%20True%20Confessions%20of%20First%20Lady%20Freeman" medium="image"/>
+  </item>
+  <item>
+    <title>For Love, Which Is to Say, for Revolution</title>
+    <link>https://lareviewofbooks.org/article/abdelrahman-elgendy-huna-interview-revolution-prison-becoming-memoir/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/abdelrahman-elgendy-huna-interview-revolution-prison-becoming-memoir/</guid>
+    <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Abdelrahman ElGendy discusses the power of dissidence, the language of empire, and his new memoir.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FHuna.jpg" medium="image"/>
+  </item>
   <item>
     <title>Make Room in the Mouth</title>
     <link>https://lareviewofbooks.org/article/layli-long-soldier-we-beth-piatote-distant-water/</link>
@@ -168,14 +184,6 @@
     <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
     <description>Fady Joudah’s newest poetry collection resists the idiomatic “unspeakable” when faced with evidence of the ongoing genocide in Gaza.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FExhibit%20G%20Joudah.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The Slow Apocalypse of Capitalist Decay</title>
-    <link>https://lareviewofbooks.org/article/hernan-diaz-ply-postapocalypse-capitalism-trilogy-utopia-novel/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/hernan-diaz-ply-postapocalypse-capitalism-trilogy-utopia-novel/</guid>
-    <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Hernan Diaz completes his hopeful trilogy following the rise and fall of American capitalism.</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FPly.jpg" medium="image"/>
   </item>
   <item>
     <title>Greetings from the Inferno</title>
@@ -384,14 +392,6 @@
     <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
     <description>Alexis Almeida discusses her debut poetry collection ‘Caetano,’ a meditation on family, memory, and language.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FCaetano%20-%20almeida-1.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The Beginning of the Story</title>
-    <link>https://lareviewofbooks.org/article/rachel-aviv-you-wont-get-free-mothers-daughters/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/rachel-aviv-you-wont-get-free-mothers-daughters/</guid>
-    <pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate>
-    <description>Is Rachel Aviv extroverted?</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FYou%20Won&amp;#x27;t%20Get%20Free%20of%20It.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
