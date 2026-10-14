@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Wed, 14 Oct 2026 09:58:07 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 14:59:55 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Where There’s Smoke</title>
+    <link>https://lareviewofbooks.org/article/jeanne-chesley-barney-gay-advice-column-advocate-drummer/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/jeanne-chesley-barney-gay-advice-column-advocate-drummer/</guid>
+    <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    <description>On the unknown history of gay advice columnist Jeanne C. Barney.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FSmoke%20From%20Jeannie&amp;#x27;s%20Lamp%201971%20crop.jpg" medium="image"/>
+  </item>
   <item>
     <title>Revenge of a Church Lady</title>
     <link>https://lareviewofbooks.org/article/confessions-first-lady-freeman-deesha-philyaw-black-church/</link>
@@ -320,14 +328,6 @@
     <pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate>
     <description>Claire Vaye Watkins discusses the creative process for her new book, the relationship between writing and life, and how she views the roles of hope, repose, and the land itself in her work.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FClaire%20Vaye%20Watkins%20by%20Alyson%20Aliano.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Free Work Isn’t Free</title>
-    <link>https://lareviewofbooks.org/article/screenwriters-hollywood-mergers-paramount-warner-oracle-artificial-intelligence/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/screenwriters-hollywood-mergers-paramount-warner-oracle-artificial-intelligence/</guid>
-    <pubDate>Sun, 16 Aug 2026 00:00:00 GMT</pubDate>
-    <description>On the true cost of unpaid creativity in the age of IP and AI.</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FChristian%20Joudrey%20-%20Paramount_Studios%2C_Los_Angeles%2C_United_States_(Unsplash).jpg" medium="image"/>
   </item>
   <item>
     <title>The Ultimate Borderland</title>
