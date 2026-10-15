@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Thu, 15 Oct 2026 14:06:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 18:56:15 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Murderous, Man-Hating, and Baby-Killing</title>
+    <link>https://lareviewofbooks.org/article/monstrous-bitch-history-terrifying-women-eleanor-johnson-feminism/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/monstrous-bitch-history-terrifying-women-eleanor-johnson-feminism/</guid>
+    <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Eleanor Johnson’s new book traces the lineage of the demonic women trope to its Mesopotamian origins.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FMonstrous%20Bitch.jpg" medium="image"/>
+  </item>
   <item>
     <title>Arcana Made Easy</title>
     <link>https://lareviewofbooks.org/article/queer-arcana-art-magic-spirit-steven-arnold-cocktails/</link>
@@ -184,14 +192,6 @@
     <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
     <description>Nikolas Bowie and Daphna Renan’s new book challenges the supremacy of judicial review over democracy itself.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FSupremacy%20Bowie%20Renan.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>A Flamboyant, Impatient Rebel</title>
-    <link>https://lareviewofbooks.org/article/john-berger-from-life-tom-overton-biography-art/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/john-berger-from-life-tom-overton-biography-art/</guid>
-    <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Tom Overton’s biography of John Berger blends the meticulous archival research we expect from a professional historian with the subjective and intimate familiarity of the memoirist.</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FJohn-Berger-From-Life-1.jpg" medium="image"/>
   </item>
   <item>
     <title>Greetings from the Inferno</title>
