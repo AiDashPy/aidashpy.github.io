@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Thu, 15 Oct 2026 18:59:47 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 22:10:15 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>U.S. Weapons in Guatemala: The Risk of Rearming a Country Prone to Human Rights Violations</title>
+    <link>https://nacla.org/us-weapons-in-guatemala-the-risk-of-rearming-a-country-prone-to-human-rights-violations/</link>
+    <guid isPermaLink="true">https://nacla.org/us-weapons-in-guatemala-the-risk-of-rearming-a-country-prone-to-human-rights-violations/</guid>
+    <pubDate>Thu, 15 Oct 2026 15:00:00 GMT</pubDate>
+    <description>Nearly 50 years after the U.S. imposed an arms embargo on Guatemala, the government of Bernardo Arévalo has resumed the arms trade with Washington.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/10/IMG_0296-scaled-1.jpeg" medium="image"/>
+  </item>
   <item>
     <title>The Fight for Education in Chile</title>
     <link>https://nacla.org/the-fight-for-education-in-chile/</link>
@@ -400,14 +408,6 @@
     <pubDate>Wed, 24 Jun 2026 13:21:44 GMT</pubDate>
     <description>The unchecked power of multinational corporations, state-criminal networks, and legacies of genocide against Indigenous communities continue to fuel violence against public figures in the country.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/06/35538146554_51779712d2_k.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Colombia Joins the Far-Right Wave</title>
-    <link>https://nacla.org/colombia-joins-the-far-right-wave/</link>
-    <guid isPermaLink="true">https://nacla.org/colombia-joins-the-far-right-wave/</guid>
-    <pubDate>Tue, 23 Jun 2026 11:27:07 GMT</pubDate>
-    <description>Abelardo de la Espriella, a far-right lawyer with ties to paramilitary groups, is set to win a historically close election, a result that threatens to repeat the mistakes of Colombia’s past.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-22-at-20.42.31-3.jpeg" medium="image"/>
   </item>
   </channel>
 </rss>
