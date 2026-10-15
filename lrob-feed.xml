@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Thu, 15 Oct 2026 08:58:34 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 14:06:00 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Arcana Made Easy</title>
+    <link>https://lareviewofbooks.org/article/queer-arcana-art-magic-spirit-steven-arnold-cocktails/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/queer-arcana-art-magic-spirit-steven-arnold-cocktails/</guid>
+    <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Exploding notions of heteronormative occultist practice through reflections on two gallery exhibitions that celebrate queer arcana.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FMundo%20Meza%20Fusion%201975.jpg" medium="image"/>
+  </item>
   <item>
     <title>Where There’s Smoke</title>
     <link>https://lareviewofbooks.org/article/jeanne-chesley-barney-gay-advice-column-advocate-drummer/</link>
@@ -184,14 +192,6 @@
     <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
     <description>Tom Overton’s biography of John Berger blends the meticulous archival research we expect from a professional historian with the subjective and intimate familiarity of the memoirist.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FJohn-Berger-From-Life-1.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>I Was a Child, and They Ate My Heart</title>
-    <link>https://lareviewofbooks.org/article/fady-joudah-exhibit-g-poems-essays-photographs-gaza/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/fady-joudah-exhibit-g-poems-essays-photographs-gaza/</guid>
-    <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Fady Joudah’s newest poetry collection resists the idiomatic “unspeakable” when faced with evidence of the ongoing genocide in Gaza.</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FExhibit%20G%20Joudah.jpg" medium="image"/>
   </item>
   <item>
     <title>Greetings from the Inferno</title>
