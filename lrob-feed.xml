@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Fri, 16 Oct 2026 12:09:14 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 17:12:26 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Art’s Generations</title>
+    <link>https://lareviewofbooks.org/article/johannes-vermeer-afterlives-ruth-bernard-yeazell-painting-dutch/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/johannes-vermeer-afterlives-ruth-bernard-yeazell-painting-dutch/</guid>
+    <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Inventing and reinventing the celebrated Dutch painter.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FVermeer&amp;#x27;s_Afterlives.jpg" medium="image"/>
+  </item>
   <item>
     <title>Murderous, Man-Hating, and Baby-Killing</title>
     <link>https://lareviewofbooks.org/article/monstrous-bitch-history-terrifying-women-eleanor-johnson-feminism/</link>
@@ -184,14 +192,6 @@
     <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
     <description>Exploring ‘DTF St. Louis’ and the anti-algorithmic worlds of Steven Conrad.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FDTF%20St%20Louis%20cornhole.jpeg" medium="image"/>
-  </item>
-  <item>
-    <title>Who Is Supreme, the People or the Court?</title>
-    <link>https://lareviewofbooks.org/article/supremacy-court-replaced-goverment-bowie-renan-judicial-review/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/supremacy-court-replaced-goverment-bowie-renan-judicial-review/</guid>
-    <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-    <description>Nikolas Bowie and Daphna Renan’s new book challenges the supremacy of judicial review over democracy itself.</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FSupremacy%20Bowie%20Renan.jpg" medium="image"/>
   </item>
   <item>
     <title>Greetings from the Inferno</title>
