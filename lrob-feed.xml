@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Sat, 17 Oct 2026 08:24:59 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2026 12:45:13 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Strangers into Collaborators</title>
+    <link>https://lareviewofbooks.org/article/samuel-chu-hong-kong-dissidents-umbrella-movement-yellowbird/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/samuel-chu-hong-kong-dissidents-umbrella-movement-yellowbird/</guid>
+    <pubDate>Sat, 17 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Operation Yellowbird, the Umbrella Movement, and the dissidents of Hong Kong.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(png):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FHong%20Kong%20Court%20trial%20April%209%2C%202019.png" medium="image"/>
+  </item>
   <item>
     <title>Art’s Generations</title>
     <link>https://lareviewofbooks.org/article/johannes-vermeer-afterlives-ruth-bernard-yeazell-painting-dutch/</link>
@@ -312,14 +320,6 @@
     <pubDate>Tue, 18 Aug 2026 00:00:00 GMT</pubDate>
     <description>Lisa Robertson on aging, wandering, bodies, and her new novel.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FLisa%20Robertson%20at%20Western%20Front%202026-25.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Megafire and Other Hauntings</title>
-    <link>https://lareviewofbooks.org/article/california-futures-daniel-lanza-rivers-wildfires-indigenous-decolonial/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/california-futures-daniel-lanza-rivers-wildfires-indigenous-decolonial/</guid>
-    <pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Climate disaster in the Colonial Anthropocene and returning ‘good fire’ to California.</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FCalifornia%20Futures.jpg" medium="image"/>
   </item>
   <item>
     <title>Traveling Through the Desert Toward Repose</title>
