@@ -7,7 +7,7 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Mon, 19 Oct 2026 12:30:58 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 19:07:07 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title>Learning How to Travel from the Ancients</title>
@@ -16,6 +16,14 @@
     <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
     <description>M. D. Usher assembles an anthology of ancient travel writing refitted for our age of global tourism.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FHow%20to%20Travel.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>The Work of Going Offline</title>
+    <link>https://lareviewofbooks.org/article/august-lamm-you-dont-need-smartphone-anti-tech/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/august-lamm-you-dont-need-smartphone-anti-tech/</guid>
+    <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Anti-tech activist August Lamm discusses what it takes to build a social world beyond the screen.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FAugust%20Lamm%20by%20Magdalene%20Kennedy.jpg" medium="image"/>
   </item>
   <item>
     <title>Love, Sickness</title>
@@ -384,14 +392,6 @@
     <pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate>
     <description>The legendary director talks about his films’ induction into the Criterion Collection, comedy as our best weapon against fascism, and ‘going on 81.’</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FWaters%20Hairspray%2012.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>A Room Inside Another Room</title>
-    <link>https://lareviewofbooks.org/article/caetano-alexis-almeida-poetry-repetition-memory-absence/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/caetano-alexis-almeida-poetry-repetition-memory-absence/</guid>
-    <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
-    <description>Alexis Almeida discusses her debut poetry collection ‘Caetano,’ a meditation on family, memory, and language.</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FCaetano%20-%20almeida-1.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
