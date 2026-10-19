@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Mon, 19 Oct 2026 05:51:21 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 12:30:58 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Learning How to Travel from the Ancients</title>
+    <link>https://lareviewofbooks.org/article/md-usher-ancient-guide-modern-tourist-herodotus-lucian/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/md-usher-ancient-guide-modern-tourist-herodotus-lucian/</guid>
+    <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+    <description>M. D. Usher assembles an anthology of ancient travel writing refitted for our age of global tourism.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FHow%20to%20Travel.jpg" medium="image"/>
+  </item>
   <item>
     <title>Love, Sickness</title>
     <link>https://lareviewofbooks.org/article/close-writing-kathy-acker-cookie-mueller-love-review/</link>
@@ -184,14 +192,6 @@
     <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
     <description>A newly translated biography of Virginia Oldoini, Countess of Castiglione, aims to reveal the real woman behind the subject of everyone’s gaze.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FThe%20Contessa.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Scatological Graffiti and Other Arts</title>
-    <link>https://lareviewofbooks.org/article/mary-beard-talking-classics-shock-old-greek-roman/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/mary-beard-talking-classics-shock-old-greek-roman/</guid>
-    <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
-    <description>A critical overview of the field of classics, and a memoir of a half century studying antiquity.</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2Ftalking%20classics.jpg" medium="image"/>
   </item>
   <item>
     <title>I Hope It Never Has to Run</title>
