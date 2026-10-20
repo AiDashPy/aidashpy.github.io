@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Tue, 20 Oct 2026 09:21:06 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2026 14:47:49 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>No Woman, No Cry</title>
+    <link>https://lareviewofbooks.org/article/bread-uncle-milads-table-mohammed-alnaas-libya-patriarchy/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/bread-uncle-milads-table-mohammed-alnaas-libya-patriarchy/</guid>
+    <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Libyan author Mohammed Alnaas’s ‘Bread on Uncle Milad’s Table’ is a tale of masculinity and vulnerability.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(png):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FBread%20on%20Uncle%20Milad%E2%80%99s%20Table.png" medium="image"/>
+  </item>
   <item>
     <title>Learning How to Travel from the Ancients</title>
     <link>https://lareviewofbooks.org/article/md-usher-ancient-guide-modern-tourist-herodotus-lucian/</link>
@@ -192,14 +200,6 @@
     <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
     <description>Tom McCarthy’s new novel is a summation of his writing process, an inventive, possibly parodic auto-metafiction.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FRhyl%20Poster.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The Queen of Hearts</title>
-    <link>https://lareviewofbooks.org/article/virginia-oldoini-countess-castiglione-contessa-biography-benedetta-craveri/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/virginia-oldoini-countess-castiglione-contessa-biography-benedetta-craveri/</guid>
-    <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
-    <description>A newly translated biography of Virginia Oldoini, Countess of Castiglione, aims to reveal the real woman behind the subject of everyone’s gaze.</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FThe%20Contessa.jpg" medium="image"/>
   </item>
   <item>
     <title>I Hope It Never Has to Run</title>
