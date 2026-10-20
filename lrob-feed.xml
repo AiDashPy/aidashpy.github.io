@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Tue, 20 Oct 2026 14:47:49 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2026 19:01:09 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Endlessly Reproducible Originality</title>
+    <link>https://lareviewofbooks.org/article/doppelganger-sam-riviere-mfa-writing-programs-generative-ai/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/doppelganger-sam-riviere-mfa-writing-programs-generative-ai/</guid>
+    <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Sam Riviere’s new novel suggests that, in a literary culture already organized around copying, the machines may prove better at being writers than we are.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(png):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FDoppelga%CC%88nger.png" medium="image"/>
+  </item>
   <item>
     <title>No Woman, No Cry</title>
     <link>https://lareviewofbooks.org/article/bread-uncle-milads-table-mohammed-alnaas-libya-patriarchy/</link>
@@ -192,14 +200,6 @@
     <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
     <description>Poet Richie Hofmann appreciates the desire that undergirds waiting, impermanence, and mourning the beloved dead.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FBronze%20Arms.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Constellations of Information</title>
-    <link>https://lareviewofbooks.org/article/rhyl-poster-tom-mccarthy-gravitys-rainbow-pynchon-metafiction/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/rhyl-poster-tom-mccarthy-gravitys-rainbow-pynchon-metafiction/</guid>
-    <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
-    <description>Tom McCarthy’s new novel is a summation of his writing process, an inventive, possibly parodic auto-metafiction.</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FRhyl%20Poster.jpg" medium="image"/>
   </item>
   <item>
     <title>I Hope It Never Has to Run</title>
