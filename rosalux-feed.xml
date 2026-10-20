@@ -7,8 +7,24 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Tue, 20 Oct 2026 11:19:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2026 16:43:48 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Serbia’s Democratic Experiment</title>
+    <link>https://www.rosalux.de/en/news/id/55345</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55345</guid>
+    <pubDate>Tue, 20 Oct 2026 17:39:19 +0200</pubDate>
+    <description>After years of protest, Serbia’s election pits strong man Alexandar Vučić against the student movement.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/1020_Serbia_Elections_SMALL.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>The Future of US Militarism in Latin America</title>
+    <link>https://www.rosalux.de/en/news/id/55344</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55344</guid>
+    <pubDate>Tue, 20 Oct 2026 17:23:42 +0200</pubDate>
+    <description>How will the midterms in November impact US foreign policy in the Americas?</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/1020_US_Militarism_Latin_America_SMALL.jpg" medium="image"/>
+  </item>
   <item>
     <title>Roseires Dam: Water Security and the War in Sudan</title>
     <link>https://www.rosalux.de/en/news/id/55319</link>
@@ -72,22 +88,6 @@
     <pubDate>Wed, 23 Sep 2026 16:19:43 +0200</pubDate>
     <description>The party’s historic win in Berlin state elections offers lessons in confronting the far-right</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0923_Elif_Eralp_Linke_Berlin_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Security in a Multipolar World: A Peace Policy for the Left</title>
-    <link>https://www.rosalux.de/en/news/id/55240</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55240</guid>
-    <pubDate>Wed, 16 Sep 2026 16:58:12 +0200</pubDate>
-    <description>What would a left-wing, non-offensive defence policy look like?</description>
-    <media:content url="https://www.rosalux.de//fileadmin/user_upload/0916_Left_Peace_Policy_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Criminals or Terrorists? US Security Policy in Latin America</title>
-    <link>https://www.rosalux.de/en/news/id/55234</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55234</guid>
-    <pubDate>Wed, 16 Sep 2026 08:50:04 +0200</pubDate>
-    <description>The US calls Brazilian criminal groups terrorists. Researcher Ana Penido on how US security doctrine impacts Latin America.</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0916_Brazil_Gangs_SMALL.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
