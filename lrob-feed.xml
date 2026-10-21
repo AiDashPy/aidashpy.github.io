@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Wed, 21 Oct 2026 07:14:38 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 13:34:01 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>What Is a ‘Responsibly Limited Tool’ in the Age of AI?</title>
+    <link>https://lareviewofbooks.org/article/ivan-illich-centenary-theory-labor-artificial-intelligence-humanity/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/ivan-illich-centenary-theory-labor-artificial-intelligence-humanity/</guid>
+    <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Revisiting the critical theory of Ivan Illich on the centenary of his birth.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FLoss%20of%20the%20Senses.jpg" medium="image"/>
+  </item>
   <item>
     <title>Endlessly Reproducible Originality</title>
     <link>https://lareviewofbooks.org/article/doppelganger-sam-riviere-mfa-writing-programs-generative-ai/</link>
@@ -312,14 +320,6 @@
     <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
     <description>Allie Rowbottom on her new novel about two best friends in 1980s Los Angeles.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FLoversXXX.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>No Reason to Hide It</title>
-    <link>https://lareviewofbooks.org/article/mesha-maren-reissues-women-publishing-conglomerates-independent-presses/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/mesha-maren-reissues-women-publishing-conglomerates-independent-presses/</guid>
-    <pubDate>Wed, 19 Aug 2026 00:00:00 GMT</pubDate>
-    <description>What is going on with the reissue trend in publishing?</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FBritish%20Library%20Stacks%20cc0.jpg" medium="image"/>
   </item>
   <item>
     <title>A Book of Hags</title>
