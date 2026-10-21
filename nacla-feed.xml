@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Wed, 21 Oct 2026 15:06:16 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 20:01:37 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Ecuadorians Voted Against Foreign Bases, But One Is Being Assembled Anyway</title>
+    <link>https://nacla.org/ecuadorians-voted-against-foreign-bases-but-one-is-being-assembled-anyway/</link>
+    <guid isPermaLink="true">https://nacla.org/ecuadorians-voted-against-foreign-bases-but-one-is-being-assembled-anyway/</guid>
+    <pubDate>Wed, 21 Oct 2026 11:41:00 GMT</pubDate>
+    <description>U.S. contracts, Pentagon photographs and an Ecuadorian commander’s memo show what the United States has bought, built, and flown at Taura since.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/10/Screenshot-2026-10-20-at-9.53.44-PM.jpg" medium="image"/>
+  </item>
   <item>
     <title>U.S. Weapons in Guatemala: The Risk of Rearming a Country Prone to Human Rights Violations</title>
     <link>https://nacla.org/us-weapons-in-guatemala-the-risk-of-rearming-a-country-prone-to-human-rights-violations/</link>
@@ -400,14 +408,6 @@
     <pubDate>Wed, 24 Jun 2026 16:00:17 GMT</pubDate>
     <description>The Summer 2026 issue of the NACLA Report explores artistic and cultural practices that activate memory, engage the archive, and expand the possibilities of collective life.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/06/00-Editors-Intro01.jpeg" medium="image"/>
-  </item>
-  <item>
-    <title>The Violent Legacies Haunting Contemporary Guatemala</title>
-    <link>https://nacla.org/the-violent-legacies-haunting-contemporary-guatemala/</link>
-    <guid isPermaLink="true">https://nacla.org/the-violent-legacies-haunting-contemporary-guatemala/</guid>
-    <pubDate>Wed, 24 Jun 2026 13:21:44 GMT</pubDate>
-    <description>The unchecked power of multinational corporations, state-criminal networks, and legacies of genocide against Indigenous communities continue to fuel violence against public figures in the country.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/06/35538146554_51779712d2_k.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
