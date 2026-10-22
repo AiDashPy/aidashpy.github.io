@@ -7,8 +7,32 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Thu, 22 Oct 2026 04:28:28 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 09:58:41 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>“If we didn’t have the power to change things, they wouldn’t fight us”</title>
+    <link>https://www.rosalux.de/en/news/id/55352</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55352</guid>
+    <pubDate>Thu, 22 Oct 2026 11:07:05 +0200</pubDate>
+    <description>Die Linke MP Clara Bünger on her party’s victory in the Berlin elections and how to confront the far right.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EspanolWS/2026/Clara_B%C3%BCnger_5_Credits_Lennart_Diesen.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>US Midterms: Triumph and Tragedy of the American Right</title>
+    <link>https://www.rosalux.de/en/news/id/55350</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55350</guid>
+    <pubDate>Thu, 22 Oct 2026 08:32:22 +0200</pubDate>
+    <description>Trump’s agenda faces its first nationwide test as Democrats are poised to take control of Congress</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/Dossiers/Brennpunkt-USA/midterms_please-vote_imago.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Japan: From Pacifism to Military Build-Up?</title>
+    <link>https://www.rosalux.de/en/news/id/55275</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55275</guid>
+    <pubDate>Wed, 21 Oct 2026 12:28:00 +0200</pubDate>
+    <description>Remilitarisation continues under Sanae Takaichi.</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/japan_protest_imago0848682765h.jpg" medium="image"/>
+  </item>
   <item>
     <title>Serbia’s Democratic Experiment</title>
     <link>https://www.rosalux.de/en/news/id/55345</link>
@@ -64,30 +88,6 @@
     <pubDate>Mon, 05 Oct 2026 17:12:20 +0200</pubDate>
     <description>In the lead-up to the Knesset elections on 27 October, there are increasing concerns over manipulation by the government</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Nahost/israel_imago.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Spain’s Housing Crisis Explodes</title>
-    <link>https://www.rosalux.de/en/news/id/55297</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55297</guid>
-    <pubDate>Mon, 05 Oct 2026 14:48:00 +0200</pubDate>
-    <description>How the eviction of Maricarmen in Madrid triggered housing protests and snap elections</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/100526_Spain_Tenants_Protests_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Brazil Turns To The Right</title>
-    <link>https://www.rosalux.de/en/news/id/55180</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55180</guid>
-    <pubDate>Mon, 05 Oct 2026 12:13:00 +0200</pubDate>
-    <description>Flavio Bolsonaro leads in presidential election's round one, poised to win runoff in late October</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Lateinamerika/Brasilien/Bolsonaro-Clan_pa.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Die Linke Takes Berlin as the AfD Sweeps East Germany</title>
-    <link>https://www.rosalux.de/en/news/id/55260</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55260</guid>
-    <pubDate>Wed, 23 Sep 2026 16:19:43 +0200</pubDate>
-    <description>The party’s historic win in Berlin state elections offers lessons in confronting the far-right</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0923_Elif_Eralp_Linke_Berlin_SMALL.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
