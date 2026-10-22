@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Thu, 22 Oct 2026 07:16:25 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 13:35:40 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Mourning, Melancholy—or Ta’zieh</title>
+    <link>https://lareviewofbooks.org/article/azadeh-akhlaghi-from-iran-visual-testimony-peabody-museum/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/azadeh-akhlaghi-from-iran-visual-testimony-peabody-museum/</guid>
+    <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Visiting Azadeh Akhlaghi at the Peabody Museum.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FAkhlaghi%201.jpg" medium="image"/>
+  </item>
   <item>
     <title>What Is a ‘Responsibly Limited Tool’ in the Age of AI?</title>
     <link>https://lareviewofbooks.org/article/ivan-illich-centenary-theory-labor-artificial-intelligence-humanity/</link>
@@ -200,14 +208,6 @@
     <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
     <description>James Marriott’s new book seems well timed to restoke the ‘crisis of reading’ debate just as its fire threatens to burn out.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FNew%20Dark%20Ages.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The Pleasures of Delayed Gratification</title>
-    <link>https://lareviewofbooks.org/article/richie-hofmann-bronze-arms-poetry-restraint-gluck-guibert/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/richie-hofmann-bronze-arms-poetry-restraint-gluck-guibert/</guid>
-    <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
-    <description>Poet Richie Hofmann appreciates the desire that undergirds waiting, impermanence, and mourning the beloved dead.</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FBronze%20Arms.jpg" medium="image"/>
   </item>
   <item>
     <title>I Hope It Never Has to Run</title>
