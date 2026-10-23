@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Fri, 23 Oct 2026 09:53:54 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2026 14:51:59 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>From Complexo da Penha to Washington: The War on “Narcoterrorism” in Brazil’s Elections</title>
+    <link>https://nacla.org/from-complexo-da-penha-to-washington-the-war-on-narcoterrorism-in-brazils-elections/</link>
+    <guid isPermaLink="true">https://nacla.org/from-complexo-da-penha-to-washington-the-war-on-narcoterrorism-in-brazils-elections/</guid>
+    <pubDate>Fri, 23 Oct 2026 10:41:35 GMT</pubDate>
+    <description>Following the legislative elections, favela residents fear what lies ahead if the far right also wins the presidency.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/10/DSC04371-scaled.jpg" medium="image"/>
+  </item>
   <item>
     <title>Ecuadorians Voted Against Foreign Bases, But One Is Being Assembled Anyway</title>
     <link>https://nacla.org/ecuadorians-voted-against-foreign-bases-but-one-is-being-assembled-anyway/</link>
@@ -400,14 +408,6 @@
     <pubDate>Mon, 29 Jun 2026 11:01:33 GMT</pubDate>
     <description>The livelihoods of local fishing villages and the Indigenous Comcáac community are under threat from a proposed energy project in the Gulf of California, despite their protests.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/06/Screenshot-2026-06-28-at-8.55.05-PM.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Desiring Temporalities in the Face of Permanent War</title>
-    <link>https://nacla.org/desiring-temporalities-in-the-face-of-permanent-war/</link>
-    <guid isPermaLink="true">https://nacla.org/desiring-temporalities-in-the-face-of-permanent-war/</guid>
-    <pubDate>Wed, 24 Jun 2026 16:00:17 GMT</pubDate>
-    <description>The Summer 2026 issue of the NACLA Report explores artistic and cultural practices that activate memory, engage the archive, and expand the possibilities of collective life.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/06/00-Editors-Intro01.jpeg" medium="image"/>
   </item>
   </channel>
 </rss>
