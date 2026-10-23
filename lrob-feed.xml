@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Fri, 23 Oct 2026 07:08:55 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2026 13:11:15 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Out There in the Dark and Cold</title>
+    <link>https://lareviewofbooks.org/article/franz-kafka-castle-trial-cold-snow-weather-borders/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/franz-kafka-castle-trial-cold-snow-weather-borders/</guid>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <description>The weaponization of weather, from Kafka’s ‘Castle’ to state border violence.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FKafka_in_the_snow%20-%20anonymous.jpg" medium="image"/>
+  </item>
   <item>
     <title>The Said Phenomenon</title>
     <link>https://lareviewofbooks.org/article/edward-said-jonathan-swift-lionel-trilling-cultural-criticism/</link>
@@ -304,14 +312,6 @@
     <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
     <description>Anthony Jeselnik’s case for reading fiction in the attention economy.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2Fjeselnik-Samanta-Schweblin-Little-Eyes-scaled.jpeg" medium="image"/>
-  </item>
-  <item>
-    <title>Response to Megan Milks and Amber Dawn Regarding ‘The New Qweird’</title>
-    <link>https://lareviewofbooks.org/article/new-qweird-letter-editor-response-lovecraft-cute-accelerationism/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/new-qweird-letter-editor-response-lovecraft-cute-accelerationism/</guid>
-    <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Addressing the concerns recently raised by the editors of the anthology ‘New Queer Weird.’</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(png):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FLovecraft%20Qweird.png" medium="image"/>
   </item>
   <item>
     <title>Let’s Talk About ‘Lovers XXX’</title>
