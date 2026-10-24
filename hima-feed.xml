@@ -5,7 +5,7 @@
     <link>https://brill.com/view/journals/hima/hima-overview.xml</link>
     <description>Latest articles from Historical Materialism journal, via CrossRef</description>
     <language>en</language>
-    <lastBuildDate>Sat, 24 Oct 2026 01:17:35 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 06:44:11 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/hima-feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title>Labour as the Form of the Body: Fleshing out Marx’s Aristotelianism</title>
@@ -34,6 +34,20 @@
     <author>Josep Maria Antentas, Panagiotis Sotiris</author>
   </item>
   <item>
+    <title>Structure and Method of the Critique of Political Economy</title>
+    <link>https://doi.org/10.1163/1569206x-bja10110</link>
+    <guid isPermaLink="true">https://doi.org/10.1163/1569206x-bja10110</guid>
+    <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Author(s): Ehrenfried Galander, Axel Rüdiger — With the initial publication of his main economic work in 1859, Marx formulated his programme for an analysis of the bourgeois economy in the following order: capital, landed property, wage labour; state, foreign trade, world market. It was not until the 1920s and 1950s that Henryk Grossman and Roman Rosdolsky discussed whether the content of ‘Capital’ was based on a change in Marx’s structural plan. Important impulses for this discussion in the
+                    GDR
+                    , the
+                    FRG
+                    and the Soviet Union came in the following years from the advancing publication of the
+                    MEGA
+                    ² since 1976. We pay particular attention to the work of Wolfgang Jahn’s research group at the University of Halle. At the heart of this was and is the question of whether methodological and/or substantive breaks can be recognised in Marx’s critique of political economy that point to a change in his conceptions of planning. We deny this with reference to the continuity of his dialectical method of antithetical determination.</description>
+    <author>Ehrenfried Galander, Axel Rüdiger</author>
+  </item>
+  <item>
     <title>The Origins of Neoliberal Authoritarianism</title>
     <link>https://doi.org/10.1163/1569206x-bja10117</link>
     <guid isPermaLink="true">https://doi.org/10.1163/1569206x-bja10117</guid>
@@ -50,20 +64,6 @@
                     IBC
                     ) playing a key role in capitalist accumulation – has made both the reproduction of capital and the reproduction of the worker more dependent on finance, without displacing the pivotal role in accumulation played by value-producing wage labour.</description>
     <author>Sean Kazuo Isaacs</author>
-  </item>
-  <item>
-    <title>Structure and Method of the Critique of Political Economy</title>
-    <link>https://doi.org/10.1163/1569206x-bja10110</link>
-    <guid isPermaLink="true">https://doi.org/10.1163/1569206x-bja10110</guid>
-    <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Author(s): Ehrenfried Galander, Axel Rüdiger — With the initial publication of his main economic work in 1859, Marx formulated his programme for an analysis of the bourgeois economy in the following order: capital, landed property, wage labour; state, foreign trade, world market. It was not until the 1920s and 1950s that Henryk Grossman and Roman Rosdolsky discussed whether the content of ‘Capital’ was based on a change in Marx’s structural plan. Important impulses for this discussion in the
-                    GDR
-                    , the
-                    FRG
-                    and the Soviet Union came in the following years from the advancing publication of the
-                    MEGA
-                    ² since 1976. We pay particular attention to the work of Wolfgang Jahn’s research group at the University of Halle. At the heart of this was and is the question of whether methodological and/or substantive breaks can be recognised in Marx’s critique of political economy that point to a change in his conceptions of planning. We deny this with reference to the continuity of his dialectical method of antithetical determination.</description>
-    <author>Ehrenfried Galander, Axel Rüdiger</author>
   </item>
   <item>
     <title>Racialised Gradients of Human Value and Marx’s Working Day, Today</title>
@@ -84,20 +84,20 @@
     <author>Alexander Stoffel</author>
   </item>
   <item>
-    <title>Gaining Power and Using It: the Promise and Limits of Socialism in Mouffe and Piketty</title>
-    <link>https://doi.org/10.1163/1569206x-bja10105</link>
-    <guid isPermaLink="true">https://doi.org/10.1163/1569206x-bja10105</guid>
-    <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Author(s): John Grant, Simon Choat — Throughout Western democracies, the left remains in political purgatory and without a road towards political power. We examine Chantal Mouffe’s strategy for achieving a left populism with socialist characteristics, followed by Thomas Piketty’s program for ‘participatory socialism’. We highlight the admirable details they offer about alliance politics and transforming property relations. Nevertheless, we argue for why they cannot realise in practice what they hope to achieve, in part because of their respective convictions about the autonomy of the political. Mouffe’s treatment of economic and political liberalism, and her misreading of class relations and neoliberal oligarchy, leave her politics within a liberal capitalist orbit. Piketty’s work is overly idealist and insufficiently critical, and his proposed changes to capitalist and political institutions are too narrow. Their merits notwithstanding, socialist strategy must go beyond Mouffe and Piketty.</description>
-    <author>John Grant, Simon Choat</author>
-  </item>
-  <item>
     <title>Rearguard Politics: Rethinking Political Leadership From the Back</title>
     <link>https://doi.org/10.1163/1569206x-bja10113</link>
     <guid isPermaLink="true">https://doi.org/10.1163/1569206x-bja10113</guid>
     <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
     <description>Author(s): Lukas Slothuus — Which kinds of leadership are appropriate for emancipatory politics? Moving beyond a dichotomy of vanguardism and horizontalism, I advance rearguardism. Supplementing vanguardism, rearguardism involves defensive leadership and legitimation of existing movements, protecting these from attacks by dominant forces and actively propagating their struggles without co-opting or directing these from the front. I first outline vanguardism, focusing on the work of Vladimir Lenin and Rosa Luxemburg. I then reconstruct the most prominent account of rearguardism, by Boaventura de Sousa Santos, before arguing that his account is too dematerialised and confined to an epistemic realm. I therefore reformulate a different vision of rearguardism by turning to Antonio Gramsci.</description>
     <author>Lukas Slothuus</author>
+  </item>
+  <item>
+    <title>Gaining Power and Using It: the Promise and Limits of Socialism in Mouffe and Piketty</title>
+    <link>https://doi.org/10.1163/1569206x-bja10105</link>
+    <guid isPermaLink="true">https://doi.org/10.1163/1569206x-bja10105</guid>
+    <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Author(s): John Grant, Simon Choat — Throughout Western democracies, the left remains in political purgatory and without a road towards political power. We examine Chantal Mouffe’s strategy for achieving a left populism with socialist characteristics, followed by Thomas Piketty’s program for ‘participatory socialism’. We highlight the admirable details they offer about alliance politics and transforming property relations. Nevertheless, we argue for why they cannot realise in practice what they hope to achieve, in part because of their respective convictions about the autonomy of the political. Mouffe’s treatment of economic and political liberalism, and her misreading of class relations and neoliberal oligarchy, leave her politics within a liberal capitalist orbit. Piketty’s work is overly idealist and insufficiently critical, and his proposed changes to capitalist and political institutions are too narrow. Their merits notwithstanding, socialist strategy must go beyond Mouffe and Piketty.</description>
+    <author>John Grant, Simon Choat</author>
   </item>
   <item>
     <title>Labour Law, Strategy, and the Structural Critique of Capitalism</title>
@@ -116,14 +116,6 @@
     <author>Denis Bosseau</author>
   </item>
   <item>
-    <title>Strategy at an Impasse: Prolonged Dual Power, State Capacities and Social Reproduction Struggles</title>
-    <link>https://doi.org/10.1163/1569206x-bja10123</link>
-    <guid isPermaLink="true">https://doi.org/10.1163/1569206x-bja10123</guid>
-    <pubDate>Wed, 29 Jul 2026 00:00:00 GMT</pubDate>
-    <description>Author(s): Michael Bray — Stasis amidst crisis defines the present conjuncture, while the left seems trapped in a fractured sequence between short-lived and fundamentally constrained uprisings and electoral bids. This essay attempts to define the terrain of contemporary struggles in reference to their impasses, especially as these relate to transformations in capitalist nation-states. Tracing the limits of opposed strategic poles – a strong ‘protective’ state and ‘prolonged’ forms of dual power – it situates their common turn to social reproduction struggles and criticises their common presupposition: that states have abandoned core aspects of social reproduction, opening new paths for resistance. Instead we have ‘organised abandonment’: the developing, if still contradictory, integration of state capacities and international capital, extending into new modalities of social reproduction. State capacities have come to be structured in ways that impose impasses on traditional aims of working-class autonomy. In this light, the key strategic question is how we can conceive of an ascending sequence of struggles.</description>
-    <author>Michael Bray</author>
-  </item>
-  <item>
     <title>On Strategy: Thinking with the Military</title>
     <link>https://doi.org/10.1163/1569206x-bja10124</link>
     <guid isPermaLink="true">https://doi.org/10.1163/1569206x-bja10124</guid>
@@ -132,12 +124,20 @@
     <author>Josep Maria Antentas</author>
   </item>
   <item>
-    <title>Antinomies of Socialist Strategy?</title>
-    <link>https://doi.org/10.1163/1569206x-bja10121</link>
-    <guid isPermaLink="true">https://doi.org/10.1163/1569206x-bja10121</guid>
+    <title>Strategy at an Impasse: Prolonged Dual Power, State Capacities and Social Reproduction Struggles</title>
+    <link>https://doi.org/10.1163/1569206x-bja10123</link>
+    <guid isPermaLink="true">https://doi.org/10.1163/1569206x-bja10123</guid>
+    <pubDate>Wed, 29 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Author(s): Michael Bray — Stasis amidst crisis defines the present conjuncture, while the left seems trapped in a fractured sequence between short-lived and fundamentally constrained uprisings and electoral bids. This essay attempts to define the terrain of contemporary struggles in reference to their impasses, especially as these relate to transformations in capitalist nation-states. Tracing the limits of opposed strategic poles – a strong ‘protective’ state and ‘prolonged’ forms of dual power – it situates their common turn to social reproduction struggles and criticises their common presupposition: that states have abandoned core aspects of social reproduction, opening new paths for resistance. Instead we have ‘organised abandonment’: the developing, if still contradictory, integration of state capacities and international capital, extending into new modalities of social reproduction. State capacities have come to be structured in ways that impose impasses on traditional aims of working-class autonomy. In this light, the key strategic question is how we can conceive of an ascending sequence of struggles.</description>
+    <author>Michael Bray</author>
+  </item>
+  <item>
+    <title>Towards a Communist Strategy of Reappropriation</title>
+    <link>https://doi.org/10.1163/1569206x-bja10116</link>
+    <guid isPermaLink="true">https://doi.org/10.1163/1569206x-bja10116</guid>
     <pubDate>Thu, 23 Jul 2026 00:00:00 GMT</pubDate>
-    <description>Author(s): Martín Mosquera — The current hegemonic crisis of neoliberal capitalism has relaunched debates on socialist strategy. These discussions have largely crystallised around a polarisation between a ‘democratic road’ to socialism and the insurrectionary approach associated with Lenin and Trotsky. This article seeks to problematise that polarisation and to advance an alternative perspective. It does so by rethinking the concept of dual power not as the embryonic form of a new state nor as entirely external to existing institutions, but as a centralised organ of power from below, capable of autonomous initiative, through which mass radicalisation can most fully express itself in moments of intensified class struggle.</description>
-    <author>Martín Mosquera</author>
+    <description>Author(s): Isabelle Garo — Is the strategic question back on the agenda? Construed as awareness of the relative autonomy of political intervention, its return presents a challenge. Amid persistent but fragile neo-liberal hegemony, vigorous but scattered social struggles, and alternatives that are theoretically developed but disconnected from real conditions, strategy involves reinventing the ways and means of an effective break with the capitalist organisation of the world. Reconsidering the classical question of property in conjunction with the production and reproduction of labour-power, I shall endeavour to show that the perspective of reappropriation can unify existing mobilisations without infringing their autonomy or forsaking their aggressive political structuration. To this end, I shall suggest a critical analysis of the theses of Negri and Hardt on the common, in as much as they invite us to re-read Marx from the political and strategic angle of social reappropriation as both means and end of collective and individual emancipation.</description>
+    <author>Isabelle Garo</author>
   </item>
   </channel>
 </rss>
