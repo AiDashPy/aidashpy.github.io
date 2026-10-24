@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Sat, 24 Oct 2026 10:31:08 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 14:19:44 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>I Shall Get Some Old Chinese Music</title>
+    <link>https://lareviewofbooks.org/article/turandot-metropolitan-opera-giacomo-puccini-orientalist-china-fascism/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/turandot-metropolitan-opera-giacomo-puccini-orientalist-china-fascism/</guid>
+    <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+    <description>The operatic politics of the ‘Turandot’ centennial.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FIl_vasto_piazzale_della_Reggia%2C_bozzetto_di_Galileo_Chini_per_Turandot_(1924)_-_Archivio_Storico_Ricordi_ICON000206-1.jpg" medium="image"/>
+  </item>
   <item>
     <title>Out There in the Dark and Cold</title>
     <link>https://lareviewofbooks.org/article/franz-kafka-castle-trial-cold-snow-weather-borders/</link>
@@ -296,14 +304,6 @@
     <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
     <description>Reading and watching the work of Perrin Roosevelt Ireland.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FPoking%20the%20Squid.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>The Art of Copying</title>
-    <link>https://lareviewofbooks.org/article/ken-liu-excerpt-art-copying-first-encounters-ai/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/ken-liu-excerpt-art-copying-first-encounters-ai/</guid>
-    <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
-    <description>The long history of scribes being replaced by machines, and what cannot be replaced by LLM imitation in current writing.</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FFirst%20encounters%20with%20AI.jpg" medium="image"/>
   </item>
   <item>
     <title>Everything Else Is Bad, Get Your Books</title>
