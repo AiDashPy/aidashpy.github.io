@@ -7,8 +7,16 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Tue, 27 Oct 2026 10:19:53 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 27 Oct 2026 16:21:25 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Is the AfD the New Workers' Party?</title>
+    <link>https://www.rosalux.de/en/news/id/55328</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55328</guid>
+    <pubDate>Tue, 27 Oct 2026 13:43:00 +0100</pubDate>
+    <description>Anika Taschke and Mario Candeias on the reasons for the right's successes among wage earners</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/Themen/Parteien_Soz_Bew/hoecke_eisenach_2018_101910172.jpg" medium="image"/>
+  </item>
   <item>
     <title>Armenia's Election In Geopolitical Fragility</title>
     <link>https://www.rosalux.de/en/news/id/55357</link>
@@ -80,14 +88,6 @@
     <pubDate>Wed, 07 Oct 2026 14:38:56 +0200</pubDate>
     <description>RLS’s Gil Shohat on October 7th, the upcoming elections, and the state of Israeli society</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Nahost/klagemauer_imago0378014631h.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>France’s Students in Revolt</title>
-    <link>https://www.rosalux.de/en/news/id/55298</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55298</guid>
-    <pubDate>Tue, 06 Oct 2026 12:45:22 +0200</pubDate>
-    <description>Will French lycéens protesting austerity ignite a wider social movement ahead of the 2027 presidential campaign?</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/100626_France_Student_Protests_2_SMALL.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
