@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Tue, 27 Oct 2026 07:28:23 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 27 Oct 2026 14:08:07 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>I Require a You</title>
+    <link>https://lareviewofbooks.org/article/sherry-turkle-artificial-intimacy-talk-machines-artificial-intelligence/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/sherry-turkle-artificial-intimacy-talk-machines-artificial-intelligence/</guid>
+    <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
+    <description>AI ‘relationships’ won’t help us become ourselves.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FArtificial%20Intimacy%20Turkle.jpg" medium="image"/>
+  </item>
   <item>
     <title>Intangible Juju Magic</title>
     <link>https://lareviewofbooks.org/article/dont-be-evil-claire-stapleton-google-silicon-valley/</link>
@@ -216,14 +224,6 @@
     <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     <description>Ukrainian author Khrystia Vengryniuk’s newly translated novel is a sly and disarming anti-pastoral about a province called America.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FThe%20Hamlet%20Called%20America.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Bimbo Poetics</title>
-    <link>https://lareviewofbooks.org/article/ellie-black-revelator-poetry-digital-internet-culture-femininity/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/ellie-black-revelator-poetry-digital-internet-culture-femininity/</guid>
-    <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-    <description>Ellie Black’s debut collection examines selfhood, persona, and sex on the internet.</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FRevelator.jpg" medium="image"/>
   </item>
   <item>
     <title>Caracas Is Burning</title>
