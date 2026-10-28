@@ -7,8 +7,16 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Wed, 28 Oct 2026 15:53:05 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 28 Oct 2026 20:55:31 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Ecuador’s Opposition, Prosecuted Off the Ballot</title>
+    <link>https://nacla.org/ecuadors-opposition-prosecuted-off-the-ballot/</link>
+    <guid isPermaLink="true">https://nacla.org/ecuadors-opposition-prosecuted-off-the-ballot/</guid>
+    <pubDate>Wed, 28 Oct 2026 11:55:37 GMT</pubDate>
+    <description>The arrest of former presidential candidate Luisa González is the latest in a series of judicial attacks on Ecuador’s opposition parties ahead of local elections.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/10/52748339340_acc9aea37f_o-scaled.jpg" medium="image"/>
+  </item>
   <item>
     <title>Brazil’s Lula Pulls Off a Surprising Win</title>
     <link>https://nacla.org/brazils-lula-pulls-off-a-surprising-win/</link>
@@ -400,14 +408,6 @@
     <pubDate>Tue, 30 Jun 2026 12:09:04 GMT</pubDate>
     <description>After members of the Iranian national soccer team were denied visas by the Trump administration, Mexico stepped in to help—a decision rooted in shared histories.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/06/Mexico-World-Cup-Celebration-scaled.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Devastating Earthquakes Strike the North of Venezuela</title>
-    <link>https://nacla.org/devastating-earthquakes-strike-the-north-of-venezuela/</link>
-    <guid isPermaLink="true">https://nacla.org/devastating-earthquakes-strike-the-north-of-venezuela/</guid>
-    <pubDate>Mon, 29 Jun 2026 14:11:39 GMT</pubDate>
-    <description>What should international solidarity demand from the Venezuelan and U.S. governments?</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/06/Edificios_colapsados_e_danificados_em_Los_Palos_Grandes_2026-06-26.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
