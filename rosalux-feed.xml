@@ -7,7 +7,7 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Wed, 28 Oct 2026 08:12:38 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 28 Oct 2026 15:52:49 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title>Is the AfD the New Workers' Party?</title>
@@ -18,9 +18,17 @@
     <media:content url="https://www.rosalux.de//fileadmin/images/Themen/Parteien_Soz_Bew/hoecke_eisenach_2018_101910172.jpg" medium="image"/>
   </item>
   <item>
+    <title>Lula Wins Historic Fourth Term in Brazil’s Election</title>
+    <link>https://www.rosalux.de/en/news/id/55365</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55365</guid>
+    <pubDate>Mon, 26 Oct 2026 10:15:29 +0100</pubDate>
+    <description>Grassroots mobilisation and left wing policies improving people’s lives defeated Bolsonaro</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Lateinamerika/Brasilien/Lula_imago.jpg" medium="image"/>
+  </item>
+  <item>
     <title>Armenia's Election In Geopolitical Fragility</title>
-    <link>https://www.rosalux.de/en/news/id/55357</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55357</guid>
+    <link>https://www.rosalux.de/en/news/id/55375</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55375</guid>
     <pubDate>Thu, 22 Oct 2026 14:09:29 +0200</pubDate>
     <description>Pashinyan comes out on top amid Armenian fears of war, Russian sanctions and a fragile peace with Azerbaijan</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/1022_Armenia_SMALL.jpg" medium="image"/>
@@ -80,14 +88,6 @@
     <pubDate>Tue, 13 Oct 2026 10:05:04 +0200</pubDate>
     <description>How the Villages of Senegal’s Casamance Are Fighting for Survival</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/Dossiers/Ernaehrungssouveraenitaet/Bau_Damm_Nikkine_mit_Klimaschule_RLS_02.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Israel’s Logic of Violence Can’t Be Overcome From Within</title>
-    <link>https://www.rosalux.de/en/news/id/55300</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55300</guid>
-    <pubDate>Wed, 07 Oct 2026 14:38:56 +0200</pubDate>
-    <description>RLS’s Gil Shohat on October 7th, the upcoming elections, and the state of Israeli society</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/Ausland/Nahost/klagemauer_imago0378014631h.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
