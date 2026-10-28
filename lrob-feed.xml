@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Wed, 28 Oct 2026 11:05:12 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 28 Oct 2026 18:02:22 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Keeping Up Appearances</title>
+    <link>https://lareviewofbooks.org/article/death-industry-mortuary-programs-women-andie-eisen-quarterly/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/death-industry-mortuary-programs-women-andie-eisen-quarterly/</guid>
+    <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
+    <description>The women taking over the funeral industry.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2Fnekpokedeiaorart00gree_0345%20crop%20vert.jpg" medium="image"/>
+  </item>
   <item>
     <title>She’s a Full-On Monet</title>
     <link>https://lareviewofbooks.org/article/citizen-kim-kardashian-jonathan-van-meter-biography-jenner/</link>
@@ -280,14 +288,6 @@
     <pubDate>Thu, 17 Sep 2026 00:00:00 GMT</pubDate>
     <description>Keetje Kuipers on her new book of poetry, which explores motherhood, sex, and the body.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FKeetjeKuipers092824_031BeowulfSheehan-scaled.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Therapy Used to Be Hot</title>
-    <link>https://lareviewofbooks.org/article/psychoanalysis-therapy-freud-cbt-desire-depression-affective-neuroscience/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/psychoanalysis-therapy-freud-cbt-desire-depression-affective-neuroscience/</guid>
-    <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
-    <description>How desire was exiled out of therapy and out of our lives.</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FZdene%CC%8Ck%20Kratochvi%CC%81l%20-%20Freud%20study%20with%20the%20couch.jpg" medium="image"/>
   </item>
   <item>
     <title>Literary Web 2.0</title>
