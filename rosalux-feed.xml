@@ -7,8 +7,16 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Wed, 28 Oct 2026 15:52:49 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 28 Oct 2026 20:54:53 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>"We Have Nothing But This Land And Each Other"</title>
+    <link>https://www.rosalux.de/en/news/id/55378</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55378</guid>
+    <pubDate>Wed, 28 Oct 2026 16:50:28 +0100</pubDate>
+    <description>Palestinian farmer Saad Dagher on Israeli settler attacks in the West Bank, the olive harvest, and why sovereignty begins with food</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/1028_Olive_Harvest_Palestine_SMALL.jpg" medium="image"/>
+  </item>
   <item>
     <title>Is the AfD the New Workers' Party?</title>
     <link>https://www.rosalux.de/en/news/id/55328</link>
@@ -80,14 +88,6 @@
     <pubDate>Wed, 14 Oct 2026 11:31:18 +0200</pubDate>
     <description>On the Nile, Ethiopia, Egypt, and Sudan clash over dams, infrastructure, and water access</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0924_GERD_Dam_Ethiopia_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>When the Ocean Engulfs the Fields</title>
-    <link>https://www.rosalux.de/en/news/id/55313</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55313</guid>
-    <pubDate>Tue, 13 Oct 2026 10:05:04 +0200</pubDate>
-    <description>How the Villages of Senegal’s Casamance Are Fighting for Survival</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/Dossiers/Ernaehrungssouveraenitaet/Bau_Damm_Nikkine_mit_Klimaschule_RLS_02.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
