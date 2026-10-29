@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Thu, 29 Oct 2026 09:34:19 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 16:43:10 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Late-Arriving Pictures</title>
+    <link>https://lareviewofbooks.org/article/roy-decarava-sound-i-saw-david-zwirner-jazz/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/roy-decarava-sound-i-saw-david-zwirner-jazz/</guid>
+    <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+    <description>On Roy DeCarava at David Zwirner, Los Angeles.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FRoy%20DeCarava%2C%20Blue%20Morocco%2C%201955.jpg" medium="image"/>
+  </item>
   <item>
     <title>Keeping Up Appearances</title>
     <link>https://lareviewofbooks.org/article/death-industry-mortuary-programs-women-andie-eisen-quarterly/</link>
@@ -200,14 +208,6 @@
     <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
     <description>Two new collections of poetry look backward and forward at Indigenous history.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FWe%20Layli%20crop-1.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>When Speaking Fails</title>
-    <link>https://lareviewofbooks.org/article/douglas-stuart-john-of-john-novel-scotland-gaelic/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/douglas-stuart-john-of-john-novel-scotland-gaelic/</guid>
-    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
-    <description>Douglas Stuart’s new novel shows how unspoken secrets can ravage a family and a community.</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FJohnofJohn.jpg" medium="image"/>
   </item>
   <item>
     <title>Angels with Dirty Faces</title>
