@@ -7,8 +7,24 @@
     <link>https://nacla.org/web/</link>
     <description>English-language articles and reviews from NACLA</description>
     <language>en</language>
-    <lastBuildDate>Fri, 30 Oct 2026 13:59:14 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 19:13:43 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/nacla-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>A Letter from NACLA&amp;#8217;s Co-Executive Editors</title>
+    <link>https://nacla.org/a-letter-from-naclas-co-executive-editors/</link>
+    <guid isPermaLink="true">https://nacla.org/a-letter-from-naclas-co-executive-editors/</guid>
+    <pubDate>Fri, 30 Oct 2026 14:08:39 GMT</pubDate>
+    <description>NACLA has survived decades through grants, subscriptions, and generous donations from Naclistas like you. We need your help today!</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/10/nacla-needs-your-help-1.jpg" medium="image"/>
+  </item>
+  <item>
+    <title>Hispanic Technocracy: From Fascism to Catholic Authoritarianism in Spain, Argentina, and Chile, 1945–1991 (Review)</title>
+    <link>https://nacla.org/hispanic-technocracy-review/</link>
+    <guid isPermaLink="true">https://nacla.org/hispanic-technocracy-review/</guid>
+    <pubDate>Fri, 30 Oct 2026 10:00:00 GMT</pubDate>
+    <description>A new history traces how Catholic technocrats in Franco’s Spain, Onganía’s Argentina, and Pinochet’s Chile sold dictatorship as apolitical modernization, and how their heirs still shape the Chilean right.</description>
+    <media:content url="https://nacla.org/wp-content/uploads/2026/10/Book-Review-Top-Image-1350-x-870.jpg" medium="image"/>
+  </item>
   <item>
     <title>Ecuador’s Opposition, Prosecuted Off the Ballot</title>
     <link>https://nacla.org/ecuadors-opposition-prosecuted-off-the-ballot/</link>
@@ -392,22 +408,6 @@
     <pubDate>Wed, 08 Jul 2026 18:38:15 GMT</pubDate>
     <description>What forms of listening make the commons possible in contexts of conflict? An approach to “wild listening” as a micropolitical practice in the face of contemporary violence.</description>
     <media:content url="https://nacla.org/wp-content/uploads/2026/06/06-Zambrano-Murillo01-scaled.jpeg" medium="image"/>
-  </item>
-  <item>
-    <title>While the World Shouts Goal, Mexico Seeks Its Disappeared</title>
-    <link>https://nacla.org/while-the-world-shouts-goal-mexico-seeks-its-disappeared/</link>
-    <guid isPermaLink="true">https://nacla.org/while-the-world-shouts-goal-mexico-seeks-its-disappeared/</guid>
-    <pubDate>Thu, 02 Jul 2026 18:25:06 GMT</pubDate>
-    <description>As the eyes of the world shifted to Mexico for the FIFA World Cup, the families of the thousands of disappeared tried to bring their plight to a global stage.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/07/1-DSC00137-scaled.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Why Mexico Welcomed Iran</title>
-    <link>https://nacla.org/why-mexico-welcomed-iran/</link>
-    <guid isPermaLink="true">https://nacla.org/why-mexico-welcomed-iran/</guid>
-    <pubDate>Tue, 30 Jun 2026 12:09:04 GMT</pubDate>
-    <description>After members of the Iranian national soccer team were denied visas by the Trump administration, Mexico stepped in to help—a decision rooted in shared histories.</description>
-    <media:content url="https://nacla.org/wp-content/uploads/2026/06/Mexico-World-Cup-Celebration-scaled.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
