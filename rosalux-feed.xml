@@ -7,8 +7,16 @@
     <link>https://www.rosalux.de/en/</link>
     <description>Latest news and publications from the Rosa Luxemburg Foundation (English)</description>
     <language>en</language>
-    <lastBuildDate>Fri, 30 Oct 2026 06:57:03 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 13:58:32 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/rosalux-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Moldova’s Gig Economy: Reporting From Inside Glovo</title>
+    <link>https://www.rosalux.de/en/news/id/55385</link>
+    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55385</guid>
+    <pubDate>Fri, 30 Oct 2026 12:11:25 +0100</pubDate>
+    <description>Migrant delivery riders in Chișinău face gamified exploitation and fear of deportation</description>
+    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/1030_Moldova_Riders_SMALL.jpeg" medium="image"/>
+  </item>
   <item>
     <title>"We Have Nothing But This Land And Each Other"</title>
     <link>https://www.rosalux.de/en/news/id/55378</link>
@@ -80,14 +88,6 @@
     <pubDate>Tue, 20 Oct 2026 17:23:42 +0200</pubDate>
     <description>How will the midterms in November impact US foreign policy in the Americas?</description>
     <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/1020_US_Militarism_Latin_America_SMALL.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Roseires Dam: Water Security and the War in Sudan</title>
-    <link>https://www.rosalux.de/en/news/id/55319</link>
-    <guid isPermaLink="true">https://www.rosalux.de/en/news/id/55319</guid>
-    <pubDate>Wed, 14 Oct 2026 11:31:18 +0200</pubDate>
-    <description>On the Nile, Ethiopia, Egypt, and Sudan clash over dams, infrastructure, and water access</description>
-    <media:content url="https://www.rosalux.de//fileadmin/images/EnglishWS/2026/0924_GERD_Dam_Ethiopia_SMALL.jpg" medium="image"/>
   </item>
   </channel>
 </rss>
