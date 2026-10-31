@@ -7,8 +7,16 @@
     <link>https://lareviewofbooks.org</link>
     <description>Reviews, essays, and interviews from the Los Angeles Review of Books</description>
     <language>en</language>
-    <lastBuildDate>Sat, 31 Oct 2026 06:45:20 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2026 13:25:36 GMT</lastBuildDate>
     <atom:link href="https://aidashpy.com/lrob-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Still Crazy About the Flesh After All These Years</title>
+    <link>https://lareviewofbooks.org/article/fly-anniversary-david-cronenberg-technology-body-horror-flesh/</link>
+    <guid isPermaLink="true">https://lareviewofbooks.org/article/fly-anniversary-david-cronenberg-technology-body-horror-flesh/</guid>
+    <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+    <description>David Cronenberg’s ‘The Fly,’ 40 years later.</description>
+    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2Fin-the-movie-the-fly-1986-the-poster-says-be-afraid-be-very-v0-1122ns7d0h2d1.jpg" medium="image"/>
+  </item>
   <item>
     <title>The Father and the Son, or A Good Man Raises a Bad Boy</title>
     <link>https://lareviewofbooks.org/article/omen-richard-donner-damien-antichrist-god-satan-horror/</link>
@@ -272,14 +280,6 @@
     <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
     <description>Postcards from an American in an increasingly hotter France.</description>
     <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(jpeg):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FSubterranean%20Fires.jpg" medium="image"/>
-  </item>
-  <item>
-    <title>Demographic Fears and Far-Right Fantasies</title>
-    <link>https://lareviewofbooks.org/article/camp-saints-jean-raspail-great-replacement-legacies-eugenics/</link>
-    <guid isPermaLink="true">https://lareviewofbooks.org/article/camp-saints-jean-raspail-great-replacement-legacies-eugenics/</guid>
-    <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Alexandra Minna Stern explores the eugenic fantasies and enduring legacy of Jean Raspail’s 1973 novel ‘The Camp of the Saints.’</description>
-    <media:content url="https://cdn.lareviewofbooks.org/unsafe/fit-in/3840x0/filters:format(png):quality(75)/https%3A%2F%2Fassets.lareviewofbooks.org%2Fuploads%2FStern%20Raspail%20Eugenics.png" medium="image"/>
   </item>
   <item>
     <title>A Chorus of Lovers</title>
